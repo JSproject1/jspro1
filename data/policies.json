@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Working Hours Policy",
+    "category": "Attendance",
+    "description": "Standard working hours are from 8:00 AM to 4:00 PM, Sunday through Thursday. Employees are expected to arrive on time and complete their scheduled working hours.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 2,
+    "title": "Attendance and Punctuality Policy",
+    "category": "Attendance",
+    "description": "Employees are expected to maintain regular attendance and report to work on time. Any absence or delay should be reported to the employee's supervisor or HR as soon as possible.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 3,
+    "title": "Annual Leave Policy",
+    "category": "Leave",
+    "description": "Employees may request annual leave through the HR system. Leave requests should be submitted in advance and are subject to manager or HR approval based on business requirements.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 4,
+    "title": "Sick Leave Policy",
+    "category": "Leave",
+    "description": "Employees who are unable to work due to illness must notify their supervisor or HR as soon as possible. Supporting medical documentation may be required when applicable.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 5,
+    "title": "Remote Work Policy",
+    "category": "Work Arrangement",
+    "description": "Remote work may be permitted for eligible employees with prior approval from their manager and HR. Employees working remotely are expected to remain available during agreed working hours.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 6,
+    "title": "Code of Conduct",
+    "category": "Workplace",
+    "description": "Employees are expected to behave professionally, respectfully, and ethically when dealing with colleagues, customers, and business partners. Harassment, discrimination, threats, and inappropriate workplace behavior are not permitted.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 7,
+    "title": "Data Privacy and Confidentiality Policy",
+    "category": "Security",
+    "description": "Employees must protect confidential company, customer, and employee information. Confidential information must not be shared with unauthorized individuals or used for purposes unrelated to company business.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 8,
+    "title": "Information Security Policy",
+    "category": "Security",
+    "description": "Employees are responsible for protecting their accounts, passwords, devices, and company information. Passwords must not be shared, and suspected security incidents should be reported immediately.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 9,
+    "title": "Acceptable Use of Company Resources",
+    "category": "IT",
+    "description": "Company computers, networks, email accounts, and other resources should primarily be used for authorized business purposes. Employees must not install unauthorized software or use company resources for illegal or harmful activities.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 10,
+    "title": "Workplace Health and Safety Policy",
+    "category": "Safety",
+    "description": "Employees must follow workplace health and safety procedures and immediately report accidents, hazards, injuries, or unsafe working conditions to their supervisor or HR.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 11,
+    "title": "Anti-Harassment and Equal Opportunity Policy",
+    "category": "Workplace",
+    "description": "The company is committed to maintaining a professional workplace free from harassment and discrimination. Employment decisions should be based on job-related qualifications, performance, and business requirements.",
+    "lastUpdated": "2026-01-01"
+  },
+  {
+    "id": 12,
+    "title": "Conflict of Interest Policy",
+    "category": "Ethics",
+    "description": "Employees must avoid situations where personal interests could improperly influence business decisions. Potential conflicts of interest should be disclosed to management or HR.",
+    "lastUpdated": "2026-01-01"
+  }
+]

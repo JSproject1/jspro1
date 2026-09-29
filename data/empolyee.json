@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "username": "Abdallah Mdalal",
+    "email": "abdallah@company.com",
+    "password": "Ahmad123",
+    "role": "employee",
+    "position": "Frontend Developer",
+    "department": "IT",
+    "phone": "0791234567",
+    "image": "images/ahmad.jpg"
+  },
+  {
+    "id": 2,
+    "username": "Fatima tawalbeh",
+    "email": "fatima@company.com",
+    "password": "Sara1234",
+    "role": "employee",
+    "position": "Accountant",
+    "department": "Finance",
+    "phone": "0781234567",
+    "image": "images/sara.jpg"
+  },
+  {
+    "id": 3,
+    "username": "HR Admin",
+    "email": "hr@company.com",
+    "password": "Hr123456",
+    "role": "hr",
+    "position": "HR Manager",
+    "department": "Human Resources",
+    "phone": "0771234567",
+    "image": "images/hr.jpg"
+  },
+  {
+    "id": 4,
+    "username": "amal obaidat",
+    "email": "amal@company.com",
+    "password": "Sara1234",
+    "role": "employee",
+    "position": "Accountant",
+    "department": "Finance",
+    "phone": "0781234567",
+    "image": "images/sara.jpg"
+  },
+  {
+    "id": 5,
+    "username": "Roa'a Ajlouni",
+    "email": "roaa@company.com",
+    "password": "Sara1234",
+    "role": "employee",
+    "position": "Accountant",
+    "department": "Finance",
+    "phone": "0781234567",
+    "image": "images/sara.jpg"
+  },
+  {
+    "id": 6,
+    "username": "saif khatatbeh",
+    "email": "saif@company.com",
+    "password": "Sara1234",
+    "role": "employee",
+    "position": "Accountant",
+    "department": "Finance",
+    "phone": "0781234567",
+    "image": "images/sara.jpg"
+  },
+  {
+    "id": 7,
+    "username": "saja diabat",
+    "email": "saja@company.com",
+    "password": "Sara1234",
+    "role": "employee",
+    "position": "Accountant",
+    "department": "Finance",
+    "phone": "0781234567",
+    "image": "images/sara.jpg"
+  }
+
+]
