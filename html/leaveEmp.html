@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Leave Application</title>
+    <link rel="stylesheet" href="../css/leaveEmp.css">
 </head>
+
 <body>
-    
+
+    <h1>Leave Application</h1>
+
+    <form id="leaveForm">
+
+        <!-- Employee -->
+        <label>Employee Email</label>
+
+        <select id="employee" required>
+            <option value="">Select Employee</option>
+        </select>
+
+
+        <!-- Leave Type -->
+        <label>Leave Type</label>
+
+        <select id="leaveType" required>
+            <option value="">Select Leave Type</option>
+            <option value="Annual Leave">Annual Leave</option>
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Emergency Leave">Emergency Leave</option>
+            <option value="Unpaid Leave">Unpaid Leave</option>
+        </select>
+
+
+        <!-- Start Date -->
+        <label>Start Date</label>
+
+        <input type="date" id="startDate" required>
+
+
+        <!-- End Date -->
+        <label>End Date</label>
+
+        <input type="date" id="endDate" required>
+
+
+        <!-- Reason -->
+        <label>Reason</label>
+
+        <textarea id="reason" placeholder="Enter the reason for your leave" required>
+        </textarea>
+
+
+        <button type="submit">
+            Submit Leave Application
+        </button>
+
+    </form>
+
+
+    <h2>Leave Applications</h2>
+
+    <div id="leaveContainer"></div>
+
+
+    <script src="../js/leaveEmp.js"></script>
+
 </body>
+
 </html>

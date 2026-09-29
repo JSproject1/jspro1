@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+
+<body>
+
+    <h1>Company Services</h1>
+
+    <div class="services-container">
+
+        <!-- Leave Application -->
+        <div class="card">
+            <h2>Leave Application</h2>
+            <p>
+                Apply for a leave by selecting the employee,
+                leave type, start date, end date and reason.
+            </p>
+
+            <button onclick="goToLeave()">
+                Apply for Leave
+            </button>
+        </div>
+
+        <!-- Employees -->
+        <div class="card">
+            <h2>View Employees Information</h2>
+            <p>
+                View employees information and search by name,
+                email or department.
+            </p>
+
+            <button onclick="goToEmployees()">
+                View Employees
+            </button>
+        </div>
+
+        <!-- Policies -->
+        <div class="card">
+            <h2>Company Policies</h2>
+            <p>
+                View the company policies loaded from a JSON file.
+            </p>
+
+            <button onclick="goToPolicies()">
+                View Policies
+            </button>
+        </div>
+
+        <!-- Tasks -->
+        <div class="card">
+            <h2>Task Management</h2>
+            <p>
+                Create, view and update tasks and assign them
+                to employees.
+            </p>
+
+            <button onclick="goToTasks()">
+                Manage Tasks
+            </button>
+        </div>
+
+        <!-- Feedback -->
+        <div class="card">
+            <h2>Feedback System</h2>
+            <p>
+                Employees can send feedback to the HR department.
+            </p>
+
+            <button onclick="goToFeedback()">
+                Send Feedback
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/services.js"></script>
+
+</body>
+</html>
