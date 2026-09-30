@@ -45,12 +45,12 @@ loginForm.addEventListener("submit", function(event) {
 
             if (user.role === "EMP") {
 
-                window.location.href = "../html/leaveEmp.html";
+                window.location.href = "../html/services.html";
 
             }
             else if (user.role === "HR") {
 
-                window.location.href = "../html/leaveHr.html";
+                window.location.href = "../html/services.html";
 
             }
 
