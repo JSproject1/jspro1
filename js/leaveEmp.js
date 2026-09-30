@@ -23,22 +23,31 @@ let reason = document.getElementById("reason");
 let leaveContainer = document.getElementById("leaveContainer");
 
 
-// // Get employee emails from JSON
-// fetch("../JSON/employee.json")
-//     .then(response => response.json())
-//     .then(data => { 
+let openModal = document.getElementById("openModal");
+let closeModal = document.getElementById("closeModal");
+let cancelModal = document.getElementById("cancelModal");
+let leaveModal = document.getElementById("leaveModal");
 
-//         for (let i = 0; i < data.length; i++) {
 
-//             let option = document.createElement("option");
+openModal.addEventListener("click", function () {
 
-//             option.value = data[i].email;
-//             option.textContent = data[i].email;
+    leaveModal.classList.add("show");
 
-//             employeeSelect.appendChild(option);
-//         }
+});
 
-//     });
+
+closeModal.addEventListener("click", function () {
+
+    leaveModal.classList.remove("show");
+
+});
+
+
+cancelModal.addEventListener("click", function () {
+
+    leaveModal.classList.remove("show");
+
+});
 
 let userName = document.getElementById("userName");
 let userEmail = document.getElementById("userEmail");
