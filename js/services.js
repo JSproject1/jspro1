@@ -17,3 +17,8 @@ function goToTasks() {
 function goToFeedback() {
     window.location.href = "feedback.html";
 }
+
+function goToMeetings() {
+    window.location.href = "meetings.html";
+}
+
