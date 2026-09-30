@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Meetings</title>
+
+    <link rel="stylesheet"
+          href="../css/meetings.css">
+
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- Header -->
+
+        <div class="page-header">
+
+            <div>
+                <h1>Meetings</h1>
+
+                <p>
+                    Manage your meetings and invitations
+                </p>
+            </div>
+
+
+            <button
+                class="new-meeting-btn"
+                onclick="showNewMeeting()">
+
+                + New Meeting
+
+            </button>
+
+        </div>
+
+
+        <!-- Meetings -->
+
+        <div class="meetings-section">
+
+            <div class="section-title">
+
+                <h2>My Meetings</h2>
+
+                <span id="meetingCount">
+                    0 Meetings
+                </span>
+
+            </div>
+
+
+            <div id="meetingsContainer"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- New Meeting Modal -->
+
+    <div
+        id="meetingModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2>Create New Meeting</h2>
+
+                    <p>
+                        Send a meeting invitation
+                    </p>
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeNewMeeting()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- Title -->
+
+            <label>
+                Meeting Title
+            </label>
+
+            <input
+                type="text"
+                id="meetingTitle"
+                placeholder="Enter meeting title">
+
+
+            <!-- Date & Time -->
+
+            <div class="form-row">
+
+                <div>
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="meetingDate">
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="meetingTime">
+
+                </div>
+
+            </div>
+
+
+            <!-- Duration -->
+
+            <label>
+                Duration
+            </label>
+
+            <select id="meetingDuration">
+
+                <option value="30">
+                    30 Minutes
+                </option>
+
+                <option value="60">
+                    1 Hour
+                </option>
+
+                <option value="90">
+                    1.5 Hours
+                </option>
+
+                <option value="120">
+                    2 Hours
+                </option>
+
+            </select>
+
+
+            <!-- Participants -->
+
+            <label>
+                Participants
+            </label>
+
+            <div
+                id="usersContainer"
+                class="users-container">
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="modal-buttons">
+
+                <button
+                    class="cancel-btn"
+                    onclick="closeNewMeeting()">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    class="create-btn"
+                    onclick="createMeeting()">
+
+                    Send Invitation
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/meetings.js"></script>
+
+</body>
+
+</html>

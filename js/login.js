@@ -40,7 +40,6 @@ loginForm.addEventListener("submit", function(event) {
                 JSON.stringify(user)
             );
 
-
             // Go according to role
 
             if (user.role === "EMP") {
