@@ -1,5 +1,8 @@
-let leaveContainer1 = document.getElementById("leaveContainer1");
-let leaveContainer2 = document.getElementById("leaveContainer2");
+let leaveTableBody = document.getElementById("leaveTableBody");
+
+let employeeFilter = document.getElementById("employeeFilter");
+
+let statusFilter = document.getElementById("statusFilter");
 
 
 // Get leaves from Local Storage
@@ -7,152 +10,243 @@ let leaveContainer2 = document.getElementById("leaveContainer2");
 let leaves = JSON.parse(localStorage.getItem("leaves")) || [];
 
 
-// Display Pending Leaves
+// =========================
+// Add Employees to Filter
+// =========================
 
-function displayLeavesPending() {
+function loadEmployees() {
 
-    leaveContainer1.innerHTML = "";
+    let employees = [];
 
     for (let i = 0; i < leaves.length; i++) {
 
-        if (leaves[i].status != "Pending") {
-            continue;
+        let email = leaves[i].email;
+
+        if (!employees.includes(email)) {
+
+            employees.push(email);
+
         }
 
-        let div = document.createElement("div");
+    }
 
-        div.className = "leave-card";
 
-        div.innerHTML = `
+    for (let i = 0; i < employees.length; i++) {
 
-            <h3>${leaves[i].email}</h3>
+        let option = document.createElement("option");
 
-            <p>
-                <strong>Leave Type:</strong>
-                ${leaves[i].leaveType}
-            </p>
+        option.value = employees[i];
 
-            <p>
-                <strong>Start Date:</strong>
-                ${leaves[i].startDate}
-            </p>
+        option.textContent = employees[i];
 
-            <p>
-                <strong>End Date:</strong>
-                ${leaves[i].endDate}
-            </p>
+        employeeFilter.appendChild(option);
 
-            <p>
-                <strong>Reason:</strong>
-                ${leaves[i].reason}
-            </p>
-
-            <p>
-                <strong>Status:</strong>
-                ${leaves[i].status}
-            </p>
-
-            <button onclick="approveLeave(${i})">
-                Approve
-            </button>
-
-            <button onclick="rejectLeave(${i})">
-                Reject
-            </button>
-
-        `;
-
-        leaveContainer1.appendChild(div);
     }
 }
 
 
-// Display Approved / Rejected Leaves
+// =========================
+// Display Leaves
+// =========================
 
-function displayLeavesApproved() {
+function displayLeaves() {
 
-    leaveContainer2.innerHTML = "";
+    leaveTableBody.innerHTML = "";
+
+
+    let selectedEmployee = employeeFilter.value;
+
+    let selectedStatus = statusFilter.value;
+
 
     for (let i = 0; i < leaves.length; i++) {
 
+
+        // Employee Filter
+
         if (
-            leaves[i].status != "Approved" &&
-            leaves[i].status != "Rejected"
+            selectedEmployee !== "all" &&
+            leaves[i].email !== selectedEmployee
         ) {
             continue;
         }
 
-        let div = document.createElement("div");
 
-        div.className = "leave-card";
+        // Status Filter
 
-        div.innerHTML = `
+        if (
+            selectedStatus !== "all" &&
+            leaves[i].status !== selectedStatus
+        ) {
+            continue;
+        }
 
-            <h3>${leaves[i].email}</h3>
 
-            <p>
-                <strong>Leave Type:</strong>
+        let row = document.createElement("tr");
+
+
+        let action = "";
+
+
+        if (leaves[i].status === "Pending") {
+
+            action = `
+
+                <div class="action-buttons">
+
+                    <button
+                        class="approve-btn"
+                        onclick="approveLeave(${i})"
+                    >
+                        Approve
+                    </button>
+
+                    <button
+                        class="reject-btn"
+                        onclick="rejectLeave(${i})"
+                    >
+                        Reject
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+        else {
+
+            action = `
+                <span class="no-action">
+                    Processed
+                </span>
+            `;
+
+        }
+
+
+        let statusClass = leaves[i].status.toLowerCase();
+
+
+        row.innerHTML = `
+
+            <td>
+
+                <div class="employee-name">
+                    ${leaves[i].email}
+                </div>
+
+            </td>
+
+
+            <td>
                 ${leaves[i].leaveType}
-            </p>
+            </td>
 
-            <p>
-                <strong>Start Date:</strong>
+
+            <td>
                 ${leaves[i].startDate}
-            </p>
+            </td>
 
-            <p>
-                <strong>End Date:</strong>
+
+            <td>
                 ${leaves[i].endDate}
-            </p>
+            </td>
 
-            <p>
-                <strong>Reason:</strong>
+
+            <td>
                 ${leaves[i].reason}
-            </p>
+            </td>
 
-            <p>
-                <strong>Status:</strong>
-                ${leaves[i].status}
-            </p>
+
+            <td>
+
+                <span class="status ${statusClass}">
+                    ${leaves[i].status}
+                </span>
+
+            </td>
+
+
+            <td>
+                ${action}
+            </td>
 
         `;
 
-        leaveContainer2.appendChild(div);
+
+        leaveTableBody.appendChild(row);
+
     }
+
 }
 
 
+// =========================
 // Approve
+// =========================
 
 function approveLeave(index) {
 
     leaves[index].status = "Approved";
 
-    localStorage.setItem("leaves", JSON.stringify(leaves));
 
-    displayLeavesPending();
-    displayLeavesApproved();
+    localStorage.setItem(
+        "leaves",
+        JSON.stringify(leaves)
+    );
+
+
+    displayLeaves();
+
 
     alert("Leave approved!");
+
 }
 
 
+// =========================
 // Reject
+// =========================
 
 function rejectLeave(index) {
 
     leaves[index].status = "Rejected";
 
-    localStorage.setItem("leaves", JSON.stringify(leaves));
 
-    displayLeavesPending();
-    displayLeavesApproved();
+    localStorage.setItem(
+        "leaves",
+        JSON.stringify(leaves)
+    );
+
+
+    displayLeaves();
+
 
     alert("Leave rejected!");
+
 }
 
 
-// Display
+// =========================
+// Filters
+// =========================
 
-displayLeavesPending();
-displayLeavesApproved();
+employeeFilter.addEventListener(
+    "change",
+    displayLeaves
+);
+
+
+statusFilter.addEventListener(
+    "change",
+    displayLeaves
+);
+
+
+// =========================
+// Start
+// =========================
+
+loadEmployees();
+
+displayLeaves();

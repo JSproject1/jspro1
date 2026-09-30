@@ -12,14 +12,224 @@
 
 <body>
 
-    <h1>Pending Leave Requests</h1>
+    <!-- Sidebar -->
 
-    <div id="leaveContainer1"></div>
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">◉</span>
+            <span>Vision<span>Tech</span></span>
+        </div>
 
 
-    <h1>Processed Leave Requests</h1>
+        <nav>
 
-    <div id="leaveContainer2"></div>
+            <a href="#">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>♙</span>
+                Employees
+            </a>
+
+            <a href="HRTasks.html">
+                <span>☑</span>
+                Tasks
+            </a>
+
+            <a href="leaveHr.html" class="active">
+                <span>▣</span>
+                Leave Requests
+            </a>
+
+            <a href="#">
+                <span>▤</span>
+                Company Policies
+            </a>
+
+            <a href="#">
+                <span>▣</span>
+                Meetings
+            </a>
+
+            <a href="#">
+                <span>◌</span>
+                Feedback
+            </a>
+
+        </nav>
+
+
+        <a href="login.html" class="logout">
+            ↪ Logout
+        </a>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Topbar -->
+
+        <header class="topbar">
+
+            <div class="search">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                >
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="notification">
+                    ♧
+                    <span></span>
+                </div>
+
+
+                <div class="user-info">
+
+                    <div class="avatar">
+                        HR
+                    </div>
+
+                    <div>
+
+                        <strong>HR Manager</strong>
+
+                        <small>Human Resources</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Content -->
+
+        <section class="content">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Leave Management</h1>
+
+                    <p>
+                        Manage employee leave requests
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="filters">
+
+                <div class="filter-box">
+
+                    <label for="employeeFilter">
+                        Employee
+                    </label>
+
+                    <select id="employeeFilter">
+
+                        <option value="all">
+                            All Employees
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-box">
+
+                    <label for="statusFilter">
+                        Status
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Approved">
+                            Approved
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Employee</th>
+
+                            <th>Leave Type</th>
+
+                            <th>Start Date</th>
+
+                            <th>End Date</th>
+
+                            <th>Reason</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="leaveTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
 
     <script src="../js/leaveHr.js"></script>
 
