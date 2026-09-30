@@ -1,3 +1,16 @@
+let currentUser = getCurrentUser();
+
+if (currentUser == null) {
+
+    window.location.href = "login.html";
+
+}
+else if (currentUser.rol !== "EMP") {
+
+    window.location.href = "login.html";
+
+}
+
 let employeeSelect = document.getElementById("employee");
 
 let leaveForm = document.getElementById("leaveForm");
@@ -10,22 +23,28 @@ let reason = document.getElementById("reason");
 let leaveContainer = document.getElementById("leaveContainer");
 
 
-// Get employee emails from JSON
-fetch("../JSON/employee.json")
-    .then(response => response.json())
-    .then(data => { 
+// // Get employee emails from JSON
+// fetch("../JSON/employee.json")
+//     .then(response => response.json())
+//     .then(data => { 
 
-        for (let i = 0; i < data.length; i++) {
+//         for (let i = 0; i < data.length; i++) {
 
-            let option = document.createElement("option");
+//             let option = document.createElement("option");
 
-            option.value = data[i].email;
-            option.textContent = data[i].email;
+//             option.value = data[i].email;
+//             option.textContent = data[i].email;
 
-            employeeSelect.appendChild(option);
-        }
+//             employeeSelect.appendChild(option);
+//         }
 
-    });
+//     });
+
+let userName = document.getElementById("userName");
+let userEmail = document.getElementById("userEmail");
+
+userName.textContent = currentUser.name;
+userEmail.textContent = currentUser.email;
 
 // Get old leaves from Local Storage
 // localStorage.clear();
@@ -33,11 +52,11 @@ let leaves = JSON.parse(localStorage.getItem("leaves")) || [];
 
 // Submit Leave
 
-leaveForm.addEventListener("submit", function(event) {
+leaveForm.addEventListener("submit", function (event) {
 
     let leave = {
 
-        email: employeeSelect.value,
+        email: currentUser.email,
         leaveType: leaveType.value,
         leaveStatus: "pending approval",
         startDate: startDate.value,
@@ -68,7 +87,9 @@ function displayLeaves() {
 
     for (let i = 0; i < leaves.length; i++) {
 
-        
+        if (leaves[i].email !== currentUser.email) {
+            continue;
+        }
         let div = document.createElement("div");
 
         div.className = "leave-card";

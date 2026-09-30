@@ -4,20 +4,23 @@
         "name": "Abdallah Mdalal",
         "rol": "HR",
         "email": "abdallah@gmail.com",
-        "department": "IT"
+        "department": "IT",
+        "password": "1234"
     },
     {
         "id": 2,
         "name": "Ahmad Ali",
         "rol": "EMP",
         "email": "ahmad@gmail.com",
-        "department": "HR"
+        "department": "HR",
+        "password": "1234"
     },
     {
         "id": 3,
         "name": "Omar Khaled",
         "rol": "EMP",
         "email": "omar@gmail.com",
-        "department": "IT"
+        "department": "IT",
+        "password": "1234"
     }
 ]
