@@ -1,5 +1,16 @@
 function goToLeave() {
-    window.location.href = "leaveEmp.html";
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser.role === "EMP") {
+
+        window.location.href = "leaveEmp.html";
+
+    }
+    else if (currentUser.role === "HR") {
+
+        window.location.href = "leaveHR.html";
+
+    }
 }
 
 function goToEmployees() {
@@ -11,7 +22,18 @@ function goToPolicies() {
 }
 
 function goToTasks() {
-    window.location.href = "tasks.html";
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser.role === "EMP") {
+
+        window.location.href = "-.html";
+
+    }
+    else if (currentUser.role === "HR") {
+
+        window.location.href = "-.html";
+
+    }
 }
 
 function goToFeedback() {
