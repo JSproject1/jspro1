@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Abdallah Mdalal",
-        "rol": "HR",
+        "role": "HR",
         "email": "abdallah@gmail.com",
         "department": "IT",
         "password": "1234"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "name": "Ahmad Ali",
-        "rol": "EMP",
+        "role": "EMP",
         "email": "ahmad@gmail.com",
         "department": "HR",
         "password": "1234"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "name": "Omar Khaled",
-        "rol": "EMP",
+        "role": "EMP",
         "email": "omar@gmail.com",
         "department": "IT",
         "password": "1234"

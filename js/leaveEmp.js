@@ -5,7 +5,7 @@ if (currentUser == null) {
     window.location.href = "login.html";
 
 }
-else if (currentUser.rol !== "EMP") {
+else if (currentUser.role !== "EMP") {
 
     window.location.href = "login.html";
 
