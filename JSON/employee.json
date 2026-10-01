@@ -5,7 +5,11 @@
         "role": "HR",
         "email": "abdallah@gmail.com",
         "department": "IT",
-        "password": "1234"
+        "password": "1234",
+        "salary": 900,
+        "phone": "0790000000",
+        "address": "Amman",
+        "imge": "../images.jpg"
     },
     {
         "id": 2,
@@ -13,7 +17,11 @@
         "role": "EMP",
         "email": "ahmad@gmail.com",
         "department": "HR",
-        "password": "1234"
+        "password": "1234",
+        "salary": 700,
+        "phone": "0791111111",
+        "address": "Amman",
+        "imge": "../images.jpg"
     },
     {
         "id": 3,
@@ -21,6 +29,10 @@
         "role": "EMP",
         "email": "omar@gmail.com",
         "department": "IT",
-        "password": "1234"
+        "password": "1234",
+        "salary": 750,
+        "phone": "0792222222",
+        "address": "Zarqa",
+        "image": "../images.jpg"
     }
 ]

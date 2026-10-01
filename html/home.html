@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionTech | HR Management System</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="home.html">
+            VisionTech
+        </a>
+
+        <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- Before Login -->
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <div id="guestArea" class="w-100">
+
+                <div class="d-flex align-items-center justify-content-end gap-3">
+
+                    <a class="nav-link" href="home.html">
+                        Home
+                    </a>
+
+                    <a class="nav-link" href="about.html">
+                        About
+                    </a>
+
+                    <a class="nav-link" href="services.html">
+                        Services
+                    </a>
+
+                    <a class="nav-link" href="policies.html">
+                        Company Policies
+                    </a>
+
+                    <a class="nav-link" href="contact.html">
+                        Contact Us
+                    </a>
+
+                    <a href="login.html"
+                        class="btn btn-outline-primary">
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- After Login -->
+
+        <div id="userArea"
+            class="d-none align-items-center gap-3">
+
+            <a href="profile.html">
+                <img id="profileImage"
+                    src="../images/default-profile.png"
+                    alt="Profile"
+                    class="profile-image">
+            </a>
+
+            <span id="navUsername"></span>
+
+            <button id="logoutBtn"
+                class="btn btn-outline-primary">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside id="sideBar" class="side-bar d-none">
+
+    <div class="side-logo">
+        VisionTech
+    </div>
+
+    <a href="home.html" class="active">
+        Home
+    </a>
+
+    <a href="profile.html">
+        My Profile
+    </a>
+
+    <a href="ETasks.html">
+        My Tasks
+    </a>
+
+    <a href="leaveEmp.html">
+        Leave Requests
+    </a>
+
+    <a href="policies.html">
+        Company Policies
+    </a>
+
+    <a href="meetings.html">
+        Meetings
+    </a>
+
+    <a href="feedback.html">
+        Feedback
+    </a>
+
+</aside>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="home">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <div class="row hero-row">
+
+                <div class="col-lg-6 hero-text">
+
+                    <p class="small-title">
+                        HR Management System — VisionTech
+                    </p>
+
+                    <h1>
+                        Empowering People.
+                        <span>Building the Future.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        VisionTech HR Management System connects
+                        employees and HR through one simple platform.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#services"
+                            class="btn btn-primary">
+                            Explore Services
+                        </a>
+
+                        <a href="login.html"
+                            class="btn btn-outline-light">
+                            Login
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6 hero-media">
+                    <!-- Video or image later -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about"
+        class="about-section">
+
+        <div class="container text-center">
+
+            <h2>
+                About the Company
+            </h2>
+
+            <p>
+                VisionTech is a technology company focused on creating
+                modern solutions that help employees and organizations
+                work more efficiently.
+            </p>
+
+            <a href="about.html">
+                Learn More →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services"
+        class="services-section">
+
+        <div class="container">
+
+            <div class="services-title text-center">
+
+                <p class="section-label">
+                    OUR SERVICES
+                </p>
+
+                <h2>
+                    Our HR Services
+                </h2>
+
+                <p>
+                    Everything your team needs to work smarter,
+                    stay organized, and feel supported —
+                    all in one platform.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4"
+                id="servicesContainer">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COMPANY POLICIES ================= -->
+
+    <section id="policies"
+        class="policies-section">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <h2>
+                        Company Policies
+                    </h2>
+
+                    <p>
+                        Explore VisionTech company policies,
+                        workplace guidelines and important
+                        HR information.
+                    </p>
+
+                    <a href="policies.html"
+                        class="btn btn-primary">
+                        View Policies
+                    </a>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <img src="../images/company.jpg"
+                        alt="VisionTech Company"
+                        class="img-fluid">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section">
+
+        <div class="container text-center">
+
+            <h2>
+                Everything your team needs in one place.
+            </h2>
+
+            <p>
+                VisionTech HR Management System brings employees
+                and HR together through a simple and organized platform.
+            </p>
+
+            <div class="cta-buttons">
+
+                <a href="login.html"
+                    class="btn btn-primary">
+                    Get Started →
+                </a>
+
+                <a href="contact.html"
+                    class="btn btn-outline-light">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact"
+    class="footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-5 col-md-6">
+
+                <h4 class="fw-bold mb-3">
+                    VisionTech
+                </h4>
+
+                <p class="text-white-50">
+                    Empowering people and building the future
+                    through innovative HR management technology.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5 class="fw-bold mb-3">
+                    Quick Links
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+                        <a href="home.html"
+                            class="text-white-50 text-decoration-none">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="about.html"
+                            class="text-white-50 text-decoration-none">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="services.html"
+                            class="text-white-50 text-decoration-none">
+                            Services
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="policies.html"
+                            class="text-white-50 text-decoration-none">
+                            Company Policies
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="contact.html"
+                            class="text-white-50 text-decoration-none">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <h5 class="fw-bold mb-3">
+                    Contact
+                </h5>
+
+                <p class="text-white-50 mb-2">
+                    hr@visiontech.com
+                </p>
+
+                <p class="text-white-50 mb-2">
+                    +1 (555) 100-2000
+                </p>
+
+                <p class="text-white-50 mb-2">
+                    123 Tech Park, San Francisco, CA
+                </p>
+
+                <p class="text-white-50">
+                    Mon-Fri, 9:00 AM - 6:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary my-4">
+
+
+        <div class="text-center text-white-50">
+
+            <p class="mb-0">
+                © 2026 VisionTech. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script src="../js/home.js"></script>
+
+</body>
+</html>
