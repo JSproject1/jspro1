@@ -10,7 +10,6 @@
         "phone": "0790000000",
         "address": "Amman",
         "imge": "../images.jpg"
-
     },
     {
         "id": 2,
@@ -34,6 +33,6 @@
         "salary": 750,
         "phone": "0792222222",
         "address": "Zarqa",
-        "image": "omar.jpg"
+        "image": "../images.jpg"
     }
 ]
