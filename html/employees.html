@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CTRL+NXT | Employees</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="../css/employees.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ↪
+            </div>
+
+            <h2>
+                CTRL+NXT
+            </h2>
+
+        </div>
+
+
+
+        <!-- SIDEBAR MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="hrDashboard.html">
+
+                <span>⌂</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="employees.html"
+               class="active">
+
+                <span>♙</span>
+
+                Employees
+
+            </a>
+
+
+            <a href="HRTasks.html">
+
+                <span>✓</span>
+
+                Task Management
+
+            </a>
+
+
+            <a href="leaveHr.html">
+
+                <span>▣</span>
+
+                Leave Requests
+
+            </a>
+
+
+            <a href="policses.html">
+
+                <span>▤</span>
+
+                Company Policies
+
+            </a>
+
+
+            <a href="#">
+
+                <span>◯</span>
+
+                Feedback
+
+            </a>
+
+
+            <a href="#">
+
+                <span>▣</span>
+
+                Meetings
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <a href="#"
+           class="logout">
+
+            ↪ Logout
+
+        </a>
+
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =========================================
+             TOP BAR
+        ========================================== -->
+
+        <header class="topbar">
+
+
+            <!-- TOP SEARCH -->
+
+            <div class="top-search">
+
+    <input
+        type="text"
+        id="topSearch"
+        placeholder="Search employees..."
+    >
+
+</div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="notification">
+                    🔔
+                </div>
+
+
+                <div class="avatar">
+                    F
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong>
+                        Fatima
+                    </strong>
+
+                    <span>
+                        HR Manager
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================================
+             EMPLOYEES PAGE
+        ========================================== -->
+
+        <section class="employees-page">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+
+                <div>
+
+                    <h1>
+                        Employees
+                    </h1>
+
+                    <p>
+
+                        <span id="employeeCount">
+                            0
+                        </span>
+
+                        total employees
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ADD EMPLOYEE -->
+
+                <button
+                    type="button"
+                    class="add-employee-btn"
+                    id="addEmployeeBtn"
+                >
+
+                    + Add Employee
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =========================================
+                 EMPLOYEES CARD
+            ========================================== -->
+
+            <div class="employees-card">
+
+
+                <!-- =========================================
+                     FILTERS
+                ========================================== -->
+
+                <div class="filters">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="employee-search">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="employeeSearch"
+                            placeholder="Search employees..."
+                        >
+
+                    </div>
+
+
+
+                    <!-- DEPARTMENT FILTER -->
+
+                    <select id="departmentFilter">
+
+
+                        <option value="all">
+                            All Departments
+                        </option>
+
+
+                        <option value="IT">
+                            IT
+                        </option>
+
+
+                        <option value="HR">
+                            HR
+                        </option>
+
+
+                        <option value="Marketing">
+                            Marketing
+                        </option>
+
+
+                        <option value="Design">
+                            Design
+                        </option>
+
+
+                        <option value="Sales">
+                            Sales
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     EMPLOYEES TABLE
+                ========================================== -->
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <!-- TABLE HEADER -->
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    EMPLOYEE
+                                </th>
+
+                                <th>
+                                    ROLE
+                                </th>
+
+                                <th>
+                                    DEPARTMENT
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    ACTIONS
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+
+                        <!-- TABLE BODY -->
+
+                        <tbody id="employeesTable">
+
+                            <!--
+                                Employees will be inserted
+                                here using JavaScript
+                            -->
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================
+     VIEW EMPLOYEE MODAL
+========================================== -->
+
+<div
+    class="modal"
+    id="employeeModal"
+>
+
+
+    <div class="modal-content">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <h2>
+                Employee Details
+            </h2>
+
+
+            <button
+                type="button"
+                id="closeModal"
+            >
+
+                ✕
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- BODY -->
+
+        <div class="modal-body">
+
+
+            <p>
+
+                <strong>
+                    Name:
+                </strong>
+
+                <span id="modalName"></span>
+
+            </p>
+
+
+
+            <p>
+
+                <strong>
+                    Email:
+                </strong>
+
+                <span id="modalEmail"></span>
+
+            </p>
+
+
+
+            <p>
+
+                <strong>
+                    Role:
+                </strong>
+
+                <span id="modalRole"></span>
+
+            </p>
+
+
+
+            <p>
+
+                <strong>
+                    Department:
+                </strong>
+
+                <span id="modalDepartment"></span>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     DEACTIVATE EMPLOYEE MODAL
+========================================== -->
+
+<div
+    class="deactivate-modal"
+    id="deactivateModal"
+>
+
+
+    <div class="deactivate-modal-content">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            type="button"
+            class="modal-close"
+            id="closeDeactivateModal"
+        >
+
+            &times;
+
+        </button>
+
+
+
+        <!-- ICON -->
+
+        <div class="deactivate-icon">
+
+            !
+
+        </div>
+
+
+
+        <!-- TITLE -->
+
+        <h3>
+            Deactivate Employee
+        </h3>
+
+
+
+        <!-- EMPLOYEE NAME -->
+
+        <p class="deactivate-question">
+
+            Are you sure you want to deactivate
+
+            <strong id="deactivateEmployeeName">
+            </strong>?
+
+        </p>
+
+
+
+        <!-- MESSAGE -->
+
+        <p class="deactivate-message">
+
+            This employee will be marked as inactive
+            and will no longer have access to the system.
+
+            You can reactivate the employee later.
+
+        </p>
+
+
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="deactivate-actions">
+
+
+            <!-- CANCEL -->
+
+            <button
+                type="button"
+                class="cancel-deactivate-btn"
+                id="cancelDeactivateBtn"
+            >
+
+                Cancel
+
+            </button>
+
+
+
+            <!-- CONFIRM -->
+
+            <button
+                type="button"
+                class="confirm-deactivate-btn"
+                id="confirmDeactivateBtn"
+            >
+
+                Deactivate Employee
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="../js/employees.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Working Hours Policy",
+    "category": "Attendance",
+    "description": "Employees must follow the official company working hours.",
+    "purpose": "To ensure consistent attendance and clear working-hour expectations for all employees.",
+    "scope": "This policy applies to all employees, contractors, and HR staff.",
+    "details": "Employees are expected to arrive on time, complete their scheduled working hours, and notify their manager in case of absence or delay.",
+    "responsibilities": "Employees must follow attendance rules, record working hours correctly, and communicate any delays or absences.",
+    "effectiveDate": "2026-01-01",
+    "updatedDate": "2026-10-01"
+  },
+  {
+    "id": 2,
+    "title": "Leave Policy",
+    "category": "Leave",
+    "description": "Employees must submit leave requests through the HR system.",
+    "purpose": "To provide a clear and consistent process for requesting and approving employee leave.",
+    "scope": "This policy applies to all employees eligible for annual, sick, or other approved leave.",
+    "details": "Employees must submit leave requests in advance through the HR system. Approval is subject to manager and HR review.",
+    "responsibilities": "Employees are responsible for submitting accurate leave requests and informing their managers before the leave period.",
+    "effectiveDate": "2026-01-01",
+    "updatedDate": "2026-10-01"
+  }
+]
