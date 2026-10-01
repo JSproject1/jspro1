@@ -1,290 +1,841 @@
 :root {
-    --dark: #231b1b;
-    --dark-soft: #332727;
-    --gold: #f7bf00;
-    --gold-hover: #dda900;
-    --cream: #f8ecd5;
-    --cream-light: #fffaf1;
-    --white: #ffffff;
-    --text: #2d2525;
-    --muted: #7a6e6e;
-    --border: #eadcc6;
-    --shadow: 0 8px 24px rgba(35, 27, 27, 0.10);
+    --dark: #1F1A18;
+    --dark-soft: #2A2420;
+    --dark-elevated: #362E2A;
+
+    --gold: #D4A373;
+    --gold-bright: #E5A93C;
+    --gold-hover: #C5932B;
+
+    --cream: #FAF7F2;
+    --cream-light: #F4EFE6;
+
+    --white: #FFFFFF;
+
+    --text: #1F1A18;
+    --muted: #6B6059;
+    --muted-light: #968B82;
+
+    --border: #E8DFD3;
+
+    --shadow: 0 4px 16px -2px rgba(31, 26, 24, 0.05);
+    --shadow-luxury: 0 20px 45px -10px rgba(31, 26, 24, 0.10),
+        0 2px 6px rgba(31, 26, 24, 0.03);
+
+    --gold-glow: rgba(212, 163, 115, 0.25);
+    --gold-soft: rgba(212, 163, 115, 0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+
+/* ================================
+   GENERAL
+================================ */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
-    background: var(--cream-light);
-    color: var(--text);
+
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
 button,
 input,
 select {
     font: inherit;
 }
+
+
+/* ================================
+   MAIN CONTAINER
+================================ */
+
 .container {
     width: min(1150px, 92%);
-    margin-left: 250px;
+    margin-left: 280px;
     margin-top: 40px;
+    padding-bottom: 50px;
 }
 
+
+/* ================================
+   PAGE HEADER
+================================ */
+
 .pageHeader {
-    background: var(--dark);
+    background: linear-gradient(135deg,
+            #1C1715 0%,
+            #2A2320 60%,
+            #362E2A 100%);
+
     color: var(--white);
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 24px;
+
+    border-radius: var(--radius-lg);
+
+    padding: 32px;
+
+    margin-bottom: 28px;
+
+    box-shadow: var(--shadow-luxury);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.pageHeader::before {
+    content: '';
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -150px;
+    right: -80px;
+
+    background: radial-gradient(circle,
+            rgba(212, 163, 115, 0.18) 0%,
+            transparent 70%);
+
+    pointer-events: none;
 }
 
 .pageHeader h1 {
-    font-size: 34px;
-    margin-bottom: 5px;
+    font-family: 'Playfair Display', Georgia, serif;
+
+    font-size: 36px;
+    font-weight: 600;
+
+    margin-bottom: 6px;
+
+    letter-spacing: -0.5px;
 }
 
 .pageHeader p {
-    color: #e8d9d9;
+    color: #D3CCC6;
+    font-size: 15px;
 }
+
+
+/* ================================
+   STATISTICS
+================================ */
 
 .statistics {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 18px;
-    margin-bottom: 25px;
+
+    margin-bottom: 28px;
 }
 
 .statCard {
-    background: var(--cream);
+    background: var(--white);
+
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px;
+
+    border-radius: var(--radius-md);
+
+    padding: 23px;
+
     box-shadow: var(--shadow);
+
+    transition: var(--transition);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.statCard::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(90deg,
+            var(--gold),
+            var(--gold-bright));
+
+    opacity: 0;
+
+    transition: var(--transition);
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-luxury);
+
+    border-color: rgba(212, 163, 115, 0.5);
+}
+
+.statCard:hover::before {
+    opacity: 1;
 }
 
 .statCard h4 {
     color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 9px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .statCard h2 {
     color: var(--dark);
-    font-size: 30px;
+
+    font-family: 'Playfair Display', Georgia, serif;
+
+    font-size: 32px;
+    font-weight: 600;
 }
+
+
+/* ================================
+   FILTERS
+================================ */
 
 .filters {
     display: grid;
+
     grid-template-columns: 1fr 180px 180px;
+
     gap: 12px;
-    margin-bottom: 24px;
+
+    margin-bottom: 25px;
 }
 
 .filters input,
 .filters select {
     width: 100%;
-    padding: 11px 13px;
+
+    padding: 12px 14px;
+
     border: 1px solid var(--border);
-    border-radius: 9px;
+
+    border-radius: var(--radius-sm);
+
     background: var(--white);
-    color: var(--text);
+
+    color: var(--dark);
+
     outline: none;
+
+    transition: var(--transition);
+}
+
+.filters input::placeholder {
+    color: var(--muted-light);
 }
 
 .filters input:focus,
 .filters select:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(247, 191, 0, 0.15);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 163, 115, 0.15);
 }
+
+
+/* ================================
+   TASKS GRID
+================================ */
 
 .tasksContainer {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+
+    gap: 20px;
 }
+
+
+/* ================================
+   TASK CARD
+================================ */
 
 .taskCard,
 .task-card {
     background: var(--white);
+
     border: 1px solid var(--border);
-    border-left: 5px solid var(--gold);
-    border-radius: 14px;
-    padding: 20px;
+
+    border-left: 4px solid var(--gold);
+
+    border-radius: var(--radius-md);
+
+    padding: 22px;
+
     box-shadow: var(--shadow);
-    transition: 0.2s ease;
+
+    transition: var(--transition);
+
+    position: relative;
 }
+
 .taskCard:hover,
 .task-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-luxury);
+
+    border-color: rgba(212, 163, 115, 0.45);
 }
+
 .taskCard h3,
 .task-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+
     color: var(--dark);
-    margin-bottom: 10px;
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
 }
+
 .taskCard p,
 .task-card p {
     color: var(--muted);
+
     margin: 7px 0;
-    line-height: 1.5;
+
+    line-height: 1.6;
+
+    font-size: 14px;
 }
+
+
+/* ================================
+   TASK BUTTONS
+================================ */
+
 .taskCard button,
 .task-card button {
     border: none;
-    border-radius: 8px;
-    padding: 9px 14px;
-    margin-top: 12px;
+
+    border-radius: var(--radius-sm);
+
+    padding: 9px 15px;
+
+    margin-top: 14px;
     margin-right: 6px;
-    background: var(--gold);
+
+    background: linear-gradient(135deg,
+            var(--gold),
+            var(--gold-bright));
+
     color: var(--dark);
-    font-weight: bold;
+
+    font-weight: 700;
+
     cursor: pointer;
+
+    transition: var(--transition);
 }
 
 .taskCard button:hover,
 .task-card button:hover {
-    background: var(--gold-hover);
+    background: linear-gradient(135deg,
+            var(--gold-hover),
+            #D49B2E);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(212, 163, 115, 0.30);
 }
+
+
+/* ================================
+   NO TASKS
+================================ */
 
 .noTasks {
     text-align: center;
-    background: var(--cream);
-    border-radius: 14px;
-    padding: 40px 20px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    padding: 50px 20px;
+
     color: var(--muted);
+
+    box-shadow: var(--shadow);
 }
 
 .noTasks h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+
     color: var(--dark);
+
     margin-bottom: 8px;
+
+    font-size: 22px;
 }
 
+
+/* ================================
+   VIEW TASK MODAL
+================================ */
 
 #viewTask,
 .editTaskModal {
     position: fixed;
+
     inset: 0;
+
     z-index: 1000;
-    background: rgba(35, 27, 27, 0.65);
+
+    background: rgba(31, 26, 24, 0.72);
+
     display: none;
+
     align-items: center;
     justify-content: center;
+
     padding: 20px;
+
+    backdrop-filter: blur(5px);
 }
-#viewTask > div:first-child,
+
+#viewTask>div:first-child,
 .editTaskContent {
-    width: min(520px, 100%);
+    width: min(540px, 100%);
+
     max-height: 90vh;
+
     overflow-y: auto;
+
     background: var(--white);
-    border-radius: 16px;
-    padding: 28px;
+
+    border-radius: var(--radius-lg);
+
+    padding: 30px;
+
     position: relative;
-    box-shadow: var(--shadow);
+
+    box-shadow: var(--shadow-luxury);
+
+    border: 1px solid var(--border);
 }
+
+
+/* ================================
+   CLOSE BUTTON
+================================ */
+
 #closeBtn,
 .closeBtn {
     position: absolute;
+
     top: 16px;
     right: 16px;
+
     width: 34px;
     height: 34px;
+
     border: none;
+
     border-radius: 50%;
+
     background: var(--dark);
+
     color: var(--white);
+
     font-size: 22px;
+
     cursor: pointer;
+
+    transition: var(--transition);
 }
+
+#closeBtn:hover,
+.closeBtn:hover {
+    background: var(--gold);
+
+    color: var(--dark);
+
+    transform: rotate(90deg);
+}
+
+
+/* ================================
+   VIEW TASK CONTENT
+================================ */
+
 .content h2,
 .editTaskContent h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+
     color: var(--dark);
+
+    font-size: 28px;
+
     margin-bottom: 24px;
+
     padding-right: 40px;
 }
+
 .content h3 {
-    font-size: 14px;
+    font-size: 13px;
+
+    font-weight: 700;
+
     color: var(--dark);
-    margin-top: 17px;
-    margin-bottom: 5px;
+
+    margin-top: 18px;
+    margin-bottom: 6px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
 }
 
 .content p {
-    background: var(--cream-light);
-    border-left: 4px solid var(--gold);
-    border-radius: 8px;
-    padding: 11px;
+    background: var(--cream);
+
+    border-left: 3px solid var(--gold);
+
+    border-radius: var(--radius-sm);
+
+    padding: 11px 13px;
+
     color: var(--muted);
+
+    font-size: 14px;
 }
 
+
+/* ================================
+   EDIT TASK MODAL
+================================ */
+
 .editTaskContent label {
-    font-weight: bold;
+    font-weight: 700;
+
+    color: var(--dark);
+
+    font-size: 14px;
 }
+
 #editTaskStatus {
     width: 100%;
+
     margin-top: 8px;
+
     padding: 11px 12px;
+
     border: 1px solid var(--border);
-    border-radius: 9px;
+
+    border-radius: var(--radius-sm);
+
     outline: none;
+
+    background: var(--white);
+
+    color: var(--dark);
+
+    transition: var(--transition);
 }
 
 #editTaskStatus:focus {
     border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(247, 191, 0, 0.15);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 163, 115, 0.15);
 }
 
-.saveBtn {
+#employeeFile {
     width: 100%;
-    margin-top: 16px;
-    padding: 11px 18px;
-    border: none;
-    border-radius: 9px;
-    background: var(--gold);
-    color: var(--dark);
-    font-weight: bold;
+
+    padding: 10px;
+
+    margin-top: 5px;
+
+    border: 1px dashed var(--border);
+
+    border-radius: var(--radius-sm);
+
+    background: var(--cream);
+
+    color: var(--muted);
+
     cursor: pointer;
 }
 
+.editTaskContent small {
+    color: var(--muted-light);
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   SAVE BUTTON
+================================ */
+
+.saveBtn {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: var(--radius-sm);
+
+    background: linear-gradient(135deg,
+            var(--gold),
+            var(--gold-bright));
+
+    color: var(--dark);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
 .saveBtn:hover {
-    background: var(--gold-hover);
+    background: linear-gradient(135deg,
+            var(--gold-hover),
+            #D49B2E);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(212, 163, 115, 0.3);
+}
+
+/* ================================ SIDEBAR ================================ */
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    padding: 28px 16px;
+    background-color: var(--dark);
+    color: var(--white);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--dark-elevated);
+    box-shadow: 4px 0 24px rgba(31, 26, 24, 0.12);
+    overflow-y: auto;
+}
+
+/* ================================ ALVORA LOGO ================================ */
+.side-logo {
+    padding: 0 14px 25px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--dark-elevated);
+}
+
+.side-logo a {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    text-decoration: none;
+    background: transparent;
+}
+
+/* مهم: لا يوجد hover للـ logo */
+.side-logo a:hover {
+    color: var(--white);
+    background: transparent;
+    transform: none;
+}
+
+/* ================================ SIDEBAR LINKS ================================ */
+.side-bar>a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 2px;
+    color: #C2BAB3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+/* Hover فقط على روابط الـ navigation */
+.side-bar>a:hover {
+    background: var(--dark-soft);
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+/* Active link */
+.side-bar>a.active {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    color: var(--dark);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(212, 163, 115, 0.35);
+}
+
+/* ================================ LOGOUT ================================ */
+.side-bar>div {
+    margin-top: 20px;
+}
+
+.side-bar .logout {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin: 0;
+    color: #C2BAB3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.side-bar .logout:hover {
+    background: var(--dark-soft);
+    color: var(--white);
+    transform: translateX(4px);
 }
 
 
 
+/* ================================
+   LOGOUT
+================================ */
 
-.side-bar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:230px;
-    height:100vh ;
-    padding:25px 15px;
-    background-color:var(--dark);
-    z-index:1000;
+#logout {
+    margin-top: auto;
+
+    color: #C2BAB3;
 }
 
-.side-logo{
-    padding:0 15px 25px;
-    color:var(--white);
-    font-size:22px;
-    font-weight:700;
+.side-bar .logout:hover {
+    color: var(--white);
 }
 
-.side-bar a{
-    display:block;
-    padding:12px 15px;
-    margin-bottom:7px;
-    color:rgba(255,255,255,0.75);
-    text-decoration:none;
-    border-radius:8px;
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .container {
+        margin-left: 270px;
+        width: calc(100% - 300px);
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tasksContainer {
+        grid-template-columns: 1fr;
+    }
 }
 
-.side-bar a:hover,
-.side-bar a.active{
-    background-color:#7a6e6e;
-    color:var(--dark);
+
+@media (max-width: 991px) {
+
+    .side-bar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        min-height: auto;
+
+        padding: 20px;
+
+        display: block;
+    }
+
+    .side-logo {
+        margin-bottom: 12px;
+    }
+
+    .side-bar a {
+        margin-bottom: 5px;
+    }
+
+    .container {
+        width: 92%;
+
+        margin: 30px auto;
+
+        padding-bottom: 30px;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .pageHeader {
+        padding: 24px;
+    }
+
+    .pageHeader h1 {
+        font-size: 30px;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .tasksContainer {
+        grid-template-columns: 1fr;
+    }
+
+    #viewTask>div:first-child,
+    .editTaskContent {
+        padding: 24px 20px;
+    }
 }
