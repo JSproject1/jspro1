@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Professional Sidebar</title>
     <link href="../css/HRTasks.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.css">
 </head>
 
 <body>
-
-    <!-- MAIN CONTENT -->
     <main class="main-content">
         <header class="mainHeader">
 
@@ -21,48 +19,51 @@
         </header>
         <section class="Home">
 
-            <h2 class="fw-bold">Dashboard</h2>
+            <h1 class="head1">Task Managment</h1>
+            <p class="subtitle">Manage and track employee tasks</p>
 
-            <p class="text-muted">
-                Welcome back! Amal..
-            </p>
             <div class="summaryCards">
                 <div class="card">
                     <p class="sTitle">Total Tasks </p>
-                    <p class="sNum">26</p>
+                    <p id="totalTasks" class="sNum">0</p>
                 </div>
                 <div class="card">
-                    <p class="sTitle">Active Tasks</p>
-                    <p class="sNum">12</p>
+                    <p class="sTitle">In Progress</p>
+                    <p id="progress" class="sNum">0</p>
                 </div>
                 <div class="card">
-                    <p class="sTitle">Pending Tasks </p>
-                    <p class="sNum">5</p>
+                    <p class="sTitle">Pending </p>
+                    <p id="pending" class="sNum">0</p>
                 </div>
                 <div class="card">
-                    <p class="sTitle">Completed Tasks </p>
-                    <p class="sNum">9</p>
+                    <p class="sTitle">Completed </p>
+                    <p id="completed" class="sNum">0</p>
                 </div>
             </div>
             <div class="filterTasks">
-                <div class="sANDf">
-                    <div class="searchBar">
+                <div class="filter">
+                    <div id="searchTask" class="searchBar">
                         <input type="text" id="search" placeholder="Search">
-                        <button id="searchBtn"><img src="../images/searchIcon.png" width="fit-content"
-                                height="15px"></button>
+                        <img src="../images/searchIcon.png" width="fit-content" height="15px">
                     </div>
-                    <div class="filterList">
-                        <select>
-                            <option value="all">All</option>
-                            <option value="Active">Action</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Completed">Completed</option>
-                        </select>
-                    </div>
+
+                    <select id="filterStatus">
+                        <option value="All">All</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <select id="filterPriority">
+                        <option value="All">All Priorities</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
                 </div>
 
-                <div class="addTask">
-                    <button onclick="add()" id="add">Add New Task</button>
+                <div class="PopAddTask">
+                    <button id="add">Add New Task</button>
                 </div>
             </div>
             <table class="tasksTable">
@@ -70,170 +71,145 @@
                     <tr>
                         <th>Task Name</th>
                         <th>Description</th>
+                        <th>Employee</th>
                         <th>Status</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
-                <tbody class="tBody">
-                    <tr>
-                        <td class="taskNames">Task 1</td>
-                        <td class="taskDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elitlore magna
-                            aliqua</td>
-                        <td class="taskStatus">Pending</td>
-                        <td class="taskBtn"><button onclick="deleteT()">Del</button><button
-                                onclick="view()">view</button><button onclick="edit()">edit</button></td>
-                    </tr>
-                    <tr>
-                        <td class="taskNames">Task 2</td>
-                        <td class="taskDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elitlore magna
-                            aliqua</td>
-                        <td class="taskStatus">Pending</td>
-                        <td class="taskBtn"><button onclick="deleteT()">Del</button><button
-                                onclick="view()">view</button><button onclick="edit()">edit</button></td>
-                    </tr>
-                    <tr>
-                        <td class="taskNames">Task 3</td>
-                        <td class="taskDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elitlore magna
-                            aliqua</td>
-                        <td class="taskStatus">Pending</td>
-                        <td class="taskBtn"><button onclick="deleteT()">Del</button><button
-                                onclick="view()">view</button><button onclick="edit()">edit</button></td>
-                    </tr>
-                    <tr>
-                        <td class="taskNames">Task 4</td>
-                        <td class="taskDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elitlore magna
-                            aliqua</td>
-                        <td class="taskStatus">Pending</td>
-                        <td class="taskBtn"><button onclick="deleteT()">Del</button><button
-                                onclick="view()">view</button><button onclick="edit()">edit</button></td>
-                    </tr>
-                    <tr>
-                        <td class="taskNames">Task 5</td>
-                        <td class="taskDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elitlore magna
-                            aliqua</td>
-                        <td class="taskStatus">Pending</td>
-                        <td class="taskBtn"><button onclick="deleteT()">Del</button><button
-                                onclick="view()">view</button><button onclick="edit()">edit</button></td>
-                    </tr>
+                <tbody id="tBody">
                 </tbody>
 
             </table>
+            <p id="noTask" hidden>No task found</p>
         </section>
-        <section class="addTasks">
-            <div class="addNewTask">
-                <form>
-                    <label for="newTaskName">Task Name  *</label><br>
-                    <input type="text" placeholder="Task Name" id="newTaskName" required>
-                    <br><br>
-                    <label for="newDescription">Description  *</label><br>
-                    <textarea rows="4" cols="30" id="newDescription" placeholder="Provide detailed instructions or requirements for this task..." required></textarea>
-                    <br><br>
-                    <label for="startDate">Start Date</label>
-                    <input type="date" id="startDate">
-                    <label for="dueDate">Due Date</label>
-                    <input type="date" id="dueDate">
-                    <br><br>
-                    <label for="attach">Attach Files (Optional)</label><br>
-                    <input type="file" id="attachFile"><br>
-                    <small><small>You can attach relevant PDFs, images, or documents (Max: 10MB).</small></small>
-                    <br><br>
-                    <label for=prio"
-                    <br><br>
-                    <label for="ENames">Assign to</label><br>
-                    <select id="ENames">
-                        <option value="select">Select Employee ...</option>
-                        <option value="all">All</option>
-                        <option value="amal">Amal</option>
-                        <option value="saja">Saja</option>
-                        <option value="fatema">Fatema</option>
-                        <option value="roaa">Roaa</option>
-                    </select>
-                    <br><br>
-                    <button type="submit" id="submit">Add New</button>
-                    <button type="reset" id="clear">Clear</button>
-                </form>
-            </div>
-        </section>  
-        <section class="viewTask">
-            <div class="viewName">
-                <div class="details">
-                    <h3 class="taskName">Task Name</h3>
-                    <span class="status">pending</span>
-                </div>
-                <div class="actions">
-                    <button class="edit">Edit Task</button>
+        <section id="tasksCards" class="submissionsSection">
+
+            <div class="sectionHeader">
+                <div>
+                    <h2>Employee Submissions</h2>
+                    <p>Review work submitted by employees</p>
                 </div>
             </div>
-            <div class="kpi">
-                <div class="viewDetails">
-                    <div class="rowCards">
-                    <p>Assign to</p>
-                    <p id="EName">Amal Obaidat</p>
-                </div>
-                <div class="rowCards">
-                    <p>Start Date</p>
-                    <p id="SDate">23-11-2026</p>
-                </div>
-                <div class="rowCards">
-                    <p>Due Date</p>
-                    <p id="DDate">23-12-2026</p>
-                </div>
-                </div>
-                
-                <div class="viewCards">
-                    <p>Task Description</p>
-                    <p id="desc">Please review all overtime logs, bonus approvals, and deduction entries for September before finalizing the payroll document. Once completed, upload the signed PDF and update the status here.</p>
-                </div>
+
+            <div id="submissionsContainer" class="submissionsContainer">
             </div>
-            <br><br><br>
-            <div class="viewAttach">
-                <p>Attachments</p>
-                <div class="attDetails">
-                    <h4 id="attName">download me...  </h4>
-                    <button>download</button>
-                </div>
-            </div>
+
         </section>
-        <section class="editTask">
-            <div class="editForm">
-                <h1>Task 1</h1>
-                <form>
-                    <label for="editTaskName">Task Title*</label><br>
-                    <input type="text" placeholder="Prepare Monthly Payroll Report" required>
-                    <br><br>
-                    <label for="editAssign">Assign to*</label><br>
-                    <select id="editAssign" required>
-                        <option value="select">Select Employee ...</option>
-                        <option value="all">All</option>
-                        <option value="amal">Amal</option>
-                        <option value="saja">Saja</option>
-                        <option value="fatema">Fatema</option>
-                        <option value="roaa">Roaa</option>
-                    </select>
-                    <br><br>
-                    <label for="editStartDate">Start Date</label>
-                    <input type="date" id="editStartDate">
-                    <label for="editDueDate">Due Date *</label>
-                    <input type="date" id="editDueDate">
-                    <br><br>
-                    <label for="editDescription">Description *</label><br>
-                    <textarea rows="4" cols="30" id="editDescription" placeholder="Provide detailed instructions or requirements for this task..."  required></textarea>
-                    <br><br>
-                    <hr>
-                    <label for="editAtt"><h2>Current Attachments</h2></label>
-                    <div class="currAtt">
-                        <h3>Attachment 1 </h3>
-                        <button id="download" type="button">download</button>
-                    </div>
-                    <br><br>
-                    <button id="cancel" type="button">Cancel</button>
-                    <button id="save" type="submit">Save Edits</button>
-                </form>
+        <div id="addTasks" class="addNewTasks">
+            <div class="addTask">
+                <button id="close" class="closeBtn">×</button>
+                <h2 id="modalTitle">Add New Task</h2>
             </div>
-            <div class=""></div>
+
+            <form id="taskForm">
+                <label>Task Name *</label><br>
+                <input type="text" placeholder="Task Name" id="newTaskName" required>
+                <br><br>
+                <label>Description *</label><br>
+                <textarea rows="4" cols="30" id="newDescription"
+                    placeholder="Provide detailed instructions or requirements for this task..." required></textarea>
+                <br><br>
+                <label id="startTitle">Start Date</label>
+                <br>
+                <input type="date" id="startDate">
+                <input type="time" id="startTime"><br><br>
+                <label>Due Date</label><br>
+                <input type="date" id="dueDate" required>
+                <input type="time" id="dueTime" required>
+                <br><br>
+                <label>Attach Files (Optional)</label><br>
+                <input type="file" id="attachFile" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"><br>
+                <small><small>You can attach relevant PDFs, images, or documents (Max: 2MB).</small></small>
+                <br><br>
+                <label for="Enames"> Assign To:</label>
+                <select id="ENames" name="names[]" data-theme="light" multiple data-multi-select required>
+                </select>
+                <label>Priority</label><br>
+                <select id="taskPriority">
+                    <option value="select">Select Priority</option>
+                    <option value="High">High</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                </select>
+                <label>Status</label>
+                <select id="taskStatus" required>
+                    <option value="Pending"> Pending </option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed"> Completed </option>
+                </select>
+                <br><br>
+                <button id="save">Add New</button>
+
+            </form>
+        </div>
+
+        <br><br><br>
+        <section id="viewSection">
+            <div id="viewTask" class="viewTaskModal" style="display: none;">
+
+            <div class="viewTaskContent">
+
+                <button id="closeView" type="button" onclick="closeViewTask()">
+                    ×
+                </button>
+
+                <h2>Task Details</h2>
+
+                <div>
+                    <strong>Task Name</strong>
+                    <p id="viewTitle"></p>
+                </div>
+
+                <div>
+                    <strong>Description</strong>
+                    <p id="viewDescription"></p>
+                </div>
+
+                <div>
+                    <strong>Employees</strong>
+                    <p id="viewEmployee"></p>
+                </div>
+                <div>
+                    <strong>Start</strong>
+                    <p id="viewStart"></p>
+                    <strong>Deadline</strong>
+                    <p id="viewDeadline"></p>
+                </div>
+
+
+                <div>
+                    <strong>Priority</strong>
+                    <p id="viewPriority"></p>
+                    <strong>Status</strong>
+                    <p id="viewStatus"></p>
+                </div>
+
+                <div>
+                    <strong>HR Attachment</strong>
+                    <p id="viewAttach"></p>
+                </div>
+
+                <!-- <div>
+                    <strong>Employee Submission</strong>
+                    <p id="viewSubmission"></p>
+                </div> -->
+                <button id="closeViewButton" type="button" onclick="closeViewTask()">
+                    Close
+                </button>
+
+            </div>
+        </div>
         </section>
+        
     </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
+    <script src="../js/HRTasks.js"></script>
     <footer></footer>
+
+
 </body>
 
 </html>
