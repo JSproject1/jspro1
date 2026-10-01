@@ -10,24 +10,56 @@ body {
 }
 
 
-/* =========================
-   SIDEBAR
-========================= */
+:root {
+    --dark: #231b1b;
+    --dark-soft: #332727;
+    --gold: #f7bf00;
+    --gold-hover: #dda900;
+    --cream: #f8ecd5;
+    --cream-light: #fffaf1;
+    --white: #ffffff;
+    --text: #2d2525;
+    --muted: #7a6e6e;
+    --border: #eadcc6;
+    --shadow: 0 8px 24px rgba(35, 27, 27, 0.10);
+}
+.side-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:230px;
+    height:100vh ;
+    padding:25px 15px;
+    background-color:var(--dark);
+    z-index:1000;
+}
 
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
+.side-logo{
+    padding:0 15px 25px;
+    color:var(--white);
+    font-size:22px;
+    font-weight:700;
+}
 
-    width: 190px;
-    height: 100vh;
+.side-bar a{
+    display:block;
+    padding:12px 15px;
+    margin-bottom:7px;
+    color:rgba(255,255,255,0.75);
+    text-decoration:none;
+    border-radius:8px;
+}
 
-    background-color: #101a30;
+.side-bar a:hover,
+.side-bar a.active{
+    background-color:#7a6e6e;
+    color:var(--dark);
+}
 
-    display: flex;
-    flex-direction: column;
-
-    color: white;
+.profile-container{
+    width: min(1150px, 92%);
+    margin-left: 250px;
+    margin-top: 40px;
 }
 
 
@@ -134,7 +166,7 @@ body {
 ========================= */
 
 .main {
-    margin-left: 190px;
+    margin-left: 230px;
     min-height: 100vh;
 }
 
