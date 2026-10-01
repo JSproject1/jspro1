@@ -33,10 +33,6 @@
 }
 
 
-/* ================================
-   GENERAL
-================================ */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -63,10 +59,6 @@ select {
 }
 
 
-/* ================================
-   MAIN CONTAINER
-================================ */
-
 .container {
     width: min(1150px, 92%);
     margin-left: 280px;
@@ -74,10 +66,6 @@ select {
     padding-bottom: 50px;
 }
 
-
-/* ================================
-   PAGE HEADER
-================================ */
 
 .pageHeader {
     background: linear-gradient(135deg,
@@ -132,10 +120,6 @@ select {
     font-size: 15px;
 }
 
-
-/* ================================
-   STATISTICS
-================================ */
 
 .statistics {
     display: grid;
@@ -218,10 +202,6 @@ select {
 }
 
 
-/* ================================
-   FILTERS
-================================ */
-
 .filters {
     display: grid;
 
@@ -264,9 +244,6 @@ select {
 }
 
 
-/* ================================
-   TASKS GRID
-================================ */
 
 .tasksContainer {
     display: grid;
@@ -277,9 +254,6 @@ select {
 }
 
 
-/* ================================
-   TASK CARD
-================================ */
 
 .taskCard,
 .task-card {
@@ -332,9 +306,6 @@ select {
 }
 
 
-/* ================================
-   TASK BUTTONS
-================================ */
 
 .taskCard button,
 .task-card button {
@@ -373,9 +344,6 @@ select {
 }
 
 
-/* ================================
-   NO TASKS
-================================ */
 
 .noTasks {
     text-align: center;
@@ -404,9 +372,6 @@ select {
 }
 
 
-/* ================================
-   VIEW TASK MODAL
-================================ */
 
 #viewTask,
 .editTaskModal {
@@ -450,9 +415,6 @@ select {
 }
 
 
-/* ================================
-   CLOSE BUTTON
-================================ */
 
 #closeBtn,
 .closeBtn {
@@ -488,10 +450,6 @@ select {
     transform: rotate(90deg);
 }
 
-
-/* ================================
-   VIEW TASK CONTENT
-================================ */
 
 .content h2,
 .editTaskContent h2 {
@@ -535,10 +493,6 @@ select {
     font-size: 14px;
 }
 
-
-/* ================================
-   EDIT TASK MODAL
-================================ */
 
 .editTaskContent label {
     font-weight: 700;
@@ -600,10 +554,6 @@ select {
 }
 
 
-/* ================================
-   SAVE BUTTON
-================================ */
-
 .saveBtn {
     width: 100%;
 
@@ -639,7 +589,6 @@ select {
         0 8px 20px rgba(212, 163, 115, 0.3);
 }
 
-/* ================================ SIDEBAR ================================ */
 .side-bar {
     position: fixed;
     top: 0;
@@ -657,7 +606,6 @@ select {
     overflow-y: auto;
 }
 
-/* ================================ ALVORA LOGO ================================ */
 .side-logo {
     padding: 0 14px 25px;
     margin-bottom: 12px;
@@ -677,14 +625,13 @@ select {
     background: transparent;
 }
 
-/* مهم: لا يوجد hover للـ logo */
+
 .side-logo a:hover {
     color: var(--white);
     background: transparent;
     transform: none;
 }
 
-/* ================================ SIDEBAR LINKS ================================ */
 .side-bar>a {
     display: flex;
     align-items: center;
@@ -698,14 +645,13 @@ select {
     transition: var(--transition);
 }
 
-/* Hover فقط على روابط الـ navigation */
 .side-bar>a:hover {
     background: var(--dark-soft);
     color: var(--white);
     transform: translateX(4px);
 }
 
-/* Active link */
+
 .side-bar>a.active {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
     color: var(--dark);
@@ -713,7 +659,7 @@ select {
     box-shadow: 0 4px 14px rgba(212, 163, 115, 0.35);
 }
 
-/* ================================ LOGOUT ================================ */
+
 .side-bar>div {
     margin-top: 20px;
 }
