@@ -54,12 +54,12 @@ loginForm.addEventListener("submit", function(event) {
 
             if (user.role === "EMP") {
 
-                window.location.href = "../html/services.html";
+                window.location.href = "../html/home.html";
 
             }
             else if (user.role === "HR") {
 
-                window.location.href = "../html/services.html";
+                window.location.href = "../html/home.html";
 
             }
 
