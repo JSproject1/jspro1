@@ -5,73 +5,446 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Profile</title>
+    <title>My Profile | Alvora</title>
 
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 
 <body>
-    <aside id="sideBar" class="side-bar d-none">
 
-    <div class="side-logo">
-        <a href="home.html" >
-        Alvora
-    </a>
+    <!-- ===================== SIDEBAR ===================== -->
+
+    <aside id="sideBar" class="side-bar">
+
+        <div class="side-logo">
+            <a href="home.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
+        </div>
+
+        <nav class="side-navigation">
+
+            <a href="profile.html" class="nav-item active">
+                <span class="nav-icon">◉</span>
+                <span>My Profile</span>
+            </a>
+
+            <a href="ETasks.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>My Tasks</span>
+            </a>
+
+            <a href="leaveEmp.html" class="nav-item">
+                <span class="nav-icon">↗</span>
+                <span>Leave Requests</span>
+            </a>
+
+            <a href="policies.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Company Policies</span>
+            </a>
+
+            <a href="meetings.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Meetings</span>
+            </a>
+
+            <a href="feedback.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="mini-user">
+                <div class="mini-avatar" id="miniAvatar">
+                    A
+                </div>
+
+                <div class="mini-info">
+                    <strong id="sidebarName">Employee</strong>
+                    <span id="sidebarRole">EMP</span>
+                </div>
+            </div>
+
+            <a href="login.html" class="logout" id="logoutButton">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ===================== MAIN ===================== -->
+
+    <main class="main-content">
+
+        <!-- TOP -->
+
+        <header class="page-header">
+
+            <div>
+                <div class="eyebrow">
+                    EMPLOYEE PORTAL
+                </div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View your personal details and employment information.
+                </p>
+            </div>
+
+            <button id="editButton" class="edit-main-btn">
+                <span>✎</span>
+                Edit Profile
+            </button>
+
+        </header>
+
+
+        <!-- ===================== PROFILE HERO ===================== -->
+
+        <section class="profile-hero">
+
+            <div class="profile-decoration"></div>
+
+            <div class="profile-avatar-wrapper">
+
+                <img
+                    id="profileImage"
+                    class="profile-image"
+                    src=""
+                    alt="Employee Profile"
+                >
+
+                <div class="online-status"></div>
+
+            </div>
+
+            <div class="profile-main-info">
+
+                <div class="profile-label">
+                    EMPLOYEE PROFILE
+                </div>
+
+                <h2 id="name">Employee Name</h2>
+
+                <p class="profile-position" id="position">
+                    Employee
+                </p>
+
+                <div class="profile-tags">
+
+                    <span class="tag">
+                        <span class="tag-dot"></span>
+                        <span id="department">Department</span>
+                    </span>
+
+                    <span class="tag role-tag" id="role">
+                        EMP
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="employee-status">
+
+                <span class="status-label">
+                    ACCOUNT STATUS
+                </span>
+
+                <span class="status-badge">
+                    <span class="status-dot"></span>
+                    Active
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== INFORMATION ===================== -->
+
+        <div class="profile-grid">
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <section class="info-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-number">01</span>
+                        <h3>Personal Information</h3>
+                    </div>
+
+                    <span class="card-icon">✦</span>
+
+                </div>
+
+                <div class="info-list">
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            @
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Email Address</span>
+                            <span class="info-value" id="email">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ☎
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Phone Number</span>
+                            <span class="info-value" id="phone">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ⌂
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Address</span>
+                            <span class="info-value" id="address">—</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EMPLOYMENT INFORMATION -->
+
+            <section class="info-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-number">02</span>
+                        <h3>Employment Details</h3>
+                    </div>
+
+                    <span class="card-icon">◆</span>
+
+                </div>
+
+                <div class="info-list">
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ◈
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Position</span>
+                            <span class="info-value" id="positionCard">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ◇
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Department</span>
+                            <span class="info-value" id="departmentCard">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            $
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Monthly Salary</span>
+
+                            <span class="info-value salary">
+                                $<span id="salary">0</span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ===================== NOTE ===================== -->
+
+        <section class="profile-note">
+
+            <div class="note-icon">
+                i
+            </div>
+
+            <div>
+                <strong>Employment information</strong>
+
+                <p>
+                    Position, department, role and salary are managed by the HR
+                    department and cannot be modified from your employee account.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================== EDIT MODAL ===================== -->
+
+    <div id="editModal" class="modal-overlay">
+
+        <div class="edit-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-label">
+                        PERSONAL DETAILS
+                    </span>
+
+                    <h2>Edit Profile</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="closeModal"
+                    class="close-modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editProfileForm">
+
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editPhone"
+                        placeholder="07XXXXXXXX"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAddress">
+                        Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editAddress"
+                        placeholder="Enter your address"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editImage">
+                        Profile Image URL
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editImage"
+                        placeholder="../images/profile.jpg"
+                    >
+
+                </div>
+
+
+                <p id="formMessage" class="form-message"></p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelEdit"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
-
-    <a href="profile.html" class="active">
-        My Profile
-    </a>
-
-    <a href="ETasks.html" >
-        My Tasks
-    </a>
-
-    <a href="leaveEmp.html">
-        Leave Requests
-    </a>
-
-    <a href="policies.html">
-        Company Policies
-    </a>
-
-    <a href="meetings.html">
-        Meetings
-    </a>
-
-    <a href="feedback.html">
-        Feedback
-    </a>
-    <div>
-        <a href="login.html" class="logout">
-            ↪ Logout
-        </a>
-    </div>
-
-</aside>
-    <div class="profile-container">
-
-        <h1>My Profile</h1>
-
-        <img id="profileImage" src="" alt="Profile Image">
-
-        <p>Name: <span id="name"></span></p>
-
-        <p>Email: <span id="email"></span></p>
-
-        <p>Position: <span id="position"></span></p>
-
-        <p>Role: <span id="role"></span></p>
-
-        <p>Department: <span id="department"></span></p>
-
-        <p>Salary: $<span id="salary"></span></p>
-
-        <p>Phone: <span id="phone"></span></p>
-
-        <p>Address: <span id="address"></span></p>
-
-        <button id="editButton">Edit Profile</button>
 
 
     <script src="../js/profile.js"></script>
@@ -79,4 +452,3 @@
 </body>
 
 </html>
-
