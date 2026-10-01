@@ -1,0 +1,492 @@
+/* ================= COLORS ================= */
+
+:root {
+    --primary-yellow: #FFBB00;
+    --primary-dark: #26201E;
+
+    --page-bg: #FAF8F4;
+    --card-bg: #FFFFFF;
+
+    --text-primary: #26201E;
+    --text-secondary: #756E69;
+
+    --border-color: #EAE5DE;
+
+    --yellow-hover: #E9AA00;
+
+    --sidebar-text: #C9C2BD;
+    --sidebar-hover: #39312E;
+}
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: var(--page-bg);
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+}
+
+.app {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 170px;
+    height: 100vh;
+
+    background-color: var(--primary-dark);
+
+    color: white;
+
+    padding: 14px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+
+    overflow-y: auto;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 8px;
+
+    margin-bottom: 30px;
+}
+
+.logo i {
+    font-size: 16px;
+
+    color: var(--primary-yellow);
+}
+
+.logo h2 {
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+.logo h2 span {
+    color: var(--primary-yellow);
+}
+
+
+/* ================= SIDEBAR MENU ================= */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.sidebar-menu a,
+.logout {
+    color: var(--sidebar-text);
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 9px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    transition: 0.2s;
+}
+
+.sidebar-menu a i,
+.logout i {
+    width: 12px;
+
+    font-size: 12px;
+}
+
+.sidebar-menu a:hover,
+.logout:hover {
+    background-color: var(--sidebar-hover);
+
+    color: white;
+}
+
+.sidebar-menu a.active {
+    background-color: var(--primary-yellow);
+
+    color: var(--primary-dark);
+
+    font-weight: 600;
+}
+
+.logout {
+    margin-top: auto;
+}
+
+
+/* ================= MAIN ================= */
+
+.main-content {
+    margin-left: 170px;
+
+    width: calc(100% - 170px);
+
+    min-height: 100vh;
+}
+
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+    height: 50px;
+
+    background-color: var(--card-bg);
+
+    border-bottom: 1px solid var(--border-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box {
+    width: 210px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background-color: var(--page-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 6px;
+
+    padding: 0 9px;
+}
+
+.search-box i {
+    font-size: 11px;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 10px;
+}
+
+
+/* ================= HR INFO ================= */
+
+.hr-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.notification {
+    font-size: 14px;
+
+    margin-right: 3px;
+
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 27px;
+    height: 27px;
+
+    border-radius: 50%;
+
+    background-color: var(--primary-yellow);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.profile-text h6 {
+    font-size: 10px;
+}
+
+.profile-text small {
+    font-size: 8px;
+
+    color: var(--text-secondary);
+}
+
+
+/* ================= PAGE ================= */
+
+.add-employee-page {
+    padding: 16px 18px;
+}
+
+
+/* ================= HEADER ================= */
+
+.page-header {
+    margin-bottom: 13px;
+}
+
+.page-header h1 {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 3px;
+}
+
+.page-header p {
+    font-size: 9px;
+
+    color: var(--text-secondary);
+}
+
+
+/* ================= FORM CARD ================= */
+
+.form-card {
+    max-width: 720px;
+
+    background-color: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 7px;
+
+    padding: 14px;
+
+    box-shadow: 0 2px 6px rgba(38, 32, 30, 0.05);
+}
+
+
+/* ================= FORM GRID ================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 11px 14px;
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 8px;
+
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 31px;
+
+    padding: 0 9px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 5px;
+
+    background-color: white;
+
+    color: var(--text-primary);
+
+    outline: none;
+
+    font-size: 9px;
+}
+
+.form-group input::placeholder {
+    color: #AAA39E;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-yellow);
+}
+
+
+/* ================= MESSAGE ================= */
+
+#formMessage {
+    margin-top: 8px;
+
+    min-height: 12px;
+
+    font-size: 8px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.form-actions {
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.add-btn,
+.cancel-btn {
+    padding: 6px 10px;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-btn {
+    border: none;
+
+    background-color: var(--primary-yellow);
+
+    color: var(--primary-dark);
+
+    font-weight: 600;
+}
+
+.add-btn:hover {
+    background-color: var(--yellow-hover);
+}
+
+.cancel-btn {
+    background-color: white;
+
+    border: 1px solid var(--border-color);
+
+    color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+    background-color: var(--page-bg);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 65px;
+
+        padding: 20px 8px;
+    }
+
+    .logo h2 {
+        display: none;
+    }
+
+    .sidebar-menu a,
+    .logout {
+        justify-content: center;
+
+        font-size: 0;
+
+        padding: 10px;
+    }
+
+    .sidebar-menu a i,
+    .logout i {
+        font-size: 18px;
+    }
+
+    .main-content {
+        margin-left: 65px;
+
+        width: calc(100% - 65px);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        width: 180px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .search-box {
+        width: 140px;
+    }
+
+    .profile-text {
+        display: none;
+    }
+
+}

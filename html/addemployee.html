@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CTRL+NXT | Add Employee</title>
+
+    <link rel="stylesheet" href="../css/addEmployee.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR  -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-command"></i>
+
+            <h2>
+                CTRL<span>+NXT</span>
+            </h2>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="hrDashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                <span>Employees</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-square-check"></i>
+                <span>Task Management</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Leave Requests</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Company Policies</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>Feedback</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-video"></i>
+                <span>Meetings</span>
+            </a>
+
+        </nav>
+
+        <a href="#" class="logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                >
+            </div>
+
+            <div class="hr-info">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+
+                <div class="profile-image">
+                    F
+                </div>
+
+                <div class="profile-text">
+                    <h6>Fatima</h6>
+                    <small>HR Manager</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="add-employee-page">
+
+            <div class="page-header">
+
+                <h1>Add New Employee</h1>
+
+                <p>
+                    Create a new employee account.
+                </p>
+
+            </div>
+
+
+            <!-- FORM CARD -->
+
+            <div class="form-card">
+
+                <form id="employeeForm">
+
+                    <div class="form-grid">
+
+                        <!-- NAME -->
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter employee name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="employee@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- ROLE -->
+
+                        <div class="form-group">
+
+                            <label for="role">
+                                Role
+                            </label>
+
+                            <select id="role" required>
+
+                                <option value="">
+                                    Select role...
+                                </option>
+
+                                <option value="EMP">
+                                    Employee
+                                </option>
+
+                                <option value="HR">
+                                    HR
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- DEPARTMENT -->
+
+                        <div class="form-group">
+
+                            <label for="department">
+                                Department
+                            </label>
+
+                            <select id="department" required>
+
+                                <option value="">
+                                    Select department...
+                                </option>
+
+                                <option value="IT">
+                                    IT
+                                </option>
+
+                                <option value="HR">
+                                    HR
+                                </option>
+
+                                <option value="Marketing">
+                                    Marketing
+                                </option>
+
+                                <option value="Sales">
+                                    Sales
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="confirmPassword">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Repeat password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <p id="formMessage"></p>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="add-btn"
+                        >
+                            Add Employee
+                        </button>
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelBtn"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/addemployee.js"></script>
+
+</body>
+
+</html>
