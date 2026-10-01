@@ -26,12 +26,12 @@ function goToTasks() {
 
     if (currentUser.role === "EMP") {
 
-        window.location.href = "-.html";
+        window.location.href = "ETasks.html";
 
     }
     else if (currentUser.role === "HR") {
 
-        window.location.href = "-.html";
+        window.location.href = "HRTasks.html";
 
     }
 }

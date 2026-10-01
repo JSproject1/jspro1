@@ -1,11 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETasks</title>
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="../css/ETasks.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="pageHeader">
+            <div>
+                <h1>My Tasks</h1>
+                <p>View your assigned tasks</p>
+            </div>
+        </div>
+        <div class="statistics">
+            <div class="statCard">
+                <h4>Total Tasks</h4>
+                <h2 id="totalTasks">0</h2>
+            </div>
+            <div class="statCard">
+                <h4>Pending</h4>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+            <div class="statCard">
+                <h4>In Progress</h4>
+                <h2 id="progressTasks">0</h2>
+            </div>
+            <div class="statCard">
+                <h4>Completed</h4>
+                <h2 id="completedTasks">0</h2>
+            </div>
+        </div>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search tasks...">
+            <select id="filterStatus">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed"> Completed</option>
+            </select>
+            <select id="filterPriority">
+                <option value="All"> All Priorities</option>
+                <option value="High"> High</option>
+                <option value="Medium"> Medium</option>
+                <option value="Low"> Low</option>
+            </select>
+        </div>
+        <div id="tasksContainer" class="tasksContainer"></div>
+        <div id="noTasks" class="noTasks" hidden>
+            <h3>No Tasks Found</h3>
+            <p>You don't have any assigned tasks.</p>
+        </div>
+    </div>
+    <div id="viewTask">
+        <div>
+            <button id="closeBtn">×</button>
+            <div class="content">
+                <h2 id="taskTitleE"></h2>
+                <h3>Description</h3>
+                <p id="taskDescriptionE"></p>
+                <h3>Status </h3>
+                <p id="taskStatusE"></p>
+                <h3>Start Date</h3>
+                <p id="startDateE"></p>
+                <h3>Due Date</h3>
+                <p id="dueDateE"></p>
+                <h3>Task Attachment</h3>
+                <p id="attachE"></p>
+                <h3>My Submission</h3>
+                <p id="submissionE"></p>
+            </div>
+
+        </div>
+        <div>
+        </div>
+    </div>
+    <div id="editTaskModal" class="editTaskModal">
+        <div class="editTaskContent">
+            <button id="closeEditBtn" class="closeBtn">×</button>
+            <h2>Edit Task</h2>
+            <form id="editTaskForm">
+                <h1 id="taskName"></h1><br>
+                <label>Status</label><br>
+                <select id="editTaskStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Complete</option>
+                </select>
+                <br><br>
+
+                <label>Submit your work</label><br><br>
+                <input id="employeeFile" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                <small><small>You can attach relevant PDFs, images, or documents (Max: 2MB).</small></small>
+                <button type="submit" class="saveBtn"> Save Changes </button>
+
+
+            </form>
+        </div>
+    </div>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ETasks.js"></script>
+
 </body>
+
 </html>
