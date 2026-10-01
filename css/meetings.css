@@ -1,539 +1,625 @@
-:root {
-    --dark: #231b1b;
-    --dark-soft: #332727;
-    --gold: #f7bf00;
-    --gold-hover: #dda900;
-    --cream: #f8ecd5;
-    --cream-light: #fffaf1;
-    --white: #ffffff;
-    --text: #2d2525;
-    --muted: #7a6e6e;
-    --border: #eadcc6;
-    --shadow: 0 8px 24px rgba(35, 27, 27, 0.10);
+
+:root{
+    --black:#11110F;
+    --black-soft:#171714;
+    --dark-card:#22221E;
+    --cream:#E9E1D3;
+    --off-white:#F2EEE4;
+    --gold:#C7B08A;
+    --gold-light:#D8C5A8;
+    --gold-dark:#9A7B4F;
+    --text:#171714;
+    --muted:#6F6A60;
+    --muted-light:#9A938A;
+    --success:#73866D;
+    --warning:#C69B58;
+    --danger:#A95D52;
+    --info:#71858C;
+    --border:rgba(23,23,20,.12);
+    --shadow:0 8px 30px rgba(17,17,15,.06);
+    --shadow-luxury:0 20px 45px rgba(17,17,15,.10);
+    --radius-sm:8px;
+    --radius-md:12px;
+    --radius-lg:18px;
+    --transition:all .28s cubic-bezier(.16,1,.3,1);
 }
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:var(--cream);
+    color:var(--text);
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+/* ================= SIDEBAR ================= */
+
 .side-bar{
     position:fixed;
     top:0;
     left:0;
-    width:230px;
-    height:100vh ;
-    padding:25px 15px;
-    background-color:var(--dark);
+    width:250px;
+    height:100vh;
+    padding:28px 16px;
+    background:var(--black);
+    color:var(--off-white);
     z-index:1000;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid rgba(242,238,228,.08);
+    box-shadow:4px 0 24px rgba(17,17,15,.12);
+    overflow-y:auto;
 }
 
 .side-logo{
-    padding:0 15px 25px;
-    color:var(--white);
-    font-size:22px;
+    padding:0 14px 25px;
+    margin-bottom:12px;
+    border-bottom:1px solid rgba(242,238,228,.10);
+}
+
+.side-logo a{
+    display:inline-block;
+    padding:0;
+    margin:0;
+    color:var(--off-white);
+    font-size:25px;
     font-weight:700;
-}
-
-.side-bar a{
-    display:block;
-    padding:12px 15px;
-    margin-bottom:7px;
-    color:rgba(255,255,255,0.75);
+    letter-spacing:-.5px;
     text-decoration:none;
-    border-radius:8px;
 }
 
-.side-bar a:hover,
-.side-bar a.active{
-    background-color:#7a6e6e;
-    color:var(--dark);
+.side-logo a:hover{
+    color:var(--off-white);
+    background:transparent;
 }
 
-.profile-container{
-    width: min(1150px, 92%);
-    margin-left: 250px;
-    margin-top: 40px;
-}
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background-color: #f5f7fb;
-
-    color: #1f2937;
+.side-bar>a{
+    display:flex;
+    align-items:center;
+    padding:12px 16px;
+    margin-bottom:2px;
+    color:rgba(242,238,228,.65);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    border-radius:var(--radius-sm);
+    transition:var(--transition);
 }
 
-
-/* =========================
-   Main Container
-========================= */
-
-.page-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin-left: 250px;
+.side-bar>a:hover{
+    background:rgba(199,176,138,.10);
+    color:var(--off-white);
+    transform:translateX(4px);
 }
 
-
-/* =========================
-   Header
-========================= */
-
-.page-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 35px;
+.side-bar>a.active{
+    background:var(--gold);
+    color:var(--black-soft);
+    font-weight:700;
+    box-shadow:0 4px 14px rgba(199,176,138,.25);
 }
 
-.page-header h1 {
-    margin: 0;
-
-    font-size: 32px;
+.side-bar>div:last-child{
+    margin-top:auto;
 }
 
-.page-header p {
-    margin-top: 8px;
-
-    color: #6b7280;
+.side-bar .logout{
+    display:flex;
+    align-items:center;
+    padding:12px 16px;
+    margin:0;
+    color:rgba(242,238,228,.65);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    border-radius:var(--radius-sm);
+    transition:var(--transition);
 }
 
-
-/* =========================
-   New Meeting Button
-========================= */
-
-.new-meeting-btn {
-    background-color: #2563eb;
-
-    color: white;
-
-    border: none;
-
-    padding: 13px 20px;
-
-    border-radius: 8px;
-
-    font-size: 15px;
-
-    cursor: pointer;
+.side-bar .logout:hover{
+    background:rgba(199,176,138,.10);
+    color:var(--off-white);
+    transform:translateX(4px);
 }
 
-.new-meeting-btn:hover {
-    background-color: #1d4ed8;
+/* ================= MAIN CONTAINER ================= */
+
+.page-container{
+    width:min(1150px,calc(100% - 300px));
+    margin-left:280px;
+    margin-top:40px;
+    padding-bottom:50px;
 }
 
+/* ================= PAGE HEADER ================= */
 
-/* =========================
-   Meetings Section
-========================= */
-
-.meetings-section {
-    background-color: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.06);
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+    padding:32px;
+    background:linear-gradient(
+        135deg,
+        var(--black),
+        var(--black-soft) 60%,
+        var(--dark-card)
+    );
+    color:var(--off-white);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-luxury);
+    position:relative;
+    overflow:hidden;
 }
 
-
-.section-title {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 20px;
+.page-header::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    top:-150px;
+    right:-80px;
+    background:radial-gradient(
+        circle,
+        rgba(199,176,138,.18),
+        transparent 70%
+    );
+    pointer-events:none;
 }
 
-.section-title h2 {
-    margin: 0;
+.page-header h1{
+    margin:0 0 6px;
+    color:var(--off-white);
+    font-size:36px;
+    font-weight:600;
 }
 
-#meetingCount {
-    color: #6b7280;
-
-    font-size: 14px;
+.page-header p{
+    margin:0;
+    color:rgba(242,238,228,.65);
+    font-size:15px;
 }
 
+/* ================= NEW MEETING ================= */
 
-/* =========================
-   Meeting Card
-========================= */
-
-.meeting-card {
-    border: 1px solid #e5e7eb;
-
-    border-radius: 10px;
-
-    padding: 20px;
-
-    margin-bottom: 15px;
-
-    background-color: #ffffff;
+.new-meeting-btn{
+    background:var(--gold);
+    color:var(--black-soft);
+    border:none;
+    padding:11px 20px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
 }
 
-.meeting-card:hover {
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.08);
+.new-meeting-btn:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(199,176,138,.25);
 }
 
-.meeting-card h3 {
-    margin-top: 0;
+/* ================= MEETINGS ================= */
 
-    margin-bottom: 12px;
-
-    font-size: 20px;
+.meetings-section{
+    background:var(--off-white);
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow);
 }
 
-.meeting-info {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 20px;
-
-    color: #6b7280;
-
-    font-size: 14px;
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-.created-by {
-    margin-top: 12px;
-
-    font-size: 14px;
+.section-title h2{
+    margin:0;
+    color:var(--text);
+    font-size:22px;
 }
 
-.status {
-    display: inline-block;
-
-    padding: 5px 10px;
-
-    border-radius: 20px;
-
-    font-size: 13px;
-
-    font-weight: bold;
+#meetingCount{
+    color:var(--muted);
+    font-size:14px;
 }
 
-.status.pending {
-    background-color: #fff7ed;
+/* ================= MEETING CARD ================= */
 
-    color: #c2410c;
+.meeting-card{
+    padding:20px;
+    margin-bottom:15px;
+    background:var(--off-white);
+    border:1px solid var(--border);
+    border-left:4px solid var(--gold);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow);
+    transition:var(--transition);
 }
 
-.status.accepted {
-    background-color: #f0fdf4;
-
-    color: #15803d;
+.meeting-card:last-child{
+    margin-bottom:0;
 }
 
-.status.rejected {
-    background-color: #fef2f2;
-
-    color: #dc2626;
+.meeting-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-luxury);
+    border-color:rgba(199,176,138,.45);
 }
 
-
-/* =========================
-   Meeting Actions
-========================= */
-
-.meeting-actions {
-    margin-top: 18px;
-
-    display: flex;
-
-    gap: 10px;
+.meeting-card h3{
+    margin:0 0 12px;
+    color:var(--text);
+    font-size:20px;
 }
 
-.join-btn {
-    background-color: #2563eb;
-
-    color: white;
-
-    border: none;
-
-    padding: 9px 16px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+.meeting-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    color:var(--muted);
+    font-size:14px;
 }
 
-.accept-btn {
-    background-color: #16a34a;
-
-    color: white;
-
-    border: none;
-
-    padding: 9px 16px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+.created-by{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:14px;
 }
 
-.reject-btn {
-    background-color: #dc2626;
+/* ================= STATUS ================= */
 
-    color: white;
-
-    border: none;
-
-    padding: 9px 16px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
 }
 
-
-/* =========================
-   Modal
-========================= */
-
-.modal {
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    background-color: rgba(0, 0, 0, 0.45);
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
+.status.pending{
+    background:rgba(198,155,88,.15);
+    color:var(--warning);
 }
 
-
-.modal-content {
-    width: 100%;
-
-    max-width: 600px;
-
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    background-color: white;
-
-    border-radius: 12px;
-
-    padding: 25px;
+.status.accepted{
+    background:rgba(115,134,109,.15);
+    color:var(--success);
 }
 
-
-/* =========================
-   Modal Header
-========================= */
-
-.modal-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    margin-bottom: 20px;
+.status.rejected{
+    background:rgba(169,93,82,.15);
+    color:var(--danger);
 }
 
-.modal-header h2 {
-    margin: 0;
+/* ================= ACTIONS ================= */
+
+.meeting-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
 }
 
-.modal-header p {
-    color: #6b7280;
-
-    margin-top: 6px;
+.join-btn,
+.accept-btn,
+.reject-btn{
+    border:none;
+    padding:9px 16px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    font-weight:600;
+    transition:var(--transition);
 }
 
-.close-btn {
-    background: none;
-
-    border: none;
-
-    font-size: 28px;
-
-    cursor: pointer;
-
-    color: #6b7280;
+.join-btn{
+    background:var(--gold);
+    color:var(--black-soft);
 }
 
+.accept-btn{
+    background:var(--success);
+    color:var(--off-white);
+}
 
-/* =========================
-   Form
-========================= */
+.reject-btn{
+    background:var(--danger);
+    color:var(--off-white);
+}
 
-label {
-    display: block;
+.join-btn:hover,
+.accept-btn:hover,
+.reject-btn:hover{
+    transform:translateY(-2px);
+}
 
-    margin-top: 15px;
+/* ================= MODAL ================= */
 
-    margin-bottom: 6px;
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(17,17,15,.72);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    backdrop-filter:blur(5px);
+}
 
-    font-weight: bold;
+.modal-content{
+    width:100%;
+    max-width:600px;
+    max-height:90vh;
+    overflow-y:auto;
+    padding:30px;
+    background:var(--off-white);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-luxury);
+}
 
-    font-size: 14px;
+/* ================= MODAL HEADER ================= */
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:20px;
+}
+
+.modal-header h2{
+    margin:0;
+    color:var(--text);
+    font-size:25px;
+}
+
+.modal-header p{
+    margin-top:6px;
+    color:var(--muted);
+}
+
+.close-btn{
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:50%;
+    background:var(--black);
+    color:var(--off-white);
+    font-size:22px;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.close-btn:hover{
+    background:var(--gold);
+    color:var(--black-soft);
+    transform:rotate(90deg);
+}
+
+/* ================= FORM ================= */
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    color:var(--text);
+    font-weight:600;
+    font-size:14px;
 }
 
 input,
-select {
-    width: 100%;
-
-    padding: 11px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 6px;
-
-    font-size: 14px;
+select{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--off-white);
+    color:var(--text);
+    outline:none;
+    transition:var(--transition);
 }
 
-.form-row {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 15px;
+input:focus,
+select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(199,176,138,.18);
 }
 
-
-/* =========================
-   Users
-========================= */
-
-.users-container {
-    border: 1px solid #e5e7eb;
-
-    border-radius: 8px;
-
-    padding: 10px;
-
-    max-height: 180px;
-
-    overflow-y: auto;
+input::placeholder{
+    color:var(--muted-light);
 }
 
-.user {
-    padding: 10px;
-
-    background-color: #f9fafb;
-
-    border-radius: 6px;
-
-    margin-bottom: 5px;
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
-.user:last-child {
-    margin-bottom: 0;
+/* ================= USERS ================= */
+
+.users-container{
+    max-height:180px;
+    overflow-y:auto;
+    padding:10px;
+    background:var(--cream);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
 }
 
-.user label {
-    margin: 0;
-
-    cursor: pointer;
-
-    font-weight: normal;
+.user{
+    padding:10px;
+    margin-bottom:5px;
+    background:var(--off-white);
+    border-radius:var(--radius-sm);
 }
 
-.user input {
-    width: auto;
-
-    margin-right: 8px;
+.user:last-child{
+    margin-bottom:0;
 }
 
-
-/* =========================
-   Modal Buttons
-========================= */
-
-.modal-buttons {
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 10px;
-
-    margin-top: 25px;
+.user label{
+    margin:0;
+    cursor:pointer;
+    font-weight:normal;
 }
 
-.cancel-btn {
-    background-color: #e5e7eb;
-
-    border: none;
-
-    padding: 10px 18px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+.user input{
+    width:auto;
+    margin-right:8px;
 }
 
-.create-btn {
-    background-color: #2563eb;
+/* ================= MODAL BUTTONS ================= */
 
-    color: white;
-
-    border: none;
-
-    padding: 10px 18px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
+.modal-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
 }
 
-
-/* =========================
-   Empty Meetings
-========================= */
-
-.empty-meetings {
-    text-align: center;
-
-    padding: 50px 20px;
-
-    color: #6b7280;
+.cancel-btn,
+.create-btn{
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:var(--transition);
 }
 
-.empty-meetings h3 {
-    color: #374151;
+.cancel-btn{
+    background:transparent;
+    color:var(--text);
+    border:1px solid rgba(23,23,20,.25);
 }
 
+.cancel-btn:hover{
+    background:rgba(199,176,138,.15);
+    border-color:var(--gold);
+}
 
-/* =========================
-   Responsive
-========================= */
+.create-btn{
+    background:var(--black-soft);
+    color:var(--off-white);
+}
 
-@media (max-width: 600px) {
+.create-btn:hover{
+    background:var(--gold);
+    color:var(--black-soft);
+}
 
-    .page-header {
-        flex-direction: column;
+/* ================= EMPTY ================= */
 
-        align-items: flex-start;
+.empty-meetings{
+    text-align:center;
+    padding:50px 20px;
+    color:var(--muted);
+}
 
-        gap: 15px;
+.empty-meetings h3{
+    margin-bottom:8px;
+    color:var(--text);
+    font-size:22px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .page-container{
+        margin-left:270px;
+        width:calc(100% - 300px);
+    }
+}
+
+@media(max-width:991px){
+
+    .side-bar{
+        position:static;
+        width:100%;
+        height:auto;
+        min-height:auto;
+        padding:20px;
     }
 
-    .new-meeting-btn {
-        width: 100%;
+    .side-logo{
+        margin-bottom:12px;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .side-bar>a{
+        margin-bottom:5px;
     }
 
+    .page-container{
+        width:92%;
+        margin:30px auto;
+        padding-bottom:30px;
+    }
+
+    .page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .new-meeting-btn{
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+
+    .page-header{
+        padding:24px;
+    }
+
+    .page-header h1{
+        font-size:30px;
+    }
+
+    .meetings-section{
+        padding:18px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .meeting-info{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .meeting-actions{
+        flex-direction:column;
+    }
+
+    .meeting-actions button{
+        width:100%;
+    }
+
+    .modal-content{
+        padding:24px 20px;
+    }
 }
