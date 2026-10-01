@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Feedback Inbox</title>
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+  <section class="feedback-page">
+
+    <section class="page-header">
+      <h1>Feedback inbox</h1>
+      <p>Feedback sent by employees from the contact page.</p>
+    </section>
+
+    <section class="stats-row">
+      <div class="stat-box">
+        <span class="stat-label">Total</span>
+        <strong class="stat-number" id="statTotal">0</strong>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">New</span>
+        <strong class="stat-number" id="statNew">0</strong>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Average rating</span>
+        <strong class="stat-number" id="statAvg">-</strong>
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      <input type="search" id="searchInput" placeholder="Search by name, email or subject">
+
+      <select id="statusFilter">
+        <option value="">All statuses</option>
+        <option value="new">New</option>
+        <option value="read">Read</option>
+        <option value="resolved">Resolved</option>
+      </select>
+
+      <select id="categoryFilter">
+        <option value="">All categories</option>
+        <option value="Suggestion">Suggestion</option>
+        <option value="Complaint">Complaint</option>
+        <option value="Praise">Praise</option>
+        <option value="Other">Other</option>
+      </select>
+    </section>
+    <section id="feedbackList" class="feedback-list"></section>
+
+
+  </section>
+
+  <script src="feedback-storage.js"></script>
+  <script src="hr-feedback.js"></script>
+</body>
+</html>
