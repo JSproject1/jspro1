@@ -59,7 +59,7 @@ loginForm.addEventListener("submit", function(event) {
             }
             else if (user.role === "HR") {
 
-                window.location.href = "../html/home.html";
+                window.location.href = "../html/hrDashboard.html";
 
             }
 
