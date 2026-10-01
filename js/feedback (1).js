@@ -1,139 +1,337 @@
-const form = document.getElementById("feedbackForm");
-const formAlert = document.getElementById("formAlert");
-const messageInput = document.getElementById("message");
-const messageCounter = document.getElementById("messageCounter");
+let currentUser = getCurrentUser();
+
+if (currentUser == null || currentUser.role !== "EMP") {
+
+    window.location.href = "login.html";
+}
+
+
+let feedbackForm = document.getElementById("feedbackForm");
+let formAlert = document.getElementById("formAlert");
+let messageInput = document.getElementById("message");
+let messageCounter = document.getElementById("messageCounter");
 
 const MAX_MESSAGE_LENGTH = 500;
-const fields = ["name", "email", "category", "rating", "subject", "message"];
+
+let fields = [
+    "name",
+    "email",
+    "category",
+    "rating",
+    "subject",
+    "message"
+];
+
 
 function fillUserData() {
-  const user = getCurrentUser();
-  if (user) {
-    document.getElementById("name").value = user.username || user.name || "";
-    document.getElementById("email").value = user.email || "";
-  }
+
+    document.getElementById("name").value =
+        currentUser.name || "";
+
+    document.getElementById("email").value =
+        currentUser.email || "";
 }
+
 
 function updateCounter() {
-  messageCounter.textContent = messageInput.value.length + " / " + MAX_MESSAGE_LENGTH;
+
+    messageCounter.textContent =
+        messageInput.value.length +
+        " / " +
+        MAX_MESSAGE_LENGTH;
 }
+
 
 function showError(field, message) {
-  document.getElementById(field + "Error").textContent = message;
 
-  if (field !== "rating") {
-    document.getElementById(field).className = message ? "input-error" : "";
-  }
+    document.getElementById(field + "Error").textContent =
+        message;
+
+    if (field !== "rating") {
+
+        document.getElementById(field).className =
+            message ? "input-error" : "";
+    }
 }
+
 
 function clearErrors() {
-  for (let i = 0; i < fields.length; i++) {
-    showError(fields[i], "");
-  }
+
+    for (let i = 0; i < fields.length; i++) {
+
+        showError(fields[i], "");
+    }
 }
+
 
 function showAlert(type, text) {
-  formAlert.textContent = text;
-  formAlert.className = "form-alert " + type;
+
+    formAlert.textContent = text;
+
+    formAlert.className =
+        "form-alert " + type;
 }
+
 
 function hideAlert() {
-  formAlert.className = "form-alert hidden";
+
+    formAlert.className =
+        "form-alert hidden";
 }
+
 
 function validateForm(values) {
-  let isValid = true;
-  clearErrors();
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let isValid = true;
 
-  if (values.name.length < 3) {
-    showError("name", "Name must be at least 3 characters.");
-    isValid = false;
-  }
+    clearErrors();
 
-  if (!emailPattern.test(values.email)) {
-    showError("email", "Please enter a valid email.");
-    isValid = false;
-  }
+    let emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (values.category === "") {
-    showError("category", "Please choose a category.");
-    isValid = false;
-  }
 
-  if (values.subject.length < 3) {
-    showError("subject", "Subject must be at least 3 characters.");
-    isValid = false;
-  }
+    if (values.name.length < 3) {
 
-  if (values.rating === "") {
-    showError("rating", "Please select a rating.");
-    isValid = false;
-  }
+        showError(
+            "name",
+            "Name must be at least 3 characters."
+        );
 
-  if (values.message.length < 10) {
-    showError("message", "Message must be at least 10 characters.");
-    isValid = false;
-  } else if (values.message.length > MAX_MESSAGE_LENGTH) {
-    showError("message", "Message must be less than " + MAX_MESSAGE_LENGTH + " characters.");
-    isValid = false;
-  }
+        isValid = false;
+    }
 
-  return isValid;
+
+    if (!emailPattern.test(values.email)) {
+
+        showError(
+            "email",
+            "Please enter a valid email."
+        );
+
+        isValid = false;
+    }
+
+
+    if (values.category === "") {
+
+        showError(
+            "category",
+            "Please choose a category."
+        );
+
+        isValid = false;
+    }
+
+
+    if (values.subject.length < 3) {
+
+        showError(
+            "subject",
+            "Subject must be at least 3 characters."
+        );
+
+        isValid = false;
+    }
+
+
+    if (values.rating === "") {
+
+        showError(
+            "rating",
+            "Please select a rating."
+        );
+
+        isValid = false;
+    }
+
+
+    if (values.message.length < 10) {
+
+        showError(
+            "message",
+            "Message must be at least 10 characters."
+        );
+
+        isValid = false;
+
+    } else if (values.message.length > MAX_MESSAGE_LENGTH) {
+
+        showError(
+            "message",
+            "Message must be less than " +
+            MAX_MESSAGE_LENGTH +
+            " characters."
+        );
+
+        isValid = false;
+    }
+
+
+    return isValid;
 }
+
 
 function clearForm() {
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("category").value = "";
-  document.getElementById("subject").value = "";
-  messageInput.value = "";
 
-  const stars = document.querySelectorAll('input[name="rating"]');
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].checked = false;
-  }
+    document.getElementById("category").value = "";
 
-  fillUserData();
-  updateCounter();
+    document.getElementById("subject").value = "";
+
+    messageInput.value = "";
+
+
+    let stars =
+        document.querySelectorAll(
+            'input[name="rating"]'
+        );
+
+    for (let i = 0; i < stars.length; i++) {
+
+        stars[i].checked = false;
+    }
+
+
+    fillUserData();
+
+    updateCounter();
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  hideAlert();
 
-  const selectedRating = document.querySelector('input[name="rating"]:checked');
+feedbackForm.addEventListener(
+    "submit",
+    function (event) {
 
-  const values = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    category: document.getElementById("category").value,
-    subject: document.getElementById("subject").value.trim(),
-    rating: selectedRating ? selectedRating.value : "",
-    message: messageInput.value.trim()
-  };
+        event.preventDefault();
 
-  if (!validateForm(values)) {
-    showAlert("error", "Please fix the errors and try again.");
-    return;
-  }
+        hideAlert();
 
-  addFeedback(values);
-  clearForm();
-  showAlert("success", "Thank you! Your feedback was sent to the HR team.");
-}
 
-function handleReset(event) {
-  event.preventDefault();
-  clearErrors();
-  hideAlert();
-  clearForm();
-}
+        let selectedRating =
+            document.querySelector(
+                'input[name="rating"]:checked'
+            );
 
-form.addEventListener("submit", handleSubmit);
-form.addEventListener("reset", handleReset);
-messageInput.addEventListener("input", updateCounter);
+
+        let values = {
+
+            name:
+                document
+                    .getElementById("name")
+                    .value
+                    .trim(),
+
+            email:
+                document
+                    .getElementById("email")
+                    .value
+                    .trim(),
+
+            category:
+                document
+                    .getElementById("category")
+                    .value,
+
+            subject:
+                document
+                    .getElementById("subject")
+                    .value
+                    .trim(),
+
+            rating:
+                selectedRating
+                    ? selectedRating.value
+                    : "",
+
+            message:
+                messageInput.value.trim()
+        };
+
+
+        if (!validateForm(values)) {
+
+            showAlert(
+                "error",
+                "Please fix the errors and try again."
+            );
+
+            return;
+        }
+
+
+        // Get old feedbacks
+        let feedbacks =
+            JSON.parse(
+                localStorage.getItem("feedbacks")
+            ) || [];
+
+
+        // Create new feedback
+        let newFeedback = {
+
+            id: Date.now(),
+
+            name: values.name,
+
+            email: values.email,
+
+            category: values.category,
+
+            rating: Number(values.rating),
+
+            subject: values.subject,
+
+            message: values.message,
+
+            date: new Date().toISOString(),
+
+            status: "new"
+        };
+
+
+        // Add feedback
+        feedbacks.push(newFeedback);
+
+
+        // Save feedbacks
+        localStorage.setItem(
+            "feedbacks",
+            JSON.stringify(feedbacks)
+        );
+
+
+        clearForm();
+
+
+        showAlert(
+            "success",
+            "Thank you! Your feedback was sent to the HR team."
+        );
+
+    }
+);
+
+
+feedbackForm.addEventListener(
+    "reset",
+    function (event) {
+
+        event.preventDefault();
+
+        clearErrors();
+
+        hideAlert();
+
+        clearForm();
+    }
+);
+
+
+messageInput.addEventListener(
+    "input",
+    updateCounter
+);
+
 
 fillUserData();
+
 updateCounter();

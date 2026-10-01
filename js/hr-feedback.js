@@ -1,141 +1,276 @@
 let currentUser = getCurrentUser();
 
-if (currentUser == null) {
-  window.location.href = "login.html";
-}
-else if (currentUser.role !== "EMP") {
-  window.location.href = "login.html";
+if (currentUser == null || currentUser.role !== "HR") {
+
+    window.location.href = "login.html";
 }
 
-let feedbackForm = document.getElementById("feedbackForm");
-let formAlert = document.getElementById("formAlert");
-let messageInput = document.getElementById("message");
-let messageCounter = document.getElementById("messageCounter");
 
-const MAX_MESSAGE_LENGTH = 500;
-let fields = ["name", "email", "category", "rating", "subject", "message"];
+let feedbackList =
+    document.getElementById("feedbackList");
 
-function fillUserData() {
-  document.getElementById("name").value = currentUser.name || "";
-  document.getElementById("email").value = currentUser.email || "";
+let searchInput =
+    document.getElementById("searchInput");
+
+let statusFilter =
+    document.getElementById("statusFilter");
+
+let categoryFilter =
+    document.getElementById("categoryFilter");
+
+let statTotal =
+    document.getElementById("statTotal");
+
+let statNew =
+    document.getElementById("statNew");
+
+let statAvg =
+    document.getElementById("statAvg");
+
+
+function getFeedbacks() {
+
+    return JSON.parse(
+        localStorage.getItem("feedbacks")
+    ) || [];
 }
 
-function updateCounter() {
-  messageCounter.textContent = messageInput.value.length + " / " + MAX_MESSAGE_LENGTH;
+
+function saveFeedbacks(feedbacks) {
+
+    localStorage.setItem(
+        "feedbacks",
+        JSON.stringify(feedbacks)
+    );
 }
 
-function showError(field, message) {
-  document.getElementById(field + "Error").textContent = message;
 
-  if (field !== "rating") {
-    document.getElementById(field).className = message ? "input-error" : "";
-  }
+function displayFeedbacks() {
+
+    let feedbacks = getFeedbacks();
+
+    let search =
+        searchInput.value.toLowerCase();
+
+    let status =
+        statusFilter.value;
+
+    let category =
+        categoryFilter.value;
+
+
+    let filtered = [];
+
+
+    for (let i = 0; i < feedbacks.length; i++) {
+
+        let feedback = feedbacks[i];
+
+
+        let matchesSearch =
+            feedback.name.toLowerCase().includes(search) ||
+            feedback.email.toLowerCase().includes(search) ||
+            feedback.subject.toLowerCase().includes(search);
+
+
+        let matchesStatus =
+            status === "" ||
+            feedback.status === status;
+
+
+        let matchesCategory =
+            category === "" ||
+            feedback.category === category;
+
+
+        if (
+            matchesSearch &&
+            matchesStatus &&
+            matchesCategory
+        ) {
+
+            filtered.push(feedback);
+        }
+    }
+
+
+    feedbackList.innerHTML = "";
+
+
+    if (filtered.length === 0) {
+
+        feedbackList.innerHTML =
+            "<p>No feedback found.</p>";
+
+        updateStats(feedbacks);
+
+        return;
+    }
+
+
+    for (let i = 0; i < filtered.length; i++) {
+
+        let feedback = filtered[i];
+
+
+        let card =
+            document.createElement("div");
+
+        card.className = "feedback-card";
+
+
+        card.innerHTML = `
+
+            <h3>${feedback.subject}</h3>
+
+            <p>
+                <strong>Name:</strong>
+                ${feedback.name}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                ${feedback.email}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                ${feedback.category}
+            </p>
+
+            <p>
+                <strong>Rating:</strong>
+                ${feedback.rating} / 5
+            </p>
+
+            <p>
+                <strong>Message:</strong>
+                ${feedback.message}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                ${feedback.status}
+            </p>
+
+            <button onclick="changeStatus(${feedback.id}, 'read')">
+                Mark as Read
+            </button>
+
+            <button onclick="changeStatus(${feedback.id}, 'resolved')">
+                Resolve
+            </button>
+
+            <button onclick="deleteFeedback(${feedback.id})">
+                Delete
+            </button>
+
+        `;
+
+
+        feedbackList.appendChild(card);
+    }
+
+
+    updateStats(feedbacks);
 }
 
-function clearErrors() {
-  for (let i = 0; i < fields.length; i++) {
-    showError(fields[i], "");
-  }
+
+function updateStats(feedbacks) {
+
+    statTotal.textContent =
+        feedbacks.length;
+
+
+    let newCount = 0;
+
+    let totalRating = 0;
+
+
+    for (let i = 0; i < feedbacks.length; i++) {
+
+        if (feedbacks[i].status === "new") {
+
+            newCount++;
+        }
+
+        totalRating += feedbacks[i].rating;
+    }
+
+
+    statNew.textContent =
+        newCount;
+
+
+    if (feedbacks.length === 0) {
+
+        statAvg.textContent = "-";
+
+    } else {
+
+        statAvg.textContent =
+            (totalRating / feedbacks.length)
+                .toFixed(1);
+    }
 }
 
-function showAlert(type, text) {
-  formAlert.textContent = text;
-  formAlert.className = "form-alert " + type;
+
+function changeStatus(id, status) {
+
+    let feedbacks = getFeedbacks();
+
+
+    for (let i = 0; i < feedbacks.length; i++) {
+
+        if (feedbacks[i].id === id) {
+
+            feedbacks[i].status = status;
+        }
+    }
+
+
+    saveFeedbacks(feedbacks);
+
+    displayFeedbacks();
 }
 
-function hideAlert() {
-  formAlert.className = "form-alert hidden";
+
+function deleteFeedback(id) {
+
+    let feedbacks = getFeedbacks();
+
+    let newFeedbacks = [];
+
+
+    for (let i = 0; i < feedbacks.length; i++) {
+
+        if (feedbacks[i].id !== id) {
+
+            newFeedbacks.push(feedbacks[i]);
+        }
+    }
+
+
+    saveFeedbacks(newFeedbacks);
+
+    displayFeedbacks();
 }
 
-function validateForm(values) {
-  let isValid = true;
-  clearErrors();
 
-  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+searchInput.addEventListener(
+    "input",
+    displayFeedbacks
+);
 
-  if (values.name.length < 3) {
-    showError("name", "Name must be at least 3 characters.");
-    isValid = false;
-  }
+statusFilter.addEventListener(
+    "change",
+    displayFeedbacks
+);
 
-  if (!emailPattern.test(values.email)) {
-    showError("email", "Please enter a valid email.");
-    isValid = false;
-  }
+categoryFilter.addEventListener(
+    "change",
+    displayFeedbacks
+);
 
-  if (values.category === "") {
-    showError("category", "Please choose a category.");
-    isValid = false;
-  }
 
-  if (values.subject.length < 3) {
-    showError("subject", "Subject must be at least 3 characters.");
-    isValid = false;
-  }
-
-  if (values.rating === "") {
-    showError("rating", "Please select a rating.");
-    isValid = false;
-  }
-
-  if (values.message.length < 10) {
-    showError("message", "Message must be at least 10 characters.");
-    isValid = false;
-  } else if (values.message.length > MAX_MESSAGE_LENGTH) {
-    showError("message", "Message must be less than " + MAX_MESSAGE_LENGTH + " characters.");
-    isValid = false;
-  }
-
-  return isValid;
-}
-
-function clearForm() {
-  document.getElementById("category").value = "";
-  document.getElementById("subject").value = "";
-  messageInput.value = "";
-
-  let stars = document.querySelectorAll('input[name="rating"]');
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].checked = false;
-  }
-
-  fillUserData();
-  updateCounter();
-}
-
-feedbackForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  hideAlert();
-
-  let selectedRating = document.querySelector('input[name="rating"]:checked');
-
-  let values = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    category: document.getElementById("category").value,
-    subject: document.getElementById("subject").value.trim(),
-    rating: selectedRating ? selectedRating.value : "",
-    message: messageInput.value.trim()
-  };
-
-  if (!validateForm(values)) {
-    showAlert("error", "Please fix the errors and try again.");
-    return;
-  }
-
-  addFeedback(values);
-  clearForm();
-  showAlert("success", "Thank you! Your feedback was sent to the HR team.");
-});
-
-feedbackForm.addEventListener("reset", function (event) {
-  event.preventDefault();
-  clearErrors();
-  hideAlert();
-  clearForm();
-});
-
-messageInput.addEventListener("input", updateCounter);
-
-fillUserData();
-updateCounter();
+displayFeedbacks();
