@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css');
+
+/* =========================================================
+   ALVORA / CTRL+NXT — HR POLICIES
+   CSS ONLY — HTML REMAINS UNCHANGED
+   ========================================================= */
+
 :root {
     --dark: #1F1A18;
     --dark-surface: #2A2420;
@@ -9,7 +15,6 @@
     --gold-bright: #E5A93C;
     --gold-hover: #C5932B;
     --gold-soft: rgba(212, 163, 115, 0.12);
-    --gold-glow: rgba(212, 163, 115, 0.22);
 
     --cream: #FAF7F2;
     --cream-surface: #F4EFE6;
@@ -39,6 +44,12 @@
     --transition:
         all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -72,6 +83,7 @@ body {
 
     font-size: 14px;
 }
+
 button,
 input,
 select,
@@ -87,9 +99,12 @@ a {
     color: inherit;
     text-decoration: none;
 }
-.app {
-    min-height: 100vh;
-}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
 .side-bar {
     position: fixed;
     top: 0;
@@ -111,8 +126,10 @@ a {
         );
 
     z-index: 1000;
+
     overflow-y: auto;
 }
+
 .side-logo {
     padding: 0 14px 34px;
 }
@@ -146,9 +163,6 @@ a {
     letter-spacing: 2px;
 }
 
-
-/* HR LABEL */
-
 .nav-section-title {
     margin: 0 14px 14px;
 
@@ -158,6 +172,7 @@ a {
     font-weight: 800;
     letter-spacing: 1.8px;
 }
+
 .side-navigation {
     flex: 1;
 }
@@ -181,6 +196,7 @@ a {
 
     transition: var(--transition);
 }
+
 .nav-icon {
     width: 22px;
 
@@ -194,6 +210,7 @@ a {
 
     transition: var(--transition);
 }
+
 .nav-item:hover {
     color: var(--white);
     background: rgba(255, 255, 255, 0.055);
@@ -204,6 +221,9 @@ a {
 .nav-item:hover .nav-icon {
     color: var(--gold-bright);
 }
+
+
+/* COMPANY POLICIES = ACTIVE */
 
 .side-navigation .nav-item.active {
     color: rgba(255, 255, 255, 0.64);
@@ -219,17 +239,17 @@ a {
     color: var(--gold);
 }
 
-.side-navigation a[href="View_employee.html"] {
+.side-navigation a[href="hrPolicies.html"] {
     color: var(--dark);
     background: var(--cream);
     font-weight: 600;
 }
 
-.side-navigation a[href="View_employee.html"] .nav-icon {
+.side-navigation a[href="hrPolicies.html"] .nav-icon {
     color: var(--gold-hover);
 }
 
-.side-navigation a[href="View_employee.html"]::before {
+.side-navigation a[href="hrPolicies.html"]::before {
     content: '';
 
     position: absolute;
@@ -242,11 +262,18 @@ a {
 
     border-radius: 0 4px 4px 0;
 }
+
+
+/* SIDEBAR FOOTER */
+
 .sidebar-footer {
     margin-top: auto;
+
     padding-top: 20px;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-role {
@@ -274,7 +301,8 @@ a {
             var(--gold),
             var(--gold-bright)
         );
-        color: var(--dark);
+
+    color: var(--dark);
 
     font-size: 15px;
 }
@@ -291,8 +319,6 @@ a {
 
     font-size: 11px;
     font-weight: 700;
-
-    white-space: nowrap;
 }
 
 .role-info span {
@@ -302,6 +328,7 @@ a {
 
     font-size: 9px;
 }
+
 .logout {
     display: flex;
     align-items: center;
@@ -317,11 +344,10 @@ a {
 
     transition: var(--transition);
 }
+
 .logout i {
     width: 22px;
-
     color: var(--gold);
-
     text-align: center;
 }
 
@@ -329,13 +355,22 @@ a {
     color: var(--gold);
     background: rgba(212, 163, 115, 0.10);
 }
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
 .main-content {
     min-height: 100vh;
-
     margin-left: 260px;
-
-    background: transparent;
 }
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
 .topbar {
     position: sticky;
     top: 0;
@@ -352,67 +387,25 @@ a {
 
     background: rgba(250, 247, 242, 0.91);
 
-    border-bottom: 1px solid rgba(232, 223, 211, 0.90);
+    border-bottom:
+        1px solid
+        rgba(232, 223, 211, 0.90);
 
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
 
-.top-search {
-    width: min(350px, 42vw);
-    height: 42px;
+.topbar-title {
+    color: var(--gray);
 
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    background: var(--white);
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    box-shadow: var(--shadow-subtle);
-
-    transition: var(--transition);
-}
-.top-search::before {
-    content: '⌕';
-
-    margin-left: 14px;
-    margin-right: 9px;
-
-    color: var(--gold-hover);
-
-    font-size: 17px;
-    line-height: 1;
-}
-.top-search:focus-within {
-    border-color: var(--gold);
-
-    box-shadow:
-        0 0 0 3px var(--gold-soft),
-        var(--shadow-subtle);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
-.top-search input {
-    width: 100%;
-    height: 100%;
 
-    padding-right: 14px;
-
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    color: var(--dark);
-
-    font-size: 12px;
-}
-.top-search input::placeholder {
-    color: var(--gray-light);
-}
+/* PROFILE */
 
 .profile {
     display: flex;
@@ -438,6 +431,7 @@ a {
 
     transition: var(--transition);
 }
+
 .notification:hover {
     color: var(--gold-hover);
     background: var(--gold-soft);
@@ -456,14 +450,14 @@ a {
 
     border-radius: 50%;
 
-    border: 2px solid rgba(212, 163, 115, 0.58);
-
     background:
         linear-gradient(
             135deg,
             var(--dark-surface),
             var(--dark-elevated)
         );
+
+    border: 2px solid rgba(212, 163, 115, 0.60);
 
     color: var(--gold);
 
@@ -475,6 +469,7 @@ a {
     font-size: 14px;
     font-weight: 700;
 }
+
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -494,7 +489,13 @@ a {
 
     font-size: 9px;
 }
-.employees-page {
+
+
+/* =========================================================
+   POLICIES PAGE
+   ========================================================= */
+
+.policies-page {
     max-width: 1440px;
 
     margin: 0 auto;
@@ -504,13 +505,31 @@ a {
         clamp(28px, 4vw, 60px)
         70px;
 }
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
 .page-header {
-    margin-bottom: 28px;
+    margin-bottom: 26px;
 
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
+}
+
+.header-label {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color: var(--gold-hover);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .page-header h1 {
@@ -523,28 +542,33 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(36px, 4vw, 50px);
+    font-size:
+        clamp(
+            36px,
+            4vw,
+            50px
+        );
+
     line-height: 1.1;
     font-weight: 700;
     letter-spacing: -1px;
 }
 
 .page-header p {
-    margin: 9px 0 0;
+    max-width: 580px;
+
+    margin: 10px 0 0;
 
     color: var(--gray);
 
     font-size: 12px;
-}
-#employeeCount {
-    color: var(--gold-hover);
-    font-weight: 800;
+    line-height: 1.6;
 }
 
 
-/* ADD EMPLOYEE */
+/* ADD POLICY */
 
-.add-employee-btn {
+.add-policy-btn {
     min-height: 46px;
 
     padding: 0 21px;
@@ -552,6 +576,7 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 9px;
 
     border: none;
     border-radius: 10px;
@@ -560,27 +585,141 @@ a {
     color: var(--white);
 
     box-shadow:
-        0 9px 24px rgba(31, 26, 24, 0.15);
+        0 9px 24px
+        rgba(31, 26, 24, 0.15);
 
     font-size: 11px;
     font-weight: 700;
 
     transition: var(--transition);
 }
-.add-employee-btn:hover {
+
+.add-policy-btn i {
+    color: var(--gold);
+}
+
+.add-policy-btn:hover {
     background: var(--gold-hover);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 13px 26px rgba(31, 26, 24, 0.16);
+        0 13px 26px
+        rgba(31, 26, 24, 0.16);
 }
 
-.add-employee-btn:active {
-    transform: translateY(0);
+.add-policy-btn:hover i {
+    color: var(--white);
 }
-.employees-card {
-    padding: 26px;
+
+
+/* =========================================================
+   POLICY STATS
+   ========================================================= */
+
+.policy-stats {
+    margin-bottom: 24px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 14px;
+}
+
+.stat-card {
+    min-height: 110px;
+
+    padding: 19px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-subtle);
+
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-luxury);
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--gold-soft);
+    color: var(--gold-hover);
+
+    font-size: 15px;
+}
+
+.stat-card > div:last-child {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card span {
+    color: var(--gray-light);
+
+    font-size: 8px;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.stat-card strong {
+    margin-top: 5px;
+
+    color: var(--dark);
+
+    font-family:
+        'Playfair Display',
+        Georgia,
+        serif;
+
+    font-size: 23px;
+    line-height: 1;
+}
+
+.stat-card .access-text {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+   ========================================================= */
+
+.policy-controls {
+    margin-bottom: 24px;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
 
     background: var(--white);
 
@@ -589,24 +728,16 @@ a {
 
     box-shadow: var(--shadow-subtle);
 }
-.filters {
-    margin-bottom: 22px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.employee-search {
-    width: min(390px, 100%);
+.policy-search {
+    width: min(420px, 100%);
     min-height: 43px;
+
+    padding: 0 13px;
 
     display: flex;
     align-items: center;
     gap: 9px;
-
-    padding: 0 13px;
 
     background: var(--cream);
 
@@ -616,21 +747,21 @@ a {
     transition: var(--transition);
 }
 
-.employee-search:focus-within {
+.policy-search:focus-within {
     background: var(--white);
     border-color: var(--gold);
 
-    box-shadow: 0 0 0 3px var(--gold-soft);
+    box-shadow:
+        0 0 0 3px
+        var(--gold-soft);
 }
 
-.employee-search span {
+.policy-search i {
     color: var(--gold-hover);
-
-    font-size: 18px;
-    line-height: 1;
+    font-size: 12px;
 }
 
-.employee-search input {
+.policy-search input {
     width: 100%;
 
     border: none;
@@ -642,11 +773,12 @@ a {
 
     font-size: 11px;
 }
-.employee-search input::placeholder {
+
+.policy-search input::placeholder {
     color: var(--gray-light);
 }
 
-#departmentFilter {
+#categoryFilter {
     min-width: 190px;
     height: 43px;
 
@@ -657,7 +789,7 @@ a {
 
     outline: none;
 
-    background-color: var(--cream);
+    background: var(--cream);
     color: var(--dark);
 
     font-size: 11px;
@@ -667,98 +799,96 @@ a {
     transition: var(--transition);
 }
 
-#departmentFilter:focus {
-    background-color: var(--white);
+#categoryFilter:focus {
+    background: var(--white);
     border-color: var(--gold);
 
-    box-shadow: 0 0 0 3px var(--gold-soft);
+    box-shadow:
+        0 0 0 3px
+        var(--gold-soft);
 }
 
-.table-wrapper {
-    width: 100%;
 
-    overflow-x: auto;
+/* =========================================================
+   POLICIES GRID
+   ========================================================= */
 
-    border: 1px solid rgba(232, 223, 211, 0.78);
-    border-radius: var(--radius-md);
+.policies-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
 }
 
-table {
-    width: 100%;
-    min-width: 840px;
 
-    border-collapse: collapse;
+/* Generic card support for JS-generated markup */
+
+.policy-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 230px;
+
+    padding: 23px;
+
+    display: flex;
+    flex-direction: column;
 
     background: var(--white);
-}
 
-thead {
-    background: var(--cream-surface);
-}
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
 
-thead th {
-    padding: 14px 16px;
+    box-shadow: var(--shadow-subtle);
 
-    color: var(--gray-light);
-
-    border-bottom: 1px solid var(--border);
-
-    font-size: 8px;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: 0.9px;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-tbody td {
-    padding: 15px 16px;
-
-    color: var(--dark);
-
-    border-bottom: 1px solid rgba(232, 223, 211, 0.68);
-
-    font-size: 11px;
-    vertical-align: middle;
-}
-tbody tr:last-child td {
-    border-bottom: none;
-}
-
-tbody tr {
     transition: var(--transition);
 }
 
-tbody tr:hover {
-    background: rgba(244, 239, 230, 0.48);
-}
-.employee-cell,
-.employee-data {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-}
+.policy-card::after {
+    content: '';
 
-.employee-avatar,
-.table-avatar {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
+    position: absolute;
+    top: -58px;
+    right: -58px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
+    width: 130px;
+    height: 130px;
 
     border-radius: 50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold),
-            var(--gold-bright)
-        );
+    background: var(--gold-soft);
+
+    pointer-events: none;
+}
+
+.policy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-luxury);
+}
+
+.policy-card-header,
+.policy-card-top {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.policy-card h3,
+.policy-title {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
 
     color: var(--dark);
 
@@ -767,39 +897,69 @@ tbody tr:hover {
         Georgia,
         serif;
 
-    font-size: 12px;
-    font-weight: 700;
-}
-.employee-avatar img,
-.table-avatar img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-.employee-name,
-tbody td strong {
-    color: var(--dark);
-
+    font-size: 20px;
+    line-height: 1.25;
     font-weight: 700;
 }
 
-.employee-email,
-.muted {
-    color: var(--gray-light);
+.policy-card p,
+.policy-description {
+    position: relative;
+    z-index: 2;
 
-    font-size: 9px;
+    margin: 10px 0 0;
+
+    color: var(--gray);
+
+    font-size: 10px;
+    line-height: 1.7;
 }
-tbody button,
-.action-btn,
-.view-btn,
-.edit-btn,
-.deactivate-btn,
-.delete-btn {
-    min-height: 31px;
 
-    margin: 2px;
+.policy-badge,
+.category-badge,
+.policy-category {
+    position: relative;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 6px 9px;
+
+    border-radius: 30px;
+
+    background: var(--gold-soft);
+    color: var(--gold-hover);
+
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.policy-card-footer,
+.policy-actions {
+    position: relative;
+    z-index: 2;
+
+    margin-top: auto;
+    padding-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+
+/* ACTION BUTTONS */
+
+.policy-card button,
+.view-policy-btn,
+.edit-policy-btn,
+.delete-policy-btn {
+    min-height: 32px;
+
     padding: 0 10px;
 
     border: 1px solid var(--border);
@@ -813,11 +973,11 @@ tbody button,
 
     transition: var(--transition);
 }
-tbody button:hover,
-.action-btn:hover,
-.view-btn:hover,
-.edit-btn:hover {
-    border-color: rgba(212, 163, 115, 0.48);
+
+.policy-card button:hover,
+.view-policy-btn:hover,
+.edit-policy-btn:hover {
+    border-color: rgba(212, 163, 115, 0.45);
 
     background: var(--gold-soft);
     color: var(--gold-hover);
@@ -825,45 +985,30 @@ tbody button:hover,
     transform: translateY(-1px);
 }
 
-.deactivate-btn:hover,
-.delete-btn:hover {
+.delete-policy-btn:hover {
     border-color: rgba(179, 95, 80, 0.25);
 
     background: var(--red-soft);
     color: var(--red);
 }
-.status,
-.status-badge,
-.department-badge {
-    display: inline-flex;
-    align-items: center;
 
-    padding: 6px 9px;
 
-    border-radius: 30px;
+/* If JS renders simpler div cards without policy-card class */
 
-    background: var(--gold-soft);
-    color: var(--gold-hover);
-
-    font-size: 8px;
-    font-weight: 700;
+#policiesContainer > div {
+    transition: var(--transition);
 }
 
-.status.active,
-.status-badge.active {
-    background: var(--green-soft);
-    color: var(--green);
-}
-.status.inactive,
-.status-badge.inactive {
-    background: var(--red-soft);
-    color: var(--red);
-}
-.modal {
+
+/* =========================================================
+   VIEW POLICY MODAL
+   ========================================================= */
+
+.view-policy-modal {
     position: fixed;
     inset: 0;
 
-    z-index: 2000;
+    z-index: 2200;
 
     display: none;
     align-items: center;
@@ -871,42 +1016,66 @@ tbody button:hover,
 
     padding: 20px;
 
-    background: rgba(31, 26, 24, 0.62);
+    background: rgba(31, 26, 24, 0.64);
 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
 
-.modal.show,
-.modal.active {
+.view-policy-modal.show,
+.view-policy-modal.active {
     display: flex;
 }
 
-.modal-content {
-    width: min(520px, 100%);
+.view-policy-content {
+    width: min(680px, 100%);
+    max-height: 88vh;
 
-    overflow: hidden;
+    overflow-y: auto;
 
     background: var(--white);
 
-    border: 1px solid rgba(232, 223, 211, 0.8);
+    border: 1px solid rgba(232, 223, 211, 0.80);
     border-radius: var(--radius-lg);
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.25);
+        0 30px 80px
+        rgba(0, 0, 0, 0.25);
 }
 
-.modal-header {
-    padding: 24px 26px 18px;
+
+/* MODAL HEADER */
+
+.view-policy-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
+    padding: 25px 27px 20px;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 15px;
+    gap: 20px;
+
+    background: var(--white);
 
     border-bottom: 1px solid var(--border);
 }
-.modal-header h2 {
+
+.view-policy-header span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--gold-hover);
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.view-policy-header h2 {
     margin: 0;
 
     color: var(--dark);
@@ -916,12 +1085,14 @@ tbody button:hover,
         Georgia,
         serif;
 
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 27px;
+    line-height: 1.2;
 }
-#closeModal {
-    width: 34px;
-    height: 34px;
+
+#closePolicyModal {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
 
     display: flex;
     align-items: center;
@@ -938,228 +1109,111 @@ tbody button:hover,
     transition: var(--transition);
 }
 
-#closeModal:hover {
+#closePolicyModal:hover {
     background: var(--dark);
     color: var(--white);
 }
 
-.modal-body {
-    padding: 22px 26px 27px;
-}
-.modal-body p {
-    margin: 0;
-    padding: 14px 0;
 
-    display: grid;
-    grid-template-columns: 125px 1fr;
-    gap: 14px;
+/* MODAL BODY */
 
-    border-bottom: 1px solid rgba(232, 223, 211, 0.68);
-
-    font-size: 11px;
+.view-policy-body {
+    padding: 25px 27px;
 }
 
-.modal-body p:last-child {
-    border-bottom: none;
+.policy-meta {
+    margin-bottom: 22px;
 }
 
-.modal-body strong {
+.policy-section {
+    padding: 18px 0;
+
+    border-top:
+        1px solid
+        rgba(232, 223, 211, 0.72);
+}
+
+.policy-section:first-of-type {
+    border-top: none;
+    padding-top: 4px;
+}
+
+.policy-section h4 {
+    margin: 0 0 8px;
+
     color: var(--gray-light);
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.modal-body span {
+.policy-section p {
+    margin: 0;
+
     color: var(--dark);
 
-    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.8;
 }
 
-.deactivate-modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 2100;
-
-    display: none;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    background: rgba(31, 26, 24, 0.62);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+.optional-section {
+    display: block;
 }
 
-.deactivate-modal.show,
-.deactivate-modal.active {
+
+/* MODAL FOOTER */
+
+.view-policy-footer {
+    padding: 17px 27px;
+
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: var(--cream-surface);
+
+    border-top: 1px solid var(--border);
+
+    color: var(--gray);
+
+    font-size: 9px;
 }
 
-.deactivate-modal-content {
-    position: relative;
 
-    width: min(470px, 100%);
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
 
-    padding: 34px 32px 30px;
+.empty-state,
+.no-policies {
+    grid-column: 1 / -1;
+
+    padding: 48px 25px;
 
     background: var(--white);
 
-    border: 1px solid rgba(232, 223, 211, 0.8);
+    border: 1px dashed var(--border);
     border-radius: var(--radius-lg);
 
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.25);
+    color: var(--gray-light);
 
     text-align: center;
 }
 
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
 
-    width: 34px;
-    height: 34px;
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 50%;
-
-    background: var(--cream-surface);
-    color: var(--dark);
-
-    font-size: 19px;
-
-    transition: var(--transition);
-}
-.modal-close:hover {
-    background: var(--dark);
-    color: var(--white);
-}
-
-.deactivate-icon {
-    width: 55px;
-    height: 55px;
-
-    margin: 4px auto 17px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--red-soft);
-    color: var(--red);
-
-    font-family:
-        'Playfair Display',
-        Georgia,
-        serif;
-
-    font-size: 25px;
-    font-weight: 700;
-}
-
-.deactivate-modal-content h3 {
-    margin: 0 0 13px;
-
-    color: var(--dark);
-
-    font-family:
-        'Playfair Display',
-        Georgia,
-        serif;
-
-    font-size: 25px;
-    font-weight: 700;
-}
-.deactivate-question {
-    margin: 0 0 10px;
-
-    color: var(--dark);
-
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.deactivate-question strong {
-    color: var(--gold-hover);
-}
-
-.deactivate-message {
-    max-width: 360px;
-
-    margin: 0 auto;
-
-    color: var(--gray);
-
-    font-size: 10px;
-    line-height: 1.7;
-}
-
-.deactivate-actions {
-    margin-top: 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.cancel-deactivate-btn,
-.confirm-deactivate-btn {
-    min-height: 42px;
-
-    padding: 0 18px;
-
-    border-radius: 9px;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    transition: var(--transition);
-}
-
-.cancel-deactivate-btn {
-    border: 1px solid var(--border);
-
-    background: transparent;
-    color: var(--gray);
-}
-.cancel-deactivate-btn:hover {
-    background: var(--cream-surface);
-}
-
-.confirm-deactivate-btn {
-    border: none;
-
-    background: var(--dark);
-    color: var(--white);
-}
-
-.confirm-deactivate-btn:hover {
-    background: var(--red);
-
-    transform: translateY(-1px);
-}
 .side-bar::-webkit-scrollbar,
-.table-wrapper::-webkit-scrollbar {
+.view-policy-content::-webkit-scrollbar {
     width: 4px;
-    height: 6px;
 }
 
 .side-bar::-webkit-scrollbar-track,
-.table-wrapper::-webkit-scrollbar-track {
+.view-policy-content::-webkit-scrollbar-track {
     background: transparent;
 }
 
@@ -1168,10 +1222,32 @@ tbody button:hover,
     border-radius: 10px;
 }
 
-.table-wrapper::-webkit-scrollbar-thumb {
+.view-policy-content::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 10px;
 }
+
+
+/* =========================================================
+   RESPONSIVE — LAPTOP
+   ========================================================= */
+
+@media (max-width: 1180px) {
+
+    .policies-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -1183,7 +1259,7 @@ tbody button:hover,
         margin-left: 220px;
     }
 
-    .employees-page {
+    .policies-page {
         padding:
             38px
             26px
@@ -1191,6 +1267,11 @@ tbody button:hover,
     }
 
 }
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
 
 @media (max-width: 760px) {
 
@@ -1204,7 +1285,10 @@ tbody button:hover,
     }
 
     .side-logo {
-        padding: 0 6px 20px;
+        padding:
+            0
+            6px
+            20px;
     }
 
     .side-navigation {
@@ -1223,7 +1307,7 @@ tbody button:hover,
         margin-bottom: 0;
     }
 
-    .side-navigation a[href="View_employee.html"]::before {
+    .side-navigation a[href="hrPolicies.html"]::before {
         display: none;
     }
 
@@ -1238,14 +1322,12 @@ tbody button:hover,
     .topbar {
         min-height: 66px;
 
-        padding: 10px 18px;
+        padding:
+            10px
+            18px;
     }
 
-    .top-search {
-        width: min(270px, 52vw);
-    }
-
-    .employees-page {
+    .policies-page {
         padding:
             30px
             18px
@@ -1261,13 +1343,13 @@ tbody button:hover,
         font-size: 36px;
     }
 
-    .filters {
+    .policy-controls {
         align-items: stretch;
         flex-direction: column;
     }
 
-    .employee-search,
-    #departmentFilter {
+    .policy-search,
+    #categoryFilter {
         width: 100%;
     }
 
@@ -1278,39 +1360,24 @@ tbody button:hover,
    RESPONSIVE — SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 560px) {
 
     .side-navigation {
         grid-template-columns: 1fr;
-    }
-
-    .top-search {
-        width: 100%;
-    }
-
-    .notification {
-        display: none;
     }
 
     .profile-info {
         display: none;
     }
 
-    .employees-card {
-        padding: 18px;
-    }
-
-    .modal-body p {
+    .policies-grid,
+    .policy-stats {
         grid-template-columns: 1fr;
-        gap: 5px;
     }
 
-    .deactivate-actions {
+    .view-policy-footer {
+        align-items: flex-start;
         flex-direction: column;
     }
 
-    .cancel-deactivate-btn,
-    .confirm-deactivate-btn {
-        width: 100%;
-    }
 }
