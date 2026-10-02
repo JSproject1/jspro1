@@ -1,38 +1,99 @@
 [
-    {
+   {
         "id": 1,
-        "name": "Abdallah Mdalal",
+        "name": "Abdallah mdalal",
         "role": "HR",
         "email": "abdallah@gmail.com",
         "department": "IT",
         "password": "1234",
-        "salary": 900,
-        "phone": "0790000000",
+        "salary": 700,
+        "phone": "0791111111",
         "address": "Amman",
-        "imge": "../images.jpg"
+        "image": "../images/ahmad.jpg"
     },
     {
         "id": 2,
         "name": "Ahmad Ali",
         "role": "EMP",
         "email": "ahmad@gmail.com",
-        "department": "HR",
+        "department": "Interior Design",
         "password": "1234",
         "salary": 700,
         "phone": "0791111111",
         "address": "Amman",
-        "imge": "../images.jpg"
+        "image": "../images/ahmad.jpg"
     },
+
     {
         "id": 3,
         "name": "Omar Khaled",
         "role": "EMP",
         "email": "omar@gmail.com",
-        "department": "IT",
+        "department": "Architecture",
         "password": "1234",
         "salary": 750,
         "phone": "0792222222",
         "address": "Zarqa",
-        "image": "../images.jpg"
+        "image": "../images/omar.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Sara Ahmad",
+        "role": "EMP",
+        "email": "sara@gmail.com",
+        "department": "3D Visualization",
+        "password": "1234",
+        "salary": 720,
+        "phone": "0793333333",
+        "address": "Amman",
+        "image": "../images/sara.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Lina Samer",
+        "role": "EMP",
+        "email": "lina@gmail.com",
+        "department": "Interior Design",
+        "password": "1234",
+        "salary": 680,
+        "phone": "0794444444",
+        "address": "Irbid",
+        "image": "../images/lina.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Yazan Mahmoud",
+        "role": "EMP",
+        "email": "yazan@gmail.com",
+        "department": "Site Engineering",
+        "password": "1234",
+        "salary": 800,
+        "phone": "0795555555",
+        "address": "Amman",
+        "image": "../images/yazan.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Dana Khalil",
+        "role": "EMP",
+        "email": "dana@gmail.com",
+        "department": "Project Management",
+        "password": "1234",
+        "salary": 850,
+        "phone": "0796666666",
+        "address": "Amman",
+        "image": "../images/dana.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Rami Nasser",
+        "role": "EMP",
+        "email": "rami@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "Salt",
+        "image": "../images/rami.jpg"
     }
 ]

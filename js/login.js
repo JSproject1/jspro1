@@ -49,7 +49,12 @@ loginForm.addEventListener("submit", function(event) {
                 "currentUser",
                 JSON.stringify(user)
             );
-
+    // fatima add 
+           sessionStorage.setItem(
+                "currentUserId",
+                user.id
+            );
+            
             // Go according to role
 
             if (user.role === "EMP") {
