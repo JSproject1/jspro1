@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALVORA — Beautiful Interiors. Meaningful Living.</title>
+    <meta name="description"
+        content="Livarta creates refined, timeless interiors that combine architecture, craftsmanship and thoughtful living.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/home2.css">
+</head>
+
+<body>
+
+    <!-- Shared gradients used by every SVG layer (keeps the whole scene in one lighting setup) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d9d1c6" />
+                <stop offset="1" stop-color="#bfb5a7" />
+            </linearGradient>
+            <linearGradient id="wallL" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#a99f92" />
+                <stop offset="1" stop-color="#cfc6b9" />
+            </linearGradient>
+            <linearGradient id="wallR" x1="1" y1="0" x2="0" y2="0">
+                <stop offset="0" stop-color="#a99f92" />
+                <stop offset="1" stop-color="#cfc6b9" />
+            </linearGradient>
+            <linearGradient id="ceil" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#cfc8bc" />
+                <stop offset="1" stop-color="#e6e0d6" />
+            </linearGradient>
+            <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7a5539" />
+                <stop offset=".5" stop-color="#5a3b27" />
+                <stop offset="1" stop-color="#352216" />
+            </linearGradient>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e8edf0" />
+                <stop offset="1" stop-color="#a9b4bf" />
+            </linearGradient>
+            <linearGradient id="rugG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c2b9ad" />
+                <stop offset="1" stop-color="#8f8679" />
+            </linearGradient>
+            <linearGradient id="sofaBack" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d8d0c4" />
+                <stop offset="1" stop-color="#bcb2a4" />
+            </linearGradient>
+            <linearGradient id="sofaSeat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e3dcd1" />
+                <stop offset="1" stop-color="#c9bfb1" />
+            </linearGradient>
+            <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#8a6446" />
+                <stop offset="1" stop-color="#6d4b32" />
+            </linearGradient>
+            <linearGradient id="drape" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#bdb4a8" />
+                <stop offset=".5" stop-color="#e0d9ce" />
+                <stop offset="1" stop-color="#b3a99c" />
+            </linearGradient>
+            <radialGradient id="glow">
+                <stop offset="0" stop-color="#ffe3a8" stop-opacity=".85" />
+                <stop offset="1" stop-color="#ffe3a8" stop-opacity="0" />
+            </radialGradient>
+        </defs>
+    </svg>
+
+    <header class="nav" id="nav">
+        <a class="brand" href="#top" aria-label="Livarta home"><span class="brand-mark"
+                aria-hidden="true"></span>ALVORA</a>
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="#studio">Studio</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#journal">Journal</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <a href="../html/login.html" class="nav-cta login" data-fx-button>Login <span>↗</span></a>
+           
+        </div>
+
+    </header>
+
+    <main id="top">
+
+        <!-- ============ SCROLL-CONTROLLED ROOM (600vh tall, 350vh on mobile) ============ -->
+        <section class="room-scroll" id="room" aria-label="A room assembling itself as you scroll">
+            <div class="room-sticky">
+
+                <div class="stage" id="stage">
+
+                    <!-- BACKGROUND: empty room photograph -->
+                    <img class="room-bg" src="../images/stage.jpg" alt="" width="1600" height="900" decoding="async">
+
+                    <!-- FURNITURE LAYERS. --x/--y/--w/--h are the FINAL position in a 1600x900 space. -->
+                    <!-- Replace any inline <svg> with <img src="assets/xxx.webp"> (transparent) – JS needs no change. -->
+
+                    <div class="item" data-item="rug" style="--x:250;--y:630;--w:1100;--h:170">
+                        <img src="../images/rug1.png">
+                    </div>
+
+                    <div class="item" data-item="cabL" style="--x:-300;--y:400;--w:500;--h:600">
+                        <img src="../images/foodTable.png">
+                    </div>
+                    <div class="item" data-item="cabR" style="--x:1465;--y:550;--w:125;--h:190">
+
+                    </div>
+
+                    <div class="item" data-item="plantL" style="--x:15;--y:400;--w:115;--h:160">
+                    </div>
+                    <div class="item" data-item="plantR" style="--x:1470;--y:400;--w:115;--h:155">
+                    </div>
+
+                    <div class="item" data-item="sofa" style="--x:430;--y:450;--w:760;--h:240">
+                        <img src="../images/sofa.png">
+                    </div>
+                    <div class="item" data-item="cushions" style="--x:640;--y:435;--w:370;--h:140">
+                        <img src="../images/cushions.png">
+                    </div>
+
+                    <div class="item" data-item="sideL" style="--x:290;--y:520;--w:160;--h:160">
+                        <img src="../images/side.png">
+                    </div>
+                    <div class="item" data-item="lampL" style="--x:305;--y:455;--w:80;--h:115">
+                        <!-- <svg viewBox="0 0 80 115">
+                            <circle cx="40" cy="40" r="46" fill="url(#glow)" />
+                            <path d="M12 48A28 28 0 0 1 68 48Z" fill="#f6efe2" />
+                            <rect x="34" y="48" width="12" height="52" fill="#b38f5e" />
+                            <ellipse cx="40" cy="102" rx="16" ry="5" fill="#b38f5e" />
+                        </svg> -->
+                    </div>
+                    <div class="item" data-item="sideR" style="--x:1170;--y:400;--w:200;--h:300">
+                        <img src="../images/sideR.png">
+                    </div>
+
+                    <div class="item" data-item="table" style="--x:500;--y:610;--w:350;--h:150">
+                        <img src="../images/table2.png">
+                    </div>
+                    <div class="item" data-item="vases" style="--x:290;--y:455;--w:150;--h:80">
+                        <img src="../images/vases.png">
+                    </div>
+
+                    <div class="item" data-item="pendC" style="--x:690;--y:100;--w:240;--h:200">
+                        <img src="../images/pendC.png">
+                    </div>
+                    <div class="item" data-item="pendL" style="--x:340;--y:0;--w:120;--h:330">
+                    </div>
+
+                    <!-- CARDBOARD BOX (pure CSS). Lids open with --open (0→1) set from JS. -->
+                    <div class="box" id="box" aria-hidden="true">
+                        <div class="box-inner">
+                            <div class="box-glow"></div>
+                            <div class="box-cavity"></div>
+                            <div class="box-lid-left"></div>
+                            <div class="box-lid-right"></div>
+                            <div class="box-body"></div>
+                        </div>
+                        <div class="box-particles" id="particles"></div>
+                    </div>
+                </div>
+
+                <div class="shade shade-dark"></div>
+                <div class="shade shade-warm"></div>
+                <div class="shade shade-hero"></div>
+
+                <div class="scroll-cue" id="cue">Scroll to reveal<span></span></div>
+
+                <div class="hero" id="hero">
+                    <p class="eyebrow" data-reveal="0.87,0.90">TAILORED SPACES</p>
+                    <h1 data-reveal="0.90,0.94">Beautiful Interiors.<br>Meaningful Living.</h1>
+                    <p class="lede" data-reveal="0.94,0.97">We create refined, timeless interiors that combine
+                        architecture, craftsmanship and thoughtful living to elevate every moment.</p>
+                    <div class="cta" data-reveal="0.97,1.00">
+                        <a class="btn btn-light" href="#projects">Explore Projects →</a>
+                        <a class="btn btn-ghost" href="#studio"><span class="play" aria-hidden="true">▶</span> Watch Our
+                            Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ NORMAL PAGE SECTIONS ============ -->
+        <section class="sec" id="projects">
+            <div class="wrap">
+                <p class="kicker reveal">01 — Work</p>
+                <h2 class="reveal">Selected Projects</h2>
+                <div class="projects">
+                    <a class="card c1 reveal" href="#contact">
+                        <div class="ph p1"><i><img src="../images/project1.jpg"></i></div>
+                        <div class="meta">
+                            <h3>Maison Aldéa <b>→</b></h3>
+                            <p>Lisbon, Portugal · 2025 · Residential</p>
+                        </div>
+                    </a>
+                    <a class="card c2 reveal" href="#contact">
+                        <div class="ph p2"><i><img src="../images/project2.jpg"></i></div>
+                        <div class="meta">
+                            <h3>The Linden Loft <b>→</b></h3>
+                            <p>Amman, Jordan · 2024 · Penthouse</p>
+                        </div>
+                    </a>
+                    <a class="card c3 reveal" href="#contact">
+                        <div class="ph p3"><i><img src="../images/project3.jpg" width="700" height="450"></i></div>
+                        <div class="meta">
+                            <h3>Casa Orvale <b>→</b></h3>
+                            <p>Milan, Italy · 2024 · Renovation</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec sec-sand" id="services">
+            <div class="wrap">
+                <p class="kicker reveal">02 — Services</p>
+                <h2 class="reveal">What we do</h2>
+                <ul class="rows">
+                    <li class="reveal"><a href="#contact"><span>01</span><strong>Interior Design</strong><em>Concept to
+                                completion</em><b>→</b></a></li>
+                    <li class="reveal"><a href="#contact"><span>02</span><strong>Residential Spaces</strong><em>Homes,
+                                lofts, villas</em><b>→</b></a></li>
+                    <li class="reveal"><a href="#contact"><span>03</span><strong>Spatial Planning</strong><em>Flow,
+                                light, proportion</em><b>→</b></a></li>
+                    <li class="reveal"><a href="#contact"><span>04</span><strong>Styling &amp;
+                                Decoration</strong><em>The final layer</em><b>→</b></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="sec" id="studio">
+            <div class="wrap split">
+                <div class="ph p4 reveal"><i><img src="../images/ourStudio.jpg" width="700" height="900"></i></div>
+                <div>
+                    <p class="kicker reveal">03 — Studio</p>
+                    <h2 class="reveal">Architecture, craft and quiet confidence.</h2>
+                    <p class="reveal">Livarta is a small studio of designers, architects and makers. We believe a room
+                        should feel inevitable — every proportion considered, every material honest, every object placed
+                        with purpose.</p>
+                    <p class="reveal">From the first sketch to the last cushion, we stay with a project until it simply
+                        feels like home.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec sec-dark" id="process">
+            <div class="wrap">
+                <p class="kicker reveal">04 — Process</p>
+                <h2 class="reveal">Four quiet steps</h2>
+                <ol class="steps">
+                    <li class="reveal"><span>01</span>
+                        <h3>Discover</h3>
+                        <p>We listen, measure and study how you live.</p>
+                    </li>
+                    <li class="reveal"><span>02</span>
+                        <h3>Define</h3>
+                        <p>A clear brief, palette and spatial strategy.</p>
+                    </li>
+                    <li class="reveal"><span>03</span>
+                        <h3>Design</h3>
+                        <p>Drawings, materials and bespoke pieces.</p>
+                    </li>
+                    <li class="reveal"><span>04</span>
+                        <h3>Deliver</h3>
+                        <p>Installation, styling and a perfect handover.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="sec" id="journal">
+            <div class="wrap">
+                <p class="kicker reveal">05 — Kind words</p>
+                <div class="quotes">
+                    <blockquote class="reveal">
+                        <p>“They understood our home before we did. Every room now feels calm, deliberate and entirely
+                            ours.”</p>
+                        <footer>— Layla &amp; Omar H.</footer>
+                    </blockquote>
+                    <blockquote class="reveal">
+                        <p>“Meticulous, generous and endlessly patient. The finished loft is better than we imagined.”
+                        </p>
+                        <footer>— Daniel R.</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec sec-sand" id="contact">
+            <div class="wrap split">
+                <div>
+                    <p class="kicker reveal">06 — Contact</p>
+                    <h2 class="reveal">Let’s design the room you’ll never want to leave.</h2>
+                    <p class="reveal">hello@livarta.studio</p>
+                </div>
+                <form class="form reveal" action="#" onsubmit="return false">
+                    <label>Name<input type="text" name="name" autocomplete="name"></label>
+                    <label>Email<input type="email" name="email" autocomplete="email"></label>
+                    <label>Tell us about your space<textarea name="msg" rows="4"></textarea></label>
+                    <button class="btn btn-dark" type="submit">Book Consultation →</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+
+    <div class="footer">
+
+        <div class="footer-content">
+
+            <!-- Company -->
+            <div class="footer-company">
+
+                <div class="footer-logo">
+                    <i class="fa-solid fa-house"></i>
+
+                    <div>
+                        <h2>INTERIOR</h2>
+                        <span>DESIGN STUDIO</span>
+                    </div>
+                </div>
+
+                <p class="company-description">
+                    We create elegant and functional interior spaces
+                    designed around your lifestyle. From concept to
+                    completion, we transform ideas into beautiful spaces.
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact -->
+            <div class="footer-section">
+
+                <h3>Get In Touch</h3>
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <p>
+                        Your Address Here<br>
+                        Jordan
+                    </p>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <p>
+                        +962 7X XXX XXXX<br>
+                        +962 6 XXX XXXX
+                    </p>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <p>
+                        info@interiordesign.com<br>
+                        support@interiordesign.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Useful Links -->
+            <div class="footer-section">
+
+                <h3>Useful Links</h3>
+
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Our Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Our Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Design Process
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- Explore -->
+            <div class="footer-section">
+
+                <h3>Explore</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Living Rooms
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Bedrooms
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Kitchens
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Offices
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            Custom Design
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Map -->
+            <div class="footer-map">
+
+                <iframe
+                    src="https://www.google.com/maps?q=Jordan&output=embed"
+                    loading="lazy">
+                </iframe>
+
+                <div class="map-address">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+                        <strong>Visit Our Studio</strong>
+                        <span>Your Address, Jordan</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Newsletter -->
+
+        <div class="newsletter">
+
+            <div class="newsletter-title">
+                <h2>
+                    Let's Create Your<br>
+                    Dream Interior
+                </h2>
+            </div>
+
+            <form class="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Enter Email Address"
+                >
+
+                <button type="submit">
+                    Get In Touch
+                    <i class="fa-regular fa-paper-plane"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Bottom -->
+
+        <div class="footer-bottom">
+
+            <p>
+                Copyright Â© 2026 Interior Design Studio.
+                All rights reserved.
+            </p>
+
+            <div>
+
+                <a href="#">Terms of Service</a>
+
+                <a href="#">Privacy Policy</a>
+
+                <a href="#">Cookies</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+    <script src="../js/home2.js"></script>
+</body>
+
+</html>

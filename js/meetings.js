@@ -439,7 +439,8 @@ function displayMeetings() {
 
                     <button
                         class="join"
-                        onclick="joinMeeting('${meeting.roomName}')">
+                        onclick="joinMeeting('${meeting.roomName}')"
+                        >
 
                         Join Meeting
 
@@ -635,9 +636,11 @@ function updateMeetingStatus(
 
 function joinMeeting(roomName) {
 
-    window.location.href =
+   window.open(
         "meetingRoom.html?room=" +
-        encodeURIComponent(roomName);
+        encodeURIComponent(roomName),
+        "_blank"
+    );
 
 }
 

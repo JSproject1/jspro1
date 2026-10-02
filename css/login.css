@@ -1,0 +1,462 @@
+:root {
+    --dark: #1F1A18;
+    --dark-light: #2A2420;
+
+    --gold: #D4A373;
+    --gold-bright: #E5B98A;
+    --gold-hover: #B98556;
+
+    --cream: #F7F2EC;
+    --white: #FFFFFF;
+
+    --text: #332C28;
+    --muted: #756B65;
+
+    --border: #E5DDD6;
+
+    --transition: 0.25s ease;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F7F2EC 0%,
+            #EFE6DC 100%
+        );
+
+    color: var(--text);
+}
+
+
+/* Login Card */
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 42px 36px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 45px rgba(31, 26, 24, 0.10);
+}
+
+
+/* Login Title */
+
+#loginTitle {
+    margin: 0 0 30px;
+
+    text-align: center;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: var(--dark);
+}
+
+
+/* Form */
+
+#loginForm {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* Inputs */
+
+#loginForm input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #FCFAF8;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+
+#loginForm input::placeholder {
+    color: #9A918B;
+}
+
+
+#loginForm input:focus {
+    border-color: var(--gold);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 163, 115, 0.14);
+}
+
+
+/* Login Button */
+
+#loginForm button {
+    width: 100%;
+
+    margin-top: 4px;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-bright)
+        );
+
+    color: var(--dark);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+#loginForm button:hover {
+    background: var(--gold-hover);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+/* Message */
+
+#message {
+    min-height: 18px;
+
+    margin: 18px 0 0;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+
+/* Responsive */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 20px;
+    }
+
+
+    .login-container {
+        padding: 34px 24px;
+    }
+
+
+    #loginTitle {
+        font-size: 29px;
+    }
+
+}
+/* =========================
+   LAMP ANIMATION
+========================= */
+
+body {
+    transition: background 0.6s ease;
+}
+
+
+.lamp-wrapper {
+    position: fixed;
+
+    left: 13%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 300px;
+
+    z-index: 5;
+}
+
+
+.lamp {
+    position: relative;
+
+    width: 180px;
+    height: 300px;
+}
+
+
+/* Lamp Shade */
+
+.lamp-shade {
+    position: absolute;
+
+    top: 10px;
+    left: 20px;
+
+    width: 140px;
+    height: 75px;
+
+    background: #5A514B;
+
+    border-radius: 70px 70px 18px 18px;
+
+    transition:
+        background 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* Lamp Stick */
+
+.lamp-stick {
+    position: absolute;
+
+    top: 80px;
+    left: 85px;
+
+    width: 9px;
+    height: 145px;
+
+    background: #7E756F;
+
+    border-radius: 5px;
+}
+
+
+/* Lamp Base */
+
+.lamp-base {
+    position: absolute;
+
+    bottom: 20px;
+    left: 47px;
+
+    width: 88px;
+    height: 13px;
+
+    background: #7E756F;
+
+    border-radius: 10px;
+}
+
+
+/* Switch */
+
+.lamp-switch {
+    position: absolute;
+
+    top: 105px;
+    left: 113px;
+
+    width: 14px;
+    height: 14px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #D4A373;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    z-index: 1;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Pull String */
+
+.lamp-switch::before {
+    content: '';
+
+    position: absolute;
+
+    width: 2px;
+    height: 55px;
+
+    background: #9B918A;
+
+    top: -55px;
+    left: 6px;
+}
+
+
+/* Light Glow */
+
+.lamp-wrapper::after {
+    content: '';
+
+    position: absolute;
+
+    top: 70px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        scale(0.6);
+
+    width: 500px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 210, 140, 0.35) 0%,
+            rgba(212, 163, 115, 0.18) 35%,
+            rgba(212, 163, 115, 0.05) 60%,
+            transparent 75%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+
+    z-index: -1;
+}
+
+
+/* Hide login before light */
+
+.login-container {
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+
+    opacity: 0;
+
+    transform:
+        translateX(70px)
+        scale(0.96);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   LIGHT ON
+========================= */
+
+body.light-on {
+    background:
+        radial-gradient(
+            circle at 30% 45%,
+            #4A3B30 0%,
+            #2A2420 40%,
+            #171412 80%
+        );
+}
+
+
+body.light-on .lamp-shade {
+    background: #FFF2CE;
+
+    box-shadow:
+        0 0 30px rgba(255, 217, 155, 0.9),
+        0 0 80px rgba(212, 163, 115, 0.55);
+}
+
+
+body.light-on .lamp-wrapper::after {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+
+body.light-on .login-container {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* Pull animation */
+
+body.light-on .lamp-switch {
+    animation: pullSwitch 0.35s ease;
+    z-index:-10;
+}
+
+
+@keyframes pullSwitch {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}

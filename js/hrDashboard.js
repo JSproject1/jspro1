@@ -1,29 +1,40 @@
+function getCurrentUser() {
+
+    let user =
+        localStorage.getItem("currentUser");
+
+
+    if (user == null) {
+
+        return null;
+
+    }
+    return JSON.parse(user);
+
+}
+let currentUser = getCurrentUser();
+if (currentUser == null) {
+
+    window.location.href = "login.html";
+
+}
+else if (currentUser.role !== "HR") {
+
+    window.location.href = "ETasks.html";
+
+}
 fetch("../JSON/employee.json")
     .then(response => response.json())
     .then(data => {
-
         // نجيب الموظفين فقط، بدون HR
         let employees = data.filter(user => user.role === "EMP");
-
-
-        // ==============================
         // Total Employees
-        // ==============================
-
         document.getElementById("totalEmployees").textContent = employees.length;
-
-
-        // ==============================
         // Recent Employees
-        // ==============================
-
         let recentEmployees = document.getElementById("recentEmployees");
-
         for (let i = 0; i < employees.length; i++) {
-
             recentEmployees.innerHTML += `
                 <div class="employee-item">
-
                     <div class="employee-avatar">
                         ${employees[i].name.charAt(0)}
                     </div>
@@ -40,7 +51,6 @@ fetch("../JSON/employee.json")
                 </div>
             `;
         }
-
     })
 
     .catch(error => {

@@ -1,56 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Feedback Inbox</title>
-  <link rel="stylesheet" href="feedback.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alvora | Feedback Inbox</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../css/hr-feedback.css">
 </head>
+
 <body>
-  <section class="feedback-page">
 
-    <section class="page-header">
-      <h1>Feedback inbox</h1>
-      <p>Feedback sent by employees from the contact page.</p>
-    </section>
+    <div class="app">
 
-    <section class="stats-row">
-      <div class="stat-box">
-        <span class="stat-label">Total</span>
-        <strong class="stat-number" id="statTotal">0</strong>
-      </div>
-      <div class="stat-box">
-        <span class="stat-label">New</span>
-        <strong class="stat-number" id="statNew">0</strong>
-      </div>
-      <div class="stat-box">
-        <span class="stat-label">Average rating</span>
-        <strong class="stat-number" id="statAvg">-</strong>
-      </div>
-    </section>
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
 
-    <section class="filter-bar">
-      <input type="search" id="searchInput" placeholder="Search by name, email or subject">
+        <aside id="sideBar" class="side-bar">
 
-      <select id="statusFilter">
-        <option value="">All statuses</option>
-        <option value="new">New</option>
-        <option value="read">Read</option>
-        <option value="resolved">Resolved</option>
-      </select>
+            <!-- LOGO -->
+            <div class="side-logo">
+                <a href="hrDashboard.html">
+                    <span class="logo-main">Alvora</span>
+                    <span class="logo-sub">ATELIER</span>
+                </a>
+            </div>
 
-      <select id="categoryFilter">
-        <option value="">All categories</option>
-        <option value="Suggestion">Suggestion</option>
-        <option value="Complaint">Complaint</option>
-        <option value="Praise">Praise</option>
-        <option value="Other">Other</option>
-      </select>
-    </section>
-    <section id="feedbackList" class="feedback-list"></section>
+            <!-- HR LABEL -->
+            <div class="nav-section-title">
+                HR MANAGEMENT
+            </div>
+
+            <!-- NAVIGATION -->
+            <nav class="side-navigation">
+
+                <a href="hrDashboard.html" class="nav-item">
+                    <i class="bi bi-grid-1x2-fill nav-icon"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="employees.html" class="nav-item">
+                    <i class="bi bi-people-fill nav-icon"></i>
+                    <span>Employees</span>
+                </a>
+
+                <a href="HRTasks.html" class="nav-item">
+                    <i class="bi bi-check2-square nav-icon"></i>
+                    <span>Tasks</span>
+                </a>
+
+                <a href="leaveHr.html" class="nav-item">
+                    <i class="bi bi-calendar2-check nav-icon"></i>
+                    <span>Leave Requests</span>
+                </a>
+
+                <a href="hrPolicies.html" class="nav-item">
+                    <i class="bi bi-file-earmark-text nav-icon"></i>
+                    <span>Company Policies</span>
+                </a>
+
+                <a href="meetings.html" class="nav-item">
+                    <i class="bi bi-camera-video nav-icon"></i>
+                    <span>Meetings</span>
+                </a>
+
+                <a href="hr-feedback.html" class="nav-item active">
+                    <i class="bi bi-chat-left-text nav-icon"></i>
+                    <span>Feedback</span>
+                </a>
+
+            </nav>
+
+            <!-- SIDEBAR FOOTER -->
+            <div class="sidebar-footer">
+
+                <div class="sidebar-role">
+
+                    <div class="role-icon">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+
+                    <div class="role-info">
+                        <strong>HR Manager</strong>
+                        <span>Administration</span>
+                    </div>
+
+                </div>
+
+                <a href="login.html" class="logout" id="logoutButton">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
 
 
-  </section>
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
 
-  <script src="../js/auth.js"></script>
-  <script src="../js/hr-feedback.js"></script>
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <!-- <header class="topbar"> -->
+
+                <!-- <div class="topbar-title">
+                    HR Workspace
+                </div> -->
+
+                <div class="topbar-profile">
+
+                    <!-- <button class="notification-btn" type="button">
+                        <i class="bi bi-bell"></i>
+                    </button> -->
+
+                    <!-- <div class="topbar-avatar">
+                        HR
+                    </div> -->
+
+                    <!-- <div class="topbar-user">
+                        <strong>HR Manager</strong>
+                        <span>Human Resources</span>
+                    </div> -->
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 FEEDBACK PAGE
+            ================================================== -->
+
+            <section class="feedback-page">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+
+                    <span class="page-eyebrow">
+                        HR MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Feedback Inbox
+                    </h1>
+
+                    <p>
+                        Review and manage feedback submitted by employees.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     STATISTICS
+                ================================================== -->
+
+                <section class="stats-row">
+
+                    <div class="stat-box">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-chat-left-text"></i>
+                        </div>
+
+                        <div class="stat-content">
+                            <span class="stat-label">Total Feedback</span>
+                            <strong class="stat-number" id="statTotal">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div class="stat-content">
+                            <span class="stat-label">New Feedback</span>
+                            <strong class="stat-number" id="statNew">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <div class="stat-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+
+                        <div class="stat-content">
+                            <span class="stat-label">Average Rating</span>
+                            <strong class="stat-number" id="statAvg">-</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     SEARCH + FILTERS
+                ================================================== -->
+
+                <section class="filter-bar">
+
+                    <div class="search-box">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search by name, email or subject"
+                        >
+
+                    </div>
+
+
+                    <select id="statusFilter">
+                        <option value="">All statuses</option>
+                        <option value="new">New</option>
+                        <option value="read">Read</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+
+
+                    <select id="categoryFilter">
+                        <option value="">All categories</option>
+                        <option value="Suggestion">Suggestion</option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Praise">Praise</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                </section>
+
+
+                <!-- =================================================
+                     FEEDBACK LIST
+                ================================================== -->
+
+                <section
+                    id="feedbackList"
+                    class="feedback-list">
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JS -->
+    <script src="../js/auth.js"></script>
+    <script src="../js/hr-feedback.js"></script>
+
 </body>
+
 </html>

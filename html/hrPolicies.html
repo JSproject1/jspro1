@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Alvora | HR Policies
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/hrPolicies.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     SIDEBAR
+====================================================== -->
+
+<aside id="sideBar" class="side-bar">
+
+    <!-- LOGO -->
+    <div class="side-logo">
+        <a href="hrDashboard.html">
+            <span class="logo-main">Alvora</span>
+            <span class="logo-sub">ATELIER</span>
+        </a>
+    </div>
+
+
+    <!-- HR LABEL -->
+    <div class="nav-section-title">
+        HR MANAGEMENT
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="side-navigation">
+
+        <!-- DASHBOARD -->
+        <a href="hrDashboard.html" class="nav-item active">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <!-- EMPLOYEES -->
+        <a href="employees.html" class="nav-item">
+            <i class="bi bi-people-fill nav-icon"></i>
+            <span>Employees</span>
+        </a>
+
+
+        <!-- TASKS -->
+        <a href="HRTasks.html" class="nav-item">
+            <i class="bi bi-check2-square nav-icon"></i>
+            <span>Tasks</span>
+        </a>
+
+
+        <!-- LEAVE REQUESTS -->
+        <a href="leaveHr.html" class="nav-item">
+            <i class="bi bi-calendar2-check nav-icon"></i>
+            <span>Leave Requests</span>
+        </a>
+
+
+        <!-- COMPANY POLICIES -->
+        <a href="hrPolicies.html" class="nav-item">
+            <i class="bi bi-file-earmark-text nav-icon"></i>
+            <span>Company Policies</span>
+        </a>
+
+
+        <!-- MEETINGS -->
+        <a href="meetings.html" class="nav-item">
+            <i class="bi bi-camera-video nav-icon"></i>
+            <span>Meetings</span>
+        </a>
+
+
+        <!-- FEEDBACK -->
+        <a href="feedback.html" class="nav-item">
+            <i class="bi bi-chat-left-text nav-icon"></i>
+            <span>Feedback</span>
+        </a>
+
+    </nav>
+
+
+    <!-- BOTTOM -->
+    <div class="sidebar-footer">
+
+        <div class="sidebar-role">
+            <div class="role-icon">
+                <i class="bi bi-person-badge"></i>
+            </div>
+
+            <div class="role-info">
+                <strong>HR Manager</strong>
+                <span>Administration</span>
+            </div>
+        </div>
+
+
+        <a href="login.html" class="logout" id="logoutButton">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- ======================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- ==================================================
+         TOPBAR
+    ================================================== -->
+
+    <!-- <header class="topbar"> -->
+
+
+        <div>
+
+            <!-- <span class="topbar-title">
+                HR Workspace
+            </span> -->
+
+        </div>
+
+
+        <div class="profile">
+
+
+            <!-- <i
+                class="fa-regular fa-bell notification"
+            ></i> -->
+
+
+            <!-- <div
+                class="avatar"
+                id="hrAvatar"
+            >
+                H
+            </div> -->
+
+
+            <!-- <div class="profile-info"> -->
+
+                <!-- <strong id="hrName">
+                    HR Manager
+                </strong> -->
+<!-- 
+                <span>
+                    HR Manager
+                </span> -->
+
+            <!-- </div> -->
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ==================================================
+         PAGE
+    ================================================== -->
+
+    <section class="policies-page">
+
+
+        <!-- HEADER -->
+
+        <div class="page-header">
+
+
+            <div class="header-content">
+
+
+                <span class="header-label">
+                    HR MANAGEMENT
+                </span>
+
+
+                <h1>
+                    Company Policies
+                </h1>
+
+
+                <p>
+                    Create, manage and maintain company policies
+                    for all employees.
+                </p>
+
+
+            </div>
+
+
+            <button
+                class="add-policy-btn"
+                id="addPolicyBtn"
+            >
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Policy
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             STATS
+        ================================================== -->
+
+        <div class="policy-stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Policies
+                    </span>
+
+                    <strong id="totalPolicies">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Categories
+                    </span>
+
+                    <strong id="totalCategories">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Access
+                    </span>
+
+                    <strong class="access-text">
+                        HR Control
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             SEARCH + FILTER
+        ================================================== -->
+
+        <div class="policy-controls">
+
+
+            <div class="policy-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="policySearch"
+                    placeholder="Search policies..."
+                >
+
+            </div>
+
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Remote Work">
+                    Remote Work
+                </option>
+
+                <option value="Attendance">
+                    Attendance
+                </option>
+
+                <option value="Leave">
+                    Leave
+                </option>
+
+                <option value="General">
+                    General
+                </option>
+
+                <option value="IT">
+                    IT
+                </option>
+
+            </select>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             POLICIES
+        ================================================== -->
+
+        <div
+            class="policies-grid"
+            id="policiesContainer"
+        >
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     VIEW POLICY MODAL
+====================================================== -->
+
+<div
+    class="view-policy-modal"
+    id="viewPolicyModal"
+>
+
+
+    <div class="view-policy-content">
+
+
+        <!-- HEADER -->
+
+        <div class="view-policy-header">
+
+
+            <div>
+
+                <span>
+                    COMPANY POLICY
+                </span>
+
+                <h2 id="modalPolicyTitle">
+                    Policy Title
+                </h2>
+
+            </div>
+
+
+            <button id="closePolicyModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- BODY -->
+
+        <div class="view-policy-body">
+
+
+            <div class="policy-meta">
+
+                <span
+                    class="policy-badge"
+                    id="modalPolicyCategory"
+                >
+                    Category
+                </span>
+
+            </div>
+
+
+
+            <div class="policy-section">
+
+                <h4>
+                    POLICY DETAILS
+                </h4>
+
+                <p id="modalPolicyDescription">
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="policy-section optional-section"
+                id="purposeSection"
+            >
+
+                <h4>
+                    PURPOSE
+                </h4>
+
+                <p id="modalPolicyPurpose">
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="policy-section optional-section"
+                id="scopeSection"
+            >
+
+                <h4>
+                    SCOPE
+                </h4>
+
+                <p id="modalPolicyScope">
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="policy-section optional-section"
+                id="responsibilitiesSection"
+            >
+
+                <h4>
+                    EMPLOYEE RESPONSIBILITIES
+                </h4>
+
+                <p id="modalPolicyResponsibilities">
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="view-policy-footer">
+
+            <span id="modalEffectiveDate">
+            </span>
+
+            <span id="modalUpdatedDate">
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="../js/hrPolicies.js"></script>
+
+
+</body>
+
+</html>

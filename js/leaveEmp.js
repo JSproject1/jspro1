@@ -99,38 +99,81 @@ function displayLeaves() {
         if (leaves[i].email !== currentUser.email) {
             continue;
         }
+
         let div = document.createElement("div");
 
         div.className = "leave-card";
 
         div.innerHTML = `
 
-            <h3>${leaves[i].email}</h3>
+            <div class="leave-card-top">
 
-            <p>
-                <strong>Leave Type:</strong>
-                ${leaves[i].leaveType}
-            </p>
+                <div class="leave-title">
 
-            <p>
-                <strong>Start Date:</strong>
-                ${leaves[i].startDate}
-            </p>
+                    <div class="leave-icon">
+                        ↗
+                    </div>
 
-            <p>
-                <strong>End Date:</strong>
-                ${leaves[i].endDate}
-            </p>
+                    <div>
+                        <span class="leave-label">
+                            LEAVE REQUEST
+                        </span>
 
-            <p>
-                <strong>Reason:</strong>
-                ${leaves[i].reason}
-            </p>
+                        <h3>
+                            ${leaves[i].leaveType}
+                        </h3>
+                    </div>
 
-            <p>
-                <strong>Status:</strong>
-                ${leaves[i].status}
-            </p>
+                </div>
+
+                <span class="status ${leaves[i].status.toLowerCase()}">
+                    ${leaves[i].status}
+                </span>
+
+            </div>
+
+
+            <div class="leave-info">
+
+                <div class="leave-info-item">
+
+                    <span class="info-label">
+                        START DATE
+                    </span>
+
+                    <strong>
+                        ${leaves[i].startDate}
+                    </strong>
+
+                </div>
+
+
+                <div class="leave-info-item">
+
+                    <span class="info-label">
+                        END DATE
+                    </span>
+
+                    <strong>
+                        ${leaves[i].endDate}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="leave-reason">
+
+                <span class="reason-label">
+                    REASON
+                </span>
+
+                <p>
+                    ${leaves[i].reason}
+                </p>
+
+            </div>
 
         `;
 

@@ -44,116 +44,260 @@ function displayTasks() {
     let searchValue = searchTask.value.toLowerCase();
     let statusValue = filterStatus.value;
     let priorityValue = filterPriority.value;
+
     let foundTasks = 0;
+
     for (let i = 0; i < tasks.length; i++) {
+
         let task = tasks[i];
+
         if (!task.employeeEmail.includes(currentUser.name)) {
             continue;
         }
+
         if (!task.title.toLowerCase().includes(searchValue)) {
             continue;
         }
+
         if (statusValue !== "All" && task.status !== statusValue) {
             continue;
         }
+
         if (priorityValue !== "All" && task.priority !== priorityValue) {
             continue;
         }
+
         foundTasks++;
+
         let card = document.createElement("div");
         card.className = "taskCard";
+
         card.innerHTML = `
-            <div class="taskHeader">
-                <h3>
-                    ${task.title}
-                </h3>
+
+            <div class="taskCardTop">
+
+                <span class="taskNumber">
+                    TASK ${String(i + 1).padStart(2, "0")}
+                </span>
+
                 <span class="priority ${getPriorityClass(task.priority)}">
                     ${task.priority}
                 </span>
+
             </div>
-            <p class="description">
-                ${task.description}
-            </p>
-            <div class="taskInfo">
-                <div>
-                    <span class="label">
-                        Deadline
-                    </span>
-                    <span>
-                        ${task.deadline}
-                    </span>
-                </div>
-                <div>
-                    <span class="label">
-                        Status
-                    </span>
-                    <span class="status ${getStatusClass(task.status)}">
-                        ${task.status}
-                    </span>
-                </div>
-                <div>
-                    <button class="editBtn" onclick="editETask(${i})">Edit</button>
-                    <button class="viewBtn" onclick="viewETask(${i})">View</button>
-                </div>
+
+
+            <div class="taskMain">
+
+                <h3>${task.title}</h3>
+
+                <p class="description">
+                    ${task.description}
+                </p>
+
             </div>
+
+
+            <div class="taskDetails">
+
+                <div class="detailBox">
+
+                    <span class="detailIcon">◷</span>
+
+                    <div>
+                        <span class="detailLabel">
+                            Deadline
+                        </span>
+
+                        <strong>
+                            ${task.deadline || "Not provided"}
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="detailBox">
+
+                    <span class="detailIcon">●</span>
+
+                    <div>
+                        <span class="detailLabel">
+                            Status
+                        </span>
+
+                        <span class="status ${getStatusClass(task.status)}">
+                            ${task.status}
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="taskActions">
+
+                <button 
+                    class="viewBtn"
+                    onclick="viewETask(${i})"
+                >
+                    <span>View Details</span>
+                    <span class="viewArrow">→</span>
+                </button>
+
+                <button 
+                    class="editBtn"
+                    onclick="editETask(${i})"
+                >
+                    Edit
+                </button>
+
+            </div>
+
         `;
+
         tasksContainer.appendChild(card);
     }
+
+
     if (foundTasks === 0) {
         noTasks.hidden = false;
     }
     else {
         noTasks.hidden = true;
     }
+
     updateStatistics();
 }
 function viewETask(index) {
+
     let task = tasks[index];
-    document.getElementById("taskTitleE").textContent = task.title;
-    document.getElementById("taskDescriptionE").textContent = task.description;
-    document.getElementById("taskStatusE").textContent = task.status;
-    document.getElementById("startDateE").textContent = (task.start || "Not provided") + " " + (task.STime || "");
-    document.getElementById("dueDateE").textContent = (task.deadline || "Not provided") + " " + (task.DTime || "");
-    let attachE = document.getElementById("attachE");
-    attachE.innerHTML = "";
-    if (task.hrAttachment) {
-        let link = document.createElement("a");
-        link.href = task.hrAttachment.data;
-        link.textContent = "📎 " + task.hrAttachment.name;
-        link.target = "_blank";
-        link.download = task.hrAttachment.name;
-        attachE.appendChild(link);
-    }
-    else {
-        attachE.textContent = "No attachment";
+
+    if (!task) {
+        return;
     }
 
-    let submissionE = document.getElementById("submissionE");
+
+    document.getElementById("taskTitleE").textContent =
+        task.title;
+
+
+    document.getElementById("taskDescriptionE").textContent =
+        task.description || "No description provided";
+
+
+    let statusElement =
+        document.getElementById("taskStatusE");
+
+    statusElement.textContent =
+        task.status;
+
+    statusElement.className =
+        "modalStatus " + getStatusClass(task.status);
+
+
+    document.getElementById("startDateE").textContent =
+        (task.start || "Not provided") +
+        " " +
+        (task.STime || "");
+
+
+    document.getElementById("dueDateE").textContent =
+        (task.deadline || "Not provided") +
+        " " +
+        (task.DTime || "");
+
+
+    /* HR ATTACHMENT */
+
+    let attachE =
+        document.getElementById("attachE");
+
+    attachE.innerHTML = "";
+
+
+    if (task.hrAttachment) {
+
+        let link = document.createElement("a");
+
+        link.href = task.hrAttachment.data;
+
+        link.textContent =
+            "📎 " + task.hrAttachment.name;
+
+        link.target = "_blank";
+
+        link.download =
+            task.hrAttachment.name;
+
+        link.className =
+            "attachmentLink";
+
+        attachE.appendChild(link);
+
+    }
+    else {
+
+        attachE.innerHTML = `
+            <span class="emptyAttachment">
+                No attachment provided
+            </span>
+        `;
+
+    }
+
+
+    /* EMPLOYEE SUBMISSION */
+
+    let submissionE =
+        document.getElementById("submissionE");
 
     submissionE.innerHTML = "";
 
-    if (task.employeeSubmissions &&task.employeeSubmissions[currentUser.name]) {
 
-        let submission = task.employeeSubmissions[currentUser.name];
+    if (
+        task.employeeSubmissions &&
+        task.employeeSubmissions[currentUser.name]
+    ) {
 
-        let link = document.createElement("a");
+        let submission =
+            task.employeeSubmissions[currentUser.name];
 
-        link.href = submission.data;
-        link.textContent = "📎 " + submission.name;
+        let link =
+            document.createElement("a");
+
+        link.href =
+            submission.data;
+
+        link.textContent =
+            "📎 " + submission.name;
+
         link.target = "_blank";
-        link.download = submission.name;
+
+        link.download =
+            submission.name;
+
+        link.className =
+            "attachmentLink";
 
         submissionE.appendChild(link);
 
     }
     else {
 
-        submissionE.textContent = "Not submitted yet";
+        submissionE.innerHTML = `
+            <span class="emptyAttachment">
+                Not submitted yet
+            </span>
+        `;
 
     }
-    viewTask.style.display = "flex";
-}
 
+
+    viewTask.style.display = "flex";
+
+}
 function editETask(index) {
     let task = tasks[index];
     if (!task) {

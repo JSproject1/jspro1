@@ -4,55 +4,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Sidebar</title>
+
+    <title>Alvora | Task Management</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Multiple Select -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.css"
+    >
+
+    <!-- Page CSS -->
     <link href="../css/HRTasks.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.css">
 </head>
 
 <body>
+
+<div class="app">
+
+    <!-- =====================================================
+         HR SIDEBAR
+    ====================================================== -->
+
+    <aside id="sideBar" class="side-bar">
+
+        <div class="side-logo">
+            <a href="hrDashboard.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
+        </div>
+
+        <div class="nav-section-title">
+            HR MANAGEMENT
+        </div>
+
+        <nav class="side-navigation">
+
+            <a href="hrDashboard.html" class="nav-item">
+                <i class="bi bi-grid-1x2-fill nav-icon"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <i class="bi bi-people-fill nav-icon"></i>
+                <span>Employees</span>
+            </a>
+
+            <a href="HRTasks.html" class="nav-item active">
+                <i class="bi bi-check2-square nav-icon"></i>
+                <span>Tasks</span>
+            </a>
+
+            <a href="leaveHr.html" class="nav-item">
+                <i class="bi bi-calendar2-check nav-icon"></i>
+                <span>Leave Requests</span>
+            </a>
+
+            <a href="hrPolicies.html" class="nav-item">
+                <i class="bi bi-file-earmark-text nav-icon"></i>
+                <span>Company Policies</span>
+            </a>
+
+            <a href="meetings.html" class="nav-item">
+                <i class="bi bi-camera-video nav-icon"></i>
+                <span>Meetings</span>
+            </a>
+
+            <a href="hr-feedback.html" class="nav-item">
+                <i class="bi bi-chat-left-text nav-icon"></i>
+                <span>Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-role">
+
+                <div class="role-icon">
+                    <i class="bi bi-person-badge"></i>
+                </div>
+
+                <div class="role-info">
+                    <strong>HR Manager</strong>
+                    <span>Administration</span>
+                </div>
+
+            </div>
+
+            <a href="login.html" class="logout" id="logoutButton">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
     <main class="main-content">
+
+        <!-- TOPBAR -->
+
         <header class="mainHeader">
 
-            <div class="profilePic">
-                <div class="circle">A</div>
+            <div class="workspace-label">
+                HR Workspace
             </div>
+
+            <div class="profilePic">
+
+                <button class="notification-btn" type="button">
+                    <i class="bi bi-bell"></i>
+                </button>
+
+                <div class="circle">
+                    A
+                </div>
+
+                <div class="header-user">
+                    <strong>HR Manager</strong>
+                    <span>Administration</span>
+                </div>
+
+            </div>
+
         </header>
+
+
+        <!-- =================================================
+             TASK MANAGEMENT
+        ================================================== -->
+
         <section class="Home">
 
-            <h1 class="head1">Task Managment</h1>
-            <p class="subtitle">Manage and track employee tasks</p>
+            <!-- PAGE HEADER -->
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="page-eyebrow">
+                        HR MANAGEMENT
+                    </span>
+
+                    <h1 class="head1">
+                        Task Management
+                    </h1>
+
+                    <p class="subtitle">
+                        Manage and track employee tasks
+                    </p>
+                </div>
+
+                <div class="PopAddTask">
+                    <button id="add" type="button">
+                        <i class="bi bi-plus-lg"></i>
+                        Add New Task
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY CARDS -->
 
             <div class="summaryCards">
+
                 <div class="card">
-                    <p class="sTitle">Total Tasks </p>
-                    <p id="totalTasks" class="sNum">0</p>
-                </div>
-                <div class="card">
-                    <p class="sTitle">In Progress</p>
-                    <p id="progress" class="sNum">0</p>
-                </div>
-                <div class="card">
-                    <p class="sTitle">Pending </p>
-                    <p id="pending" class="sNum">0</p>
-                </div>
-                <div class="card">
-                    <p class="sTitle">Completed </p>
-                    <p id="completed" class="sNum">0</p>
-                </div>
-            </div>
-            <div class="filterTasks">
-                <div class="filter">
-                    <div id="searchTask" class="searchBar">
-                        <input type="text" id="search" placeholder="Search">
-                        <img src="../images/searchIcon.png" width="fit-content" height="15px">
+
+                    <div class="summary-icon">
+                        <i class="bi bi-list-task"></i>
                     </div>
 
+                    <div>
+                        <p class="sTitle">Total Tasks</p>
+                        <p id="totalTasks" class="sNum">0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="summary-icon">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <div>
+                        <p class="sTitle">In Progress</p>
+                        <p id="progress" class="sNum">0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="summary-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+                        <p class="sTitle">Pending</p>
+                        <p id="pending" class="sNum">0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="summary-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+
+                    <div>
+                        <p class="sTitle">Completed</p>
+                        <p id="completed" class="sNum">0</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filterTasks">
+
+                <div class="filter">
+
+                    <div id="searchTask" class="searchBar">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            id="search"
+                            placeholder="Search tasks..."
+                        >
+
+                    </div>
+
+
                     <select id="filterStatus">
-                        <option value="All">All</option>
+                        <option value="All">All Statuses</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
                     </select>
+
 
                     <select id="filterPriority">
                         <option value="All">All Priorities</option>
@@ -60,155 +271,408 @@
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
                     </select>
+
                 </div>
 
-                <div class="PopAddTask">
-                    <button id="add">Add New Task</button>
-                </div>
             </div>
-            <table class="tasksTable">
-                <thead class="head">
-                    <tr>
-                        <th>Task Name</th>
-                        <th>Description</th>
-                        <th>Employee</th>
-                        <th>Status</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody id="tBody">
-                </tbody>
 
-            </table>
-            <p id="noTask" hidden>No task found</p>
+
+            <!-- TASKS TABLE -->
+
+            <div class="tasks-table-wrapper">
+
+                <table class="tasksTable">
+
+                    <thead class="head">
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Description</th>
+                            <th>Employee</th>
+                            <th>Status</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p id="noTask" hidden>
+                No task found
+            </p>
+
         </section>
+
+
+        <!-- =================================================
+             EMPLOYEE SUBMISSIONS
+        ================================================== -->
+
         <section id="tasksCards" class="submissionsSection">
 
             <div class="sectionHeader">
+
                 <div>
-                    <h2>Employee Submissions</h2>
-                    <p>Review work submitted by employees</p>
+                    <span class="section-label">
+                        EMPLOYEE WORK
+                    </span>
+
+                    <h2>
+                        Employee Submissions
+                    </h2>
+
+                    <p>
+                        Review work submitted by employees
+                    </p>
                 </div>
+
             </div>
 
-            <div id="submissionsContainer" class="submissionsContainer">
+            <div
+                id="submissionsContainer"
+                class="submissionsContainer">
             </div>
 
         </section>
-        <div id="addTasks" class="addNewTasks">
-            <div class="addTask">
-                <button id="close" class="closeBtn">×</button>
-                <h2 id="modalTitle">Add New Task</h2>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     ADD / EDIT TASK MODAL
+====================================================== -->
+
+<div id="addTasks" class="addNewTasks">
+
+    <div class="task-modal">
+
+        <div class="addTask">
+
+            <div>
+                <span class="modal-label">
+                    TASK MANAGEMENT
+                </span>
+
+                <h2 id="modalTitle">
+                    Add New Task
+                </h2>
             </div>
 
-            <form id="taskForm">
-                <label>Task Name *</label><br>
-                <input type="text" placeholder="Task Name" id="newTaskName" required>
-                <br><br>
-                <label>Description *</label><br>
-                <textarea rows="4" cols="30" id="newDescription"
-                    placeholder="Provide detailed instructions or requirements for this task..." required></textarea>
-                <br><br>
-                <label id="startTitle">Start Date</label>
-                <br>
-                <input type="date" id="startDate">
-                <input type="time" id="startTime"><br><br>
-                <label>Due Date</label><br>
-                <input type="date" id="dueDate" required>
-                <input type="time" id="dueTime" required>
-                <br><br>
-                <label>Attach Files (Optional)</label><br>
-                <input type="file" id="attachFile" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"><br>
-                <small><small>You can attach relevant PDFs, images, or documents (Max: 2MB).</small></small>
-                <br><br>
-                <label for="Enames"> Assign To:</label>
-                <select id="ENames" name="names[]" data-theme="light" multiple data-multi-select required>
-                </select>
-                <label>Priority</label><br>
-                <select id="taskPriority">
-                    <option value="select">Select Priority</option>
-                    <option value="High">High</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                </select>
-                <label>Status</label>
-                <select id="taskStatus" required>
-                    <option value="Pending"> Pending </option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed"> Completed </option>
-                </select>
-                <br><br>
-                <button id="save">Add New</button>
+            <button
+                id="close"
+                class="closeBtn"
+                type="button">
+                ×
+            </button>
 
-            </form>
         </div>
 
-        <br><br><br>
-        <section id="viewSection">
-            <div id="viewTask" class="viewTaskModal" style="display: none;">
 
-            <div class="viewTaskContent">
+        <form id="taskForm">
 
-                <button id="closeView" type="button" onclick="closeViewTask()">
+            <div class="task-form-grid">
+
+                <div class="form-group full-row">
+
+                    <label for="newTaskName">
+                        Task Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Task Name"
+                        id="newTaskName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full-row">
+
+                    <label for="newDescription">
+                        Description *
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        id="newDescription"
+                        placeholder="Provide detailed instructions or requirements for this task..."
+                        required>
+                    </textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label id="startTitle" for="startDate">
+                        Start Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="startDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="startTime">
+                        Start Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="startTime"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dueDate">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dueDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dueTime">
+                        Due Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="dueTime"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full-row">
+
+                    <label for="attachFile">
+                        Attach Files
+                        <span class="optional">
+                            Optional
+                        </span>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="attachFile"
+                        accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                    >
+
+                    <small>
+                        You can attach relevant PDFs, images or documents. Max 2MB.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group full-row">
+
+                    <label for="ENames">
+                        Assign To *
+                    </label>
+
+                    <select
+                        id="ENames"
+                        name="names[]"
+                        data-theme="light"
+                        multiple
+                        data-multi-select
+                        required>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="taskPriority">
+                        Priority
+                    </label>
+
+                    <select id="taskPriority">
+                        <option value="select">Select Priority</option>
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="taskStatus">
+                        Status
+                    </label>
+
+                    <select id="taskStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel"
+                    id="modalCancel">
+                    Cancel
+                </button>
+
+                <button
+                    id="save"
+                    type="submit">
+                    Add New
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     VIEW TASK MODAL
+====================================================== -->
+
+<section id="viewSection">
+
+    <div
+        id="viewTask"
+        class="viewTaskModal"
+        style="display: none;">
+
+        <div class="viewTaskContent">
+
+            <div class="view-modal-header">
+
+                <div>
+                    <span class="modal-label">
+                        TASK DETAILS
+                    </span>
+
+                    <h2>
+                        Task Details
+                    </h2>
+                </div>
+
+                <button
+                    id="closeView"
+                    type="button"
+                    onclick="closeViewTask()">
                     ×
                 </button>
 
-                <h2>Task Details</h2>
+            </div>
 
-                <div>
+
+            <div class="view-details-grid">
+
+                <div class="detail-block full-row">
                     <strong>Task Name</strong>
                     <p id="viewTitle"></p>
                 </div>
 
-                <div>
+
+                <div class="detail-block full-row">
                     <strong>Description</strong>
                     <p id="viewDescription"></p>
                 </div>
 
-                <div>
+
+                <div class="detail-block full-row">
                     <strong>Employees</strong>
                     <p id="viewEmployee"></p>
                 </div>
-                <div>
+
+
+                <div class="detail-block">
                     <strong>Start</strong>
                     <p id="viewStart"></p>
+                </div>
+
+
+                <div class="detail-block">
                     <strong>Deadline</strong>
                     <p id="viewDeadline"></p>
                 </div>
 
 
-                <div>
+                <div class="detail-block">
                     <strong>Priority</strong>
                     <p id="viewPriority"></p>
+                </div>
+
+
+                <div class="detail-block">
                     <strong>Status</strong>
                     <p id="viewStatus"></p>
                 </div>
 
-                <div>
+
+                <div class="detail-block full-row">
                     <strong>HR Attachment</strong>
                     <p id="viewAttach"></p>
                 </div>
 
-                <!-- <div>
-                    <strong>Employee Submission</strong>
-                    <p id="viewSubmission"></p>
-                </div> -->
-                <button id="closeViewButton" type="button" onclick="closeViewTask()">
+            </div>
+
+
+            <div class="view-modal-footer">
+
+                <button
+                    id="closeViewButton"
+                    type="button"
+                    onclick="closeViewTask()">
                     Close
                 </button>
 
             </div>
+
         </div>
-        </section>
-        
-    </main>
 
-    <script src="../js/auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
-    <script src="../js/HRTasks.js"></script>
-    <footer></footer>
+    </div>
 
+</section>
+
+
+<script src="../js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
+<script src="../js/HRTasks.js"></script>
 
 </body>
 

@@ -12,56 +12,57 @@
 
 <body>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside id="sideBar" class="side-bar">
 
-        <div class="logo">
-            <span class="logo-icon">◉</span>
-            <span>Vision<span>Tech</span></span>
+        <div class="side-logo">
+            <a href="home.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
         </div>
 
-        <nav>
+        <nav class="side-navigation">
 
-            <a href="#">
-                <span>⌂</span>
-                Dashboard
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>My Profile</span>
             </a>
 
-            <a href="#">
-                <span>♙</span>
-                My Profile
+            <a href="ETasks.html"  class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>My Tasks</span>
             </a>
 
-            <a href="#">
-                <span>☑</span>
-                My Tasks
+            <a href="leaveEmp.html" class="nav-item active">
+                <span class="nav-icon">↗</span>
+                <span>Leave Requests</span>
             </a>
 
-            <a href="leaveEmp.html" class="active">
-                <span>▣</span>
-                Leave Requests
+            <a href="policies.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Company Policies</span>
             </a>
 
-            <a href="#">
-                <span>▤</span>
-                Company Policies
+            <a href="meetings.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Meetings</span>
             </a>
 
-            <a href="#">
-                <span>▣</span>
-                Meetings
-            </a>
-
-            <a href="#">
-                <span>◌</span>
-                Feedback
+            <a href="feedback.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Feedback</span>
             </a>
 
         </nav>
 
-        <a href="login.html" class="logout">
-            ↪ Logout
-        </a>
+        <div class="sidebar-footer">
+
+            <a href="login.html" class="logout" id="logoutButton">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
 
     </aside>
 
@@ -71,14 +72,6 @@
 
         <!-- Top Bar -->
         <header class="topbar">
-
-            <div class="search">
-                <span>⌕</span>
-
-                <input type="text" placeholder="Search...">
-            </div>
-
-
             <div class="user-area">
 
                 <div class="notification">
@@ -88,9 +81,7 @@
 
                 <div class="user-info">
 
-                    <div class="avatar">
-                        JD
-                    </div>
+                    
 
                     <div>
                         <strong id="userName"></strong>

@@ -19,67 +19,61 @@
 
 <div class="app">
 
-    <!-- ================= SIDEBAR ================= -->
+   <aside id="sideBar" class="side-bar">
 
-    <aside class="sidebar">
-
-        <div class="logo">
-            <i class="fa-solid fa-command"></i>
-
-            <h2>
-                CTRL<span>+NXT</span>
-            </h2>
+        <div class="side-logo">
+            <a href="home.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
         </div>
 
+        <nav class="side-navigation">
 
-        <nav class="sidebar-menu">
-
-            <a href="hrDashboard.html">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>My Profile</span>
             </a>
 
-            <a href="employees.html">
-                <i class="fa-solid fa-users"></i>
-                <span>Employees</span>
+            <a href="ETasks.html"  class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>My Tasks</span>
             </a>
 
-            <a href="#">
-                <i class="fa-regular fa-square-check"></i>
-                <span>Task Management</span>
-            </a>
-
-            <a href="#">
-                <i class="fa-regular fa-calendar-check"></i>
+            <a href="leaveEmp.html" class="nav-item ">
+                <span class="nav-icon">↗</span>
                 <span>Leave Requests</span>
             </a>
 
-            <a href="policies.html" class="active">
-                <i class="fa-regular fa-file-lines"></i>
+            <a href="policies.html" class="nav-item active">
+                <span class="nav-icon">▤</span>
                 <span>Company Policies</span>
             </a>
 
-            <a href="#">
-                <i class="fa-regular fa-comment-dots"></i>
-                <span>Feedback</span>
+            <a href="meetings.html" class="nav-item ">
+                <span class="nav-icon">◷</span>
+                <span>Meetings</span>
             </a>
 
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>Meetings</span>
+            <a href="feedback.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Feedback</span>
             </a>
 
         </nav>
 
+        <div class="sidebar-footer">
 
-        <a href="#" class="logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Logout</span>
-        </a>
+            
+
+            <a href="login.html" class="logout" id="logoutButton">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
 
     </aside>
-
-
     <!-- ================= MAIN ================= -->
 
     <main class="main-content">
@@ -88,31 +82,18 @@
         <!-- TOPBAR -->
 
         <header class="topbar">
-
-            <div class="top-search">
-
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="text"
-                    placeholder="Search..."
-                >
-
-            </div>
-
-
             <div class="profile">
 
                 <i class="fa-regular fa-bell notification"></i>
 
                 <div class="avatar">
-                    F
+                    
                 </div>
 
-                <div class="profile-info">
-                    <strong>Fatima</strong>
-                    <span>HR Manager</span>
-                </div>
+               <div class="profile-info">
+    <strong id="userName"></strong>
+    <span id="userRole"></span>
+</div>
 
             </div>
 
@@ -142,7 +123,9 @@
                 <button
                     class="add-policy-btn"
                     id="addPolicyBtn"
+                    style="display: none;"
                 >
+                
                     + Add Policy
                 </button>
 

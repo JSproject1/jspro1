@@ -9,6 +9,63 @@
 </head>
 
 <body>
+     <aside id="sideBar" class="side-bar">
+
+        <div class="side-logo">
+            <a href="home.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
+        </div>
+
+        <nav class="side-navigation">
+
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>My Profile</span>
+            </a>
+
+            <a href="ETasks.html"  class="nav-item active">
+                <span class="nav-icon">✓</span>
+                <span>My Tasks</span>
+            </a>
+
+            <a href="leaveEmp.html" class="nav-item">
+                <span class="nav-icon">↗</span>
+                <span>Leave Requests</span>
+            </a>
+
+            <a href="policies.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Company Policies</span>
+            </a>
+
+            <a href="meetings.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Meetings</span>
+            </a>
+
+            <a href="feedback.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            
+
+            <a href="login.html" class="logout" id="logoutButton">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
     <div class="container">
         <div class="pageHeader">
             <div>
@@ -56,28 +113,153 @@
         </div>
     </div>
     <div id="viewTask">
-        <div>
-            <button id="closeBtn">×</button>
-            <div class="content">
-                <h2 id="taskTitleE"></h2>
-                <h3>Description</h3>
-                <p id="taskDescriptionE"></p>
-                <h3>Status </h3>
-                <p id="taskStatusE"></p>
-                <h3>Start Date</h3>
-                <p id="startDateE"></p>
-                <h3>Due Date</h3>
-                <p id="dueDateE"></p>
-                <h3>Task Attachment</h3>
-                <p id="attachE"></p>
-                <h3>My Submission</h3>
-                <p id="submissionE"></p>
+
+    <div class="viewModal">
+
+        <div class="viewModalHeader">
+
+            <div>
+
+                <span class="modalEyebrow">
+                    TASK DETAILS
+                </span>
+
+                <h2 id="taskTitleE">
+                    Task Title
+                </h2>
+
+            </div>
+
+            <button id="closeBtn" class="modalClose">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modalDescription">
+
+            <span class="sectionLabel">
+                DESCRIPTION
+            </span>
+
+            <p id="taskDescriptionE"></p>
+
+        </div>
+
+
+        <div class="modalInfoGrid">
+
+            <div class="modalInfoCard">
+
+                <span class="infoIcon">●</span>
+
+                <div>
+
+                    <span class="infoLabel">
+                        STATUS
+                    </span>
+
+                    <span id="taskStatusE"
+                        class="modalStatus">
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="modalInfoCard">
+
+                <span class="infoIcon">◷</span>
+
+                <div>
+
+                    <span class="infoLabel">
+                        START DATE
+                    </span>
+
+                    <strong id="startDateE">
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="modalInfoCard">
+
+                <span class="infoIcon">◆</span>
+
+                <div>
+
+                    <span class="infoLabel">
+                        DUE DATE
+                    </span>
+
+                    <strong id="dueDateE">
+                    </strong>
+
+                </div>
+
             </div>
 
         </div>
-        <div>
+
+
+        <div class="modalSection">
+
+            <div class="sectionHeading">
+
+                <span class="sectionIcon">
+                    📎
+                </span>
+
+                <div>
+                    <span class="sectionLabel">
+                        TASK ATTACHMENT
+                    </span>
+
+                    <small>
+                        Files provided by HR
+                    </small>
+                </div>
+
+            </div>
+
+            <div id="attachE" class="attachmentBox"></div>
+
         </div>
+
+
+        <div class="modalSection">
+
+            <div class="sectionHeading">
+
+                <span class="sectionIcon">
+                    ↑
+                </span>
+
+                <div>
+                    <span class="sectionLabel">
+                        MY SUBMISSION
+                    </span>
+
+                    <small>
+                        Your submitted work
+                    </small>
+                </div>
+
+            </div>
+
+            <div id="submissionE" class="attachmentBox"></div>
+
+        </div>
+
+
     </div>
+
+</div>
     <div id="editTaskModal" class="editTaskModal">
         <div class="editTaskContent">
             <button id="closeEditBtn" class="closeBtn">×</button>

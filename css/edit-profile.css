@@ -1,0 +1,230 @@
+:root {
+    --dark: #1F1A18;
+    --dark-light: #2A2420;
+
+    --gold: #D4A373;
+    --gold-bright: #E5B98A;
+    --gold-hover: #B98556;
+
+    --cream: #F7F2EC;
+    --white: #FFFFFF;
+
+    --text: #332C28;
+    --muted: #756B65;
+
+    --border: #E5DDD6;
+
+    --transition: 0.25s ease;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F7F2EC 0%,
+            #EFE6DC 100%
+        );
+
+    color: var(--text);
+}
+
+
+/* Profile Card */
+
+.profile-container {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 42px 38px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 45px rgba(31, 26, 24, 0.10);
+}
+
+
+/* Heading */
+
+.profile-container h1 {
+    margin: 0 0 30px;
+
+    text-align: center;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: var(--dark);
+}
+
+
+/* Labels */
+
+.profile-container label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--dark);
+}
+
+
+/* Inputs */
+
+.profile-container input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    margin-bottom: 19px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #FCFAF8;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+
+.profile-container input:focus {
+    border-color: var(--gold);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 163, 115, 0.14);
+}
+
+
+/* Readonly Email */
+
+.profile-container input[readonly] {
+    background: #F2EEE9;
+
+    color: var(--muted);
+
+    cursor: not-allowed;
+}
+
+
+/* Buttons Base */
+
+.profile-container button {
+    width: 100%;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+/* Change Password */
+
+#resetPasswordButton {
+    margin-top: 4px;
+    margin-bottom: 12px;
+
+    background: var(--dark);
+
+    color: var(--white);
+}
+
+
+#resetPasswordButton:hover {
+    background: var(--dark-light);
+
+    color: var(--gold);
+
+    transform: translateY(-2px);
+}
+
+
+/* Save Changes */
+
+#saveButton {
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-bright)
+        );
+
+    color: var(--dark);
+}
+
+
+#saveButton:hover {
+    background: var(--gold-hover);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+/* Responsive */
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 20px;
+    }
+
+
+    .profile-container {
+        padding: 32px 24px;
+    }
+
+
+    .profile-container h1 {
+        font-size: 28px;
+    }
+
+}

@@ -4,65 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexa — Creative Marketing Agency</title>
+    <title>Alvora — Interior Design & Decor</title>
+    <meta name="description" content="Alvora is an interior design and decor studio creating warm, personal homes that feel truly yours.">
+    <link rel="icon" href="logo/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
     <script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('ready')},2000)</script>
-    <link rel="stylesheet" href="about.css">
-    <script src="about.js" defer></script>
+    <link rel="stylesheet" href="../css/about.css">
+    <script src="../js/about.js" defer></script>
 </head>
 
-<body>
+<body id="top" class="about-page">
 
     <header class="navbar">
         <div class="nav-container">
 
-            <a href="#" class="logo">NEXA<span>.</span></a>
+            <a href="#top" class="brand" aria-label="Alvora — Interior Design & Decor">
+                <span class="brand-mark">
+                    <span class="brand-frame">
+                        <img src="logo/alvora-mark.jpg" alt="" width="560" height="507">
+                        <span class="brand-lamp"></span>
+                        <span class="brand-shine"></span>
+                    </span>
+                    <svg class="brand-ring" viewBox="0 0 74 68" aria-hidden="true">
+                        <path id="brand-arc" class="brand-arc" pathLength="1" d="M1 68V37A36 36 0 0 1 73 37V68"/>
+                        <path class="brand-spark" opacity="0" d="M0 -4L1.2 -1.2L4 0L1.2 1.2L0 4L-1.2 1.2L-4 0L-1.2 -1.2Z">
+                            <animateMotion dur="9s" begin="2.4s" repeatCount="indefinite"><mpath href="#brand-arc"/></animateMotion>
+                            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="9s" begin="2.4s" repeatCount="indefinite"/>
+                        </path>
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <span class="brand-name">ALVORA</span>
+                    <span class="brand-sub">Interior Design &amp; Decor</span>
+                </span>
+            </a>
 
             <nav>
-                <a href="#">Home</a>
-                <a href="#" class="active">About</a>
-                <a href="#">Services</a>
-                <a href="#">Work</a>
-                <a href="#">Contact</a>
+                <a href="../html/home2.html">Home</a>
+                <a href="#about" class="active">About</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
             </nav>
 
-            <a href="#" class="nav-button">Let's Talk ↗</a>
+            <a href="../html/login.html" class="nav-button" data-fx-button>Book a Consultation <span>↗</span></a>
 
         </div>
     </header>
 
-
     <main>
 
-        <section class="hero">
+        <!-- <section class="hero">
             <div class="hero-content">
 
-                <p class="eyebrow">INDEPENDENT CREATIVE AGENCY</p>
+                <p class="eyebrow">RESIDENTIAL INTERIOR DESIGN STUDIO</p>
 
                 <h1>
-                    We build brands
-                    <span>people remember.</span>
+                    Homes worth
+                    <span class="accent">coming home to.</span>
                 </h1>
 
                 <p class="hero-text">
-                    Nexa is a creative marketing team that combines
-                    strategy, storytelling and digital experiences to
-                    help ambitious brands move forward.
+                    Alvora is an interior design studio that turns houses
+                    into homes. We shape every room around the way you live,
+                    with warm materials, considered details and timeless style.
                 </p>
 
                 <a href="#about" class="main-button">
-                    Discover Nexa <span>↗</span>
+                    Discover Alvora <span>↗</span>
                 </a>
 
             </div>
 
             <div class="hero-side">
-                <span>01</span>
-                <p>Strategy</p>
-                <p>Creative</p>
-                <p>Digital</p>
+                <span>✦</span>
+                <p>Planning</p>
+                <p>Design</p>
+                <p>Decor</p>
             </div>
-        </section>
-
+        </section> -->
 
         <section class="about" id="about">
             <div class="section-number">01 / ABOUT</div>
@@ -70,85 +91,30 @@
             <div class="about-content">
 
                 <h2>
-                    Ideas are everywhere.
-                    <span>We make them matter.</span>
+                    Every home tells a story.
+                    <span class="accent">We help you design yours.</span>
                 </h2>
 
                 <div class="about-text">
                     <p>
-                        Nexa is a modern marketing agency built around one
-                        simple belief: great marketing should mean something.
+                        Alvora is an interior design and decor studio
+                        dedicated to homes. We believe a house becomes a home
+                        when every room reflects the people who live in it.
                     </p>
 
                     <p>
-                        We bring strategy, creativity and digital thinking
-                        together to create brands that connect with people,
-                        communicate with purpose and stay relevant in a
-                        constantly changing market.
+                        We bring together space planning, thoughtful materials
+                        and warm, layered styling to create interiors that feel
+                        calm, personal and effortlessly elegant: spaces made
+                        to be lived in, not just looked at.
                     </p>
 
                     <p>
-                        From brand positioning and content to digital
-                        campaigns and social media, we turn business goals
-                        into clear, creative experiences.
+                        From the first sketch to the final styling touch, we
+                        guide you through every step, from concept and design
+                        to sourcing and installation, so your vision becomes a
+                        home you will love for years to come.
                     </p>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="services">
-
-            <div class="section-top">
-                <div class="section-number">02 / WHAT WE DO</div>
-
-                <h2>
-                    From strategy
-                    <span>to impact.</span>
-                </h2>
-            </div>
-
-            <div class="service-list">
-
-                <div class="service">
-                    <span>01</span>
-                    <h3>Brand Strategy</h3>
-                    <p>
-                        Positioning, identity and direction that give
-                        brands a clear place in the market.
-                    </p>
-                    <b>↗</b>
-                </div>
-
-                <div class="service">
-                    <span>02</span>
-                    <h3>Digital Marketing</h3>
-                    <p>
-                        Digital strategies designed to reach the right
-                        audience and create measurable growth.
-                    </p>
-                    <b>↗</b>
-                </div>
-
-                <div class="service">
-                    <span>03</span>
-                    <h3>Social Media</h3>
-                    <p>
-                        Content and campaigns that turn attention into
-                        meaningful audience relationships.
-                    </p>
-                    <b>↗</b>
-                </div>
-
-                <div class="service">
-                    <span>04</span>
-                    <h3>Creative Content</h3>
-                    <p>
-                        Visual and written content built to communicate
-                        ideas clearly and make brands recognizable.
-                    </p>
-                    <b>↗</b>
                 </div>
 
             </div>
@@ -160,137 +126,157 @@
             <p class="eyebrow">OUR APPROACH</p>
 
             <h2>
-                Strategy gives ideas
-                <span>direction.</span>
-                Creativity gives them
-                <span>life.</span>
+                Design gives spaces
+                <span class="accent">shape.</span>
+                Details give them
+                <span class="accent">soul.</span>
             </h2>
 
         </section>
 
-
-        <section class="team">
+        <section class="team" id="team">
 
             <div class="section-top">
                 <div class="section-number">03 / THE TEAM</div>
 
                 <h2>
-                    Six minds.
-                    <span>One direction.</span>
+                    Six creatives.
+                    <span class="accent">One vision.</span>
                 </h2>
 
                 <p>
-                    A small, focused team bringing different skills,
-                    perspectives and ideas to every project.
+                    A small, dedicated team of designers, stylists and project
+                    managers who care about every detail of your home.
                 </p>
             </div>
 
-
             <div class="team-grid">
 
-                <div class="member" data-bio="Shapes the creative direction and turns brand strategy into ideas that stick." data-skills="Branding, Strategy, Storytelling">
+                <div class="member" data-bio="Leads the creative vision behind every home, from first concept to final look." data-skills="Concepts, Direction, Moodboards">
                     <div class="member-image">
-                        <img src="photo/abdullah .png" alt="Abdullah">
+                        <img src="../images/abdullah .png" alt="Abdallah Mdalal">
                     </div>
 
                     <div class="member-info">
-                        <h3>Abdullah</h3>
-                        <p>Creative & Strategy</p>
+                        <h3>Abdallah Mdalal</h3>
+                        <p>Project Manager</p>
                     </div>
                 </div>
-
-
-                <div class="member" data-bio="Builds campaigns that connect brands with exactly the right audience." data-skills="Campaigns, Audience, Growth">
+                
+                <div class="member" data-bio="Coordinates suppliers and craftsmen so every detail is delivered exactly as designed." data-skills="Scheduling, Suppliers, Quality">
                     <div class="member-image">
-                        <img src="photo/amal.jpeg" alt="Amal">
+                        <img src="photo/fd9027ad-45aa-4c37-902b-2764ad1c0b6d.jpg" alt="Fatimat Tawalbeh">
                     </div>
 
                     <div class="member-info">
-                        <h3>Amal</h3>
-                        <p>Creative Marketing</p>
+                        <h3>Fatimat Tawalbeh</h3>
+                        <p>Deputy Manager</p>
                     </div>
                 </div>
 
+                <div class="member" data-bio="Designs layouts and interiors that balance beauty, comfort and everyday function." data-skills="Layouts, Materials, Color">
+                    <div class="member-image">
+                        <img src="../images/amal.jpeg" alt="Amal Obaidat">
+                    </div>
 
-                <div class="member" data-bio="Designs and develops fast, clean digital experiences for every brand." data-skills="Web Design, Front-end, UX">
-                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>Amal Obaidat</h3>
+                        <p>Senior Interior Designer</p>
+                    </div>
+                </div>
+
+                 <div class="member" data-bio="Turns plans into photorealistic 3D renders so you can walk through your home before it is built." data-skills="Renders, Walkthroughs, Lighting">
+                    <div class="member-image">
+                        <img src="../images/saifkhatatbeh.jpg" alt="Saif Khatatbeh">
+                    </div>
 
                     <div class="member-info">
                         <h3>Saif Khatatbeh</h3>
-                        <p>Digital & Web</p>
+                        <p>3D Visualization Artist</p>
                     </div>
                 </div>
 
-
-                <div class="member" data-bio="Plans and writes content that gives every brand a clear, consistent voice." data-skills="Copywriting, Content, Social">
+                <div class="member" data-bio="Curates furniture, textiles and accents that give each room its warmth and character." data-skills="Furniture, Textiles, Accents">
                     <div class="member-image">
-                        <img src="photo/sajaimage.jpeg" alt="Saja">
+                        <img src="../images/sajaimage.jpeg" alt="Saja Diabat">
                     </div>
 
                     <div class="member-info">
-                        <h3>Saja</h3>
-                        <p>Marketing & Content</p>
+                        <h3>Saja Diabat</h3>
+                        <p>Decor &amp; Styling Specialist</p>
                     </div>
                 </div>
 
-
-                <div class="member" data-bio="Leads the visual language that makes every project instantly recognizable." data-skills="Identity, Layout, Motion">
+                <div class="member" data-bio="Selects the finishes, stone, wood and lighting that set the mood of every space." data-skills="Finishes, Lighting, Textures">
                     <div class="member-image">
-                        <img src="https://i.pravatar.cc/600?img=12" alt="Team Member">
+                        <img src="../images/" alt="Roa'a Ajlouni">
                     </div>
 
                     <div class="member-info">
-                        <h3>Team Member</h3>
-                        <p>Art Direction</p>
-                    </div>
-                </div>
-
-
-                <div class="member" data-bio="Turns audience data into digital campaigns built for measurable growth." data-skills="SEO, Ads, Analytics">
-                    <div class="member-image">
-                        <img src="https://i.pravatar.cc/600?img=47" alt="Team Member">
-                    </div>
-
-                    <div class="member-info">
-                        <h3>Team Member</h3>
-                        <p>Digital Marketing</p>
+                        <h3>Roa'a Ajlouni</h3>
+                        <p>Lighting &amp; Materials Specialist</p>
                     </div>
                 </div>
 
             </div>
         </section>
 
-
-        <section class="cta">
+        <section class="cta" id="contact">
 
             <div>
-                <p class="eyebrow">HAVE A PROJECT?</p>
+                <p class="eyebrow">HAVE A HOME IN MIND?</p>
 
                 <h2>
-                    Let's make something
-                    <span>worth remembering.</span>
+                    Let's design a home
+                    <span class="accent">you'll love.</span>
                 </h2>
             </div>
 
-            <a href="#" class="main-button">
-                Start a conversation ↗
+            <a href="#contact" class="main-button">
+                Book a Consultation <span>↗</span>
             </a>
 
         </section>
 
     </main>
 
+    <footer class="site-footer">
 
-    <footer class="footer">
+        <div class="footer-inner">
 
-        <div class="footer-logo">NEXA<span>.</span></div>
+            <a href="#top" class="footer-plaque" aria-label="Alvora — Interior Design & Decor. Back to top">
+                <span class="plaque-frame">
+                    <img src="logo/alvora-full.jpg" alt="Alvora, interior design and decor. Spaces that inspire." width="900" height="725">
+                    <span class="plaque-lamp"></span>
+                    <span class="plaque-shine"></span>
+                </span>
+            </a>
 
-        <p>Creative marketing for ambitious brands.</p>
+            <div class="footer-body">
+                <p class="footer-text">
+                    Interior design and decor for homes that feel personal,
+                    calm and truly yours.
+                </p>
 
-        <small>© 2026 Nexa Marketing. All rights reserved.</small>
+                <div class="footer-links" role="navigation" aria-label="Footer">
+                    <a href="#top">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <small>© 2026 Alvora Interior Design &amp; Decor. All rights reserved.</small>
+            <a href="#top" class="to-top">Back to top <span>↑</span></a>
+        </div>
 
     </footer>
 
 </body>
+
 
 </html>
