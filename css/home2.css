@@ -733,7 +733,6 @@ blockquote footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1rem;
     align-items: center;
 }
 
@@ -830,24 +829,22 @@ blockquote footer {
 ========================= */
 
 .main-footer {
-    background: #19303A;
+    background:#11100F;
 
     padding: 70px 4%;
 }
 
 
 .footer-card {
-    max-width: 1450px;
+    
 
-    margin: auto;
-
-    overflow: hidden;
+    
 
     background: #DCE5E7;
 
     border-radius: 28px;
 
-    color: #19303A;
+    color:#b1aaa2;
 
     box-shadow:
         0 18px 50px rgba(0, 0, 0, 0.08);
@@ -894,7 +891,7 @@ blockquote footer {
 .footer-logo > i {
     font-size: 42px;
 
-    color: #19303A;
+    color:#b1aaa2;
 }
 
 
@@ -931,7 +928,7 @@ blockquote footer {
 
     line-height: 1.8;
 
-    color: #445860;
+    color:#b1aaa2;
 }
 
 
@@ -959,7 +956,7 @@ blockquote footer {
 
     border-radius: 50%;
 
-    color: #19303A;
+    color: #b1aaa2;
 
     text-decoration: none;
 
@@ -1042,7 +1039,7 @@ blockquote footer {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #7C8E94;
+    border: 1px solid #b1aaa2;
 
     border-radius: 50%;
 }
@@ -1055,7 +1052,7 @@ blockquote footer {
 
     line-height: 1.6;
 
-    color: #354950;
+    color: #b1aaa2;
 }
 
 
@@ -1072,7 +1069,7 @@ blockquote footer {
 
     border-radius: 18px;
 
-    background: #C9D5D8;
+    background: #b1aaa2;
 
     border: 2px solid rgba(255, 255, 255, 0.65);
 
@@ -1133,7 +1130,7 @@ blockquote footer {
 
     background: #E3ECEE;
 
-    color: #19303A;
+    color: #b1aaa2;
 }
 
 
@@ -1239,7 +1236,7 @@ blockquote footer {
 
     background: #F5C84C;
 
-    color: #19303A;
+    color: #b1aaa2;
 
     font-weight: 600;
 
@@ -1263,7 +1260,7 @@ blockquote footer {
 .footer-bottom {
     padding: 20px 65px;
 
-    background: #CAD8DB;
+    background: #b1aaa2;
 
     display: flex;
 
@@ -1280,7 +1277,7 @@ blockquote footer {
 
     font-size: 11px;
 
-    color: #40545B;
+    color: #b1aaa2;
 }
 
 
@@ -1292,7 +1289,7 @@ blockquote footer {
 
 
 .footer-bottom a {
-    color: #40545B;
+    color: #b1aaa2;
 
     text-decoration: none;
 
