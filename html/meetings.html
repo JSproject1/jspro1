@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,6 @@
           href="../css/meetings.css">
 
 </head>
-
 <body>
    <aside id="sideBar" class="side-bar">
 
@@ -26,241 +25,109 @@
         </div>
 
         <nav class="side-navigation">
-
             <a href="profile.html" class="nav-item">
                 <span class="nav-icon">◉</span>
-                <span>My Profile</span>
-            </a>
+                <span>My Profile</span> </a>
 
             <a href="ETasks.html"  class="nav-item">
                 <span class="nav-icon">✓</span>
-                <span>My Tasks</span>
-            </a>
+                <span>My Tasks</span> </a>
 
             <a href="leaveEmp.html" class="nav-item ">
                 <span class="nav-icon">↗</span>
-                <span>Leave Requests</span>
-            </a>
+                <span>Leave Requests</span> </a>
 
             <a href="policies.html" class="nav-item">
                 <span class="nav-icon">▤</span>
-                <span>Company Policies</span>
-            </a>
+                <span>Company Policies</span> </a>
 
             <a href="meetings.html" class="nav-item active">
                 <span class="nav-icon">◷</span>
-                <span>Meetings</span>
-            </a>
+                <span>Meetings</span> </a>
 
             <a href="feedback.html" class="nav-item">
                 <span class="nav-icon">◇</span>
-                <span>Feedback</span>
-            </a>
-
+                <span>Feedback</span>  </a>
         </nav>
-
         <div class="sidebar-footer">
-
-            
-
             <a href="login.html" class="logout" id="logoutButton">
-                <span>↪</span>
-                Logout
-            </a>
-
+                <span>↪</span>  Logout </a>
         </div>
 
     </aside>
     <div class="page-container">
 
         <!-- Header -->
-
         <div class="page-header">
-
             <div>
                 <h1>Meetings</h1>
-
-                <p>
-                    Manage your meetings and invitations
-                </p>
+                <p>  Manage your meetings and invitations </p>
             </div>
-
-
-            <button
-                class="new-meeting-btn"
-                onclick="showNewMeeting()">
-
-                + New Meeting
-
-            </button>
-
+            <button class="new-meeting-btn" onclick="showNewMeeting()">  + New Meeting </button>
         </div>
 
 
         <!-- Meetings -->
-
         <div class="meetings-section">
-
             <div class="section-title">
-
                 <h2>My Meetings</h2>
-
-                <span id="meetingCount">
-                    0 Meetings
-                </span>
+                <span id="meetingCount">   0 Meetings </span>
 
             </div>
-
-
-            <div id="meetingsContainer"></div>
-
+           <div id="meetingsContainer"></div>
         </div>
-
-
     </div>
 
 
     <!-- New Meeting Modal -->
-
-    <div
-        id="meetingModal"
-        class="modal">
+    <div id="meetingModal" class="modal">
 
         <div class="modal-content">
-
             <div class="modal-header">
-
                 <div>
                     <h2>Create New Meeting</h2>
-
-                    <p>
-                        Send a meeting invitation
-                    </p>
+                    <p>  Send a meeting invitation </p>
                 </div>
-
-                <button
-                    class="close-btn"
-                    onclick="closeNewMeeting()">
-
-                    ×
-
-                </button>
-
+                <button class="close-btn" onclick="closeNewMeeting()">   × </button>
             </div>
 
 
             <!-- Title -->
-
-            <label>
-                Meeting Title
-            </label>
-
-            <input
-                type="text"
-                id="meetingTitle"
-                placeholder="Enter meeting title">
-
+            <label> Meeting Title </label>
+            <input type="text" id="meetingTitle" placeholder="Enter meeting title">
 
             <!-- Date & Time -->
-
             <div class="form-row">
-
                 <div>
-
-                    <label>
-                        Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="meetingDate">
-
+                    <label>  Date </label>
+                    <input type="date" id="meetingDate">
                 </div>
-
-
-                <div>
-
-                    <label>
-                        Time
-                    </label>
-
-                    <input
-                        type="time"
-                        id="meetingTime">
-
+                <div> 
+                    <label>   Time </label>
+                    <input type="time" id="meetingTime">
                 </div>
-
             </div>
-
 
             <!-- Duration -->
-
-            <label>
-                Duration
-            </label>
-
+            <label>  Duration </label>
             <select id="meetingDuration">
-
-                <option value="30">
-                    30 Minutes
-                </option>
-
-                <option value="60">
-                    1 Hour
-                </option>
-
-                <option value="90">
-                    1.5 Hours
-                </option>
-
-                <option value="120">
-                    2 Hours
-                </option>
-
+                <option value="30">   30 Minutes </option>
+                <option value="60">   1 Hour </option>
+                <option value="90">     1.5 Hours </option>
+                <option value="120">    2 Hours </option>
             </select>
 
-
             <!-- Participants -->
-
-            <label>
-                Participants
-            </label>
-
-            <div
-                id="usersContainer"
-                class="users-container">
-
-            </div>
-
+            <label> Participants </label>
+            <div id="usersContainer" class="users-container"></div>
 
             <!-- Buttons -->
-
             <div class="modal-buttons">
-
-                <button
-                    class="cancel-btn"
-                    onclick="closeNewMeeting()">
-
-                    Cancel
-
-                </button>
-
-
-                <button
-                    class="create-btn"
-                    onclick="createMeeting()">
-
-                    Send Invitation
-
-                </button>
-
+                <button class="cancel-btn" onclick="closeNewMeeting()">    Cancel  </button>
+                <button class="create-btn" onclick="createMeeting()">   Send Invitation </button>
             </div>
-
         </div>
-
     </div>
-
-
     <script src="../js/meetings.js"></script>
 
 </body>

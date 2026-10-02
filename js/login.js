@@ -71,3 +71,11 @@ loginForm.addEventListener("submit", function(event) {
         });
 
 });
+//LOGIN ANIMATION
+const lampSwitch = document.getElementById("lampSwitch");
+
+lampSwitch.addEventListener("click", function () {
+
+    document.body.classList.toggle("light-on");
+
+});
