@@ -1,23 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   ALVORA — EDIT POLICY MODAL PAGE
+   ========================================================= */
+
 :root {
-    --primary-yellow: #FFBB00;
-    --primary-dark: #26201E;
+    --dark: #1F1A18;
+    --dark-surface: #2A2420;
 
-    --page-bg: #FAF8F4;
-    --card-bg: #FFFFFF;
+    --gold: #D4A373;
+    --gold-hover: #C5932B;
+    --gold-soft: rgba(212, 163, 115, 0.12);
 
-    --text-primary: #26201E;
-    --text-secondary: #756E69;
+    --cream: #FAF7F2;
+    --cream-surface: #F4EFE6;
 
-    --border-color: #EAE5DE;
+    --white: #FFFFFF;
 
-    --sidebar-text: #C9C2BD;
-    --sidebar-hover: #39312E;
+    --gray: #6B6059;
+    --gray-light: #968B82;
 
-    --yellow-hover: #E9AA00;
+    --border: #E8DFD3;
+
+    --red: #B35F50;
+    --green: #3F7D59;
+
+    --transition:
+        all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
-/* ================= GLOBAL ================= */
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
     margin: 0;
@@ -25,343 +41,568 @@
     box-sizing: border-box;
 }
 
+
+html,
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--page-bg);
-    color: var(--text-primary);
-}
+    width: 100%;
+    height: 100%;
 
-.app {
-    display: flex;
-    min-height: 100vh;
+    overflow: hidden;
 }
 
 
-/* ================= SIDEBAR ================= */
+body {
+    font-family:
+        'Plus Jakarta Sans',
+        system-ui,
+        sans-serif;
 
-.sidebar {
-    width: 170px;
-    height: 100vh;
+    color: var(--dark);
 
-    background-color: var(--primary-dark);
+    background: var(--cream);
+}
 
-    padding: 14px 10px;
 
-    display: flex;
-    flex-direction: column;
+/* =========================================================
+   POLICIES PAGE IN BACKGROUND
+   ========================================================= */
 
+.background-page {
     position: fixed;
-    left: 0;
-    top: 0;
-}
 
-.logo {
-    padding: 0 8px;
-    margin-bottom: 30px;
-}
-
-.logo h2 {
-    color: white;
-    font-size: 15px;
-}
-
-.logo h2 span {
-    color: var(--primary-yellow);
-}
-
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.sidebar-menu a,
-.logout {
-    color: var(--sidebar-text);
-
-    text-decoration: none;
-
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-
-    padding: 7px 9px;
-
-    border-radius: 6px;
-
-    font-size: 10px;
-}
-
-.sidebar-menu a.active {
-    background-color: var(--primary-yellow);
-    color: var(--primary-dark);
-    font-weight: 600;
-}
-
-.sidebar-menu a:hover,
-.logout:hover {
-    background-color: var(--sidebar-hover);
-    color: white;
-}
-
-.logout {
-    margin-top: auto;
-}
-
-
-/* ================= MAIN ================= */
-
-.main-content {
-    margin-left: 170px;
-    width: calc(100% - 170px);
-    min-height: 100vh;
-}
-
-
-/* ================= TOPBAR ================= */
-
-.topbar {
-    height: 50px;
-
-    background-color: white;
-
-    border-bottom: 1px solid var(--border-color);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 18px;
-}
-
-.top-search {
-    width: 210px;
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 6px;
-
-    background: var(--page-bg);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 6px;
-
-    padding: 0 9px;
-}
-
-.top-search input {
-    border: none;
-    outline: none;
-
-    background: transparent;
-
-    font-size: 10px;
+    inset: 0;
 
     width: 100%;
+    height: 100%;
+
+    border: none;
+
+    z-index: 1;
+
+    pointer-events: none;
 }
 
-.profile {
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.policy-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10;
+
     display: flex;
-    align-items: center;
-    gap: 7px;
-}
 
-.notification {
-    font-size: 14px;
-}
-
-.avatar {
-    width: 27px;
-    height: 27px;
-
-    border-radius: 50%;
-
-    background: var(--primary-yellow);
-
-    display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 10px;
-    font-weight: bold;
+    padding: 24px;
+
+    background:
+        rgba(
+            31,
+            26,
+            24,
+            0.56
+        );
+
+    backdrop-filter: blur(6px);
+
+    -webkit-backdrop-filter: blur(6px);
 }
 
-.profile-info {
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.policy-modal {
+    width:
+        min(
+            620px,
+            100%
+        );
+
+    max-height:
+        calc(
+            100vh - 48px
+        );
+
+    overflow-y: auto;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        rgba(
+            232,
+            223,
+            211,
+            0.85
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 35px 90px
+        rgba(
+            0,
+            0,
+            0,
+            0.30
+        );
+
+    animation:
+        modalOpen
+        0.32s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.modal-header {
+    padding:
+        26px
+        28px
+        21px;
+
     display: flex;
-    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid
+        var(--border);
 }
 
-.profile-info strong {
-    font-size: 10px;
-}
 
-.profile-info span {
+.modal-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--gold-hover);
+
     font-size: 8px;
-    color: var(--text-secondary);
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
 }
 
 
-/* ================= PAGE ================= */
+.modal-header h1 {
+    color:
+        var(--dark);
 
-.add-policy-page {
-    padding: 16px 18px;
-}
+    font-family:
+        'Playfair Display',
+        Georgia,
+        serif;
 
-.page-header {
-    margin-bottom: 13px;
-}
+    font-size: 29px;
 
-.page-header h1 {
-    font-size: 18px;
-    margin-bottom: 3px;
-}
+    line-height: 1.15;
 
-.page-header p {
-    font-size: 9px;
-    color: var(--text-secondary);
+    font-weight: 700;
 }
 
 
-/* ================= FORM ================= */
+.modal-header p {
+    margin-top: 6px;
 
-.form-card {
-    width: 520px;
+    color:
+        var(--gray);
 
-    background: white;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 7px;
-
-    padding: 14px;
-
-    box-shadow: 0 2px 6px rgba(38, 32, 30, 0.05);
+    font-size: 11px;
 }
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.close-btn {
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--cream-surface);
+
+    color:
+        var(--gray);
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition:
+        var(--transition);
+}
+
+
+.close-btn:hover {
+    background:
+        var(--dark);
+
+    color:
+        var(--white);
+
+    transform:
+        rotate(5deg);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#editPolicyForm {
+    padding:
+        25px
+        28px
+        28px;
+}
+
 
 .form-group {
+    margin-bottom: 18px;
+
     display: flex;
+
     flex-direction: column;
 
-    gap: 5px;
-
-    margin-bottom: 11px;
+    gap: 7px;
 }
+
 
 .form-group label {
-    font-size: 8px;
-    font-weight: 600;
+    color:
+        var(--gray-light);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
 }
+
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
 
-    border: 1px solid var(--border-color);
+    border:
+        1px solid
+        var(--border);
 
-    border-radius: 5px;
-
-    padding: 8px 9px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
+    border-radius: 10px;
 
     outline: none;
 
-    background: white;
+    background:
+        var(--cream);
+
+    color:
+        var(--dark);
+
+    font-size: 11px;
+
+    transition:
+        var(--transition);
 }
+
 
 .form-group input,
 .form-group select {
-    height: 31px;
+    height: 46px;
+
+    padding:
+        0
+        13px;
 }
 
+
 .form-group textarea {
+    min-height: 145px;
+
+    padding: 13px;
+
     resize: vertical;
-    min-height: 90px;
+
+    line-height: 1.6;
 }
+
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color:
+        rgba(
+            212,
+            163,
+            115,
+            0.60
+        );
+}
+
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-yellow);
+    background:
+        var(--white);
+
+    border-color:
+        var(--gold);
+
+    box-shadow:
+        0
+        0
+        0
+        3px
+        var(--gold-soft);
 }
 
 
-/* ================= MESSAGE ================= */
+/* =========================================================
+   MESSAGE
+   ========================================================= */
 
 #formMessage {
-    min-height: 12px;
-    font-size: 8px;
+    min-height: 18px;
+
+    margin-top: 2px;
+
+    color:
+        var(--red);
+
+    font-size: 10px;
 }
 
 
-/* ================= BUTTONS ================= */
+#formMessage.success {
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
 
 .form-actions {
-    display: flex;
-    gap: 7px;
     margin-top: 10px;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    border-top:
+        1px solid
+        var(--border);
 }
 
-.add-btn,
-.cancel-btn {
-    padding: 6px 10px;
 
-    border-radius: 5px;
+.cancel-btn,
+.save-btn {
+    min-height: 43px;
 
-    font-size: 9px;
+    padding:
+        0
+        19px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    font-weight: 700;
 
     cursor: pointer;
+
+    transition:
+        var(--transition);
 }
 
-.add-btn {
-    border: none;
 
-    background: var(--primary-yellow);
-
-    color: var(--primary-dark);
-
-    font-weight: 600;
-}
-
-.add-btn:hover {
-    background: var(--yellow-hover);
-}
+/* CANCEL */
 
 .cancel-btn {
-    background: white;
+    border:
+        1px solid
+        var(--border);
 
-    border: 1px solid var(--border-color);
+    background:
+        transparent;
+
+    color:
+        var(--gray);
 }
 
 
+.cancel-btn:hover {
+    background:
+        var(--cream-surface);
+
+    color:
+        var(--dark);
+}
+
+
+/* SAVE */
 
 .save-btn {
-    padding: 6px 10px;
-
     border: none;
-    border-radius: 5px;
 
-    background-color: var(--primary-yellow);
+    background:
+        var(--dark);
 
-    color: var(--primary-dark);
+    color:
+        var(--white);
 
-    font-size: 9px;
-    font-weight: 600;
-
-    cursor: pointer;
+    box-shadow:
+        0
+        8px
+        20px
+        rgba(
+            31,
+            26,
+            24,
+            0.14
+        );
 }
+
 
 .save-btn:hover {
-    background-color: var(--yellow-hover);
+    background:
+        var(--gold-hover);
+
+    transform:
+        translateY(-1px);
 }
 
-.edit-policy-page {
-    padding: 16px 18px;
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.policy-modal::-webkit-scrollbar {
+    width: 4px;
+}
+
+
+.policy-modal::-webkit-scrollbar-track {
+    background:
+        transparent;
+}
+
+
+.policy-modal::-webkit-scrollbar-thumb {
+    background:
+        var(--border);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+    .policy-overlay {
+        padding: 15px;
+    }
+
+
+    .modal-header {
+        padding:
+            22px
+            21px
+            18px;
+    }
+
+
+    #editPolicyForm {
+        padding:
+            21px;
+    }
+
+
+    .modal-header h1 {
+        font-size: 25px;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .form-actions {
+        flex-direction:
+            column-reverse;
+    }
+
+
+    .cancel-btn,
+    .save-btn {
+        width: 100%;
+    }
+
 }

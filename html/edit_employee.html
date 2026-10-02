@@ -12,78 +12,98 @@
 
 <body>
 
-    <div class="edit-container">
+    <!-- Employees page shown behind the modal -->
+    <iframe
+        class="background-page"
+        src="employees.html"
+        aria-hidden="true"
+        tabindex="-1">
+    </iframe>
+
+
+    <!-- Blur / dark overlay + centered edit modal -->
+    <div class="edit-overlay">
 
         <div class="edit-card">
 
             <div class="edit-header">
+
                 <div>
+                    <span class="edit-label">EMPLOYEE MANAGEMENT</span>
                     <h1>Edit Employee</h1>
                     <p>Update employee information</p>
                 </div>
 
-                <a href="employees.html" class="back-btn">
-                    ← Back
+                <a href="employees.html" class="close-btn" aria-label="Close">
+                    ×
                 </a>
+
             </div>
 
 
             <form id="editEmployeeForm">
 
-                <div class="form-group">
-                    <label for="editName">Full Name</label>
+                <div class="form-grid">
 
-                    <input
-                        type="text"
-                        id="editName"
-                        required
-                    >
+                    <div class="form-group">
+                        <label for="editName">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="editEmail">Email</label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="editRole">Role</label>
+
+                        <select id="editRole" required>
+
+                            <option value="EMP">
+                                Employee
+                            </option>
+
+                            <option value="HR">
+                                HR
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="editDepartment">
+                            Department
+                        </label>
+
+                        <select id="editDepartment" required>
+
+                            <option value="IT">IT</option>
+                            <option value="HR">HR</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Design">Design</option>
+                            <option value="Sales">Sales</option>
+
+                        </select>
+                    </div>
+
                 </div>
 
 
-                <div class="form-group">
-                    <label for="editEmail">Email</label>
-
-                    <input
-                        type="email"
-                        id="editEmail"
-                        required
-                    >
-                </div>
-
-
-                <div class="form-group">
-                    <label for="editRole">Role</label>
-
-                    <select id="editRole" required>
-
-                        <option value="EMP">
-                            Employee
-                        </option>
-
-                        <option value="HR">
-                            HR
-                        </option>
-
-                    </select>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="editDepartment">
-                        Department
-                    </label>
-
-                    <select id="editDepartment" required>
-
-                        <option value="IT">IT</option>
-                        <option value="HR">HR</option>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Design">Design</option>
-                        <option value="Sales">Sales</option>
-
-                    </select>
-                </div>
+                <p id="editMessage"></p>
 
 
                 <div class="form-actions">
@@ -91,21 +111,17 @@
                     <button
                         type="button"
                         class="cancel-btn"
-                        id="cancelEditBtn"
-                    >
+                        id="cancelEditBtn">
                         Cancel
                     </button>
 
                     <button
                         type="submit"
-                        class="save-btn"
-                    >
+                        class="save-btn">
                         Save Changes
                     </button>
 
                 </div>
-
-                <p id="editMessage"></p>
 
             </form>
 

@@ -5,220 +5,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CTRL+NXT | Edit Policy</title>
+    <title>Alvora | Edit Policy</title>
 
     <link rel="stylesheet" href="../css/editPolicy.css">
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    >
 </head>
 
 <body>
 
-<div class="app">
+    <!-- Company Policies page shown behind the modal -->
+    <iframe
+        class="background-page"
+        src="hrPolicies.html"
+        aria-hidden="true"
+        tabindex="-1">
+    </iframe>
 
-    <!-- SIDEBAR -->
 
-    <aside class="sidebar">
+    <!-- Blur / dark overlay -->
+    <div class="policy-overlay">
 
-        <div class="logo">
-            <h2>CTRL<span>+NXT</span></h2>
+        <!-- Modal Card -->
+        <div class="policy-modal">
+
+            <!-- HEADER -->
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-label">
+                        COMPANY POLICY
+                    </span>
+
+                    <h1>
+                        Edit Policy
+                    </h1>
+
+                    <p>
+                        Update company policy information.
+                    </p>
+                </div>
+
+
+                <a
+                    href="hrPolicies.html"
+                    class="close-btn"
+                    aria-label="Close">
+                    ×
+                </a>
+
+            </div>
+
+
+            <!-- FORM -->
+            <form id="editPolicyForm">
+
+                <!-- POLICY TITLE -->
+                <div class="form-group">
+
+                    <label for="title">
+                        Policy Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CATEGORY -->
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="Attendance">
+                            Attendance
+                        </option>
+
+                        <option value="Leave">
+                            Leave
+                        </option>
+
+                        <option value="Remote Work">
+                            Remote Work
+                        </option>
+
+                        <option value="IT">
+                            IT
+                        </option>
+
+                        <option value="General">
+                            General
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+                <p id="formMessage"></p>
+
+
+                <!-- ACTIONS -->
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelBtn">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
         </div>
 
-        <nav class="sidebar-menu">
+    </div>
 
-            <a href="hrDashboard.html">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
 
-            <a href="employees.html">
-                <i class="fa-solid fa-users"></i>
-                <span>Employees</span>
-            </a>
-
-            <a href="#">
-                <i class="fa-regular fa-square-check"></i>
-                <span>Task Management</span>
-            </a>
-
-            <a href="#">
-                <i class="fa-regular fa-calendar-check"></i>
-                <span>Leave Requests</span>
-            </a>
-
-            <a href="policies.html" class="active">
-                <i class="fa-regular fa-file-lines"></i>
-                <span>Company Policies</span>
-            </a>
-
-            <a href="#">
-                <i class="fa-regular fa-comment-dots"></i>
-                <span>Feedback</span>
-            </a>
-
-            <a href="#">
-                <i class="fa-solid fa-video"></i>
-                <span>Meetings</span>
-            </a>
-
-        </nav>
-
-        <a href="#" class="logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Logout</span>
-        </a>
-
-    </aside>
-
-
-    <!-- MAIN -->
-
-    <main class="main-content">
-
-        <header class="topbar">
-
-            <div class="top-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search...">
-            </div>
-
-            <div class="profile">
-
-                <i class="fa-regular fa-bell notification"></i>
-
-                <div class="avatar">
-                    F
-                </div>
-
-                <div class="profile-info">
-                    <strong>Fatima</strong>
-                    <span>HR Manager</span>
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <!-- EDIT CONTENT -->
-
-        <section class="edit-policy-page">
-
-            <div class="page-header">
-
-                <h1>Edit Policy</h1>
-
-                <p>
-                    Update company policy information.
-                </p>
-
-            </div>
-
-
-            <div class="form-card">
-
-                <form id="editPolicyForm">
-
-                    <div class="form-group">
-
-                        <label for="title">
-                            Policy Title
-                        </label>
-
-                        <input
-                            type="text"
-                            id="title"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="category">
-                            Category
-                        </label>
-
-                        <select id="category" required>
-
-                            <option value="Attendance">
-                                Attendance
-                            </option>
-
-                            <option value="Leave">
-                                Leave
-                            </option>
-
-                            <option value="Remote Work">
-                                Remote Work
-                            </option>
-
-                            <option value="IT">
-                                IT
-                            </option>
-
-                            <option value="General">
-                                General
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="description">
-                            Description
-                        </label>
-
-                        <textarea
-                            id="description"
-                            rows="6"
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <p id="formMessage"></p>
-
-
-                    <div class="form-actions">
-
-                        <button
-                            type="submit"
-                            class="save-btn"
-                        >
-                            Save Changes
-                        </button>
-
-                        <button
-                            type="button"
-                            class="cancel-btn"
-                            id="cancelBtn"
-                        >
-                            Cancel
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
-<script src="../js/editPolicy.js"></script>
+    <script src="../js/editPolicy.js"></script>
 
 </body>
 

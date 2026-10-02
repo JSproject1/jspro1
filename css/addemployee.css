@@ -1,25 +1,39 @@
-/* ================= COLORS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   ALVORA — ADD EMPLOYEE MODAL PAGE
+   ========================================================= */
 
 :root {
-    --primary-yellow: #FFBB00;
-    --primary-dark: #26201E;
+    --dark: #1F1A18;
+    --dark-surface: #2A2420;
 
-    --page-bg: #FAF8F4;
-    --card-bg: #FFFFFF;
+    --gold: #D4A373;
+    --gold-hover: #C5932B;
+    --gold-soft: rgba(212, 163, 115, 0.12);
 
-    --text-primary: #26201E;
-    --text-secondary: #756E69;
+    --cream: #FAF7F2;
+    --cream-surface: #F4EFE6;
 
-    --border-color: #EAE5DE;
+    --white: #FFFFFF;
 
-    --yellow-hover: #E9AA00;
+    --gray: #6B6059;
+    --gray-light: #968B82;
 
-    --sidebar-text: #C9C2BD;
-    --sidebar-hover: #39312E;
+    --border: #E8DFD3;
+
+    --red: #B35F50;
+    --green: #3F7D59;
+
+    --transition:
+        all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
-/* ================= GLOBAL ================= */
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
     margin: 0;
@@ -27,466 +41,577 @@
     box-sizing: border-box;
 }
 
+
+html,
 body {
-    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
 
-    background-color: var(--page-bg);
-
-    color: var(--text-primary);
-
-    font-size: 14px;
-}
-
-.app {
-    display: flex;
-
-    min-height: 100vh;
+    overflow: hidden;
 }
 
 
-/* ================= SIDEBAR ================= */
+body {
+    font-family:
+        'Plus Jakarta Sans',
+        system-ui,
+        sans-serif;
 
-.sidebar {
-    width: 170px;
-    height: 100vh;
+    color: var(--dark);
 
-    background-color: var(--primary-dark);
+    background: var(--cream);
+}
 
-    color: white;
 
-    padding: 14px 10px;
+/* =========================================================
+   EMPLOYEES PAGE IN BACKGROUND
+   ========================================================= */
 
-    display: flex;
-    flex-direction: column;
-
+.background-page {
     position: fixed;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    z-index: 100;
-
-    overflow-y: auto;
-}
-
-
-/* ================= LOGO ================= */
-
-.logo {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 0 8px;
-
-    margin-bottom: 30px;
-}
-
-.logo i {
-    font-size: 16px;
-
-    color: var(--primary-yellow);
-}
-
-.logo h2 {
-    font-size: 15px;
-
-    font-weight: 700;
-
-    color: white;
-}
-
-.logo h2 span {
-    color: var(--primary-yellow);
-}
-
-
-/* ================= SIDEBAR MENU ================= */
-
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-
-    gap: 3px;
-}
-
-.sidebar-menu a,
-.logout {
-    color: var(--sidebar-text);
-
-    text-decoration: none;
-
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-
-    padding: 7px 9px;
-
-    border-radius: 6px;
-
-    font-size: 10px;
-
-    transition: 0.2s;
-}
-
-.sidebar-menu a i,
-.logout i {
-    width: 12px;
-
-    font-size: 12px;
-}
-
-.sidebar-menu a:hover,
-.logout:hover {
-    background-color: var(--sidebar-hover);
-
-    color: white;
-}
-
-.sidebar-menu a.active {
-    background-color: var(--primary-yellow);
-
-    color: var(--primary-dark);
-
-    font-weight: 600;
-}
-
-.logout {
-    margin-top: auto;
-}
-
-
-/* ================= MAIN ================= */
-
-.main-content {
-    margin-left: 170px;
-
-    width: calc(100% - 170px);
-
-    min-height: 100vh;
-}
-
-
-/* ================= TOPBAR ================= */
-
-.topbar {
-    height: 50px;
-
-    background-color: var(--card-bg);
-
-    border-bottom: 1px solid var(--border-color);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 18px;
-}
-
-
-/* ================= SEARCH ================= */
-
-.search-box {
-    width: 210px;
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 6px;
-
-    background-color: var(--page-bg);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 6px;
-
-    padding: 0 9px;
-}
-
-.search-box i {
-    font-size: 11px;
-}
-
-.search-box input {
     width: 100%;
+    height: 100%;
 
     border: none;
 
-    outline: none;
+    z-index: 1;
 
-    background: transparent;
-
-    font-size: 10px;
+    pointer-events: none;
 }
 
 
-/* ================= HR INFO ================= */
+/* =========================================================
+   OVERLAY
+   ========================================================= */
 
-.hr-info {
+.add-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10;
+
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    gap: 7px;
+    padding: 24px;
+
+    background:
+        rgba(
+            31,
+            26,
+            24,
+            0.56
+        );
+
+    backdrop-filter: blur(6px);
+
+    -webkit-backdrop-filter: blur(6px);
 }
 
-.notification {
-    font-size: 14px;
 
-    margin-right: 3px;
+/* =========================================================
+   CARD
+   ========================================================= */
 
-    cursor: pointer;
+.add-card {
+    width:
+        min(
+            700px,
+            100%
+        );
+
+    max-height:
+        calc(
+            100vh - 48px
+        );
+
+    overflow-y: auto;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        rgba(
+            232,
+            223,
+            211,
+            0.85
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 35px 90px
+        rgba(
+            0,
+            0,
+            0,
+            0.30
+        );
+
+    animation:
+        modalOpen
+        0.32s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
 }
 
-.profile-image {
-    width: 27px;
-    height: 27px;
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.add-header {
+    padding:
+        26px
+        28px
+        21px;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+.add-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--gold-hover);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.add-header h1 {
+    color:
+        var(--dark);
+
+    font-family:
+        'Playfair Display',
+        Georgia,
+        serif;
+
+    font-size: 29px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+
+.add-header p {
+    margin-top: 6px;
+
+    color:
+        var(--gray);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.close-btn {
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    background-color: var(--primary-yellow);
+    background:
+        var(--cream-surface);
 
-    display: flex;
+    color:
+        var(--gray);
 
-    align-items: center;
+    font-size: 22px;
 
-    justify-content: center;
+    line-height: 1;
 
-    font-size: 10px;
+    text-decoration: none;
 
-    font-weight: 700;
-}
-
-.profile-text h6 {
-    font-size: 10px;
-}
-
-.profile-text small {
-    font-size: 8px;
-
-    color: var(--text-secondary);
+    transition:
+        var(--transition);
 }
 
 
-/* ================= PAGE ================= */
+.close-btn:hover {
+    background:
+        var(--dark);
 
-.add-employee-page {
-    padding: 16px 18px;
+    color:
+        var(--white);
+
+    transform:
+        rotate(5deg);
 }
 
 
-/* ================= HEADER ================= */
+/* =========================================================
+   FORM
+   ========================================================= */
 
-.page-header {
-    margin-bottom: 13px;
+#employeeForm {
+    padding:
+        25px
+        28px
+        28px;
 }
 
-.page-header h1 {
-    font-size: 18px;
-
-    font-weight: 700;
-
-    margin-bottom: 3px;
-}
-
-.page-header p {
-    font-size: 9px;
-
-    color: var(--text-secondary);
-}
-
-
-/* ================= FORM CARD ================= */
-
-.form-card {
-    max-width: 720px;
-
-    background-color: var(--card-bg);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 7px;
-
-    padding: 14px;
-
-    box-shadow: 0 2px 6px rgba(38, 32, 30, 0.05);
-}
-
-
-/* ================= FORM GRID ================= */
 
 .form-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
 
-    gap: 11px 14px;
+    gap:
+        18px
+        16px;
 }
 
-
-/* ================= FORM GROUP ================= */
 
 .form-group {
     display: flex;
 
     flex-direction: column;
 
-    gap: 5px;
+    gap: 7px;
 }
+
 
 .form-group label {
-    font-size: 8px;
+    color:
+        var(--gray-light);
 
-    font-weight: 600;
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
 }
+
 
 .form-group input,
 .form-group select {
     width: 100%;
 
-    height: 31px;
+    height: 46px;
 
-    padding: 0 9px;
+    padding:
+        0
+        13px;
 
-    border: 1px solid var(--border-color);
+    border:
+        1px solid
+        var(--border);
 
-    border-radius: 5px;
-
-    background-color: white;
-
-    color: var(--text-primary);
+    border-radius: 10px;
 
     outline: none;
 
-    font-size: 9px;
+    background:
+        var(--cream);
+
+    color:
+        var(--dark);
+
+    font-size: 11px;
+
+    transition:
+        var(--transition);
 }
 
+
 .form-group input::placeholder {
-    color: #AAA39E;
+    color:
+        #A69B92;
 }
+
+
+.form-group input:hover,
+.form-group select:hover {
+    border-color:
+        rgba(
+            212,
+            163,
+            115,
+            0.60
+        );
+}
+
 
 .form-group input:focus,
 .form-group select:focus {
-    border-color: var(--primary-yellow);
+    background:
+        var(--white);
+
+    border-color:
+        var(--gold);
+
+    box-shadow:
+        0
+        0
+        0
+        3px
+        var(--gold-soft);
 }
 
 
-/* ================= MESSAGE ================= */
+/* =========================================================
+   MESSAGE
+   ========================================================= */
 
 #formMessage {
-    margin-top: 8px;
+    min-height: 18px;
 
-    min-height: 12px;
+    margin-top: 14px;
 
-    font-size: 8px;
+    color:
+        var(--red);
+
+    font-size: 10px;
 }
 
 
-/* ================= BUTTONS ================= */
+/* Success message support */
+
+#formMessage.success {
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
 
 .form-actions {
+    margin-top: 10px;
+
+    padding-top: 20px;
+
     display: flex;
 
-    gap: 7px;
+    justify-content: flex-end;
 
-    margin-top: 12px;
+    gap: 10px;
+
+    border-top:
+        1px solid
+        var(--border);
 }
 
-.add-btn,
-.cancel-btn {
-    padding: 6px 10px;
 
-    border-radius: 5px;
+.cancel-btn,
+.add-btn {
+    min-height: 43px;
 
-    font-size: 9px;
+    padding:
+        0
+        19px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    font-weight: 700;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition:
+        var(--transition);
 }
+
+
+/* CANCEL */
+
+.cancel-btn {
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        transparent;
+
+    color:
+        var(--gray);
+}
+
+
+.cancel-btn:hover {
+    background:
+        var(--cream-surface);
+
+    color:
+        var(--dark);
+}
+
+
+/* ADD */
 
 .add-btn {
     border: none;
 
-    background-color: var(--primary-yellow);
+    background:
+        var(--dark);
 
-    color: var(--primary-dark);
+    color:
+        var(--white);
 
-    font-weight: 600;
+    box-shadow:
+        0
+        8px
+        20px
+        rgba(
+            31,
+            26,
+            24,
+            0.14
+        );
 }
+
 
 .add-btn:hover {
-    background-color: var(--yellow-hover);
-}
+    background:
+        var(--gold-hover);
 
-.cancel-btn {
-    background-color: white;
-
-    border: 1px solid var(--border-color);
-
-    color: var(--text-primary);
-}
-
-.cancel-btn:hover {
-    background-color: var(--page-bg);
+    transform:
+        translateY(-1px);
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
-@media (max-width: 768px) {
+.add-card::-webkit-scrollbar {
+    width: 4px;
+}
 
-    .sidebar {
-        width: 65px;
 
-        padding: 20px 8px;
+.add-card::-webkit-scrollbar-track {
+    background:
+        transparent;
+}
+
+
+.add-card::-webkit-scrollbar-thumb {
+    background:
+        var(--border);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .add-overlay {
+        padding: 15px;
     }
 
-    .logo h2 {
-        display: none;
-    }
-
-    .sidebar-menu a,
-    .logout {
-        justify-content: center;
-
-        font-size: 0;
-
-        padding: 10px;
-    }
-
-    .sidebar-menu a i,
-    .logout i {
-        font-size: 18px;
-    }
-
-    .main-content {
-        margin-left: 65px;
-
-        width: calc(100% - 65px);
-    }
 
     .form-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
-    .search-box {
-        width: 180px;
+
+    .add-header {
+        padding:
+            22px
+            21px
+            18px;
+    }
+
+
+    #employeeForm {
+        padding:
+            21px;
+    }
+
+
+    .add-header h1 {
+        font-size: 25px;
     }
 
 }
 
-@media (max-width: 500px) {
 
-    .search-box {
-        width: 140px;
+@media (max-width: 420px) {
+
+    .form-actions {
+        flex-direction:
+            column-reverse;
     }
 
-    .profile-text {
-        display: none;
+
+    .cancel-btn,
+    .add-btn {
+        width: 100%;
     }
 
 }
