@@ -11,8 +11,6 @@ function isHR() {
         .toLowerCase() === "hr";
 }
 //    DOM ELEMENTS
-
-
 const policiesContainer =
     document.getElementById("policiesContainer");
 

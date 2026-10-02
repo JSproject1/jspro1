@@ -1252,7 +1252,7 @@ select {
     gap: 13px;
 
     margin-bottom: 17px;
-
+    
     position: relative;
 
     z-index: 2;
@@ -1405,10 +1405,10 @@ select {
 
     display: flex;
 
-    align-items: center;
+    /* align-items: center; */
 
     justify-content:
-        space-between;
+       start;
 
     margin-top: auto;
 
@@ -1425,10 +1425,10 @@ select {
 
 
 .policy-footer > span {
-
+    flex:1;
     color:
         var(--muted-light);
-
+/* justify-content: start; */
     font-size: 11px;
 }
 

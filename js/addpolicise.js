@@ -1,3 +1,31 @@
+
+function getCurrentUser() {
+
+    let user =
+        localStorage.getItem("currentUser");
+
+
+    if (user == null) {
+
+        return null;
+
+    }
+    return JSON.parse(user);
+
+}
+let currentUser = getCurrentUser();
+if (currentUser == null) {
+
+    window.location.href = "login.html";
+
+}
+else if (currentUser.role !== "HR") {
+
+    window.location.href = "ETasks.html";
+
+}
+
+
 const policyForm =
     document.getElementById("policyForm");
 
