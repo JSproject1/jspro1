@@ -12,7 +12,7 @@ phone.value = user.phone;
 address.value = user.address;
 image.value = user.image;
 
-localStorage.clear();
+
 let saveButton = document.getElementById("saveButton");
 
 saveButton.addEventListener("click", function() {

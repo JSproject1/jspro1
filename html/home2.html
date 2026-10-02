@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livarta — Beautiful Interiors. Meaningful Living.</title>
+  <meta name="description" content="Livarta creates refined, timeless interiors that combine architecture, craftsmanship and thoughtful living.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home2.css">
+</head>
+<body>
+
+<!-- Shared gradients used by every SVG layer (keeps the whole scene in one lighting setup) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9d1c6"/><stop offset="1" stop-color="#bfb5a7"/></linearGradient>
+    <linearGradient id="wallL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a99f92"/><stop offset="1" stop-color="#cfc6b9"/></linearGradient>
+    <linearGradient id="wallR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#a99f92"/><stop offset="1" stop-color="#cfc6b9"/></linearGradient>
+    <linearGradient id="ceil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc8bc"/><stop offset="1" stop-color="#e6e0d6"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5539"/><stop offset=".5" stop-color="#5a3b27"/><stop offset="1" stop-color="#352216"/></linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8edf0"/><stop offset="1" stop-color="#a9b4bf"/></linearGradient>
+    <linearGradient id="rugG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2b9ad"/><stop offset="1" stop-color="#8f8679"/></linearGradient>
+    <linearGradient id="sofaBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8d0c4"/><stop offset="1" stop-color="#bcb2a4"/></linearGradient>
+    <linearGradient id="sofaSeat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3dcd1"/><stop offset="1" stop-color="#c9bfb1"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6446"/><stop offset="1" stop-color="#6d4b32"/></linearGradient>
+    <linearGradient id="drape" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bdb4a8"/><stop offset=".5" stop-color="#e0d9ce"/><stop offset="1" stop-color="#b3a99c"/></linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#ffe3a8" stop-opacity=".85"/><stop offset="1" stop-color="#ffe3a8" stop-opacity="0"/></radialGradient>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Livarta home"><span class="brand-mark" aria-hidden="true"></span>LIVARTA</a>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <a class="nav-cta" href="#contact">Book Consultation →</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ SCROLL-CONTROLLED ROOM (600vh tall, 350vh on mobile) ============ -->
+  <section class="room-scroll" id="room" aria-label="A room assembling itself as you scroll">
+    <div class="room-sticky">
+
+      <div class="stage" id="stage">
+
+        <!-- BACKGROUND: empty architectural room. Replace with room.webp if you have a render. -->
+        <svg class="room-bg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="0,0 1600,0 1270,130 330,130" fill="url(#ceil)"/>
+          <g stroke="#b9b1a4" stroke-width="3" opacity=".7">
+            <path d="M326 0 480 130M563 0 640 130M800 0V130M1037 0 960 130M1274 0 1120 130"/>
+          </g>
+          <polygon points="250,48 1350,48 1320,70 280,70" fill="#c4bcaf" opacity=".8"/>
+          <g fill="#fff6e2" opacity=".9"><ellipse cx="80" cy="24" rx="9" ry="3"/><ellipse cx="1520" cy="24" rx="9" ry="3"/><ellipse cx="420" cy="100" rx="7" ry="2.5"/><ellipse cx="1180" cy="100" rx="7" ry="2.5"/></g>
+          <polygon points="330,130 1270,130 1270,580 330,580" fill="url(#wall)"/>
+          <g stroke="#c9c0b3" stroke-width="2" fill="none" opacity=".8"><rect x="370" y="260" width="200" height="250"/><rect x="1030" y="260" width="200" height="250"/></g>
+          <polygon points="0,0 330,130 330,580 0,760" fill="url(#wallL)"/>
+          <polygon points="1600,0 1270,130 1270,580 1600,760" fill="url(#wallR)"/>
+          <!-- central window -->
+          <rect x="660" y="215" width="280" height="360" fill="url(#sky)"/>
+          <path d="M800 215V575M660 395H940" stroke="#2e2a26" stroke-width="5"/>
+          <rect x="660" y="215" width="280" height="360" fill="none" stroke="#2e2a26" stroke-width="8"/>
+          <!-- side windows (perspective quads) -->
+          <polygon points="95,175 185,215 185,520 95,590" fill="url(#sky)" stroke="#2e2a26" stroke-width="6"/>
+          <polygon points="1505,175 1415,215 1415,520 1505,590" fill="url(#sky)" stroke="#2e2a26" stroke-width="6"/>
+          <!-- floor -->
+          <polygon points="0,760 330,580 1270,580 1600,760 1600,900 0,900" fill="url(#floor)"/>
+          <g id="planks" stroke="#2a1a10" stroke-opacity=".45" stroke-width="1.5"></g>
+          <polygon points="620,590 980,590 1140,900 440,900" fill="#fff0d0" opacity=".13"/>
+          <polygon points="330,600 520,590 470,900 140,900" fill="#fff0d0" opacity=".07"/>
+        </svg>
+
+        <!-- FURNITURE LAYERS. --x/--y/--w/--h are the FINAL position in a 1600x900 space. -->
+        <!-- Replace any inline <svg> with <img src="assets/xxx.webp"> (transparent) – JS needs no change. -->
+
+        <div class="item" data-item="rug" style="--x:250;--y:610;--w:1100;--h:170">
+          <svg viewBox="0 0 1100 170" preserveAspectRatio="none"><polygon points="150,0 950,0 1100,170 0,170" fill="url(#rugG)"/><polygon points="170,14 930,14 1060,156 40,156" fill="none" stroke="#e6dfd4" stroke-opacity=".5" stroke-width="3"/><g stroke="#fff" stroke-opacity=".08" stroke-width="2"><path d="M120 40H980M90 80H1010M60 120H1040"/></g></svg>
+        </div>
+
+        <div class="item" data-item="curtainL" style="--x:0;--y:40;--w:300;--h:620">
+          <svg viewBox="0 0 300 620" preserveAspectRatio="none"><polygon points="10,0 90,30 90,590 10,620" fill="url(#drape)"/><polygon points="190,40 290,80 290,560 190,590" fill="url(#drape)"/><g stroke="#9c9285" stroke-opacity=".5"><path d="M30 6V610M50 14V600M70 22V590M215 48V580M240 58V570M265 68V560"/></g></svg>
+        </div>
+        <div class="item" data-item="curtainR" style="--x:1300;--y:40;--w:300;--h:620">
+          <svg viewBox="0 0 300 620" preserveAspectRatio="none"><polygon points="290,0 210,30 210,590 290,620" fill="url(#drape)"/><polygon points="110,40 10,80 10,560 110,590" fill="url(#drape)"/><g stroke="#9c9285" stroke-opacity=".5"><path d="M270 6V610M250 14V600M230 22V590M85 48V580M60 58V570M35 68V560"/></g></svg>
+        </div>
+        <div class="item" data-item="curtainC" style="--x:500;--y:185;--w:600;--h:400">
+          <svg viewBox="0 0 600 400" preserveAspectRatio="none"><rect x="0" y="0" width="150" height="400" fill="url(#drape)"/><rect x="450" y="0" width="150" height="400" fill="url(#drape)"/><g stroke="#9c9285" stroke-opacity=".5"><path d="M25 0V400M50 0V400M75 0V400M100 0V400M125 0V400M475 0V400M500 0V400M525 0V400M550 0V400M575 0V400"/></g><rect x="0" y="0" width="600" height="6" fill="#8b8173"/></svg>
+        </div>
+
+        <div class="item" data-item="artL" style="--x:345;--y:295;--w:120;--h:130">
+            <img src="../images/artL.png">
+        </div>
+        <div class="item" data-item="artR" style="--x:1135;--y:295;--w:118;--h:130">
+          <svg viewBox="0 0 118 130"><rect width="118" height="130" fill="#2b2824"/><rect x="6" y="6" width="106" height="118" fill="#e4ded4"/><path d="M12 82H106V112H12Z" fill="#9a9086"/><path d="M12 70H106V84H12Z" fill="#bdb4a8"/><path d="M12 56H106V70H12Z" fill="#d3ccc1"/></svg>
+        </div>
+
+        <div class="item" data-item="cabL" style="--x:10;--y:550;--w:130;--h:200">
+          <svg viewBox="0 0 130 200"><polygon points="0,10 130,0 130,150 0,160" fill="url(#wood)"/><rect x="10" y="22" width="108" height="50" fill="#2d2118"/><rect x="10" y="84" width="108" height="50" fill="#2d2118"/><path d="M10 16 118 8" stroke="#a37b57" stroke-width="3"/><path d="M14 160V198M116 150V190" stroke="#241a14" stroke-width="5"/></svg>
+        </div>
+        <div class="item" data-item="cabR" style="--x:1465;--y:550;--w:125;--h:190">
+          <svg viewBox="0 0 125 190"><polygon points="0,0 125,10 125,160 0,150" fill="url(#wood)"/><rect x="14" y="26" width="48" height="104" fill="#7b573b"/><rect x="66" y="26" width="48" height="104" fill="#7b573b"/><path d="M60 70V90M68 70V90" stroke="#d3b48c" stroke-width="3"/><path d="M12 150V188M112 160V186" stroke="#241a14" stroke-width="5"/></svg>
+        </div>
+
+        <div class="item" data-item="plantL" style="--x:15;--y:400;--w:115;--h:160">
+            <img src="../images/plant1.png">
+        </div>
+        <div class="item" data-item="plantR" style="--x:1470;--y:400;--w:115;--h:155">
+            <img src="../images/plant1.png">
+        </div>
+
+        <div class="item" data-item="sofa" style="--x:410;--y:470;--w:760;--h:240">
+          <img src="../images/sofa.png">
+        </div>
+        <div class="item" data-item="cushions" style="--x:430;--y:465;--w:700;--h:115">
+            <img src="../images/cushions.png">
+        </div>
+
+        <div class="item" data-item="sideL" style="--x:325;--y:565;--w:90;--h:115">
+          <svg viewBox="0 0 90 115"><ellipse cx="45" cy="14" rx="36" ry="9" fill="#3b312a"/><path d="M45 20V100" stroke="#2b2420" stroke-width="5"/><ellipse cx="45" cy="104" rx="26" ry="8" fill="#2b2420"/></svg>
+        </div>
+        <div class="item" data-item="lampL" style="--x:305;--y:455;--w:80;--h:115">
+          <svg viewBox="0 0 80 115"><circle cx="40" cy="40" r="46" fill="url(#glow)"/><path d="M12 48A28 28 0 0 1 68 48Z" fill="#f6efe2"/><rect x="34" y="48" width="12" height="52" fill="#b38f5e"/><ellipse cx="40" cy="102" rx="16" ry="5" fill="#b38f5e"/></svg>
+        </div>
+        <div class="item" data-item="sideR" style="--x:1170;--y:500;--w:100;--h:200">
+            <img src="../images/sideR.png">
+        </div>
+
+        <div class="item" data-item="table" style="--x:640;--y:640;--w:300;--h:100">
+            <img src="../images/table.png">
+        </div>
+        <div class="item" data-item="vases" style="--x:700;--y:600;--w:200;--h:80">
+            <img src="../images/vases2.png">
+        </div>
+
+        <div class="item" data-item="pendC" style="--x:640;--y:100;--w:300;--h:260">
+            <img src="../images/pand.png">
+        </div>
+        <div class="item" data-item="pendL" style="--x:340;--y:100;--w:200;--h:200">
+            <img src="">
+        </div>
+
+        <!-- CARDBOARD BOX (pure CSS). Lids open with --open (0→1) set from JS. -->
+        <div class="box" id="box" aria-hidden="true">
+          <div class="box-inner">
+            <div class="box-glow"></div>
+            <div class="box-cavity"></div>
+            <div class="box-lid-left"></div>
+            <div class="box-lid-right"></div>
+            <div class="box-body"></div>
+          </div>
+          <div class="box-particles" id="particles"></div>
+        </div>
+      </div>
+
+      <div class="shade shade-dark"></div>
+      <div class="shade shade-warm"></div>
+      <div class="shade shade-hero"></div>
+
+      <div class="scroll-cue" id="cue">Scroll to reveal<span></span></div>
+
+      <div class="hero" id="hero">
+        <p class="eyebrow" data-reveal="0.87,0.90">TAILORED SPACES</p>
+        <h1 data-reveal="0.90,0.94">Beautiful Interiors.<br>Meaningful Living.</h1>
+        <p class="lede" data-reveal="0.94,0.97">We create refined, timeless interiors that combine architecture, craftsmanship and thoughtful living to elevate every moment.</p>
+        <div class="cta" data-reveal="0.97,1.00">
+          <a class="btn btn-light" href="#projects">Explore Projects →</a>
+          <a class="btn btn-ghost" href="#studio"><span class="play" aria-hidden="true">▶</span> Watch Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NORMAL PAGE SECTIONS ============ -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <p class="kicker reveal">01 — Work</p>
+      <h2 class="reveal">Selected Projects</h2>
+      <div class="projects">
+        <a class="card c1 reveal" href="#contact"><div class="ph p1"><i>Replace with project photo</i></div><div class="meta"><h3>Maison Aldéa <b>→</b></h3><p>Lisbon, Portugal · 2025 · Residential</p></div></a>
+        <a class="card c2 reveal" href="#contact"><div class="ph p2"><i>Replace with project photo</i></div><div class="meta"><h3>The Linden Loft <b>→</b></h3><p>Amman, Jordan · 2024 · Penthouse</p></div></a>
+        <a class="card c3 reveal" href="#contact"><div class="ph p3"><i>Replace with project photo</i></div><div class="meta"><h3>Casa Orvale <b>→</b></h3><p>Milan, Italy · 2024 · Renovation</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-sand" id="services">
+    <div class="wrap">
+      <p class="kicker reveal">02 — Services</p>
+      <h2 class="reveal">What we do</h2>
+      <ul class="rows">
+        <li class="reveal"><a href="#contact"><span>01</span><strong>Interior Design</strong><em>Concept to completion</em><b>→</b></a></li>
+        <li class="reveal"><a href="#contact"><span>02</span><strong>Residential Spaces</strong><em>Homes, lofts, villas</em><b>→</b></a></li>
+        <li class="reveal"><a href="#contact"><span>03</span><strong>Spatial Planning</strong><em>Flow, light, proportion</em><b>→</b></a></li>
+        <li class="reveal"><a href="#contact"><span>04</span><strong>Styling &amp; Decoration</strong><em>The final layer</em><b>→</b></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="studio">
+    <div class="wrap split">
+      <div class="ph p4 reveal"><i>Replace with studio photo</i></div>
+      <div>
+        <p class="kicker reveal">03 — Studio</p>
+        <h2 class="reveal">Architecture, craft and quiet confidence.</h2>
+        <p class="reveal">Livarta is a small studio of designers, architects and makers. We believe a room should feel inevitable — every proportion considered, every material honest, every object placed with purpose.</p>
+        <p class="reveal">From the first sketch to the last cushion, we stay with a project until it simply feels like home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-dark" id="process">
+    <div class="wrap">
+      <p class="kicker reveal">04 — Process</p>
+      <h2 class="reveal">Four quiet steps</h2>
+      <ol class="steps">
+        <li class="reveal"><span>01</span><h3>Discover</h3><p>We listen, measure and study how you live.</p></li>
+        <li class="reveal"><span>02</span><h3>Define</h3><p>A clear brief, palette and spatial strategy.</p></li>
+        <li class="reveal"><span>03</span><h3>Design</h3><p>Drawings, materials and bespoke pieces.</p></li>
+        <li class="reveal"><span>04</span><h3>Deliver</h3><p>Installation, styling and a perfect handover.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="journal">
+    <div class="wrap">
+      <p class="kicker reveal">05 — Kind words</p>
+      <div class="quotes">
+        <blockquote class="reveal"><p>“They understood our home before we did. Every room now feels calm, deliberate and entirely ours.”</p><footer>— Layla &amp; Omar H.</footer></blockquote>
+        <blockquote class="reveal"><p>“Meticulous, generous and endlessly patient. The finished loft is better than we imagined.”</p><footer>— Daniel R.</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-sand" id="contact">
+    <div class="wrap split">
+      <div>
+        <p class="kicker reveal">06 — Contact</p>
+        <h2 class="reveal">Let’s design the room you’ll never want to leave.</h2>
+        <p class="reveal">hello@livarta.studio</p>
+      </div>
+      <form class="form reveal" action="#" onsubmit="return false">
+        <label>Name<input type="text" name="name" autocomplete="name"></label>
+        <label>Email<input type="email" name="email" autocomplete="email"></label>
+        <label>Tell us about your space<textarea name="msg" rows="4"></textarea></label>
+        <button class="btn btn-dark" type="submit">Book Consultation →</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="#top">LIVARTA</a>
+    <p>© 2026 Livarta Interiors. All rights reserved.</p>
+    <p><a href="#">Instagram</a> · <a href="#">Pinterest</a> · <a href="#">LinkedIn</a></p>
+  </div>
+</footer>
+
+<script src="../js/home2.js"></script>
+</body>
+</html>
