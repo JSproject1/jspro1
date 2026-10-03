@@ -563,10 +563,10 @@ ol {
 
 
 #EandHRServices .services-container .card::before {
-    content: "01";
+    content: "✧";
 
     font-family: var(--sans);
-    font-size: .7rem;
+    font-size: 1.9rem;
     letter-spacing: .2em;
 
     color: var(--c4);
@@ -580,23 +580,23 @@ ol {
 
 
 #EandHRServices .services-container .card:nth-child(2)::before {
-    content: "02";
+    content: "✧";
 }
 
 #EandHRServices .services-container .card:nth-child(3)::before {
-    content: "03";
+    content: "✧";
 }
 
 #EandHRServices .services-container .card:nth-child(4)::before {
-    content: "04";
+    content: "✧";
 }
 
 #EandHRServices .services-container .card:nth-child(5)::before {
-    content: "05";
+    content: "✧";
 }
 
 #EandHRServices .services-container .card:nth-child(6)::before {
-    content: "06";
+    content: "✧";
 }
 
 
