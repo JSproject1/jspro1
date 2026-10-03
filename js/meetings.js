@@ -270,32 +270,69 @@ function createMeeting() {
 // Display Meetings
 // ======================================
 
+// ======================================
+// Display Meetings
+// ======================================
+
 function displayMeetings() {
 
-    let currentUser =
-        getCurrentUser();
+    let currentUser = getCurrentUser();
 
     if (currentUser == null) {
         return;
     }
-
 
     let meetings =
         JSON.parse(
             localStorage.getItem("meetings")
         ) || [];
 
-
     let container =
-        document.getElementById(
-            "meetingsContainer"
-        );
+        document.getElementById("meetingsContainer");
 
+    let meetingCount =
+        document.getElementById("meetingCount");
 
     container.innerHTML = "";
 
+    // ==================================
+    // Get only user's meetings
+    // ==================================
 
-    if (meetings.length === 0) {
+    let myMeetings = [];
+
+    for (let i = 0; i < meetings.length; i++) {
+
+        let meeting = meetings[i];
+
+        let isCreator =
+            meeting.creatorId === currentUser.id;
+
+        let participant =
+            meeting.participants.find(
+                p => p.userId === currentUser.id
+            );
+
+        if (isCreator || participant) {
+            myMeetings.push(meeting);
+        }
+    }
+
+
+    // ==================================
+    // Update Meeting Count
+    // ==================================
+
+    meetingCount.textContent =
+        myMeetings.length + 
+        (myMeetings.length === 1 ? " Meeting" : " Meetings");
+
+
+    // ==================================
+    // No Meetings
+    // ==================================
+
+    if (myMeetings.length === 0) {
 
         container.innerHTML = `
             <p>No meetings found.</p>
@@ -305,14 +342,13 @@ function displayMeetings() {
     }
 
 
-    for (
-        let i = 0;
-        i < meetings.length;
-        i++
-    ) {
+    // ==================================
+    // Display Meetings
+    // ==================================
 
-        let meeting =
-            meetings[i];
+    for (let i = 0; i < myMeetings.length; i++) {
+
+        let meeting = myMeetings[i];
 
 
         // Is current user the creator?
@@ -325,16 +361,8 @@ function displayMeetings() {
 
         let participant =
             meeting.participants.find(
-                p =>
-                    p.userId === currentUser.id
+                p => p.userId === currentUser.id
             );
-
-
-        // Don't show unrelated meetings
-
-        if (!isCreator && !participant) {
-            continue;
-        }
 
 
         let card =
@@ -343,7 +371,9 @@ function displayMeetings() {
         card.className = "meeting-card";
 
 
-        // Basic meeting information
+        // ==================================
+        // Basic Meeting Information
+        // ==================================
 
         let html = `
 
@@ -398,7 +428,6 @@ function displayMeetings() {
                 let p =
                     meeting.participants[j];
 
-
                 html += `
 
                     <div class="participant">
@@ -439,8 +468,7 @@ function displayMeetings() {
 
                     <button
                         class="join"
-                        onclick="joinMeeting('${meeting.roomName}')"
-                        >
+                        onclick="joinMeeting('${meeting.roomName}')">
 
                         Join Meeting
 
