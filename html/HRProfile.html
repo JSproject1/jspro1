@@ -8,6 +8,9 @@
     <title>My Profile | Alvora</title>
 
     <link rel="stylesheet" href="../css/profile.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
@@ -36,7 +39,7 @@
     <nav class="side-navigation">
 
         <a href="HRProfile.html" class="nav-item active">
-            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <i class="bi bi-person-badge nav-icon"></i>
             <span>My Profile</span>
         </a>
         <!-- DASHBOARD -->
@@ -54,7 +57,7 @@
 
 
         <!-- TASKS -->
-        <a href="HRTasks.html" class="nav-item">
+        <a href="HRTasks.html" class="nav-item ">
             <i class="bi bi-check2-square nav-icon"></i>
             <span>Tasks</span>
         </a>
@@ -134,11 +137,13 @@
                     View your personal details and employment information.
                 </p>
             </div>
-
-            <button id="editButton" class="edit-main-btn">
+            <a href="edit-profile.html">
+                <button id="editButton" class="edit-main-btn">
                 <span>✎</span>
                 Edit Profile
             </button>
+            </a>
+            
 
         </header>
 
@@ -165,13 +170,13 @@
             <div class="profile-main-info">
 
                 <div class="profile-label">
-                    EMPLOYEE PROFILE
+                    HR PROFILE
                 </div>
 
-                <h2 id="name">Employee Name</h2>
+                <h2 id="name">HR Name</h2>
 
                 <p class="profile-position" id="position">
-                    Employee
+                    HR
                 </p>
 
                 <div class="profile-tags">

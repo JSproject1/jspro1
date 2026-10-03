@@ -33,7 +33,7 @@
     <nav class="side-navigation">
 
         <a href="HRProfile.html" class="nav-item ">
-            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <i class="bi bi-person-badge nav-icon"></i>
             <span>My Profile</span>
         </a>
         <!-- DASHBOARD -->
@@ -112,12 +112,6 @@
 </aside>
 
     <main class="main-content">
-        <header class="mainHeader">
-
-            <div class="profilePic">
-                <div class="circle">A</div>
-            </div>
-        </header>
         <section class="Home">
 
             <h1 class="head1">Task Managment</h1>
@@ -142,6 +136,9 @@
                 </div>
             </div>
             <div class="filterTasks">
+                <div class="PopAddTask">
+                    <button id="add">Add New Task</button>
+                </div>
                 <div class="filter">
                     <div id="searchTask" class="searchBar">
                         <input type="text" id="search" placeholder="Search">
@@ -163,9 +160,7 @@
                     </select>
                 </div>
 
-                <div class="PopAddTask">
-                    <button id="add">Add New Task</button>
-                </div>
+                
             </div>
             <table class="tasksTable">
                 <thead class="head">

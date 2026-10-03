@@ -51,7 +51,7 @@ let completedTasks = document.getElementById("completed");
 let startDate = document.getElementById("startDate");
 let startTime = document.getElementById("startTime");
 let attachFile = document.getElementById("attachFile");
-let submissionsContainer =document.getElementById("submissionsContainer");
+let submissionsContainer = document.getElementById("submissionsContainer");
 taskModal.style.display = "none";
 
 
@@ -148,23 +148,23 @@ taskForm.addEventListener("submit", async function (event) {
         }
         else {
             task.id = tasks[editIndex].id;
-            task.employeeSubmissions=tasks[editIndex].employeeSubmissions || {};
-             if (!newFile) {
+            task.employeeSubmissions = tasks[editIndex].employeeSubmissions || {};
+            if (!newFile) {
                 task.hrAttachment = tasks[editIndex].hrAttachment || null;
             }
-            tasks[editIndex]= task;
+            tasks[editIndex] = task;
             alert("Task updated successfully!");
-        }localStorage.setItem("tasks", JSON.stringify(tasks));
+        } localStorage.setItem("tasks", JSON.stringify(tasks));
         closeTaskModal();
         displayTasks();
         displaySubmissions();
     }
-    catch(error){
+    catch (error) {
         console.log(error);
     }
-        
-        
-    }
+
+
+}
 
 );
 function displayTasks() {
@@ -285,30 +285,30 @@ function viewTask(index) {
 
     let task = tasks[index];
     document.querySelector(".Home").style.display = "none";
-    document.getElementById("tasksCards").style.display="none";
+    document.getElementById("tasksCards").style.display = "none";
     document.getElementById("viewTitle").textContent = task.title;
     document.getElementById("viewDescription").textContent = task.description;
     document.getElementById("viewEmployee").textContent = task.employeeEmail.join(", ");
-    document.getElementById("viewDeadline").textContent = task.deadline+"  "+task.DTime;
-    document.getElementById("viewStart").textContent = task.start+"  "+task.STime;
+    document.getElementById("viewDeadline").textContent = task.deadline + "  " + task.DTime;
+    document.getElementById("viewStart").textContent = task.start + "  " + task.STime;
     document.getElementById("viewPriority").textContent = task.priority;
     document.getElementById("viewStatus").textContent = task.status;
     document.getElementById("viewSection").style.display = "block";
-    document.getElementById("viewTask").style.display="flex"
+    document.getElementById("viewTask").style.display = "flex"
 
 
     let viewAttach = document.getElementById("viewAttach");
     viewAttach.innerHTML = "";
-    if (task.hrAttachment){
-        let link =document.createElement("a");
+    if (task.hrAttachment) {
+        let link = document.createElement("a");
         link.href = task.hrAttachment.data;
-        link.textContent ="📎 " + task.hrAttachment.name;
+        link.textContent = "📎 " + task.hrAttachment.name;
         link.target = "_blank";
         link.download = task.hrAttachment.name;
         viewAttach.appendChild(link);
     }
-    else{
-        viewAttach.textContent="No Attachment";
+    else {
+        viewAttach.textContent = "No Attachment";
     }
     let viewSubmission = document.getElementById("viewSubmission");
     viewSubmission.innerHTML = "";
@@ -327,8 +327,8 @@ function viewTask(index) {
 function closeViewTask() {
 
     document.getElementById("viewSection").style.display = "none";
-     document.querySelector(".Home").style.display = "block";
-     document.getElementById("tasksCards").style.display="block";
+    document.querySelector(".Home").style.display = "block";
+    document.getElementById("tasksCards").style.display = "block";
 
 
 }
@@ -376,124 +376,114 @@ function readFile(file) {
     });
 }
 function displaySubmissions() {
-
     submissionsContainer.innerHTML = "";
-
     let foundSubmission = false;
-
     for (let i = 0; i < tasks.length; i++) {
-
         let task = tasks[i];
-
-        if (!task.employeeSubmissions) {
-            continue;
-        }
-
+        if (!task.employeeSubmissions) { continue; }
         for (let employeeName in task.employeeSubmissions) {
-
             foundSubmission = true;
-
             let submission = task.employeeSubmissions[employeeName];
-
+            let status = submission.status || "Pending";
             let card = document.createElement("div");
-
             card.className = "submissionCard";
-
+            let actionContent = "";
+            if (status === "Completed") {
+                actionContent = ` 
+                <br><br>
+               <div class="submissionResult completed-result">
+                <span class="result-icon">✓</span>
+              <span>Completed</span> </div> `;
+            }
+            else if (status === "Rejected") {
+                actionContent = `
+                <div></div>
+                <div class="submissionResult rejected-result">
+                <span class="result-icon">✕</span>
+                <span>Rejected</span> 
+                </div> `;
+            } else {
+                actionContent = `
+                <br><br>
+                <div class="submissionActions">
+                <button class="completed" onclick='completed(${i}, ${JSON.stringify(employeeName)})'> ✓ Completed </button>
+                <button class="rejected" onclick='rejected(${i}, ${JSON.stringify(employeeName)})'> ✕ Rejected </button>
+                </div> `;
+            }
             card.innerHTML = `
-                <br><br>
-
+                <div class="submissionHeader">
+                <div>
                 <h3>${employeeName}</h3>
-
-                <p class="submissionTask">
-                    Task: ${task.title}
-                </p>
-
-                <p class="submissionStatus">
-                    Status: ${submission.status || "Pending"}
-                </p>
-
-                <a class="submissionLink"
-                   href="${submission.data}"
-                   target="_blank"
-                   download="${submission.name}">
-                   📎 ${submission.name}
-                </a>
-
+                <p class="submissionTask"> ${task.title} </p> 
+                </div> 
+                <br>
+                <span class="submissionStatus ${status.toLowerCase()}"> ${status} </span> 
+                </div> 
+                <div class="submissionInfo"> 
+                <div>
+                <span>Task &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                <strong>${task.title}</strong> 
+                </div> 
                 <br><br>
-
-                <button class="completed"
-                    onclick='completed(${i}, ${JSON.stringify(employeeName)})'>
-                    Completed
-                </button>
-
-                <button class="completed"
-                    onclick='rejected(${i}, ${JSON.stringify(employeeName)})'>
-                    Rejected
-                </button>
-            `;
-
+                <div> 
+                <br><br>
+                <span>Status &nbsp</span> 
+                <strong>${status}</strong> 
+                </div> 
+                </div>
+                <br><br>
+             ${submission.data ? ` 
+                <a class="submissionLink" href="${submission.data}" target="_blank" download="${submission.name}">
+                📎 ${submission.name} 
+                </a> 
+                `
+                : `
+                <div class="submissionLink no-file"> No file submitted </div> 
+                `
+                }
+   ${actionContent} `;
             submissionsContainer.appendChild(card);
         }
     }
-
     if (!foundSubmission) {
-
-        submissionsContainer.innerHTML = `
-            <p class="noSubmission">
-                No employee submissions yet.
-            </p>
-        `;
+        submissionsContainer.innerHTML = ` 
+          <div class="noSubmission">
+          <span>📂</span> 
+         <p>No employee submissions yet.</p> 
+         </div> `;
     }
 }
 
 
 function completed(taskIndex, employeeName) {
-
     let task = tasks[taskIndex];
-
     if (!task.employeeSubmissions) {
         alert("No submission found.");
         return;
-    }
-
-    if (!task.employeeSubmissions[employeeName]) {
+    } if (!task.employeeSubmissions[employeeName]) {
         alert("No submission found for this employee.");
         return;
-    }
 
+    }
     task.employeeSubmissions[employeeName].status = "Completed";
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
     displaySubmissions();
     displayTasks();
-
-    alert("Submission marked as completed.");
 }
-
-
 function rejected(taskIndex, employeeName) {
-
     let task = tasks[taskIndex];
-
     if (!task.employeeSubmissions) {
         alert("No submission found.");
         return;
     }
-
     if (!task.employeeSubmissions[employeeName]) {
         alert("No submission found for this employee.");
         return;
     }
-
     task.employeeSubmissions[employeeName].status = "Rejected";
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
     displaySubmissions();
     displayTasks();
-
-    alert("Submission rejected.");
 }
 displayTasks();
 displaySubmissions();
