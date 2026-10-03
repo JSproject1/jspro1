@@ -110,7 +110,7 @@ ol {
     white-space: nowrap;
 }
 .login{
-    background-color: #2a1d12;
+    background-color: #0d0c0b;
     color: #b1aaa2;
 }
 
@@ -438,6 +438,334 @@ ol {
 .wrap {
     width: min(1280px, 100% - 2.5rem);
     margin-inline: auto;
+}
+#EandHRServices {
+    display: none;
+}
+
+
+#EandHRServices {
+    background: #D9D1C7;
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#EandHRServices::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: -180px;
+    top: -180px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(245, 200, 76, 0.16),
+        transparent 68%
+    );
+    pointer-events: none;
+}
+
+#EandHRServices::after {
+    content: "ALVORA";
+    position: absolute;
+    right: -20px;
+    bottom: -35px;
+
+    font-family: var(--serif);
+    font-size: clamp(7rem, 16vw, 14rem);
+    font-weight: 400;
+
+    color: rgba(17, 16, 15, 0.035);
+    letter-spacing: .08em;
+
+    pointer-events: none;
+}
+
+
+
+
+#EandHRServices > h1 {
+    position: relative;
+    z-index: 1;
+
+    width: min(1280px, calc(100% - 2.5rem));
+    margin: 0 auto 4rem;
+
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 400;
+    line-height: .95;
+
+    color: var(--c6);
+}
+
+#EandHRServices > h1::before {
+    content: "ALVORA SERVICES";
+    display: block;
+
+    margin-bottom: 1.2rem;
+
+    font-family: var(--sans);
+    font-size: .7rem;
+    font-weight: 500;
+
+    letter-spacing: .3em;
+    text-transform: uppercase;
+
+    color: var(--c4);
+}
+
+
+
+#EandHRServices .services-container {
+    position: relative;
+    z-index: 1;
+
+    width: min(1280px, calc(100% - 2.5rem));
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+
+    border-top: 1px solid rgba(52, 48, 44, .25);
+    border-left: 1px solid rgba(52, 48, 44, .25);
+}
+
+
+
+
+#EandHRServices .services-container .card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 2.5rem;
+
+    background: #EFEAE3;
+
+    border-right: 1px solid rgba(52, 48, 44, .25);
+    border-bottom: 1px solid rgba(52, 48, 44, .25);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform .5s cubic-bezier(.2, .7, .2, 1),
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+
+
+#EandHRServices .services-container .card::before {
+    content: "01";
+
+    font-family: var(--sans);
+    font-size: .7rem;
+    letter-spacing: .2em;
+
+    color: var(--c4);
+
+    margin-bottom: 3rem;
+
+    transition: color .3s;
+}
+
+
+
+
+#EandHRServices .services-container .card:nth-child(2)::before {
+    content: "02";
+}
+
+#EandHRServices .services-container .card:nth-child(3)::before {
+    content: "03";
+}
+
+#EandHRServices .services-container .card:nth-child(4)::before {
+    content: "04";
+}
+
+#EandHRServices .services-container .card:nth-child(5)::before {
+    content: "05";
+}
+
+#EandHRServices .services-container .card:nth-child(6)::before {
+    content: "06";
+}
+
+
+
+#EandHRServices .services-container .card h2 {
+    margin: 0 0 1rem;
+
+    max-width: none;
+
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 2.7vw, 2.8rem);
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--c6);
+
+    transition: transform .4s ease;
+}
+
+
+
+#EandHRServices .services-container .card p {
+    max-width: 25rem;
+
+    margin: 0;
+
+    font-family: var(--sans);
+    font-size: .82rem;
+    line-height: 1.8;
+
+    color: var(--c4);
+}
+
+
+
+
+#EandHRServices .services-container .card button {
+    margin-top: auto;
+
+    align-self: flex-start;
+
+    padding: .8rem 1.4rem;
+
+    border: 1px solid rgba(52, 48, 44, .35);
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: var(--c6);
+
+    font-family: var(--sans);
+    font-size: .72rem;
+    letter-spacing: .04em;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .35s ease;
+}
+
+
+
+
+#EandHRServices .services-container .card button::after {
+    content: " →";
+
+    display: inline-block;
+
+    margin-left: .3rem;
+
+    transition: transform .3s ease;
+}
+
+
+
+#EandHRServices .services-container .card:hover {
+    background: #F4EFE8;
+
+    transform: translateY(-6px);
+
+    z-index: 2;
+
+    box-shadow:
+        0 25px 50px rgba(31, 26, 24, .12);
+}
+
+#EandHRServices .services-container .card:hover::before {
+    color: #C59420;
+}
+
+#EandHRServices .services-container .card:hover h2 {
+    transform: translateX(6px);
+}
+
+#EandHRServices .services-container .card:hover button {
+    background: #11100F;
+    border-color: #11100F;
+    color: #F4EFE8;
+}
+
+#EandHRServices .services-container .card:hover button::after {
+    transform: translateX(4px);
+}
+
+
+#EandHRServices .services-container .card::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #D4A739;
+
+    transition: width .45s cubic-bezier(.2, .7, .2, 1);
+}
+
+#EandHRServices .services-container .card:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+
+    #EandHRServices .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #EandHRServices .services-container .card {
+        min-height: 280px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    #EandHRServices {
+        padding: 5rem 0;
+    }
+
+    #EandHRServices > h1 {
+        margin-bottom: 3rem;
+    }
+
+    #EandHRServices .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    #EandHRServices .services-container .card {
+        min-height: 260px;
+        padding: 2rem;
+    }
+
+    #EandHRServices .services-container .card::before {
+        margin-bottom: 2.5rem;
+    }
+
+    #EandHRServices .services-container .card h2 {
+        font-size: 2.2rem;
+    }
+
 }
 
 .kicker {
@@ -968,7 +1296,7 @@ blockquote footer {
 
 .social-icons a:hover {
     background: #F5C84C;
-
+    color: #2a1d12;
     border-color: #F5C84C;
 
     transform: translateY(-3px);
@@ -1081,7 +1409,7 @@ blockquote footer {
 .footer-map iframe {
     width: 100%;
     height: 100%;
-
+    pointer-events: none;
     border: 0;
 
     filter:
@@ -1090,6 +1418,16 @@ blockquote footer {
         opacity(0.82);
 }
 
+.map-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.map-link iframe {
+    width: 100%;
+    height: 100%;
+}
 
 .map-address {
     position: absolute;
@@ -1207,7 +1545,7 @@ blockquote footer {
 
     outline: none;
 
-    color: #19303A;
+    color: #0d0c0b;
 }
 
 
@@ -1236,7 +1574,7 @@ blockquote footer {
 
     background: #F5C84C;
 
-    color: #b1aaa2;
+    color: #11100F;
 
     font-weight: 600;
 
@@ -1277,7 +1615,7 @@ blockquote footer {
 
     font-size: 11px;
 
-    color: #b1aaa2;
+    color: #11100F;
 }
 
 

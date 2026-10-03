@@ -14,6 +14,7 @@ function goToLeave() {
 }
 
 function goToEmployees() {
+    
     window.location.href = "employees.html";
 }
 
@@ -37,10 +38,32 @@ function goToTasks() {
 }
 
 function goToFeedback() {
-    window.location.href = "feedback.html";
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser.role === "EMP") {
+
+        window.location.href = "feedback.html";
+
+    }
+    else if (currentUser.role === "HR") {
+
+        window.location.href = "hr-feedback.html";
+
+    }
 }
 
 function goToMeetings() {
-    window.location.href = "meetings.html";
+     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser.role === "EMP") {
+
+        window.location.href = "meetings.html";
+
+    }
+    else if (currentUser.role === "HR") {
+
+        window.location.href = "hr-meeting.html";
+
+    }
 }
 

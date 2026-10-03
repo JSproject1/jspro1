@@ -384,23 +384,54 @@ function displaySubmissions() {
     for (let i = 0; i < tasks.length; i++) {
 
         let task = tasks[i];
+
         if (!task.employeeSubmissions) {
             continue;
         }
+
         for (let employeeName in task.employeeSubmissions) {
+
             foundSubmission = true;
-            let submission =task.employeeSubmissions[employeeName];
+
+            let submission = task.employeeSubmissions[employeeName];
+
             let card = document.createElement("div");
+
             card.className = "submissionCard";
-            card.innerHTML = `<br><br>
-                <h3>${employeeName}</h3>
-                <p class="submissionTask"> Task: ${task.title}</p>
-                <p class="submissionStatus">Status: ${submission.status || "Pending"}</p>
-                <a class="submissionLink" href="${submission.data}" target="_blank" download="${submission.name}">📎 ${submission.name}</a>
+
+            card.innerHTML = `
                 <br><br>
-                <button class="completed" onclick="completed(${i},${JSON.stringify(employeeName)})">Completed</button>
-                <button class="completed" onclick="rejected(${i},${JSON.stringify(employeeName)})">Rejected</button>
+
+                <h3>${employeeName}</h3>
+
+                <p class="submissionTask">
+                    Task: ${task.title}
+                </p>
+
+                <p class="submissionStatus">
+                    Status: ${submission.status || "Pending"}
+                </p>
+
+                <a class="submissionLink"
+                   href="${submission.data}"
+                   target="_blank"
+                   download="${submission.name}">
+                   📎 ${submission.name}
+                </a>
+
+                <br><br>
+
+                <button class="completed"
+                    onclick='completed(${i}, ${JSON.stringify(employeeName)})'>
+                    Completed
+                </button>
+
+                <button class="completed"
+                    onclick='rejected(${i}, ${JSON.stringify(employeeName)})'>
+                    Rejected
+                </button>
             `;
+
             submissionsContainer.appendChild(card);
         }
     }
@@ -416,8 +447,19 @@ function displaySubmissions() {
 }
 
 
-function completed(taskIndex,employeeName){
+function completed(taskIndex, employeeName) {
+
     let task = tasks[taskIndex];
+
+    if (!task.employeeSubmissions) {
+        alert("No submission found.");
+        return;
+    }
+
+    if (!task.employeeSubmissions[employeeName]) {
+        alert("No submission found for this employee.");
+        return;
+    }
 
     task.employeeSubmissions[employeeName].status = "Completed";
 
@@ -433,6 +475,16 @@ function completed(taskIndex,employeeName){
 function rejected(taskIndex, employeeName) {
 
     let task = tasks[taskIndex];
+
+    if (!task.employeeSubmissions) {
+        alert("No submission found.");
+        return;
+    }
+
+    if (!task.employeeSubmissions[employeeName]) {
+        alert("No submission found for this employee.");
+        return;
+    }
 
     task.employeeSubmissions[employeeName].status = "Rejected";
 

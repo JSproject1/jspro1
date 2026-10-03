@@ -11,66 +11,115 @@
     <title>Meetings</title>
 
     <link rel="stylesheet"
-          href="../css/meetings.css">
+          href="../css/hr-meeting.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
 
 </head>
 
 <body>
    <aside id="sideBar" class="side-bar">
+    
+    
+    <!-- LOGO -->
+    <div class="side-logo">
+        <a href="home2.html">
+            <span class="logo-main">Alvora</span>
+            <span class="logo-sub">ATELIER</span>
+        </a>
+    </div>
 
-        <div class="side-logo">
-            <a href="home.html">
-                <span class="logo-main">Alvora</span>
-                <span class="logo-sub">ATELIER</span>
-            </a>
+
+    <!-- HR LABEL -->
+    <div class="nav-section-title">
+        HR MANAGEMENT
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="side-navigation">
+
+        <a href="HRProfile.html" class="nav-item ">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>My Profile</span>
+        </a>
+        <!-- DASHBOARD -->
+        <a href="hrDashboard.html" class="nav-item ">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <!-- EMPLOYEES -->
+        <a href="employees.html" class="nav-item">
+            <i class="bi bi-people-fill nav-icon"></i>
+            <span>Employees</span>
+        </a>
+
+
+        <!-- TASKS -->
+        <a href="HRTasks.html" class="nav-item">
+            <i class="bi bi-check2-square nav-icon"></i>
+            <span>Tasks</span>
+        </a>
+
+
+        <!-- LEAVE REQUESTS -->
+        <a href="leaveHr.html" class="nav-item">
+            <i class="bi bi-calendar2-check nav-icon"></i>
+            <span>Leave Requests</span>
+        </a>
+
+
+        <!-- COMPANY POLICIES -->
+        <a href="hrPolicies.html" class="nav-item">
+            <i class="bi bi-file-earmark-text nav-icon"></i>
+            <span>Company Policies</span>
+        </a>
+
+
+        <!-- MEETINGS -->
+        <a href="hr-meeting.html" class="nav-item active">
+            <i class="bi bi-camera-video nav-icon"></i>
+            <span>Meetings</span>
+        </a>
+
+
+        <!-- FEEDBACK -->
+        <a href="hr-feedback.html" class="nav-item ">
+            <i class="bi bi-chat-left-text nav-icon"></i>
+            <span>Feedback</span>
+        </a>
+
+    </nav>
+
+
+    <!-- BOTTOM -->
+    <div class="sidebar-footer">
+
+        <div class="sidebar-role">
+            <div class="role-icon">
+                <i class="bi bi-person-badge"></i>
+            </div>
+
+            <div class="role-info">
+                <strong>HR Manager</strong>
+                <span>Administration</span>
+            </div>
         </div>
 
-        <nav class="side-navigation">
 
-            <a href="profile.html" class="nav-item">
-                <span class="nav-icon">◉</span>
-                <span>My Profile</span>
-            </a>
+        <a href="home2.html" class="logout" id="logoutButton">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
 
-            <a href="ETasks.html"  class="nav-item">
-                <span class="nav-icon">✓</span>
-                <span>My Tasks</span>
-            </a>
+    </div>
 
-            <a href="leaveEmp.html" class="nav-item ">
-                <span class="nav-icon">↗</span>
-                <span>Leave Requests</span>
-            </a>
+</aside>
 
-            <a href="policies.html" class="nav-item">
-                <span class="nav-icon">▤</span>
-                <span>Company Policies</span>
-            </a>
-
-            <a href="meetings.html" class="nav-item active">
-                <span class="nav-icon">◷</span>
-                <span>Meetings</span>
-            </a>
-
-            <a href="feedback.html" class="nav-item">
-                <span class="nav-icon">◇</span>
-                <span>Feedback</span>
-            </a>
-
-        </nav>
-
-        <div class="sidebar-footer">
-
-            
-
-            <a href="home2.html" class="logout" id="logoutButton">
-                <span>↪</span>
-                Logout
-            </a>
-
-        </div>
-
-    </aside>
     <div class="page-container">
 
         <!-- Header -->

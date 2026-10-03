@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/home2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -74,23 +75,24 @@
     </svg>
 
     <header class="nav" id="nav">
-        <a class="brand" href="#top" aria-label="Livarta home"><span class="brand-mark"
-                aria-hidden="true"></span>ALVORA</a>
+        <a class="brand" href="#top" aria-label="Livarta home">
+            <span class="brand-mark" aria-hidden="true"></span>ALVORA</a>
         <nav aria-label="Primary">
             <ul>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services" id="servicesNav">Services</a></li>
                 <li><a href="../html/about.html">About</a></li>
                 <li><a href="#studio">Studio</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="#journal">Journal</a></li>
+                <li><a href="#journal">Feedback</a></li>
+                <li><a href="../html/about.html#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
         <div>
-            <a href="../html/login.html" class="nav-cta login" data-fx-button>Login <span>↗</span></a>
-           
+            <a href="../html/login.html" class="nav-cta login" id="loginBtn" data-fx-button>Login <span>↗</span></a>
+
         </div>
 
     </header>
@@ -200,21 +202,22 @@
                 <h2 class="reveal">Selected Projects</h2>
                 <div class="projects">
                     <a class="card c1 reveal" href="#contact">
-                        <div class="ph p1"><i><img src="../images/project1.jpg"></i></div>
+                        <div class="ph p1" id="living"><i><img src="../images/project1.jpg"></i></div>
                         <div class="meta">
                             <h3>Maison Aldéa <b>→</b></h3>
                             <p>Lisbon, Portugal · 2025 · Residential</p>
                         </div>
                     </a>
                     <a class="card c2 reveal" href="#contact">
-                        <div class="ph p2"><i><img src="../images/project2.jpg"></i></div>
+                        <div class="ph p2" id="kitchens"><i><img src="../images/project2.jpg"></i></div>
                         <div class="meta">
                             <h3>The Linden Loft <b>→</b></h3>
                             <p>Amman, Jordan · 2024 · Penthouse</p>
                         </div>
                     </a>
                     <a class="card c3 reveal" href="#contact">
-                        <div class="ph p3"><i><img src="../images/project3.jpg" width="700" height="450"></i></div>
+                        <div class="ph p3" id="bedroom"><i><img src="../images/project3.jpg" width="700"
+                                    height="450"></i></div>
                         <div class="meta">
                             <h3>Casa Orvale <b>→</b></h3>
                             <p>Milan, Italy · 2024 · Renovation</p>
@@ -238,6 +241,84 @@
                     <li class="reveal"><a href="#contact"><span>04</span><strong>Styling &amp;
                                 Decoration</strong><em>The final layer</em><b>→</b></a></li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="sec sec-sand" id="EandHRServices">
+            <h1>Company Services</h1>
+
+            <div class="services-container">
+
+                <div class="card">
+                    <h2 id="leaveTitle">Leave Application</h2>
+                    <p id="leaveDescription">
+                        Apply for a leave by selecting the employee,
+                        leave type, start date, end date and reason.
+                    </p>
+
+                    <button onclick="goToLeave()" id="leaveButton">
+                        Apply for Leave
+                    </button>
+                </div>
+                <div class="card" id="employeesCard">
+                    <h2>View Employees Information</h2>
+                    <p>
+                        View employees information and search by name,
+                        email or department.
+                    </p>
+
+                    <button onclick="goToEmployees()">
+                        View Employees
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h2 id="policiesTitle">Company Policies</h2>
+                    <p id="policiesDescription">
+                        View the company policies loaded from a JSON file.
+                    </p>
+
+                    <button onclick="goToPolicies()" id="policiesButton">
+                        View Policies
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h2 id="tasksTitle">Task Management</h2>
+                    <p id="tasksDescription">
+                        Create, view and update tasks and assign them
+                        to employees.
+                    </p>
+
+                    <button onclick="goToTasks()" id="tasksButton">
+                        Manage Tasks
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h2 id="feedbackTitle">Feedback System</h2>
+                    <p id="feedbackDescription">
+                        Employees can send feedback to the HR department.
+                    </p>
+
+                    <button onclick="goToFeedback()" id="feedbackButton">
+                        Send Feedback
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h2 id="meetingsTitle">Meetings</h2>
+
+                    <p id="meetingsDescription">
+                        Create meetings, invite employees or HR,
+                        and manage meeting requests.
+                    </p>
+
+                    <button onclick="goToMeetings()" id="meetingsButton">
+                        Manage Meetings
+                    </button>
+                </div>
+
             </div>
         </section>
 
@@ -304,13 +385,14 @@
                 <div>
                     <p class="kicker reveal">06 — Contact</p>
                     <h2 class="reveal">Let’s design the room you’ll never want to leave.</h2>
-                    <p class="reveal">hello@livarta.studio</p>
+                    <p class="reveal">hello@alvora.studio</p>
                 </div>
                 <form class="form reveal" action="#" onsubmit="return false">
                     <label>Name<input type="text" name="name" autocomplete="name"></label>
                     <label>Email<input type="email" name="email" autocomplete="email"></label>
                     <label>Tell us about your space<textarea name="msg" rows="4"></textarea></label>
-                    <button class="btn btn-dark" type="submit">Book Consultation →</button>
+                    <button class="btn btn-dark" type="submit"><a href="../html/login.html">Book Consultation
+                            →</a></button>
                 </form>
             </div>
         </section>
@@ -318,208 +400,261 @@
 
     <footer class="main-footer">
 
-    <div class="footer">
+        <div class="footer">
 
-        <div class="footer-content">
+            <div class="footer-content">
 
-            <!-- Company -->
-            <div class="footer-company">
+                <!-- Company -->
+                <div class="footer-company">
 
-                <div class="footer-logo">
-                    <i class="fa-solid fa-house"></i>
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-house"></i>
 
-                    <div>
-                        <h2>INTERIOR</h2>
-                        <span>DESIGN STUDIO</span>
+                        <div>
+                            <h2>INTERIOR</h2>
+                            <span>DESIGN STUDIO</span>
+                        </div>
                     </div>
+
+                    <p class="company-description">
+                        We create elegant and functional interior spaces
+                        designed around your lifestyle. From concept to
+                        completion, we transform ideas into beautiful spaces.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="https://web.facebook.com/?_rdc=1&_rdr#" target="_blank">
+                            <i class="fa-brands fa-facebook-f bi bi-facebook"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank">
+                            <i class="fa-brands fa-instagram bi bi-instagram"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com" target="_blank">
+                            <i class="fa-brands fa-linkedin-in bi bi-linkedin"></i>
+                        </a>
+
+                        <a href="https://www.pinterest.com/search/pins/?q=interior%20design&rs=ac&len=5&source_id=ac_9mLjdaRL&eq=inter&etslf=3668"
+                            target="_blank">
+                            <i class="fa-brands fa-pinterest-p bi bi-pinterest"></i>
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <p class="company-description">
-                    We create elegant and functional interior spaces
-                    designed around your lifestyle. From concept to
-                    completion, we transform ideas into beautiful spaces.
+
+                <!-- Contact -->
+                <div class="footer-section">
+
+                    <h3>Get In Touch</h3>
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot bi bi-map"></i>
+                        </div>
+
+                        <p>
+                            Irbid , Alrawdah<br>
+                            Jordan
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone bi bi-telephone-fill"></i>
+                        </div>
+
+                        <p>
+                            +962 7X XXX XXXX<br>
+                            +962 6 XXX XXXX
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="fa-regular fa-envelope bi bi-envelope-fill"></i>
+                        </div>
+
+                        <p>
+                            info@interiordesign.com<br>
+                            support@interiordesign.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Useful Links -->
+                <div class="footer-section">
+
+                    <h3>Useful Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../html/about.html">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#services">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Our Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#projects">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Our Projects
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#process">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Design Process
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <!-- Explore -->
+                <div class="footer-section">
+
+                    <h3>Explore</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#living">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Living Rooms
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#bedroom">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Bedrooms
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#kitchens">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Kitchens
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#studio">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Offices
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                <i class="fa-solid fa-chevron-right"></i>
+                                Custom Design
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Map -->
+                <div class="footer-map">
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Irbid,Jordan" target="_blank"
+                        class="map-link">
+
+                        <iframe src="https://www.google.com/maps?q=Irbid,Jordan&output=embed" loading="lazy">
+                        </iframe>
+
+                    </a>
+
+                    <div class="map-address">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+                            <strong>Visit Our Studio</strong>
+                            <span>Irbid, Jordan</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Newsletter -->
+
+            <div class="newsletter">
+
+                <div class="newsletter-title">
+                    <h2>
+                        Let's Create Your<br>
+                        Dream Interior
+                    </h2>
+                </div>
+
+                <form class="newsletter-form">
+
+                    <input type="email" placeholder="Enter Email Address">
+
+                    <button type="submit">
+                        Get In Touch
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Bottom -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    Copyright © 2026 Interior Design Studio.
+                    All rights reserved.
                 </p>
 
-                <div class="social-icons">
+                <div>
 
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
+                    <a href="#">Terms of Service</a>
 
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
+                    <a href="#">Privacy Policy</a>
 
-                    <a href="#">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-pinterest-p"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- Contact -->
-            <div class="footer-section">
-
-                <h3>Get In Touch</h3>
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-
-                    <p>
-                        Your Address Here<br>
-                        Jordan
-                    </p>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-
-                    <p>
-                        +962 7X XXX XXXX<br>
-                        +962 6 XXX XXXX
-                    </p>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
-
-                    <p>
-                        info@interiordesign.com<br>
-                        support@interiordesign.com
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- Useful Links -->
-            <div class="footer-section">
-
-                <h3>Useful Links</h3>
-
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Our Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Our Projects
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Design Process
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
-
-
-            <!-- Explore -->
-            <div class="footer-section">
-
-                <h3>Explore</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Living Rooms
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Bedrooms
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Kitchens
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Offices
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            Custom Design
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- Map -->
-            <div class="footer-map">
-
-                <iframe
-                    src="https://www.google.com/maps?q=Jordan&output=embed"
-                    loading="lazy">
-                </iframe>
-
-                <div class="map-address">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <div>
-                        <strong>Visit Our Studio</strong>
-                        <span>Your Address, Jordan</span>
-                    </div>
+                    <a href="#">Cookies</a>
 
                 </div>
 
@@ -527,60 +662,8 @@
 
         </div>
 
-
-        <!-- Newsletter -->
-
-        <div class="newsletter">
-
-            <div class="newsletter-title">
-                <h2>
-                    Let's Create Your<br>
-                    Dream Interior
-                </h2>
-            </div>
-
-            <form class="newsletter-form">
-
-                <input
-                    type="email"
-                    placeholder="Enter Email Address"
-                >
-
-                <button type="submit">
-                    Get In Touch
-                    <i class="fa-regular fa-paper-plane"></i>
-                </button>
-
-            </form>
-
-        </div>
-
-
-        <!-- Bottom -->
-
-        <div class="footer-bottom">
-
-            <p>
-                Copyright Â© 2026 Interior Design Studio.
-                All rights reserved.
-            </p>
-
-            <div>
-
-                <a href="#">Terms of Service</a>
-
-                <a href="#">Privacy Policy</a>
-
-                <a href="#">Cookies</a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
+    </footer>
+    <script src="../js/services.js"></script>
     <script src="../js/home2.js"></script>
 </body>
 

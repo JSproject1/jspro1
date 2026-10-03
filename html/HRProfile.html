@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Alvora</title>
+
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+    <!-- ===================== SIDEBAR ===================== -->
+
+    <aside id="sideBar" class="side-bar">
+    
+    
+    <!-- LOGO -->
+    <div class="side-logo">
+        <a href="home2.html">
+            <span class="logo-main">Alvora</span>
+            <span class="logo-sub">ATELIER</span>
+        </a>
+    </div>
+
+
+    <!-- HR LABEL -->
+    <div class="nav-section-title">
+        HR MANAGEMENT
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="side-navigation">
+
+        <a href="HRProfile.html" class="nav-item active">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>My Profile</span>
+        </a>
+        <!-- DASHBOARD -->
+        <a href="hrDashboard.html" class="nav-item ">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <!-- EMPLOYEES -->
+        <a href="employees.html" class="nav-item">
+            <i class="bi bi-people-fill nav-icon"></i>
+            <span>Employees</span>
+        </a>
+
+
+        <!-- TASKS -->
+        <a href="HRTasks.html" class="nav-item">
+            <i class="bi bi-check2-square nav-icon"></i>
+            <span>Tasks</span>
+        </a>
+
+
+        <!-- LEAVE REQUESTS -->
+        <a href="leaveHr.html" class="nav-item">
+            <i class="bi bi-calendar2-check nav-icon"></i>
+            <span>Leave Requests</span>
+        </a>
+
+
+        <!-- COMPANY POLICIES -->
+        <a href="hrPolicies.html" class="nav-item">
+            <i class="bi bi-file-earmark-text nav-icon"></i>
+            <span>Company Policies</span>
+        </a>
+
+
+        <!-- MEETINGS -->
+        <a href="hr-meeting.html" class="nav-item">
+            <i class="bi bi-camera-video nav-icon"></i>
+            <span>Meetings</span>
+        </a>
+
+
+        <!-- FEEDBACK -->
+        <a href="hr-feedback.html" class="nav-item ">
+            <i class="bi bi-chat-left-text nav-icon"></i>
+            <span>Feedback</span>
+        </a>
+
+    </nav>
+
+
+    <!-- BOTTOM -->
+    <div class="sidebar-footer">
+
+        <div class="sidebar-role">
+            <div class="role-icon">
+                <i class="bi bi-person-badge"></i>
+            </div>
+
+            <div class="role-info">
+                <strong>HR Manager</strong>
+                <span>Administration</span>
+            </div>
+        </div>
+
+
+        <a href="home2.html" class="logout" id="logoutButton">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+    <!-- ===================== MAIN ===================== -->
+
+    <main class="main-content">
+
+        <!-- TOP -->
+
+        <header class="page-header">
+
+            <div>
+                <div class="eyebrow">
+                    EMPLOYEE PORTAL
+                </div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View your personal details and employment information.
+                </p>
+            </div>
+
+            <button id="editButton" class="edit-main-btn">
+                <span>✎</span>
+                Edit Profile
+            </button>
+
+        </header>
+
+
+        <!-- ===================== PROFILE HERO ===================== -->
+
+        <section class="profile-hero">
+
+            <div class="profile-decoration"></div>
+
+            <div class="profile-avatar-wrapper">
+
+                <img
+                    id="profileImage"
+                    class="profile-image"
+                    src=""
+                    alt="Employee Profile"
+                >
+
+                <div class="online-status"></div>
+
+            </div>
+
+            <div class="profile-main-info">
+
+                <div class="profile-label">
+                    EMPLOYEE PROFILE
+                </div>
+
+                <h2 id="name">Employee Name</h2>
+
+                <p class="profile-position" id="position">
+                    Employee
+                </p>
+
+                <div class="profile-tags">
+
+                    <span class="tag">
+                        <span class="tag-dot"></span>
+                        <span id="department">Department</span>
+                    </span>
+
+                    <span class="tag role-tag" id="role">
+                        EMP
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="employee-status">
+
+                <span class="status-label">
+                    ACCOUNT STATUS
+                </span>
+
+                <span class="status-badge">
+                    <span class="status-dot"></span>
+                    Active
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== INFORMATION ===================== -->
+
+        <div class="profile-grid">
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <section class="info-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-number">01</span>
+                        <h3>Personal Information</h3>
+                    </div>
+
+                    <span class="card-icon">✦</span>
+
+                </div>
+
+                <div class="info-list">
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            @
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Email Address</span>
+                            <span class="info-value" id="email">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ☎
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Phone Number</span>
+                            <span class="info-value" id="phone">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ⌂
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Address</span>
+                            <span class="info-value" id="address">—</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EMPLOYMENT INFORMATION -->
+
+            <section class="info-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-number">02</span>
+                        <h3>Employment Details</h3>
+                    </div>
+
+                    <span class="card-icon">◆</span>
+
+                </div>
+
+                <div class="info-list">
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ◈
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Position</span>
+                            <span class="info-value" id="positionCard">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            ◇
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Department</span>
+                            <span class="info-value" id="departmentCard">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-row">
+
+                        <div class="info-icon">
+                            $
+                        </div>
+
+                        <div class="info-content">
+                            <span class="info-label">Monthly Salary</span>
+
+                            <span class="info-value salary">
+                                $<span id="salary">0</span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ===================== NOTE ===================== -->
+
+        <section class="profile-note">
+
+            <div class="note-icon">
+                i
+            </div>
+
+            <div>
+                <strong>Employment information</strong>
+
+                <p>
+                    Position, department, role and salary are managed by the HR
+                    department and cannot be modified from your employee account.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================== EDIT MODAL ===================== -->
+
+    <div id="editModal" class="modal-overlay">
+
+        <div class="edit-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-label">
+                        PERSONAL DETAILS
+                    </span>
+
+                    <h2>Edit Profile</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="closeModal"
+                    class="close-modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editProfileForm">
+
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editPhone"
+                        placeholder="07XXXXXXXX"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAddress">
+                        Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editAddress"
+                        placeholder="Enter your address"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editImage">
+                        Profile Image URL
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editImage"
+                        placeholder="../images/profile.jpg"
+                    >
+
+                </div>
+
+
+                <p id="formMessage" class="form-message"></p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelEdit"
+                    >
+                        Cancel
+                    </button>
+                    <button></button>
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>
