@@ -230,14 +230,14 @@ function displayProfile() {
     }
 
 
-    // نعالج اختلاف أسماء الحقول
+   
     const userPosition =
         currentUser.position ||
         currentUser.jobTitle ||
         currentUser.job_title ||
         currentUser.title ||
-        currentUser.job ||
-        "Employee";
+        currentUser.role ||
+        " ";
 
 
     const userDepartment =
@@ -275,9 +275,7 @@ function displayProfile() {
         "Employee";
 
 
-    // =========================
-    // PROFILE IMAGE
-    // =========================
+    
 
     if (
         currentUser.image &&
@@ -306,9 +304,7 @@ function displayProfile() {
         };
 
 
-    // =========================
-    // PROFILE CONTENT
-    // =========================
+    
 
     nameElement.textContent =
         userName;
@@ -341,10 +337,7 @@ function displayProfile() {
         userAddress;
 
 
-    // =========================
-    // SIDEBAR USER
-    // =========================
-
+    
     sidebarName.textContent =
         userName;
 
@@ -360,9 +353,7 @@ function displayProfile() {
 }
 
 
-// =========================================================
-// DEFAULT PROFILE IMAGE
-// =========================================================
+
 
 function setDefaultProfileImage(userName) {
 
@@ -419,9 +410,7 @@ function setDefaultProfileImage(userName) {
 }
 
 
-// =========================================================
-// OPEN EDIT MODAL
-// =========================================================
+
 
 editButton.addEventListener(
     "click",
@@ -460,9 +449,6 @@ editButton.addEventListener(
 );
 
 
-// =========================================================
-// CLOSE MODAL
-// =========================================================
 
 function closeEditModal() {
 
@@ -485,7 +471,7 @@ cancelEdit.addEventListener(
 );
 
 
-// لما يكبس خارج المودال
+
 
 editModal.addEventListener(
     "click",
@@ -504,7 +490,7 @@ editModal.addEventListener(
 );
 
 
-// ESC CLOSE
+
 
 document.addEventListener(
     "keydown",
@@ -522,9 +508,6 @@ document.addEventListener(
 );
 
 
-// =========================================================
-// SAVE PROFILE CHANGES
-// =========================================================
 
 editProfileForm.addEventListener(
     "submit",
@@ -554,9 +537,7 @@ editProfileForm.addEventListener(
             editImage.value.trim();
 
 
-        // =========================
-        // VALIDATION
-        // =========================
+    
 
         if (newName === "") {
 
@@ -581,9 +562,6 @@ editProfileForm.addEventListener(
         }
 
 
-        // =========================
-        // UPDATE OBJECT
-        // =========================
 
         const profileChanges = {
 
@@ -611,10 +589,6 @@ editProfileForm.addEventListener(
         };
 
 
-        // =========================
-        // SAVE LOCAL EDITS
-        // =========================
-
         const userKey =
             currentUser.id ||
             currentUser.email;
@@ -630,10 +604,6 @@ editProfileForm.addEventListener(
             )
 
         );
-
-
-        // نخلي currentUser محدث كمان
-
         localStorage.setItem(
 
             "currentUser",

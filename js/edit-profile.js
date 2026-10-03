@@ -27,7 +27,13 @@ saveButton.addEventListener("click", function() {
         JSON.stringify(user)
     );
 
-    window.location.href = "profile.html";
+    if(user.role === "EMP"){
+        window.location.href = "profile.html";
+    }
+    else{
+        window.location.href = "HRProfile.html";
+    }
+    
 
 });
 

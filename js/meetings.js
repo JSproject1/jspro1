@@ -636,7 +636,7 @@ function updateMeetingStatus(
 
 function joinMeeting(roomName) {
 
-   window.open(
+    window.open(
         "meetingRoom.html?room=" +
         encodeURIComponent(roomName),
         "_blank"

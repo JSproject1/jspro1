@@ -205,7 +205,7 @@ a {
     color: var(--gold-bright);
 }
 
-.side-navigation .nav-item.active {
+.side-navigation .nav-item.newActive {
     color: rgba(255, 255, 255, 0.64);
     background: transparent;
     font-weight: 500;

@@ -8,6 +8,9 @@
     <title>My Profile | Alvora</title>
 
     <link rel="stylesheet" href="../css/profile.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
@@ -15,69 +18,104 @@
     <!-- ===================== SIDEBAR ===================== -->
 
     <aside id="sideBar" class="side-bar">
+    
+    
+    <!-- LOGO -->
+    <div class="side-logo">
+        <a href="home2.html">
+            <span class="logo-main">Alvora</span>
+            <span class="logo-sub">ATELIER</span>
+        </a>
+    </div>
 
-        <div class="side-logo">
-            <a href="home.html">
-                <span class="logo-main">Alvora</span>
-                <span class="logo-sub">ATELIER</span>
-            </a>
-        </div>
 
-        <nav class="side-navigation">
+    <!-- HR LABEL -->
+    <div class="nav-section-title">
+        HR MANAGEMENT
+    </div>
 
-            <a href="profile.html" class="nav-item active">
-                <span class="nav-icon">◉</span>
-                <span>My Profile</span>
-            </a>
 
-            <a href="ETasks.html" class="nav-item">
-                <span class="nav-icon">✓</span>
-                <span>My Tasks</span>
-            </a>
+    <!-- NAVIGATION -->
+    <nav class="side-navigation">
 
-            <a href="leaveEmp.html" class="nav-item">
-                <span class="nav-icon">↗</span>
-                <span>Leave Requests</span>
-            </a>
+        <a href="HRProfile.html" class="nav-item active">
+            <i class="bi bi-person-badge nav-icon"></i>
+            <span>My Profile</span>
+        </a>
+        <!-- DASHBOARD -->
+        <a href="hrDashboard.html" class="nav-item ">
+            <i class="bi bi-grid-1x2-fill nav-icon"></i>
+            <span>Dashboard</span>
+        </a>
 
-            <a href="policies.html" class="nav-item">
-                <span class="nav-icon">▤</span>
-                <span>Company Policies</span>
-            </a>
 
-            <a href="meetings.html" class="nav-item">
-                <span class="nav-icon">◷</span>
-                <span>Meetings</span>
-            </a>
+        <!-- EMPLOYEES -->
+        <a href="employees.html" class="nav-item">
+            <i class="bi bi-people-fill nav-icon"></i>
+            <span>Employees</span>
+        </a>
 
-            <a href="feedback.html" class="nav-item">
-                <span class="nav-icon">◇</span>
-                <span>Feedback</span>
-            </a>
 
-        </nav>
+        <!-- TASKS -->
+        <a href="HRTasks.html" class="nav-item ">
+            <i class="bi bi-check2-square nav-icon"></i>
+            <span>Tasks</span>
+        </a>
 
-        <div class="sidebar-footer">
 
-            <div class="mini-user">
-                <div class="mini-avatar" id="miniAvatar">
-                    A
-                </div>
+        <!-- LEAVE REQUESTS -->
+        <a href="leaveHr.html" class="nav-item">
+            <i class="bi bi-calendar2-check nav-icon"></i>
+            <span>Leave Requests</span>
+        </a>
 
-                <div class="mini-info">
-                    <strong id="sidebarName">Employee</strong>
-                    <span id="sidebarRole">EMP</span>
-                </div>
+
+        <!-- COMPANY POLICIES -->
+        <a href="hrPolicies.html" class="nav-item">
+            <i class="bi bi-file-earmark-text nav-icon"></i>
+            <span>Company Policies</span>
+        </a>
+
+
+        <!-- MEETINGS -->
+        <a href="hr-meeting.html" class="nav-item">
+            <i class="bi bi-camera-video nav-icon"></i>
+            <span>Meetings</span>
+        </a>
+
+
+        <!-- FEEDBACK -->
+        <a href="hr-feedback.html" class="nav-item ">
+            <i class="bi bi-chat-left-text nav-icon"></i>
+            <span>Feedback</span>
+        </a>
+
+    </nav>
+
+
+    <!-- BOTTOM -->
+    <div class="sidebar-footer">
+
+        <div class="sidebar-role">
+            <div class="role-icon">
+                <i class="bi bi-person-badge"></i>
             </div>
 
-            <a href="login.html" class="logout" id="logoutButton">
-                <span>↪</span>
-                Logout
-            </a>
-
+            <div class="role-info">
+                <strong>HR Manager</strong>
+                <span>Administration</span>
+            </div>
         </div>
 
-    </aside>
+
+        <a href="home2.html" class="logout" id="logoutButton">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
 
 
     <!-- ===================== MAIN ===================== -->
@@ -99,11 +137,13 @@
                     View your personal details and employment information.
                 </p>
             </div>
-
-            <button id="editButton" class="edit-main-btn">
+            <a href="edit-profile.html">
+                <button id="editButton" class="edit-main-btn">
                 <span>✎</span>
                 Edit Profile
             </button>
+            </a>
+            
 
         </header>
 
@@ -130,13 +170,13 @@
             <div class="profile-main-info">
 
                 <div class="profile-label">
-                    EMPLOYEE PROFILE
+                    HR PROFILE
                 </div>
 
-                <h2 id="name">Employee Name</h2>
+                <h2 id="name">HR Name</h2>
 
                 <p class="profile-position" id="position">
-                    Employee
+                    HR
                 </p>
 
                 <div class="profile-tags">
@@ -430,6 +470,7 @@
                     >
                         Cancel
                     </button>
+                    <button></button>
                     <button
                         type="submit"
                         class="save-btn"

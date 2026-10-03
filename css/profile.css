@@ -81,6 +81,25 @@ body {
    SIDEBAR
    ========================================================= */
 
+   .nav-section-title {
+
+    margin:0 14px 30px;
+        
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.28
+        );
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
 .side-bar {
 
     position: fixed;
@@ -282,6 +301,10 @@ body {
 
 .sidebar-footer {
 
+    margin-top: auto;
+
+    padding-top: 20px;
+
     border-top:
         1px solid
         rgba(
@@ -290,13 +313,9 @@ body {
             255,
             0.08
         );
-
-    padding-top: 20px;
-
 }
 
-
-.mini-user {
+.sidebar-role {
 
     display: flex;
 
@@ -308,14 +327,11 @@ body {
         0
         8px
         17px;
-
 }
 
-
-.mini-avatar {
+.role-icon {
 
     width: 39px;
-
     height: 39px;
 
     min-width: 39px;
@@ -332,56 +348,41 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
-
-    font-family:
-        'Playfair Display',
-        serif;
-
-    font-weight: 700;
 
     color: var(--dark);
 
+    font-size: 15px;
 }
 
-
-.mini-info {
+.role-info {
 
     display: flex;
 
     flex-direction: column;
 
     overflow: hidden;
-
 }
 
-
-.mini-info strong {
+.role-info strong {
 
     color: var(--white);
 
-    font-size: 12px;
+    font-size: 11px;
+
+    font-weight: 700;
 
     white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
 }
 
-
-.mini-info span {
-
-    color: var(--gray-light);
-
-    font-size: 10px;
+.role-info span {
 
     margin-top: 2px;
 
-}
+    color: var(--muted-light);
 
+    font-size: 9px;
+}
 
 .logout {
 
@@ -408,9 +409,16 @@ body {
     text-decoration: none;
 
     transition: var(--transition);
-
 }
 
+.logout i {
+
+    width: 22px;
+
+    color: var(--gold);
+
+    text-align: center;
+}
 
 .logout:hover {
 
@@ -423,7 +431,6 @@ body {
         );
 
     color: var(--gold);
-
 }
 
 
@@ -926,6 +933,7 @@ body {
     font-weight: 700;
 
 }
+
 
 
 .status-badge {
