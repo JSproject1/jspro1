@@ -1,4 +1,4 @@
-
+// autho
 function getCurrentUser() {
 
     let user =
@@ -24,6 +24,7 @@ else if (currentUser.role !== "HR") {
     window.location.href = "ETasks.html";
 
 }
+
 const editPolicyForm =
     document.getElementById("editPolicyForm");
 
@@ -41,36 +42,20 @@ const formMessage =
 
 const cancelBtn =
     document.getElementById("cancelBtn");
-
-
-/* =========================================
-   GET SELECTED POLICY
-========================================= */
-
+//    GET SELECTED POLICY
 const selectedPolicyId =
     Number(
         localStorage.getItem("selectedPolicyId")
     );
-
-
 let policies =
     JSON.parse(
         localStorage.getItem("policies")
     ) || [];
-
-
 const selectedPolicy =
     policies.find(policy => {
-
         return policy.id === selectedPolicyId;
-
     });
-
-
-/* =========================================
-   DISPLAY CURRENT DATA
-========================================= */
-
+//    DISPLAY CURRENT DATA
 if (selectedPolicy) {
 
     titleInput.value =
@@ -81,9 +66,7 @@ if (selectedPolicy) {
 
     descriptionInput.value =
         selectedPolicy.description;
-
 } else {
-
     formMessage.textContent =
         "Policy not found.";
 
@@ -91,23 +74,14 @@ if (selectedPolicy) {
         "red";
 }
 
-
-/* =========================================
-   SAVE CHANGES
-========================================= */
-
+//    SAVE CHANGES
 editPolicyForm.addEventListener(
     "submit",
     function (event) {
-
         event.preventDefault();
-
-
         if (!selectedPolicy) {
             return;
         }
-
-
         const newTitle =
             titleInput.value.trim();
 
@@ -116,8 +90,6 @@ editPolicyForm.addEventListener(
 
         const newDescription =
             descriptionInput.value.trim();
-
-
         /* VALIDATION */
 
         if (
@@ -134,10 +106,7 @@ editPolicyForm.addEventListener(
 
             return;
         }
-
-
         /* UPDATE POLICY */
-
         selectedPolicy.title =
             newTitle;
 
@@ -146,47 +115,30 @@ editPolicyForm.addEventListener(
 
         selectedPolicy.description =
             newDescription;
-
-
         /* SAVE TO LOCAL STORAGE */
-
         localStorage.setItem(
             "policies",
             JSON.stringify(policies)
         );
-
-
         formMessage.textContent =
             "Policy updated successfully.";
-
         formMessage.style.color =
             "green";
-
-
         setTimeout(
             function () {
-
                 window.location.href =
                     "policies.html";
-
             },
             600
         );
-
     }
 );
 
-
-/* =========================================
-   CANCEL
-========================================= */
-
+//    CANCEL
 cancelBtn.addEventListener(
     "click",
     function () {
-
         window.location.href =
             "policies.html";
-
     }
 );

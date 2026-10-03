@@ -20,7 +20,8 @@ loginForm.addEventListener("submit", function(event) {
 
                     user = data[i];
 
-                    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                    let currentUser =
+                        JSON.parse(localStorage.getItem("currentUser"));
 
                     if (currentUser && currentUser.email === email.value) {
                         user.password = currentUser.password;
@@ -49,12 +50,16 @@ loginForm.addEventListener("submit", function(event) {
                 "currentUser",
                 JSON.stringify(user)
             );
-    // fatima add 
-           sessionStorage.setItem(
+
+
+            // Fatima add
+
+            sessionStorage.setItem(
                 "currentUserId",
                 user.id
             );
-            
+
+
             // Go according to role
 
             if (user.role === "EMP") {
@@ -71,11 +76,69 @@ loginForm.addEventListener("submit", function(event) {
         });
 
 });
-//LOGIN ANIMATION
+
+
+// ======================================
+// LAMP PULL ANIMATION
+// ======================================
+
 const lampSwitch = document.getElementById("lampSwitch");
 
-lampSwitch.addEventListener("click", function () {
+let isDragging = false;
+let startY = 0;
 
-    document.body.classList.toggle("light-on");
+lampSwitch.addEventListener("pointerdown", function(event) {
+
+    isDragging = true;
+
+    startY = event.clientY;
+
+    lampSwitch.setPointerCapture(event.pointerId);
+
+});
+
+
+lampSwitch.addEventListener("pointermove", function(event) {
+
+    if (!isDragging) {
+        return;
+    }
+
+    let distance = event.clientY - startY;
+
+    // Only allow pulling downward
+    if (distance > 0) {
+
+        let pullDistance = Math.min(distance, 35);
+
+        lampSwitch.style.transform =
+            `translateY(${pullDistance}px)`;
+
+    }
+
+});
+
+
+lampSwitch.addEventListener("pointerup", function(event) {
+
+    if (!isDragging) {
+        return;
+    }
+
+    isDragging = false;
+
+    let distance = event.clientY - startY;
+
+
+    // If user pulled the string enough
+    if (distance >= 20) {
+
+        document.body.classList.add("light-on");
+
+    }
+
+
+    // Return string to original position
+    lampSwitch.style.transform = "";
 
 });

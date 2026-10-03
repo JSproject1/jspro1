@@ -1,4 +1,4 @@
-
+// authu
 function getCurrentUser() {
 
     let user =
@@ -24,43 +24,34 @@ else if (currentUser.role !== "HR") {
     window.location.href = "ETasks.html";
 
 }
+
 //    GET ELEMENTS
 const table =
     document.getElementById("employeesTable");
-
 const employeeCount =
     document.getElementById("employeeCount");
-
 const searchInput =
     document.getElementById("employeeSearch");
-
 const departmentFilter =
     document.getElementById("departmentFilter");
-
 const addEmployeeBtn =
     document.getElementById("addEmployeeBtn");
-
 const topSearch =
     document.getElementById("topSearch");
 //    VIEW MODAL ELEMENTS
 const employeeModal =
     document.getElementById("employeeModal");
-
 const closeModal =
     document.getElementById("closeModal");
 //    DEACTIVATE MODAL ELEMENTS
 const deactivateModal =
     document.getElementById("deactivateModal");
-
 const deactivateEmployeeName =
     document.getElementById("deactivateEmployeeName");
-
 const closeDeactivateModal =
     document.getElementById("closeDeactivateModal");
-
 const cancelDeactivateBtn =
     document.getElementById("cancelDeactivateBtn");
-
 const confirmDeactivateBtn =
     document.getElementById("confirmDeactivateBtn");
 //    VARIABLES
@@ -68,7 +59,6 @@ let employees = [];
 let employeeToDeactivateId = null;
 //    SAVE EMPLOYEES
 function saveEmployees() {
-
     localStorage.setItem(
         "employees",
         JSON.stringify(employees)
@@ -84,7 +74,6 @@ function loadEmployees() {
             JSON.parse(savedEmployees);
         /* Add status to old employees */
         employees.forEach(employee => {
-
             if (!employee.status) {
                 employee.status =
                     "Active";
@@ -94,13 +83,9 @@ function loadEmployees() {
         displayEmployees(employees);
     }
     else {
-
         fetch("../JSON/employee.json")
-
             .then(response => {
-
                 if (!response.ok) {
-
                     throw new Error(
                         "Failed to load employee.json"
                     );
@@ -130,17 +115,13 @@ function loadEmployees() {
 function displayEmployees(employeeList) {
     table.innerHTML = "";
     /* Number currently displayed */
-
     employeeCount.textContent =
         employeeList.length;
-
     employeeList.forEach(employee => {
         const status =
             employee.status || "Active";
-
         const isInactive =
             status === "Inactive";
-
         table.innerHTML += `
             <tr class="${isInactive ? "inactive-row" : ""}">
                 <!-- EMPLOYEE -->
@@ -224,7 +205,6 @@ function displayEmployees(employeeList) {
         `;
     });
 }
-
 //    SEARCH + DEPARTMENT FILTER
 function filterEmployees() {
     const search =
@@ -252,9 +232,7 @@ function filterEmployees() {
             const matchSearch =
                 name.includes(search)
                 ||
-
                 email.includes(search)
-
                 ||
                 role.includes(search)
                 ||
@@ -279,7 +257,6 @@ searchInput.addEventListener(
     "input",
     function () {
         /* Keep top search synchronized */
-
         if (topSearch) {
             topSearch.value =
                 searchInput.value;
@@ -299,21 +276,16 @@ if (topSearch) {
     );
 }
 //    DEPARTMENT FILTER
-
 departmentFilter.addEventListener(
     "change",
     filterEmployees
 );
-
 //    VIEW EMPLOYEE
 function viewEmployee(id) {
-
     const employee =
         employees.find(employee => {
-
             return employee.id === id;
         });
-
     if (!employee) {
         return;
     }
@@ -326,8 +298,6 @@ function viewEmployee(id) {
         "modalEmail"
     ).textContent =
         employee.email;
-
-
     document.getElementById(
         "modalRole"
     ).textContent =
@@ -341,7 +311,6 @@ function viewEmployee(id) {
     employeeModal.style.display =
         "flex";
 }
-
 //    CLOSE VIEW MODAL
 function closeEmployeeModal() {
 
@@ -353,7 +322,6 @@ closeModal.addEventListener(
     "click",
     closeEmployeeModal
 );
-
 /* CLICK OUTSIDE */
 employeeModal.addEventListener(
     "click",
@@ -367,7 +335,6 @@ employeeModal.addEventListener(
     }
 );
 //    EDIT EMPLOYEE
-
 function editEmployee(id) {
     /*
         Save employee ID.

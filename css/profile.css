@@ -451,7 +451,50 @@ body {
 
 }
 
+/* ================= RESET PASSWORD BUTTON ================= */
 
+.password-main-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+     /* display-flex: row; */
+    padding: 11px 18px;
+
+    background-color: #ffffff;
+    color: #26201E;
+
+    border: 1.5px solid #E5DED6;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.password-main-btn span {
+    font-size: 15px;
+}
+
+.password-main-btn:hover {
+    background-color: #FFF8E6;
+    border-color: #FFBB00;
+    color: #26201E;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 14px rgba(38, 32, 30, 0.10);
+}
+
+.password-main-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
 /* =========================================================
    PAGE HEADER
    ========================================================= */

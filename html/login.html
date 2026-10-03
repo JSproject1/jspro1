@@ -6,44 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login</title>
-<link rel="stylesheet" href="../css/login.css">
+
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
-  <!-- animation-->
+
+    <!-- =========================
+         LAMP
+    ========================== -->
 
     <div class="lamp-wrapper">
 
-    <div class="lamp">
-        <div class="lamp-shade"></div>
-        <div class="lamp-stick"></div>
-        <button id="lampSwitch" class="lamp-switch"></button>
-        
-        <div class="lamp-base"></div>
- 
+        <div class="lamp">
+
+            <div class="lamp-shade"></div>
+
+            <div class="lamp-stick"></div>
+
+            <!-- Pull String -->
+            <div class="pull-string-area">
+
+                <div class="pull-hint">
+                    <span>Pull the string</span>
+                    <small>to turn on the light</small>
+                </div>
+
+                <button
+                    id="lampSwitch"
+                    class="lamp-switch"
+                    type="button"
+                    aria-label="Pull the string to turn on the light">
+                </button>
+
+            </div>
+
+            <div class="lamp-base"></div>
+
+        </div>
+
     </div>
 
-</div>
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
 
     <div class="login-container">
 
-        <h1 id="loginTitle">Login</h1>
+        <div class="login-header">
+
+            <span class="login-label">WELCOME BACK</span>
+
+            <h1 id="loginTitle">Login</h1>
+
+            <p class="login-subtitle">
+                Enter your details to continue
+            </p>
+
+        </div>
 
         <form id="loginForm">
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                required
-            >
+            <div class="input-group">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-            >
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
 
             <button type="submit">
                 Login
@@ -55,9 +106,8 @@
 
     </div>
 
-    <script src="../js/login.js"></script>
 
-  
+    <script src="../js/login.js"></script>
 
 </body>
 

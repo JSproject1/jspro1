@@ -1,7 +1,5 @@
-/* ==============================
-   GET ELEMENTS
-============================== */
 
+// authu
 function getCurrentUser() {
 
     let user =
@@ -27,6 +25,7 @@ else if (currentUser.role !== "HR") {
     window.location.href = "ETasks.html";
 
 }
+
 const editForm =
     document.getElementById("editEmployeeForm");
 
@@ -47,31 +46,18 @@ const cancelBtn =
 
 const editMessage =
     document.getElementById("editMessage");
-
-
-/* ==============================
-   GET EMPLOYEES
-============================== */
-
+//  get emp
 let employees =
     JSON.parse(
         localStorage.getItem("employees")
     ) || [];
 
-
-/* ==============================
-   GET SELECTED EMPLOYEE ID
-============================== */
-
+//    GET SELECTED EMPLOYEE ID
 const selectedEmployeeId =
     Number(
         localStorage.getItem("selectedEmployeeId")
     );
-
-
-/* ==============================
-   FIND EMPLOYEE
-============================== */
+//    FIND EMPLOYEE
 
 const employee =
     employees.find(employee => {
@@ -80,25 +66,14 @@ const employee =
 
     });
 
-
-/* ==============================
-   CHECK EMPLOYEE
-============================== */
-
+//    CHECK EMPLOYEE
 if (!employee) {
-
     alert("Employee not found");
-
     window.location.href =
         "employees.html";
-
 }
-
-
-/* ==============================
-   DISPLAY CURRENT DATA
-============================== */
-
+ 
+//    DISPLAY CURRENT DATA
 else {
 
     nameInput.value =
@@ -115,11 +90,7 @@ else {
 
 }
 
-
-/* ==============================
-   SAVE CHANGES
-============================== */
-
+//    SAVE CHANGES
 editForm.addEventListener(
     "submit",
     function (event) {
@@ -148,17 +119,11 @@ editForm.addEventListener(
             newRole === "" ||
             newDepartment === ""
         ) {
-
             editMessage.textContent =
                 "Please fill in all fields.";
-
             return;
-
         }
-
-
         /* UPDATE EMPLOYEE */
-
         employee.name =
             newName;
 
@@ -178,38 +143,25 @@ editForm.addEventListener(
             "employees",
             JSON.stringify(employees)
         );
-
-
         /* We don't need selected ID anymore */
 
         localStorage.removeItem(
             "selectedEmployeeId"
         );
-
-
         /* RETURN TO EMPLOYEES */
-
         window.location.href =
             "employees.html";
-
     }
 );
 
-
-/* ==============================
-   CANCEL
-============================== */
-
+//    CANCEL
 cancelBtn.addEventListener(
     "click",
     function () {
-
         localStorage.removeItem(
             "selectedEmployeeId"
         );
-
         window.location.href =
             "employees.html";
-
     }
 );

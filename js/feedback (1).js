@@ -21,8 +21,6 @@ let fields = [
     "subject",
     "message"
 ];
-
-
 function fillUserData() {
 
     document.getElementById("name").value =
@@ -32,7 +30,6 @@ function fillUserData() {
         currentUser.email || "";
 }
 
-
 function updateCounter() {
 
     messageCounter.textContent =
@@ -40,8 +37,6 @@ function updateCounter() {
         " / " +
         MAX_MESSAGE_LENGTH;
 }
-
-
 function showError(field, message) {
 
     document.getElementById(field + "Error").textContent =
@@ -53,8 +48,6 @@ function showError(field, message) {
             message ? "input-error" : "";
     }
 }
-
-
 function clearErrors() {
 
     for (let i = 0; i < fields.length; i++) {
@@ -62,24 +55,17 @@ function clearErrors() {
         showError(fields[i], "");
     }
 }
-
-
 function showAlert(type, text) {
-
     formAlert.textContent = text;
 
     formAlert.className =
         "form-alert " + type;
 }
-
-
 function hideAlert() {
 
     formAlert.className =
         "form-alert hidden";
 }
-
-
 function validateForm(values) {
 
     let isValid = true;
@@ -88,30 +74,21 @@ function validateForm(values) {
 
     let emailPattern =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
     if (values.name.length < 3) {
-
         showError(
             "name",
             "Name must be at least 3 characters."
         );
-
         isValid = false;
     }
-
-
     if (!emailPattern.test(values.email)) {
 
         showError(
             "email",
             "Please enter a valid email."
         );
-
         isValid = false;
     }
-
-
     if (values.category === "") {
 
         showError(
@@ -121,8 +98,6 @@ function validateForm(values) {
 
         isValid = false;
     }
-
-
     if (values.subject.length < 3) {
 
         showError(
@@ -170,7 +145,6 @@ function validateForm(values) {
     return isValid;
 }
 
-
 function clearForm() {
 
     document.getElementById("category").value = "";
@@ -189,29 +163,18 @@ function clearForm() {
 
         stars[i].checked = false;
     }
-
-
     fillUserData();
-
     updateCounter();
 }
-
-
 feedbackForm.addEventListener(
     "submit",
     function (event) {
-
         event.preventDefault();
-
         hideAlert();
-
-
         let selectedRating =
             document.querySelector(
                 'input[name="rating"]:checked'
             );
-
-
         let values = {
 
             name:
@@ -286,12 +249,8 @@ feedbackForm.addEventListener(
 
             status: "new"
         };
-
-
         // Add feedback
         feedbacks.push(newFeedback);
-
-
         // Save feedbacks
         localStorage.setItem(
             "feedbacks",
@@ -309,8 +268,6 @@ feedbackForm.addEventListener(
 
     }
 );
-
-
 feedbackForm.addEventListener(
     "reset",
     function (event) {
@@ -320,18 +277,13 @@ feedbackForm.addEventListener(
         clearErrors();
 
         hideAlert();
-
         clearForm();
     }
 );
-
-
 messageInput.addEventListener(
     "input",
     updateCounter
 );
-
-
 fillUserData();
 
 updateCounter();
