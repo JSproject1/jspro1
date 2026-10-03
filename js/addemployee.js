@@ -1,4 +1,4 @@
-
+// authu
 function getCurrentUser() {
 
     let user =
@@ -140,7 +140,7 @@ employeeForm.addEventListener("submit", function (event) {
 
 
     /* ================= GENERATE ID ================= */
-
+    
     let newId = 1;
 
 

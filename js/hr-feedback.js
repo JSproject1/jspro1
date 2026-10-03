@@ -37,14 +37,11 @@ function getFeedbacks() {
 
 
 function saveFeedbacks(feedbacks) {
-
     localStorage.setItem(
         "feedbacks",
         JSON.stringify(feedbacks)
     );
 }
-
-
 function displayFeedbacks() {
 
     let feedbacks = getFeedbacks();
@@ -57,31 +54,21 @@ function displayFeedbacks() {
 
     let category =
         categoryFilter.value;
-
-
     let filtered = [];
-
-
     for (let i = 0; i < feedbacks.length; i++) {
 
         let feedback = feedbacks[i];
-
 
         let matchesSearch =
             feedback.name.toLowerCase().includes(search) ||
             feedback.email.toLowerCase().includes(search) ||
             feedback.subject.toLowerCase().includes(search);
-
-
         let matchesStatus =
             status === "" ||
             feedback.status === status;
-
-
         let matchesCategory =
             category === "" ||
             feedback.category === category;
-
 
         if (
             matchesSearch &&
@@ -93,7 +80,6 @@ function displayFeedbacks() {
         }
     }
 
-
     feedbackList.innerHTML = "";
 
 
@@ -101,7 +87,6 @@ function displayFeedbacks() {
 
         feedbackList.innerHTML =
             "<p>No feedback found.</p>";
-
         updateStats(feedbacks);
 
         return;
@@ -112,17 +97,13 @@ function displayFeedbacks() {
 
         let feedback = filtered[i];
 
-
         let card =
             document.createElement("div");
-
         card.className = "feedback-card";
-
 
         card.innerHTML = `
 
             <h3>${feedback.subject}</h3>
-
             <p>
                 <strong>Name:</strong>
                 ${feedback.name}
@@ -167,25 +148,19 @@ function displayFeedbacks() {
 
         `;
 
-
         feedbackList.appendChild(card);
     }
-
-
     updateStats(feedbacks);
 }
-
 
 function updateStats(feedbacks) {
 
     statTotal.textContent =
         feedbacks.length;
 
-
     let newCount = 0;
 
     let totalRating = 0;
-
 
     for (let i = 0; i < feedbacks.length; i++) {
 
@@ -197,11 +172,8 @@ function updateStats(feedbacks) {
         totalRating += feedbacks[i].rating;
     }
 
-
     statNew.textContent =
         newCount;
-
-
     if (feedbacks.length === 0) {
 
         statAvg.textContent = "-";
@@ -214,11 +186,9 @@ function updateStats(feedbacks) {
     }
 }
 
-
 function changeStatus(id, status) {
 
     let feedbacks = getFeedbacks();
-
 
     for (let i = 0; i < feedbacks.length; i++) {
 
@@ -228,19 +198,16 @@ function changeStatus(id, status) {
         }
     }
 
-
     saveFeedbacks(feedbacks);
 
     displayFeedbacks();
 }
-
 
 function deleteFeedback(id) {
 
     let feedbacks = getFeedbacks();
 
     let newFeedbacks = [];
-
 
     for (let i = 0; i < feedbacks.length; i++) {
 
@@ -250,18 +217,15 @@ function deleteFeedback(id) {
         }
     }
 
-
     saveFeedbacks(newFeedbacks);
 
     displayFeedbacks();
 }
 
-
 searchInput.addEventListener(
     "input",
     displayFeedbacks
 );
-
 statusFilter.addEventListener(
     "change",
     displayFeedbacks
@@ -271,6 +235,4 @@ categoryFilter.addEventListener(
     "change",
     displayFeedbacks
 );
-
-
 displayFeedbacks();

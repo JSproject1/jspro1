@@ -9,68 +9,68 @@
         "salary": 700,
         "phone": "0791111111",
         "address": "Amman",
-        "image": "../images/ahmad.jpg"
+        "image": "../images/boy.jpg"
     },
     {
         "id": 2,
-        "name": "Ahmad Ali",
+        "name": "fatima tawalbeh",
         "role": "EMP",
-        "email": "ahmad@gmail.com",
+        "email": "fatima@gmail.com",
         "department": "Interior Design",
         "password": "1234",
         "salary": 700,
         "phone": "0791111111",
-        "address": "Amman",
-        "image": "../images/ahmad.jpg"
+        "address": "irbid",
+        "image": "../images/girl.jpg"
     },
 
     {
         "id": 3,
-        "name": "Omar Khaled",
+        "name": "amal obidat",
         "role": "EMP",
-        "email": "omar@gmail.com",
+        "email": "amal@gmail.com",
         "department": "Architecture",
         "password": "1234",
         "salary": 750,
         "phone": "0792222222",
-        "address": "Zarqa",
-        "image": "../images/omar.jpg"
+        "address": "irbid",
+        "image": "../images/girl.jpg"
     },
     {
         "id": 4,
-        "name": "Sara Ahmad",
+        "name": "saja diabat",
         "role": "EMP",
-        "email": "sara@gmail.com",
+        "email": "saja@gmail.com",
         "department": "3D Visualization",
         "password": "1234",
         "salary": 720,
         "phone": "0793333333",
         "address": "Amman",
-        "image": "../images/sara.jpg"
+        "image": "../images/girl.jpg"
     },
     {
         "id": 5,
-        "name": "Lina Samer",
+        "name": "roaa ajlouni",
         "role": "EMP",
-        "email": "lina@gmail.com",
+        "email": "roaa@gmail.com",
         "department": "Interior Design",
         "password": "1234",
         "salary": 680,
         "phone": "0794444444",
         "address": "Irbid",
-        "image": "../images/lina.jpg"
+        "image": "../images/girl.jpg"
     },
     {
         "id": 6,
-        "name": "Yazan Mahmoud",
+        "name": "saif ",
         "role": "EMP",
-        "email": "yazan@gmail.com",
+        "email": "saif@gmail.com",
         "department": "Site Engineering",
         "password": "1234",
         "salary": 800,
         "phone": "0795555555",
         "address": "Amman",
-        "image": "../images/yazan.jpg"
+        "image": "../images/boy.jpg"
     },
     {
         "id": 7,
@@ -82,7 +82,7 @@
         "salary": 850,
         "phone": "0796666666",
         "address": "Amman",
-        "image": "../images/dana.jpg"
+        "image": "../images/girl.jpg"
     },
     {
         "id": 8,
@@ -94,6 +94,174 @@
         "salary": 690,
         "phone": "0797777777",
         "address": "Salt",
-        "image": "../images/rami.jpg"
+        "image": "../images/boy.jpg"
+    },
+    {
+        "id": 9,
+        "name": "ola tawalbeh",
+        "role": "EMP",
+        "email": "ola@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 10,
+        "name": "marwa",
+        "role": "EMP",
+        "email": "marwa@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 11,
+        "name": "yaqeen",
+        "role": "EMP",
+        "email": "yaqeen@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Ahmad ali",
+        "role": "EMP",
+        "email": "Ahmad@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/boy.jpg"
+    },
+    {
+        "id": 13,
+        "name": "lujain",
+        "role": "EMP",
+        "email": "lujain@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Taimaa",
+        "role": "EMP",
+        "email": "taimaa@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 15,
+        "name": "yasmeen",
+        "role": "EMP",
+        "email": "yasmeen@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 16,
+        "name": "tariq",
+        "role": "EMP",
+        "email": "tariq@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/boy.jpg"
+    },
+    {
+        "id": 17,
+        "name": "deyaa",
+        "role": "EMP",
+        "email": "deyaa@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 18,
+        "name": "abdallah",
+        "role": "EMP",
+        "email": "abdallah@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/boy.jpg"
+    },
+    {
+        "id": 19,
+        "name": "sara",
+        "role": "EMP",
+        "email": "sara@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 20,
+        "name": "nada",
+        "role": "EMP",
+        "email": "nada@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/girl.jpg"
+    },
+    {
+        "id": 21,
+        "name": "osama",
+        "role": "EMP",
+        "email": "osama@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/boy.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Alaa",
+        "role": "EMP",
+        "email": "Alaa@gmail.com",
+        "department": "Furniture Design",
+        "password": "1234",
+        "salary": 690,
+        "phone": "0797777777",
+        "address": "irbid",
+        "image": "../images/boy.jpg"
     }
 ]

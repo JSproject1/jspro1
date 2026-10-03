@@ -1,4 +1,4 @@
-
+// auth
 function getCurrentUser() {
 
     let user =
@@ -24,8 +24,6 @@ else if (currentUser.role !== "HR") {
     window.location.href = "ETasks.html";
 
 }
-
-
 const policyForm =
     document.getElementById("policyForm");
 

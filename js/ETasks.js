@@ -15,6 +15,7 @@ if (currentUser == null) {
 else if (currentUser.role !== "EMP") {
     window.location.href = "login.html";
 }
+
 let tasksContainer = document.getElementById("tasksContainer");
 let noTasks = document.getElementById("noTasks");
 let searchTask = document.getElementById("search");
@@ -246,33 +247,25 @@ function viewETask(index) {
         `;
 
     }
-
-
     /* EMPLOYEE SUBMISSION */
 
     let submissionE =
         document.getElementById("submissionE");
 
     submissionE.innerHTML = "";
-
-
     if (
         task.employeeSubmissions &&
         task.employeeSubmissions[currentUser.name]
     ) {
-
         let submission =
             task.employeeSubmissions[currentUser.name];
-
         let link =
             document.createElement("a");
-
         link.href =
             submission.data;
 
         link.textContent =
             "📎 " + submission.name;
-
         link.target = "_blank";
 
         link.download =
@@ -282,7 +275,6 @@ function viewETask(index) {
             "attachmentLink";
 
         submissionE.appendChild(link);
-
     }
     else {
 
@@ -291,12 +283,8 @@ function viewETask(index) {
                 Not submitted yet
             </span>
         `;
-
     }
-
-
     viewTask.style.display = "flex";
-
 }
 function editETask(index) {
     let task = tasks[index];
@@ -345,7 +333,6 @@ editTaskForm.addEventListener("submit", async function (event) {
         console.log(error);
     }
 });
-
 function getPriorityClass(priority) {
     if (priority === "High") {
         return "high";
@@ -358,7 +345,6 @@ function getPriorityClass(priority) {
     }
     return "";
 }
-
 function getStatusClass(status) {
     if (status === "Completed") {
         return "completed";

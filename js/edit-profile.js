@@ -39,10 +39,7 @@ saveButton.addEventListener("click", function() {
 
 
 let resetPasswordButton = document.getElementById("resetPasswordButton");
-
 resetPasswordButton.addEventListener("click", function() {
-
     window.location.href = "reset-password.html";
-
 });
 
