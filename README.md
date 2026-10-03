@@ -20,7 +20,7 @@
 [Trello Board](https://trello.com/invite/b/6abbaaf2d359583e09209c76/ATTIdcb0bf741726ea7c2b244b15e681287c018B90AE/jsproject1)
 
 ### Figma
-[Figma Design](https://www.figma.com/design/Q5Q5YGGUJsfoFORCkwjKZr/jspro1?node-id=0-1&t=YeO9cS9HiL51Igda-1)
+[Figma Design](https://www.figma.com/design/CJ2OeTcnqHMF16Ib8HoqCc/Untitled?t=YeO9cS9HiL51Igda-1)
 
 ---
 
