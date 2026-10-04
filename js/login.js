@@ -4,39 +4,70 @@ let email = document.getElementById("email");
 let password = document.getElementById("password");
 let message = document.getElementById("message");
 
+
+// ======================================
+// LOGIN
+// ======================================
+
 loginForm.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
     fetch("../JSON/employee.json")
         .then(response => response.json())
-        .then(data => {
+        .then(jsonEmployees => {
+
+            // Get employees from localStorage
+            let localEmployees =
+                JSON.parse(localStorage.getItem("employees")) || [];
 
             let user = null;
 
-            for (let i = 0; i < data.length; i++) {
 
-                if (data[i].email === email.value) {
+            // ======================================
+            // SEARCH IN LOCAL STORAGE FIRST
+            // ======================================
 
-                    user = data[i];
+            for (let i = 0; i < localEmployees.length; i++) {
 
-                    let currentUser =
-                        JSON.parse(localStorage.getItem("currentUser"));
+                if (
+                    localEmployees[i].email.toLowerCase() ===
+                    email.value.trim().toLowerCase()
+                ) {
 
-                    if (currentUser && currentUser.email === email.value) {
-                        user.password = currentUser.password;
-                    }
-
-                    if (user.password !== password.value) {
-                        user = null;
-                    }
+                    user = localEmployees[i];
 
                     break;
                 }
             }
 
 
-            if (user == null) {
+            // ======================================
+            // SEARCH IN JSON IF NOT FOUND
+            // ======================================
+
+            if (user === null) {
+
+                for (let i = 0; i < jsonEmployees.length; i++) {
+
+                    if (
+                        jsonEmployees[i].email.toLowerCase() ===
+                        email.value.trim().toLowerCase()
+                    ) {
+
+                        user = jsonEmployees[i];
+
+                        break;
+                    }
+                }
+            }
+
+
+            // ======================================
+            // USER NOT FOUND
+            // ======================================
+
+            if (user === null) {
 
                 alert("Email or password is incorrect");
 
@@ -44,7 +75,21 @@ loginForm.addEventListener("submit", function(event) {
             }
 
 
-            // Save logged-in user
+            // ======================================
+            // CHECK PASSWORD
+            // ======================================
+
+            if (user.password !== password.value) {
+
+                alert("Email or password is incorrect");
+
+                return;
+            }
+
+
+            // ======================================
+            // SAVE CURRENT USER
+            // ======================================
 
             localStorage.setItem(
                 "currentUser",
@@ -52,7 +97,9 @@ loginForm.addEventListener("submit", function(event) {
             );
 
 
-            // Fatima add
+            // ======================================
+            // SAVE USER ID
+            // ======================================
 
             sessionStorage.setItem(
                 "currentUserId",
@@ -60,7 +107,9 @@ loginForm.addEventListener("submit", function(event) {
             );
 
 
-            // Go according to role
+            // ======================================
+            // GO ACCORDING TO ROLE
+            // ======================================
 
             if (user.role === "EMP") {
 
@@ -72,6 +121,13 @@ loginForm.addEventListener("submit", function(event) {
                 window.location.href = "../html/home2.html";
 
             }
+
+        })
+        .catch(function(error) {
+
+            console.log(error);
+
+            alert("Something went wrong.");
 
         });
 
@@ -86,6 +142,7 @@ const lampSwitch = document.getElementById("lampSwitch");
 
 let isDragging = false;
 let startY = 0;
+
 
 lampSwitch.addEventListener("pointerdown", function(event) {
 
@@ -106,6 +163,7 @@ lampSwitch.addEventListener("pointermove", function(event) {
 
     let distance = event.clientY - startY;
 
+
     // Only allow pulling downward
     if (distance > 0) {
 
@@ -125,12 +183,12 @@ lampSwitch.addEventListener("pointerup", function(event) {
         return;
     }
 
-    isDragging = false;
-
     let distance = event.clientY - startY;
 
+    isDragging = false;
 
-    // If user pulled the string enough
+
+    // Turn on light
     if (distance >= 20) {
 
         document.body.classList.add("light-on");
@@ -139,6 +197,23 @@ lampSwitch.addEventListener("pointerup", function(event) {
 
 
     // Return string to original position
+    lampSwitch.style.transform = "";
+
+
+    // Release pointer
+    if (lampSwitch.hasPointerCapture(event.pointerId)) {
+
+        lampSwitch.releasePointerCapture(event.pointerId);
+
+    }
+
+});
+
+
+lampSwitch.addEventListener("pointercancel", function() {
+
+    isDragging = false;
+
     lampSwitch.style.transform = "";
 
 });

@@ -190,13 +190,7 @@ function displayEmployees(employeeList) {
                             `
                             :
                             `
-                            <button
-                                type="button"
-                                class="deactivate-btn"
-                                onclick="deactivateEmployee(${employee.id})"
-                            >
-                                Deactivate
-                            </button>
+                            
                             `
                         }
                     </div>
