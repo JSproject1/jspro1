@@ -195,7 +195,7 @@ function displayTasks() {
             <td>${tasks[i].employeeEmail.join(", ")}</td>
             <td><span class="status">${tasks[i].status}</span></td>
             <td><button class="edit-btn" onclick="editTask(${i})">Edit</button>
-                <button class="delete-btn" onclick="deleteTask(${i})">Block</button>
+                <button class="delete-btn" onclick="deleteTask(${i})">Delete</button>
                 <button class="view-btn" onclick="viewTask(${i})">View</button>
             </td>
         `;
@@ -421,18 +421,23 @@ function displaySubmissions() {
                 </div> 
                 <div class="submissionInfo"> 
                 <div>
-                <span>Task &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                <strong>${task.title}</strong> 
+                <h3>Task :</span>
+                <p>${task.title}</p> 
                 </div> 
                 <br><br>
                 <div> 
                 <br><br>
-                <span>Status &nbsp</span> 
-                <strong>${status}</strong> 
-                </div> 
+                <h3>Status :</h3> 
+                <p>${status}</p> 
+                </div>
+                <br> 
                 </div>
                 <br><br>
              ${submission.data ? ` 
+                <div class="employeeDescription">
+                <h3>Employee Description :</h3>
+                <p>${task.employeeDescription}</p>
+                </div>
                 <a class="submissionLink" href="${submission.data}" target="_blank" download="${submission.name}">
                 📎 ${submission.name} 
                 </a> 
