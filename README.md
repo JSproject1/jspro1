@@ -23,7 +23,7 @@
 [Figma Design](https://www.figma.com/design/CJ2OeTcnqHMF16Ib8HoqCc/Untitled?t=YeO9cS9HiL51Igda-1)
 
 ### Live Server
-[Sive Server](https://jsproject1.github.io/jspro1/)
+[Sive Server](https://sparkly-cannoli-8e40a0.netlify.app)
 
 ---
 
