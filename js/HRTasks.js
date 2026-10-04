@@ -195,7 +195,7 @@ function displayTasks() {
             <td>${tasks[i].employeeEmail.join(", ")}</td>
             <td><span class="status">${tasks[i].status}</span></td>
             <td><button class="edit-btn" onclick="editTask(${i})">Edit</button>
-                <button class="delete-btn" onclick="deleteTask(${i})">Block</button>
+                <button class="delete-btn" onclick="deleteTask(${i})">Delete</button>
                 <button class="view-btn" onclick="viewTask(${i})">View</button>
             </td>
         `;
