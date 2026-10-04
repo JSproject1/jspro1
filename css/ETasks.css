@@ -1445,10 +1445,41 @@ select {
     color: var(--gold);
 }
 
-.navbar-logout:hover {
-    color: var(--gold);
-    background: rgba(212,163,115,0.10);
+#editTaskDescription {
+    width: 100%;
+    min-height: 110px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    background: var(--white);
+    color: var(--dark);
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+
+    resize: vertical;
+    outline: none;
+
+    transition: var(--transition);
 }
+
+#editTaskDescription::placeholder {
+    color: var(--muted-light);
+}
+
+#editTaskDescription:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 163, 115, 0.15);
+}
+
+
 /* =========================
    RESPONSIVE
 ========================= */

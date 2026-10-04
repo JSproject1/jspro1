@@ -9,15 +9,26 @@
 </head>
 
 <body>
-  <!---->
-    <nav class="main-navbar">
+    <aside id="sideBar" class="side-bar">
 
-    <div class="navbar-logo">
-        <a href="home2.html">
-            <span class="logo-main">Alvora</span>
-            <span class="logo-sub">ATELIER</span>
-        </a>
-    </div>
+        <div class="side-logo">
+            <a href="home2.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
+        </div>
+
+        <nav class="side-navigation">
+
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>My Profile</span>
+            </a>
+
+            <a href="ETasks.html" class="nav-item active">
+                <span class="nav-icon">✓</span>
+                <span>My Tasks</span>
+            </a>
 
     <div class="navbar-links">
 
@@ -109,158 +120,159 @@
     </div>
     <div id="viewTask">
 
-    <div class="viewModal">
+        <div class="viewModal">
 
-        <div class="viewModalHeader">
+            <div class="viewModalHeader">
 
-            <div>
+                <div>
 
-                <span class="modalEyebrow">
-                    TASK DETAILS
+                    <span class="modalEyebrow">
+                        TASK DETAILS
+                    </span>
+
+                    <h2 id="taskTitleE">
+                        Task Title
+                    </h2>
+
+                </div>
+
+                <button id="closeBtn" class="modalClose">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="modalDescription">
+
+                <span class="sectionLabel">
+                    DESCRIPTION
                 </span>
 
-                <h2 id="taskTitleE">
-                    Task Title
-                </h2>
+                <p id="taskDescriptionE"></p>
 
             </div>
 
-            <button id="closeBtn" class="modalClose">
-                ×
-            </button>
 
-        </div>
+            <div class="modalInfoGrid">
+
+                <div class="modalInfoCard">
+
+                    <span class="infoIcon">●</span>
+
+                    <div>
+
+                        <span class="infoLabel">
+                            STATUS
+                        </span>
+
+                        <span id="taskStatusE" class="modalStatus">
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-        <div class="modalDescription">
+                <div class="modalInfoCard">
 
-            <span class="sectionLabel">
-                DESCRIPTION
-            </span>
+                    <span class="infoIcon">◷</span>
 
-            <p id="taskDescriptionE"></p>
+                    <div>
 
-        </div>
+                        <span class="infoLabel">
+                            START DATE
+                        </span>
+
+                        <strong id="startDateE">
+                        </strong>
+
+                    </div>
+
+                </div>
 
 
-        <div class="modalInfoGrid">
+                <div class="modalInfoCard">
 
-            <div class="modalInfoCard">
+                    <span class="infoIcon">◆</span>
 
-                <span class="infoIcon">●</span>
+                    <div>
 
-                <div>
+                        <span class="infoLabel">
+                            DUE DATE
+                        </span>
 
-                    <span class="infoLabel">
-                        STATUS
-                    </span>
+                        <strong id="dueDateE">
+                        </strong>
 
-                    <span id="taskStatusE"
-                        class="modalStatus">
-                    </span>
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <div class="modalInfoCard">
+            <div class="modalSection">
 
-                <span class="infoIcon">◷</span>
+                <div class="sectionHeading">
 
-                <div>
-
-                    <span class="infoLabel">
-                        START DATE
+                    <span class="sectionIcon">
+                        📎
                     </span>
 
-                    <strong id="startDateE">
-                    </strong>
+                    <div>
+                        <span class="sectionLabel">
+                            TASK ATTACHMENT
+                        </span>
+
+                        <small>
+                            Files provided by HR
+                        </small>
+                    </div>
 
                 </div>
+
+                <div id="attachE" class="attachmentBox"></div>
 
             </div>
 
 
-            <div class="modalInfoCard">
+            <div class="modalSection">
 
-                <span class="infoIcon">◆</span>
+                <div class="sectionHeading">
 
-                <div>
-
-                    <span class="infoLabel">
-                        DUE DATE
+                    <span class="sectionIcon">
+                        ↑
                     </span>
 
-                    <strong id="dueDateE">
-                    </strong>
+                    <div>
+                        <span class="sectionLabel">
+                            MY SUBMISSION
+                        </span>
+
+                        <small>
+                            Your submitted work
+                        </small>
+                    </div>
 
                 </div>
 
+                <div id="submissionE" class="attachmentBox"></div>
+
             </div>
+
 
         </div>
-
-
-        <div class="modalSection">
-
-            <div class="sectionHeading">
-
-                <span class="sectionIcon">
-                    📎
-                </span>
-
-                <div>
-                    <span class="sectionLabel">
-                        TASK ATTACHMENT
-                    </span>
-
-                    <small>
-                        Files provided by HR
-                    </small>
-                </div>
-
-            </div>
-
-            <div id="attachE" class="attachmentBox"></div>
-
-        </div>
-
-
-        <div class="modalSection">
-
-            <div class="sectionHeading">
-
-                <span class="sectionIcon">
-                    ↑
-                </span>
-
-                <div>
-                    <span class="sectionLabel">
-                        MY SUBMISSION
-                    </span>
-
-                    <small>
-                        Your submitted work
-                    </small>
-                </div>
-
-            </div>
-
-            <div id="submissionE" class="attachmentBox"></div>
-
-        </div>
-
 
     </div>
-
-</div>
     <div id="editTaskModal" class="editTaskModal">
         <div class="editTaskContent">
             <button id="closeEditBtn" class="closeBtn">×</button>
             <h2>Edit Task</h2>
             <form id="editTaskForm">
                 <h1 id="taskName"></h1><br>
+                <label>Description Your Solution</label>
+                <textarea id="editTaskDescription" placeholder="Write your description..."></textarea>
                 <label>Status</label><br>
                 <select id="editTaskStatus">
                     <option value="Pending">Pending</option>

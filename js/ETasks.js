@@ -27,6 +27,7 @@ let closeEdit = document.getElementById("closeEditBtn");
 let viewTask = document.getElementById("viewTask");
 let saveBtn = document.getElementById("saveBtn");
 let editTaskModal = document.getElementById("editTaskModal");
+let employeeDescription = document.getElementById("editTaskDescription");
 
 viewTask.style.display = "none";
 editTaskModal.style.display = "none";
@@ -294,6 +295,7 @@ function editETask(index) {
     }
     editTaskIndex = index;
     document.getElementById("taskName").textContent = task.title;
+    employeeDescription.value = task.employeeDescription || "";
     editTaskStatus.value = task.status;
     employeeFile.value = "";
     editTaskModal.style.display = "flex";
@@ -311,6 +313,7 @@ editTaskForm.addEventListener("submit", async function (event) {
     }
     try {
         task.status = editTaskStatus.value;
+        task.employeeDescription = employeeDescription.value;
         let file = employeeFile.files[0];
         if (file) {
 
