@@ -583,7 +583,23 @@ background: rgba(17, 16, 15, 0.72);
 }
 
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
 
+.dashboard {
+    background: #F4EFE8;
+    color: var(--c6);
+    border-color: #F4EFE8;
+    text-shadow: none;
+}
+
+.dashboard:hover {
+    background: #E8C48A;
+    border-color: #E8C48A;
+}
 
 #EandHRServices .services-container .card:nth-child(2)::before {
     content: "✧";

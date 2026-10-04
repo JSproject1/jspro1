@@ -201,68 +201,88 @@
   }
 })();
 
+
+/* ==========================================================================
+   AUTH / ROLE UI  (Login · Logout · Dashboard for HR · services sections)
+   ========================================================================== */
+
 const loginBtn = document.getElementById("loginBtn");
+const dashboardBtn = document.getElementById("dashboardBtn");
 const servicesSection = document.getElementById("services");
 const hrServicesSection = document.getElementById("EandHRServices");
 const servicesNav = document.getElementById("servicesNav");
-
-const storedUser = localStorage.getItem("currentUser");
-
-if (storedUser) {
-
-    const currentUser = JSON.parse(storedUser);
-
-    if (currentUser.role === "EMP" || currentUser.role === "HR") {
-
-        servicesSection.style.display = "none";
-        hrServicesSection.style.display = "block";
-        servicesNav.href = "#EandHRServices";
-        loginBtn.innerHTML = `Logout <span>↗</span>`;
-        loginBtn.href = "#";
-        loginBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            localStorage.removeItem("currentUser");
-
-            window.location.reload();
-        });
-    }
-
-} else {
-    servicesSection.style.display = "block";
-    hrServicesSection.style.display = "none";
-    servicesNav.href = "#services";
-    loginBtn.innerHTML = `Login <span>↗</span>`;
-    loginBtn.href = "../html/login.html";
-}
 const employeesCard = document.getElementById("employeesCard");
 
-if (storedUser) {
+let currentUser = null;
 
-    const currentUser = JSON.parse(storedUser);
+try {
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
+} catch (e) {
+    currentUser = null;
+}
 
-    if (currentUser.role === "EMP") {
-        employeesCard.style.display = "none";
-        document.getElementById("employeesCard").style.display = "none";
-        document.getElementById("leaveTitle").textContent ="Leave Application";
-        document.getElementById("leaveDescription").textContent ="Submit your leave request by selecting the leave type, dates and reason.";
-        document.getElementById("leaveButton").textContent ="Apply for Leave";
-        document.getElementById("policiesTitle").textContent ="Company Policies";
-        document.getElementById("policiesDescription").textContent ="View the company policies and guidelines that apply to you.";
-        document.getElementById("policiesButton").textContent = "View Policies";
-        document.getElementById("tasksTitle").textContent ="My Tasks";
-        document.getElementById("tasksDescription").textContent ="View your assigned tasks and update their status.";
-        document.getElementById("tasksButton").textContent ="View My Tasks";
-        document.getElementById("feedbackTitle").textContent ="Send Feedback";
-        document.getElementById("feedbackDescription").textContent ="Share your feedback, suggestions or concerns with the HR department.";
-        document.getElementById("feedbackButton").textContent ="Send Feedback";
-        document.getElementById("meetingsTitle").textContent ="My Meetings";
-        document.getElementById("meetingsDescription").textContent ="View your meetings and manage your meeting requests.";
-        document.getElementById("meetingsButton").textContent ="View Meetings";
+const isLoggedIn = currentUser && (currentUser.role === "EMP" || currentUser.role === "HR");
 
-    }
-    else if (currentUser.role === "HR") {
+if (isLoggedIn) {
+
+    servicesSection.style.display = "none";
+    hrServicesSection.style.display = "block";
+    servicesNav.href = "#EandHRServices";
+
+    loginBtn.innerHTML = `Logout <span>↗</span>`;
+    loginBtn.href = "#";
+    loginBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+    });
+
+    /* ---------- Dashboard button: HR only ---------- */
+    if (currentUser.role === "HR") {
+
+        if (dashboardBtn) {
+            dashboardBtn.style.display = "inline-block";
+        }
+
         employeesCard.style.display = "flex";
     }
 
+    /* ---------- Employee wording ---------- */
+    if (currentUser.role === "EMP") {
+
+        employeesCard.style.display = "none";
+
+        document.getElementById("leaveTitle").textContent = "Leave Application";
+        document.getElementById("leaveDescription").textContent = "Submit your leave request by selecting the leave type, dates and reason.";
+        document.getElementById("leaveButton").textContent = "Apply for Leave";
+
+        document.getElementById("policiesTitle").textContent = "Company Policies";
+        document.getElementById("policiesDescription").textContent = "View the company policies and guidelines that apply to you.";
+        document.getElementById("policiesButton").textContent = "View Policies";
+
+        document.getElementById("tasksTitle").textContent = "My Tasks";
+        document.getElementById("tasksDescription").textContent = "View your assigned tasks and update their status.";
+        document.getElementById("tasksButton").textContent = "View My Tasks";
+
+        document.getElementById("feedbackTitle").textContent = "Send Feedback";
+        document.getElementById("feedbackDescription").textContent = "Share your feedback, suggestions or concerns with the HR department.";
+        document.getElementById("feedbackButton").textContent = "Send Feedback";
+
+        document.getElementById("meetingsTitle").textContent = "My Meetings";
+        document.getElementById("meetingsDescription").textContent = "View your meetings and manage your meeting requests.";
+        document.getElementById("meetingsButton").textContent = "View Meetings";
+    }
+
+} else {
+
+    servicesSection.style.display = "block";
+    hrServicesSection.style.display = "none";
+    servicesNav.href = "#services";
+
+    loginBtn.innerHTML = `Login <span>↗</span>`;
+    loginBtn.href = "../html/login.html";
+
+    if (dashboardBtn) {
+        dashboardBtn.style.display = "none";
+    }
 }
