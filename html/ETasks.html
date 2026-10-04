@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    <aside id="sideBar" class="side-bar">
 
-        <div class="side-logo">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="main-navbar">
+
+        <div class="navbar-logo">
             <a href="home2.html">
                 <span class="logo-main">Alvora</span>
                 <span class="logo-sub">ATELIER</span>
             </a>
         </div>
 
-        <nav class="side-navigation">
+        <div class="navbar-links">
 
             <a href="profile.html" class="nav-item">
                 <span class="nav-icon">◉</span>
@@ -50,29 +52,26 @@
                 <span>Feedback</span>
             </a>
 
-        </nav>
-
-        <div class="sidebar-footer">
-
-
-
-            <a href="home2.html" class="logout" id="logoutButton">
-                <span>↪</span>
-                Logout
-            </a>
-
         </div>
 
-    </aside>
+        <a href="home2.html" class="navbar-logout" id="logoutButton">
+            <span>↪</span>
+            <span>Logout</span>
+        </a>
+
+    </nav>
 
 
+    <!-- ================= MAIN ================= -->
     <div class="container">
+
         <div class="pageHeader">
             <div>
                 <h1>My Tasks</h1>
                 <p>View your assigned tasks</p>
             </div>
         </div>
+
         <div class="statistics">
             <div class="statCard">
                 <h4>Total Tasks</h4>
@@ -91,6 +90,7 @@
                 <h2 id="completedTasks">0</h2>
             </div>
         </div>
+
         <div class="filters">
             <input type="text" id="search" placeholder="Search tasks...">
             <select id="filterStatus">
@@ -106,12 +106,18 @@
                 <option value="Low"> Low</option>
             </select>
         </div>
+
         <div id="tasksContainer" class="tasksContainer"></div>
+
         <div id="noTasks" class="noTasks" hidden>
             <h3>No Tasks Found</h3>
             <p>You don't have any assigned tasks.</p>
         </div>
+
     </div>
+
+
+    <!-- ================= VIEW TASK MODAL ================= -->
     <div id="viewTask">
 
         <div class="viewModal">
@@ -119,7 +125,6 @@
             <div class="viewModalHeader">
 
                 <div>
-
                     <span class="modalEyebrow">
                         TASK DETAILS
                     </span>
@@ -127,7 +132,6 @@
                     <h2 id="taskTitleE">
                         Task Title
                     </h2>
-
                 </div>
 
                 <button id="closeBtn" class="modalClose">
@@ -151,56 +155,27 @@
             <div class="modalInfoGrid">
 
                 <div class="modalInfoCard">
-
                     <span class="infoIcon">●</span>
-
                     <div>
-
-                        <span class="infoLabel">
-                            STATUS
-                        </span>
-
-                        <span id="taskStatusE" class="modalStatus">
-                        </span>
-
+                        <span class="infoLabel">STATUS</span>
+                        <span id="taskStatusE" class="modalStatus"></span>
                     </div>
-
                 </div>
 
-
                 <div class="modalInfoCard">
-
                     <span class="infoIcon">◷</span>
-
                     <div>
-
-                        <span class="infoLabel">
-                            START DATE
-                        </span>
-
-                        <strong id="startDateE">
-                        </strong>
-
+                        <span class="infoLabel">START DATE</span>
+                        <strong id="startDateE"></strong>
                     </div>
-
                 </div>
 
-
                 <div class="modalInfoCard">
-
                     <span class="infoIcon">◆</span>
-
                     <div>
-
-                        <span class="infoLabel">
-                            DUE DATE
-                        </span>
-
-                        <strong id="dueDateE">
-                        </strong>
-
+                        <span class="infoLabel">DUE DATE</span>
+                        <strong id="dueDateE"></strong>
                     </div>
-
                 </div>
 
             </div>
@@ -255,10 +230,12 @@
 
             </div>
 
-
         </div>
 
     </div>
+
+
+    <!-- ================= EDIT TASK MODAL ================= -->
     <div id="editTaskModal" class="editTaskModal">
         <div class="editTaskContent">
             <button id="closeEditBtn" class="closeBtn">×</button>
@@ -280,10 +257,10 @@
                 <small><small>You can attach relevant PDFs, images, or documents (Max: 2MB).</small></small>
                 <button type="submit" class="saveBtn"> Save Changes </button>
 
-
             </form>
         </div>
     </div>
+
     <script src="../js/auth.js"></script>
     <script src="../js/ETasks.js"></script>
 

@@ -218,7 +218,7 @@ body {
 
 .main-content {
 
-    margin-left: 260px;
+    margin-left: 90px;
 
     min-height: 100vh;
 
@@ -231,6 +231,17 @@ body {
 
 /* ================= RESET PASSWORD BUTTON ================= */
 
+.profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.password-main-btn,
+.edit-main-btn {
+    min-height: 46px;
+    white-space: nowrap;
+}
 .password-main-btn {
     display: inline-flex;
     align-items: center;

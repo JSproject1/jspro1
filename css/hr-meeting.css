@@ -378,17 +378,12 @@ select {
    ========================================================= */
 
 .page-container {
-    width: calc(100% - 260px);
-
+    width: min(1200px, 92%);
+    margin: 0 auto;
     min-height: 100vh;
-
-    margin-left: 260px;
-
-    padding:
-        44px
-        clamp(28px, 4vw, 60px)
-        70px;
+    padding: 44px 0 70px;
 }
+
 
 
 /* =========================================================
@@ -1317,14 +1312,16 @@ input::placeholder {
     }
 
     .page-container {
-        width: 100%;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+    }
 
-        margin-left: 0;
+    #meetingsContainer {
+        grid-template-columns: 1fr;
+    }
 
-        padding:
-            30px
-            18px
-            50px;
+    #meetingsContainer {
+        grid-template-columns: 1fr;
     }
 
     .page-header {
