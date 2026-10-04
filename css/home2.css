@@ -8,7 +8,7 @@
     --c6: #11100F;
     --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --nav: 0;
+    --nav: 1;
     /* 0 → 1, written by script.js */
     --stage-w: max(100vw, 177.78vh);
 }
@@ -58,18 +58,24 @@ ol {
     position: fixed;
     inset: 0 0 auto 0;
     z-index: 50;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 2rem;
     padding: 1rem clamp(1rem, 4vw, 3.5rem);
-    color: #F4EFE8;
+
+    color: #f4e8ea;
     font-size: .8rem;
     letter-spacing: .04em;
-    background: rgba(17, 16, 15, calc(var(--nav) * .45));
-    backdrop-filter: blur(calc(var(--nav) * 14px));
-    -webkit-backdrop-filter: blur(calc(var(--nav) * 14px));
-    border-bottom: 1px solid rgba(255, 255, 255, calc(.05 + var(--nav) * .12));
+
+    /* ثابت وأغمق */
+background: rgba(17, 16, 15, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
 
 .nav ul {
@@ -1049,6 +1055,9 @@ blockquote footer {
 .form .btn {
     justify-self: start;
 }
+.Copyright{
+    background-color: #edddd0;
+}
 
 .footer {
     background: var(--c6);
@@ -1064,8 +1073,25 @@ blockquote footer {
     align-items: center;
 }
 
-.footer p {
+.footer-bottom {
+    padding: 20px 65px;
+
+    /* بني بالكامل */
+    background: #11100F !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    border: none;
+}
+
+.footer-bottom p {
     margin: 0;
+    font-size: 17px o !important;
+    color: transparent;
+    background-color: #BEB1A2;
 }
 
 .footer .brand {
