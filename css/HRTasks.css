@@ -913,23 +913,13 @@ a {
 .tasksTable {
 
     width: 100%;
-
-    min-width: 900px;
-
+    min-width: 850px;
     border-collapse: separate;
-
     border-spacing: 0;
-
     background: var(--white);
-
-    border:
-        1px solid
-        var(--border);
-
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-
     overflow: hidden;
-
     box-shadow: var(--shadow);
 }
 
@@ -2225,353 +2215,1306 @@ a {
     color: var(--blue);
 }
 
-
-@media (max-width: 1100px) {
-
-    .summaryCards {
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    0,
-                    1fr
-                )
-            );
-    }
-
-    .submissionsContainer {
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    0,
-                    1fr
-                )
-            );
-    }
-
-    .filter {
-
-        grid-template-columns:
-            1fr
-            1fr;
-    }
-
-    .searchBar {
-
-        grid-column: 1 / -1;
-    }
+.tableContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: var(--radius-lg);
+    -webkit-overflow-scrolling: touch;
 }
 
+.tableContainer::-webkit-scrollbar {
+    height: 7px;
+}
 
-@media (max-width: 1000px) {
+.tableContainer::-webkit-scrollbar-track {
+    background: var(--cream-light);
+    border-radius: 10px;
+}
 
+.tableContainer::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-hover);
+}
+
+.tasksTable {
+    width: 100%;
+    min-width: 850px;
+}
+.menu-toggle {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 480px) {
     .side-bar {
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+        z-index: 1000;
+    }
 
-        width: 220px;
+    .side-bar.open {
+        transform: translateX(0);
     }
 
     .main-content {
-
-        width:
-            calc(
-                100% - 220px
-            );
-
-        margin-left: 220px;
-    }
-
-    .filterTasks {
-
-        margin-top: 25px;
-    }
-}
-
-
-@media (max-width: 760px) {
-
-    .side-bar {
-
-        position: relative;
-
+        margin-top: 2.5rem;
         width: 100%;
+        margin-left: 0;
+    }
 
-        height: auto;
+    .menu-toggle {
+        display: flex;
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--white);
+        color: var(--dark);
+        font-size: 23px;
+        cursor: pointer;
+        z-index: 1100;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
 
-        min-height: auto;
+    .menu-toggle:hover {
+        background: var(--dark);
+        color: var(--gold);
+    }
 
-        padding: 20px;
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(31, 26, 24, .45);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 900;
+        transition: .3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .side-logo {
+        padding: 0 6px 18px;
+    }
 
-        margin-bottom: 10px;
+    .side-logo a {
+        gap: 7px;
+    }
+
+    .logo-main {
+        font-size: 25px;
+    }
+
+    .logo-sub {
+        margin-bottom: 4px;
+        font-size: 7px;
+        letter-spacing: 1.5px;
     }
 
     .side-navigation {
-
         display: grid;
-
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-
+        grid-template-columns: 1fr;
         gap: 5px;
     }
 
-    .nav-item {
-
-        margin-bottom: 0;
-    }
-
-    .nav-item.active::before {
-
+    .nav-section-title {
         display: none;
     }
 
-    .sidebar-footer {
+    .nav-item {
+        min-height: 42px;
+        margin-bottom: 0;
+        padding: 10px 12px;
+        gap: 10px;
+        font-size: 10px;
+        border-radius: 9px;
+    }
 
-        margin-top: 18px;
+    .nav-item:hover {
+        transform: none;
+    }
+
+    .nav-item.active::before {
+        display: none;
+    }
+
+    .nav-icon {
+        width: 20px;
+        font-size: 13px;
+    }
+
+    .sidebar-footer {
+        margin-top: 15px;
+        padding-top: 14px;
+    }
+
+    .sidebar-role {
+        padding: 0 5px 12px;
+        gap: 9px;
+    }
+
+    .role-icon {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 13px;
+    }
+
+    .role-info strong {
+        font-size: 10px;
+    }
+
+    .role-info span {
+        font-size: 8px;
+    }
+
+    .logout {
+        padding: 9px 10px;
+        font-size: 10px;
     }
 
     .main-content {
-
         width: 100%;
-
         margin-left: 0;
     }
 
     .mainHeader {
+        min-height: 58px;
+        padding: 0 13px;
+    }
 
-        min-height: 64px;
+    .profilePic {
+        gap: 7px;
+    }
 
-        padding:
-            0
-            20px;
+    .circle {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
     }
 
     .Home,
     .submissionsSection {
+        width: 100%;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
 
-        padding-left: 20px;
+    .Home {
+        padding-top: 25px;
+    }
 
-        padding-right: 20px;
+    .head1 {
+        font-size: 30px;
+        line-height: 1.12;
+        letter-spacing: -0.7px;
+    }
+
+    .subtitle {
+        max-width: 100%;
+        margin-top: 8px;
+        font-size: 9px;
+        line-height: 1.55;
     }
 
     .summaryCards {
-
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-top: 20px;
+        margin-bottom: 18px;
     }
 
-    .submissionsContainer {
+    .card {
+        min-height: 78px;
+        padding: 13px 15px;
+    }
 
-        grid-template-columns: 1fr;
+    .sTitle {
+        font-size: 7px;
+        letter-spacing: 0.6px;
+    }
+
+    .sNum {
+        margin-top: 3px;
+        font-size: 23px;
+    }
+
+    .filterTasks {
+        margin-top: 18px;
+        margin-bottom: 18px;
+        padding: 10px;
+        border-radius: 14px;
     }
 
     .filter {
-
         grid-template-columns: 1fr;
+        gap: 8px;
     }
 
     .searchBar {
+        width: 100%;
+        min-height: 40px;
+        padding: 0 11px;
+    }
 
-        grid-column: auto;
+    .searchBar input {
+        height: 38px;
+        font-size: 9px;
+    }
+
+    .filter select {
+        height: 40px;
+        padding: 0 11px;
+        font-size: 9px;
     }
 
     .PopAddTask {
-
-        justify-content: stretch;
+        width: 100%;
+        margin-bottom: 11px;
     }
 
     .PopAddTask #add {
-
         width: 100%;
+        min-height: 41px;
+        padding: 0 15px;
+        font-size: 9px;
     }
-
-
-    .tasksTable {
-
-        display: block;
-
+    .tasksTableWrapper {
+        width: 100%;
         overflow-x: auto;
     }
 
-    /* ADD / EDIT */
-
-    .addNewTasks {
-
-        align-items: center;
-
-        padding: 15px;
+    .tasksTable {
+        min-width: 780px;
     }
 
-    .addNewTasks > .addTask,
-    .addNewTasks > form {
+    .tasksTable {
+        width: 100%;
+        min-width: 760px;
+        display: table;
+        border-radius: 14px;
+    }
 
+    .tasksTable th {
+        padding: 11px 9px;
+        font-size: 7px;
+    }
+
+    .tasksTable td {
+        padding: 11px 9px;
+        font-size: 8px;
+    }
+
+    .tasksTable td strong {
+        font-size: 11px;
+    }
+
+    .tasksTable td small {
+        max-width: 180px;
+        font-size: 7px;
+    }
+
+    .tasksTable .status {
+        padding: 4px 8px;
+        font-size: 7px;
+    }
+
+    .tasksTable button {
+        min-height: 28px;
+        margin-right: 3px;
+        padding: 0 8px;
+        font-size: 7px;
+    }
+
+    #noTask {
+        padding: 25px 10px;
+        font-size: 10px;
+    }
+
+    .submissionsSection {
+        margin-top: 25px;
+        padding-bottom: 35px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 13px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .sectionHeader p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .submissionsContainer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .submissionCard {
+        padding: 15px;
+        border-left-width: 3px;
+    }
+
+    .submissionCard h3 {
+        margin-bottom: 9px;
+        font-size: 17px;
+    }
+
+    .submissionTask {
+        margin-bottom: 6px;
+        font-size: 8px;
+    }
+
+    .submissionStatus {
+        margin: 4px 0 11px;
+        padding: 4px 8px;
+        font-size: 7px;
+    }
+
+    .submissionLink {
+        gap: 6px;
+        padding: 9px 10px;
+        font-size: 8px;
+    }
+
+    .submissionCard button {
+        min-height: 33px;
+        margin-top: 12px;
+        padding: 0 11px;
+        font-size: 8px;
+    }
+
+    .noSubmission {
+        padding: 35px 15px;
+        font-size: 10px;
+    }
+
+    .addNewTasks {
+        align-items: center;
+        justify-content: center;
+        padding: 7px;
+    }
+
+    .addNewTasks > .addTask {
+        width: 100%;
+        padding: 18px 15px 14px;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .addNewTasks > form {
         width: 100%;
     }
 
-    #taskForm {
+    .addTask h2 {
+        padding-right: 40px;
+        font-size: 21px;
+    }
 
-        max-height:
-            calc(
-                100vh - 145px
-            );
+    .closeBtn {
+        top: 12px;
+        right: 12px;
+        width: 33px;
+        height: 33px;
+        font-size: 19px;
+    }
+
+    #taskForm {
+        width: 100%;
+        max-height: calc(100vh - 115px);
+        padding: 4px 15px 16px;
+        border-radius: 0 0 14px 14px;
+    }
+
+    #taskForm label {
+        margin: 10px 0 5px;
+        font-size: 8px;
+    }
+
+    #taskForm small {
+        font-size: 7px;
+    }
+
+    #taskForm input[type="text"],
+    #taskForm input[type="date"],
+    #taskForm input[type="time"],
+    #taskForm input[type="file"],
+    #taskForm textarea,
+    #taskForm select {
+        font-size: 9px;
+    }
+
+    #taskForm input[type="text"],
+    #taskForm input[type="date"],
+    #taskForm input[type="time"],
+    #taskForm select {
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    #taskForm textarea {
+        min-height: 90px;
+        padding: 10px;
     }
 
     #startDate,
     #startTime,
     #dueDate,
     #dueTime {
-
         width: 100% !important;
-
-        margin:
-            0
-            0
-            8px
-            0;
+        margin: 0 0 7px 0;
     }
 
-    /* VIEW */
+    #attachFile {
+        padding: 8px;
+    }
+
+    .ms-choice {
+        height: 40px !important;
+        padding: 0 10px !important;
+    }
+
+    .ms-choice > span {
+        font-size: 9px !important;
+    }
+
+    .ms-drop {
+        max-height: 180px;
+        overflow-y: auto;
+    }
+
+    .ms-drop li {
+        padding: 6px 7px !important;
+        font-size: 8px;
+    }
+
+    #save {
+        min-height: 41px;
+        margin-top: 15px;
+        font-size: 9px;
+    }
 
     .viewTaskModal {
-
-        padding: 15px;
+        align-items: center;
+        padding: 7px;
     }
 
     .viewTaskContent {
-
-        max-height:
-            calc(
-                100vh - 30px
-            );
+        width: 100%;
+        max-height: calc(100vh - 14px);
+        border-radius: 14px;
     }
 
     .viewTaskContent > h2 {
+        padding: 18px 48px 14px 16px;
+        font-size: 21px;
+        line-height: 1.2;
+    }
 
-        padding:
-            23px
-            22px
-            18px;
-
-        font-size: 24px;
+    #closeView {
+        top: 12px;
+        right: 12px;
+        width: 33px;
+        height: 33px;
+        font-size: 19px;
     }
 
     .viewTaskContent > div:not(#viewAttach):not(#viewSubmission) {
+        margin: 9px 12px;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
-        margin-left: 20px;
+    .viewTaskContent > div:nth-of-type(1) {
+        margin-top: 15px;
+    }
 
-        margin-right: 20px;
+    .viewTaskContent strong {
+        margin-bottom: 5px;
+        font-size: 7px;
+    }
+
+    .viewTaskContent p {
+        font-size: 8px;
+        line-height: 1.55;
+    }
+
+    #viewAttach {
+        padding: 8px;
+    }
+
+    #viewAttach a {
+        font-size: 8px;
+        word-break: break-all;
     }
 
     #closeViewButton {
-
-        width: calc(100% - 40px);
-
-        margin-left: 20px;
-
-        margin-right: 20px;
+        width: calc(100% - 24px);
+        min-height: 40px;
+        margin: 6px 12px 14px;
+        font-size: 9px;
     }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
 
-/
-@media (max-width: 560px) {
-
-    .side-navigation {
-
-        grid-template-columns: 1fr;
+    .side-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 270px;
+        height: 100vh;
+        padding: 30px 18px 22px;
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+        z-index: 1000;
+        overflow-y: auto;
     }
 
-    .summaryCards {
+    .side-bar.open {
+        transform: translateX(0);
+    }
 
-        grid-template-columns: 1fr;
+    .side-logo {
+        padding: 0 10px 30px;
+    }
+
+    .side-logo a {
+        gap: 8px;
+    }
+
+    .logo-main {
+        font-size: 28px;
+    }
+
+    .logo-sub {
+        margin-bottom: 5px;
+        font-size: 8px;
+        letter-spacing: 1.8px;
+    }
+
+    .nav-section-title {
+        display: block;
+        margin: 0 10px 13px;
+        font-size: 8px;
+    }
+
+    .side-navigation {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .nav-item {
+        min-height: 46px;
+        margin-bottom: 0;
+        padding: 11px 13px;
+        justify-content: flex-start;
+        gap: 12px;
+        font-size: 11px;
+        text-align: left;
+        border-radius: 10px;
+    }
+
+    .nav-item:hover {
+        transform: translateX(3px);
+    }
+
+    .nav-item.active::before {
+        display: block;
+        left: -18px;
+        width: 3px;
+        height: 28px;
+    }
+
+    .nav-icon {
+        width: 22px;
+        min-width: 22px;
+        font-size: 14px;
+    }
+
+    .sidebar-footer {
+        margin-top: auto;
+        padding-top: 18px;
+        display: block;
+    }
+
+    .sidebar-role {
+        padding: 0 8px 15px;
+        gap: 10px;
+    }
+
+    .role-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 14px;
+    }
+
+    .role-info strong {
+        font-size: 10px;
+    }
+
+    .role-info span {
+        font-size: 8px;
+    }
+
+    .logout {
+        padding: 10px 11px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        margin-top: 3rem;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 46px;
+        height: 46px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--white);
+        color: var(--dark);
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1100;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+        background: var(--dark);
+        color: var(--gold);
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(31, 26, 24, .45);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 900;
+        transition: .3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mainHeader {
+        min-height: 62px;
+        padding: 0 22px;
+    }
+
+    .circle {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .Home,
+    .submissionsSection {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
     .Home {
-
-        padding-top: 30px;
+        padding-top: 32px;
     }
 
     .head1 {
-
-        font-size: 34px;
+        font-size: 37px;
+        letter-spacing: -0.8px;
     }
 
-    .filterTasks {
+    .subtitle {
+        font-size: 10px;
+    }
 
-        padding: 14px;
+    .summaryCards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+        margin-top: 24px;
+        margin-bottom: 20px;
     }
 
     .card {
-
-        min-height: 95px;
+        min-height: 94px;
+        padding: 16px;
     }
 
-    .tasksTable {
-        max-width: 70dvh;
-        min-width: 500px;
-        overflow-y: scroll;
+    .sTitle {
+        font-size: 7px;
+    }
+
+    .sNum {
+        font-size: 25px;
+    }
+
+    .filterTasks {
+        margin-bottom: 20px;
+        padding: 13px;
+        border-radius: 16px;
+    }
+
+    .filter {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .searchBar {
+        grid-column: 1 / -1;
+        min-height: 42px;
+    }
+
+    .searchBar input {
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .filter select {
+        height: 42px;
+        font-size: 10px;
+    }
+
+    .PopAddTask {
+        margin-bottom: 13px;
+    }
+
+    .PopAddTask #add {
+        min-height: 42px;
+        padding: 0 18px;
+        font-size: 10px;
+    }
+
+    .tableContainer {
+        width: 100%;
         overflow-x: auto;
     }
 
-    .submissionCard {
+    .tasksTable {
+        width: 100%;
+        min-width: 650px;
+        table-layout: auto;
+    }
 
-        padding: 18px;
+    .tasksTable th {
+        padding: 13px 11px;
+        font-size: 7px;
+    }
+
+    .tasksTable td {
+        padding: 13px 11px;
+        font-size: 9px;
+    }
+
+    .tasksTable td strong {
+        font-size: 12px;
+    }
+
+    .tasksTable td small {
+        font-size: 8px;
+    }
+
+    .tasksTable button {
+        min-height: 30px;
+        padding: 0 9px;
+        font-size: 8px;
+    }
+
+    .submissionsSection {
+        margin-top: 28px;
+        padding-bottom: 45px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 15px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 25px;
+    }
+
+    .sectionHeader p {
+        font-size: 10px;
+    }
+
+    .submissionsContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .submissionCard {
+        padding: 17px;
+    }
+
+    .submissionCard h3 {
+        font-size: 17px;
+    }
+
+    .submissionTask {
+        font-size: 9px;
+    }
+
+    .submissionStatus {
+        font-size: 8px;
+    }
+
+    .submissionLink {
+        padding: 9px 10px;
+        font-size: 9px;
+    }
+
+    .submissionCard button {
+        min-height: 34px;
+        margin-top: 13px;
+        padding: 0 11px;
+        font-size: 8px;
     }
 
     .addNewTasks {
-
-        padding: 10px;
+        padding: 14px;
     }
 
     .addNewTasks > .addTask {
+        width: 100%;
+        padding: 21px 20px 17px;
+        border-radius: 17px 17px 0 0;
+    }
 
-        padding:
-            22px
-            20px
-            18px;
+    .addNewTasks > form {
+        width: 100%;
     }
 
     .addTask h2 {
+        padding-right: 45px;
+        font-size: 24px;
+    }
 
-        font-size: 23px;
-
-        padding-right: 40px;
+    .closeBtn {
+        top: 15px;
+        right: 17px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
     }
 
     #taskForm {
+        width: 100%;
+        max-height: calc(100vh - 140px);
+        padding: 5px 20px 21px;
+        border-radius: 0 0 17px 17px;
+    }
 
-        padding:
-            5px
-            20px
-            22px;
+    #taskForm label {
+        font-size: 9px;
+    }
+
+    #taskForm input[type="text"],
+    #taskForm input[type="date"],
+    #taskForm input[type="time"],
+    #taskForm input[type="file"],
+    #taskForm textarea,
+    #taskForm select {
+        font-size: 10px;
+    }
+
+    #startDate,
+    #startTime,
+    #dueDate,
+    #dueTime {
+        width: 100% !important;
+        margin: 0 0 8px 0;
+    }
+
+    .ms-choice {
+        height: 42px !important;
+    }
+
+    .ms-choice > span {
+        font-size: 10px !important;
+    }
+
+    .ms-drop {
+        max-height: 220px;
+        overflow-y: auto;
+    }
+
+    .ms-drop li {
+        font-size: 9px;
+    }
+
+    #save {
+        min-height: 42px;
+        font-size: 10px;
+    }
+
+    .viewTaskModal {
+        padding: 14px;
+    }
+
+    .viewTaskContent {
+        width: 100%;
+        max-height: calc(100vh - 28px);
+        border-radius: 17px;
+    }
+
+    .viewTaskContent > h2 {
+        padding: 22px 55px 17px 20px;
+        font-size: 24px;
+    }
+
+    #closeView {
+        top: 15px;
+        right: 17px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
     }
 
     .viewTaskContent > div:not(#viewAttach):not(#viewSubmission) {
-
+        margin: 12px 18px;
         padding: 13px;
+    }
 
-        margin:
-            13px
-            15px;
+    .viewTaskContent > div:nth-of-type(1) {
+        margin-top: 20px;
+    }
+
+    .viewTaskContent strong {
+        font-size: 7px;
+    }
+
+    .viewTaskContent p {
+        font-size: 9px;
+    }
+
+    #viewAttach {
+        padding: 9px;
+    }
+
+    #viewAttach a {
+        font-size: 9px;
+        word-break: break-all;
     }
 
     #closeViewButton {
+        width: calc(100% - 36px);
+        min-height: 42px;
+        margin: 7px 18px 18px;
+    }
+}
 
-        width: calc(100% - 30px);
+@media (min-width: 769px) and (max-width: 1240px) {
+    .side-bar {
+        width: 220px;
+        padding: 27px 14px 20px;
+    }
 
-        margin-left: 15px;
+    .side-logo {
+        padding: 0 10px 27px;
+    }
 
-        margin-right: 15px;
+    .logo-main {
+        font-size: 26px;
+    }
+
+    .logo-sub {
+        font-size: 7px;
+        letter-spacing: 1.7px;
+    }
+
+    .nav-section-title {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 7px;
+    }
+
+    .nav-item {
+        padding: 12px 10px;
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .nav-icon {
+        width: 20px;
+        font-size: 13px;
+    }
+
+    .nav-item.active::before {
+        left: -14px;
+    }
+
+    .sidebar-role {
+        gap: 9px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .role-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 13px;
+    }
+
+    .role-info strong {
+        font-size: 10px;
+    }
+
+    .role-info span {
+        font-size: 8px;
+    }
+
+    .logout {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        width: calc(100% - 220px);
+        margin-left: 220px;
+    }
+
+    .mainHeader {
+        min-height: 68px;
+        padding: 0 28px;
+    }
+
+    .circle {
+        width: 39px;
+        height: 39px;
+        font-size: 14px;
+    }
+
+    .Home,
+    .submissionsSection {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .Home {
+        padding-top: 38px;
+    }
+
+    .head1 {
+        font-size: 41px;
+        letter-spacing: -0.9px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .summaryCards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+        margin-top: 26px;
+    }
+
+    .card {
+        min-height: 104px;
+        padding: 18px;
+    }
+
+    .sTitle {
+        font-size: 8px;
+    }
+
+    .sNum {
+        font-size: 27px;
+    }
+
+    .filterTasks {
+        margin-bottom: 22px;
+        padding: 16px;
+        border-radius: 17px;
+    }
+
+    .filter {
+        grid-template-columns: minmax(220px, 1fr) 170px 170px;
+        gap: 10px;
+    }
+
+    .searchBar {
+        min-height: 42px;
+    }
+
+    .searchBar input {
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .filter select {
+        height: 42px;
+        font-size: 10px;
+    }
+
+    .PopAddTask {
+        margin-bottom: 14px;
+    }
+
+    .PopAddTask #add {
+        min-height: 43px;
+        padding: 0 19px;
+        font-size: 10px;
+    }
+
+    .tasksTable {
+        width: 100%;
+        min-width: 900px;
+        border-radius: 17px;
+    }
+
+    .tasksTable th {
+        padding: 14px 12px;
+        font-size: 7px;
+    }
+
+    .tasksTable td {
+        padding: 14px 12px;
+        font-size: 9px;
+    }
+
+    .tasksTable td strong {
+        font-size: 12px;
+    }
+
+    .tasksTable td small {
+        max-width: 220px;
+        font-size: 8px;
+    }
+
+    .tasksTable button {
+        min-height: 30px;
+        padding: 0 9px;
+        font-size: 8px;
+    }
+
+    .submissionsSection {
+        margin-top: 30px;
+        padding-bottom: 55px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 26px;
+    }
+
+    .sectionHeader p {
+        font-size: 10px;
+    }
+
+    .submissionsContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .submissionCard {
+        padding: 19px;
+    }
+
+    .submissionCard h3 {
+        font-size: 18px;
+    }
+
+    .submissionTask {
+        font-size: 9px;
+    }
+
+    .submissionStatus {
+        font-size: 8px;
+    }
+
+    .submissionLink {
+        font-size: 9px;
+    }
+
+    .addNewTasks {
+        padding: 20px;
+    }
+
+    .addNewTasks > .addTask,
+    .addNewTasks > form {
+        width: min(650px, 100%);
+    }
+
+    .addNewTasks > .addTask {
+        padding: 23px 25px 19px;
+    }
+
+    .addTask h2 {
+        font-size: 26px;
+    }
+
+    #taskForm {
+        max-height: calc(100vh - 155px);
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+    }
+
+    #startDate,
+    #startTime,
+    #dueDate,
+    #dueTime {
+        width: calc(50% - 6px) !important;
+    }
+
+    .viewTaskModal {
+        padding: 20px;
+    }
+
+    .viewTaskContent {
+        width: min(650px, 100%);
+        max-height: calc(100vh - 40px);
+    }
+
+    .viewTaskContent > h2 {
+        padding: 25px 55px 19px 25px;
+        font-size: 26px;
+    }
+
+    .viewTaskContent > div:not(#viewAttach):not(#viewSubmission) {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    #closeViewButton {
+        width: calc(100% - 48px);
+        margin-left: 24px;
+        margin-right: 24px;
     }
 }

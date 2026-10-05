@@ -490,5 +490,42 @@ function rejected(taskIndex, employeeName) {
     displaySubmissions();
     displayTasks();
 }
+const menuToggle = document.getElementById("menuToggle");
+const sideBar = document.getElementById("sideBar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+if (menuToggle && sideBar && sidebarOverlay) {
+
+    menuToggle.addEventListener("click", function () {
+
+        sideBar.classList.toggle("open");
+        menuToggle.style.display="none"
+        sidebarOverlay.classList.toggle("active");
+
+    });
+
+    sidebarOverlay.addEventListener("click", function () {
+
+        sideBar.classList.remove("open");
+        menuToggle.style.display="inline";
+        sidebarOverlay.classList.remove("active");
+
+    });
+
+    document.querySelectorAll(".nav-item").forEach(function (item) {
+
+        item.addEventListener("click", function () {
+
+            if (window.innerWidth <= 768) {
+
+                sideBar.classList.remove("open");
+                sidebarOverlay.classList.remove("active");
+
+            }
+
+        });
+
+    });
+}
 displayTasks();
 displaySubmissions();

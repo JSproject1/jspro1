@@ -78,359 +78,137 @@ body {
 
 
 /* =========================================================
-   SIDEBAR
-   ========================================================= */
+   NAVBAR
+========================================================= */
 
-   .nav-section-title {
-
-    margin:0 14px 30px;
-        
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.28
-        );
-
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.8px;
-}
-.side-bar {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 260px;
-    height: 100vh;
-
-    padding: 32px 18px 25px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #1F1A18 0%,
-            #2A2420 100%
-        );
+.main-navbar {
+    width: 100%;
+    min-height: 78px;
+    padding: 0 32px;
 
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 
+    background: linear-gradient(
+        160deg,
+        var(--dark) 0%,
+        var(--dark-surface) 100%
+    );
+
+    position: sticky;
+    top: 0;
     z-index: 1000;
-
 }
 
-
-.side-logo {
-
-    padding:
-        0 14px
-        34px;
-
+.navbar-logo {
+    flex-shrink: 0;
 }
 
-
-.side-logo a {
-
-    text-decoration: none;
-
-    display: inline-flex;
-
+.navbar-logo a {
+    display: flex;
     align-items: flex-end;
-
     gap: 8px;
-
+    text-decoration: none;
 }
-
 
 .logo-main {
-
-    font-family:
-        'Playfair Display',
-        Georgia,
-        serif;
-
-    font-size: 28px;
-
-    font-weight: 700;
-
     color: var(--white);
-
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 27px;
+    font-weight: 700;
 }
-
 
 .logo-sub {
-
-    margin-bottom: 5px;
-
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
+    margin-bottom: 4px;
     color: var(--gold);
-
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-
-.side-navigation {
-
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     flex: 1;
-
 }
-
 
 .nav-item {
-
     display: flex;
-
     align-items: center;
+    gap: 7px;
 
-    gap: 13px;
+    padding: 10px 11px;
 
-    margin-bottom: 7px;
+    color: rgba(255,255,255,0.64);
+    border-radius: 9px;
 
-    padding:
-        13px
-        14px;
-
-    border-radius: 10px;
-
+    font-size: 11px;
+    font-weight: 500;
     text-decoration: none;
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.64
-        );
-
-    font-size: 13px;
-
-    font-weight: 500;
-
     transition: var(--transition);
-
-    position: relative;
-
 }
-
 
 .nav-icon {
-
-    width: 22px;
-
-    text-align: center;
-
     color: var(--gold);
-
-    font-size: 14px;
-
+    font-size: 13px;
 }
-
 
 .nav-item:hover {
-
     color: var(--white);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.055
-        );
-
-    transform: translateX(3px);
-
+    background: rgba(255,255,255,0.06);
 }
-
 
 .nav-item.active {
-
     color: var(--dark);
-
     background: var(--cream);
-
     font-weight: 600;
-
 }
-
 
 .nav-item.active .nav-icon {
-
     color: var(--gold-hover);
-
 }
 
+.navbar-logout {
+    flex-shrink: 0;
 
-.nav-item.active::before {
+    display: flex;
+    align-items: center;
+    gap: 7px;
 
-    content: '';
+    padding: 10px 12px;
 
-    position: absolute;
+    color: rgba(255,255,255,0.64);
+    border-radius: 9px;
 
-    left: -18px;
+    font-size: 11px;
+    text-decoration: none;
 
-    width: 3px;
+    transition: var(--transition);
+}
 
-    height: 28px;
+.navbar-logout > span:first-child {
+    color: var(--gold);
+}
 
-    background: var(--gold);
-
-    border-radius:
-        0
-        4px
-        4px
-        0;
-
+.navbar-logout:hover {
+    color: var(--gold);
+    background: rgba(212,163,115,0.10);
 }
 
 
 /* =========================================================
-   SIDEBAR BOTTOM
-   ========================================================= */
+   MAIN
+========================================================= */
 
-.sidebar-footer {
-
-    margin-top: auto;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
-}
-
-.sidebar-role {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-
-    padding:
-        0
-        8px
-        17px;
-}
-
-.role-icon {
-
-    width: 39px;
-    height: 39px;
-
-    min-width: 39px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold),
-            var(--gold-bright)
-        );
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: var(--dark);
-
-    font-size: 15px;
-}
-
-.role-info {
-
-    display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
-}
-
-.role-info strong {
-
-    color: var(--white);
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.role-info span {
-
-    margin-top: 2px;
-
-    color: var(--muted-light);
-
-    font-size: 9px;
-}
-
-.logout {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 12px;
-
-    border-radius: 9px;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.64
-        );
-
-    font-size: 12px;
-
-    text-decoration: none;
-
-    transition: var(--transition);
-}
-
-.logout i {
-
-    width: 22px;
-
-    color: var(--gold);
-
-    text-align: center;
-}
-
-.logout:hover {
-
-    background:
-        rgba(
-            212,
-            163,
-            115,
-            0.10
-        );
-
-    color: var(--gold);
+.main-content {
+    margin-left: 0;
+    min-height: 100vh;
+    padding: 48px clamp(30px, 5vw, 80px) 70px;
 }
 
 
@@ -1661,111 +1439,97 @@ body {
 
 }
 
-
 /* =========================================================
    RESPONSIVE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
-    .side-bar {
-
-        width: 220px;
-
+    .main-navbar {
+        padding: 14px 22px;
+        flex-wrap: wrap;
     }
 
+    .navbar-links {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        flex: 1;
+        justify-content: center;
+        min-width: 130px;
+    }
 
     .main-content {
-
-        margin-left: 220px;
-
-        padding:
-            40px
-            26px;
-
+        margin-left: 0;
+        padding: 40px 26px;
     }
-
 
     .profile-grid {
-
         grid-template-columns: 1fr;
-
     }
-
 
     .profile-hero {
-
-        padding:
-            32px
-            28px;
-
+        padding: 32px 28px;
     }
-
 }
 
 
 @media (max-width: 760px) {
 
-    .side-bar {
-
-        position: relative;
-
-        width: 100%;
-
-        height: auto;
-
+    .main-navbar {
+        padding: 14px 18px;
     }
 
-
-    .side-navigation {
-
+    .navbar-links {
         display: grid;
-
-        grid-template-columns:
-            repeat(
-                2,
-                1fr
-            );
-
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
     }
 
-
-    .sidebar-footer {
-
-        display: none;
-
+    .nav-item {
+        min-width: 0;
+        justify-content: flex-start;
     }
-
 
     .main-content {
-
         margin-left: 0;
-
+        padding: 30px 18px 50px;
     }
-
 
     .page-header {
-
         align-items: flex-start;
-
         flex-direction: column;
-
     }
-
 
     .profile-hero {
-
         flex-direction: column;
-
         align-items: flex-start;
-
     }
-
 
     .employee-status {
-
         align-items: flex-start;
+    }
+}
 
+
+@media (max-width: 500px) {
+
+    .navbar-logo .logo-main {
+        font-size: 24px;
     }
 
+    .navbar-links {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar-logout span:last-child {
+        display: none;
+    }
+
+    .main-content {
+        padding: 25px 15px 40px;
+    }
 }

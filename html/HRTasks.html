@@ -11,106 +11,101 @@
 </head>
 
 <body>
-   <aside id="sideBar" class="side-bar">
-    
-    
-    <!-- LOGO -->
-    <div class="side-logo">
-        <a href="home2.html">
-            <span class="logo-main">Alvora</span>
-            <span class="logo-sub">ATELIER</span>
-        </a>
-    </div>
+    <aside id="sideBar" class="side-bar">
 
 
-    <!-- HR LABEL -->
-    <div class="nav-section-title">
-        HR MANAGEMENT
-    </div>
-
-
-    <!-- NAVIGATION -->
-    <nav class="side-navigation">
-
-        <a href="HRProfile.html" class="nav-item ">
-            <i class="bi bi-person-badge nav-icon"></i>
-            <span>My Profile</span>
-        </a>
-        <!-- DASHBOARD -->
-        <a href="hrDashboard.html" class="nav-item ">
-            <i class="bi bi-grid-1x2-fill nav-icon"></i>
-            <span>Dashboard</span>
-        </a>
-
-
-        <!-- EMPLOYEES -->
-        <a href="employees.html" class="nav-item">
-            <i class="bi bi-people-fill nav-icon"></i>
-            <span>Employees</span>
-        </a>
-
-
-        <!-- TASKS -->
-        <a href="HRTasks.html" class="nav-item active">
-            <i class="bi bi-check2-square nav-icon"></i>
-            <span>Tasks</span>
-        </a>
-
-
-        <!-- LEAVE REQUESTS -->
-        <a href="leaveHr.html" class="nav-item">
-            <i class="bi bi-calendar2-check nav-icon"></i>
-            <span>Leave Requests</span>
-        </a>
-
-
-        <!-- COMPANY POLICIES -->
-        <a href="hrPolicies.html" class="nav-item">
-            <i class="bi bi-file-earmark-text nav-icon"></i>
-            <span>Company Policies</span>
-        </a>
-
-
-        <!-- MEETINGS -->
-        <a href="hr-meeting.html" class="nav-item">
-            <i class="bi bi-camera-video nav-icon"></i>
-            <span>Meetings</span>
-        </a>
-
-
-        <!-- FEEDBACK -->
-        <a href="hr-feedback.html" class="nav-item ">
-            <i class="bi bi-chat-left-text nav-icon"></i>
-            <span>Feedback</span>
-        </a>
-
-    </nav>
-
-
-    <!-- BOTTOM -->
-    <div class="sidebar-footer">
-
-        <div class="sidebar-role">
-            <div class="role-icon">
-                <i class="bi bi-person-badge"></i>
-            </div>
-
-            <div class="role-info">
-                <strong>HR Manager</strong>
-                <span>Administration</span>
-            </div>
+        <!-- LOGO -->
+        <div class="side-logo">
+            <a href="home2.html">
+                <span class="logo-main">Alvora</span>
+                <span class="logo-sub">ATELIER</span>
+            </a>
         </div>
 
 
-        <a href="home2.html" class="logout" id="logoutButton">
-            <i class="bi bi-box-arrow-left"></i>
-            <span>Logout</span>
-        </a>
+        <!-- HR LABEL -->
+        <div class="nav-section-title">
+            HR MANAGEMENT
+        </div>
 
-    </div>
 
-</aside>
+        <nav class="side-navigation">
 
+            <a href="HRProfile.html" class="nav-item ">
+                <i class="bi bi-person-badge nav-icon"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="hrDashboard.html" class="nav-item ">
+                <i class="bi bi-grid-1x2-fill nav-icon"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="employees.html" class="nav-item">
+                <i class="bi bi-people-fill nav-icon"></i>
+                <span>Employees</span>
+            </a>
+
+            <a href="HRTasks.html" class="nav-item active">
+                <i class="bi bi-check2-square nav-icon"></i>
+                <span>Tasks</span>
+            </a>
+
+
+            <a href="leaveHr.html" class="nav-item">
+                <i class="bi bi-calendar2-check nav-icon"></i>
+                <span>Leave Requests</span>
+            </a>
+
+
+            <a href="hrPolicies.html" class="nav-item">
+                <i class="bi bi-file-earmark-text nav-icon"></i>
+                <span>Company Policies</span>
+            </a>
+
+
+            <a href="hr-meeting.html" class="nav-item">
+                <i class="bi bi-camera-video nav-icon"></i>
+                <span>Meetings</span>
+            </a>
+
+
+            <a href="hr-feedback.html" class="nav-item ">
+                <i class="bi bi-chat-left-text nav-icon"></i>
+                <span>Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-role">
+                <div class="role-icon">
+                    <i class="bi bi-person-badge"></i>
+                </div>
+
+                <div class="role-info">
+                    <strong>HR Manager</strong>
+                    <span>Administration</span>
+                </div>
+            </div>
+
+
+            <a href="home2.html" class="logout" id="logoutButton">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <button id="menuToggle" class="menu-toggle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
     <main class="main-content">
         <section class="Home">
 
@@ -160,22 +155,25 @@
                     </select>
                 </div>
 
-                
-            </div>
-            <table class="tasksTable">
-                <thead class="head">
-                    <tr>
-                        <th>Task Name</th>
-                        <th>Description</th>
-                        <th>Employee</th>
-                        <th>Status</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody id="tBody">
-                </tbody>
 
-            </table>
+            </div>
+            <div class="tableContainer">
+                <table class="tasksTable">
+                    <thead class="head">
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Description</th>
+                            <th>Employee</th>
+                            <th>Status</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+                    </tbody>
+
+                </table>
+            </div>
+
             <p id="noTask" hidden>No task found</p>
         </section>
         <section id="tasksCards" class="submissionsSection">
@@ -218,7 +216,8 @@
                 <small><small>You can attach relevant PDFs, images, or documents (Max: 2MB).</small></small>
                 <br><br>
                 <label for="Enames"> Assign To:</label>
-                <select id="ENames" name="names[]" data-theme="light" multiple data-multi-select required placeholder="Select Eployees">
+                <select id="ENames" name="names[]" data-theme="light" multiple data-multi-select required
+                    placeholder="Select Eployees">
                 </select>
                 <label>Priority</label><br>
                 <select id="taskPriority">
@@ -243,60 +242,56 @@
         <section id="viewSection">
             <div id="viewTask" class="viewTaskModal" style="display: none;">
 
-            <div class="viewTaskContent">
+                <div class="viewTaskContent">
 
-                <button id="closeView" type="button" onclick="closeViewTask()">
-                    ×
-                </button>
+                    <button id="closeView" type="button" onclick="closeViewTask()">
+                        ×
+                    </button>
 
-                <h2>Task Details</h2>
+                    <h2>Task Details</h2>
 
-                <div>
-                    <strong>Task Name</strong>
-                    <p id="viewTitle"></p>
+                    <div>
+                        <strong>Task Name</strong>
+                        <p id="viewTitle"></p>
+                    </div>
+
+                    <div>
+                        <strong>Description</strong>
+                        <p id="viewDescription"></p>
+                    </div>
+
+                    <div>
+                        <strong>Employees</strong>
+                        <p id="viewEmployee"></p>
+                    </div>
+                    <div>
+                        <strong>Start</strong>
+                        <p id="viewStart"></p>
+                        <strong>Deadline</strong>
+                        <p id="viewDeadline"></p>
+                    </div>
+
+
+                    <div>
+                        <strong>Priority</strong>
+                        <p id="viewPriority"></p>
+                        <strong>Status</strong>
+                        <p id="viewStatus"></p>
+                    </div>
+
+                    <div>
+                        <strong>HR Attachment</strong>
+                        <p id="viewAttach"></p>
+                    </div>
+
+                    <button id="closeViewButton" type="button" onclick="closeViewTask()">
+                        Close
+                    </button>
+
                 </div>
-
-                <div>
-                    <strong>Description</strong>
-                    <p id="viewDescription"></p>
-                </div>
-
-                <div>
-                    <strong>Employees</strong>
-                    <p id="viewEmployee"></p>
-                </div>
-                <div>
-                    <strong>Start</strong>
-                    <p id="viewStart"></p>
-                    <strong>Deadline</strong>
-                    <p id="viewDeadline"></p>
-                </div>
-
-
-                <div>
-                    <strong>Priority</strong>
-                    <p id="viewPriority"></p>
-                    <strong>Status</strong>
-                    <p id="viewStatus"></p>
-                </div>
-
-                <div>
-                    <strong>HR Attachment</strong>
-                    <p id="viewAttach"></p>
-                </div>
-
-                <!-- <div>
-                    <strong>Employee Submission</strong>
-                    <p id="viewSubmission"></p>
-                </div> -->
-                <button id="closeViewButton" type="button" onclick="closeViewTask()">
-                    Close
-                </button>
-
             </div>
-        </div>
         </section>
-        
+
     </main>
 
     <script src="../js/auth.js"></script>

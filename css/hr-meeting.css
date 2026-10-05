@@ -1248,7 +1248,26 @@ input::placeholder {
 
     font-size: 22px;
 }
+ 
 
+
+/* =========================================================
+   تعديل محاذاة البطاقات وتوحيد مستوى الأزرار في الأسفل
+   ========================================================= */
+
+/* جعل البطاقة مرنة لتوزيع العناصر عمودياً */
+.meeting-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* دفع الأزرار إلى قاع البطاقة دائماً لتكون كلها على نفس المستوى */
+.meeting-card .join,
+.meeting-card .accept,
+.meeting-card .reject {
+    margin-top: auto !important;
+    align-self: flex-start !important;
+}
 
 /* =========================================================
    RESPONSIVE

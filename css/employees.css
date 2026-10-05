@@ -89,7 +89,7 @@ a {
 }
 .app {
     min-height: 100vh;
-}
+}/*
 .side-bar {
     position: fixed;
     top: 0;
@@ -146,7 +146,118 @@ a {
     letter-spacing: 2px;
 }
 
+*/
+.main-navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 0 35px;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: linear-gradient(
+        160deg,
+        var(--dark) 0%,
+        var(--dark-surface) 100%
+    );
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.navbar-logo .logo-main {
+    color: var(--white);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.navbar-logo .logo-sub {
+    margin-bottom: 4px;
+    color: var(--gold);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.navbar-links .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 10px 11px;
+
+    color: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+
+    font-size: 11px;
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.navbar-links .nav-item i {
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.navbar-links .nav-item:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.navbar-links .nav-item.active {
+    color: var(--dark);
+    background: var(--cream);
+    font-weight: 600;
+}
+
+.navbar-links .nav-item.active i {
+    color: var(--gold-hover);
+}
+
+.navbar-logout {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 10px 13px;
+
+    color: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+
+    font-size: 11px;
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.navbar-logout i {
+    color: var(--gold);
+}
+
+.navbar-logout:hover {
+    color: var(--gold);
+    background: rgba(212, 163, 115, 0.10);
+}
 /* HR LABEL */
 
 .nav-section-title {

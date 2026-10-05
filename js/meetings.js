@@ -1,714 +1,705 @@
-// ======================================
-// Get Current User
-// ======================================
+// // ======================================
+// // Get Current User
+// // ======================================
 
-function getCurrentUser() {
+// function getCurrentUser() {
 
-    let user = localStorage.getItem("currentUser");
+//     let user = localStorage.getItem("currentUser");
 
-    if (user == null) {
-        return null;
-    }
+//     if (user == null) {
+//         return null;
+//     }
 
-    return JSON.parse(user);
-}
+//     return JSON.parse(user);
+// }
+// // ======================================
+// // Load Users From JSON
+// // ======================================
 
+// function loadUsers() {
 
-// ======================================
-// Load Users From JSON
-// ======================================
+//     let currentUser = getCurrentUser();
+//     if (currentUser == null) {
+//         alert("Please login first.");
+//         return;
+//     }
+//     fetch("../JSON/employee.json")
+//         .then(response => response.json())
+//         .then(users => {
+//             let container =
+//                 document.getElementById("usersContainer");
+//             container.innerHTML = "";
+            
+//             for (let i = 0; i < users.length; i++) {
 
-function loadUsers() {
+//                 // Don't show current user
+//                 if (users[i].id === currentUser.id) {
+//                     continue;
+//                 }
 
-    let currentUser = getCurrentUser();
+//                 let div =
+//                     document.createElement("div");
 
-    if (currentUser == null) {
+//                 div.className = "user";
 
-        alert("Please login first.");
+//                 div.innerHTML = `
 
-        return;
-    }
+//                     <label>
 
-    fetch("../JSON/employee.json")
-        .then(response => response.json())
+//                         <input
+//                             type="checkbox"
+//                             value="${users[i].id}"
+//                             data-name="${users[i].name}"
+//                             class="participant"
+//                         >
 
-        .then(users => {
+//                         <strong>
+//                             ${users[i].name}
+//                         </strong>
 
-            let container =
-                document.getElementById("usersContainer");
+//                         - ${users[i].role}
 
-            container.innerHTML = "";
+//                         - ${users[i].department}
 
-            for (let i = 0; i < users.length; i++) {
+//                     </label>
 
-                // Don't show current user
-                if (users[i].id === currentUser.id) {
-                    continue;
-                }
+//                 `;
 
-                let div =
-                    document.createElement("div");
+//                 container.appendChild(div);
+//             }
 
-                div.className = "user";
+//         })
 
-                div.innerHTML = `
+//         .catch(error => {
 
-                    <label>
+//             console.log(error);
 
-                        <input
-                            type="checkbox"
-                            value="${users[i].id}"
-                            data-name="${users[i].name}"
-                            class="participant"
-                        >
+//             document.getElementById("usersContainer").innerHTML = `
+//                 <p>Could not load users.</p>
+//             `;
 
-                        <strong>
-                            ${users[i].name}
-                        </strong>
+//         });
+// }
 
-                        - ${users[i].role}
 
-                        - ${users[i].department}
+// // ======================================
+// // Create Meeting
+// // ======================================
 
-                    </label>
+// function createMeeting() {
 
-                `;
+//     let currentUser = getCurrentUser();
 
-                container.appendChild(div);
-            }
+//     if (currentUser == null) {
 
-        })
+//         alert("Please login first.");
 
-        .catch(error => {
+//         return;
+//     }
 
-            console.log(error);
+//     let title =
+//         document.getElementById("meetingTitle").value;
 
-            document.getElementById("usersContainer").innerHTML = `
-                <p>Could not load users.</p>
-            `;
+//     let date =
+//         document.getElementById("meetingDate").value;
 
-        });
-}
+//     let time =
+//         document.getElementById("meetingTime").value;
 
+//     let duration =
+//         document.getElementById("meetingDuration").value;
 
-// ======================================
-// Create Meeting
-// ======================================
 
-function createMeeting() {
+//     // Validation
 
-    let currentUser = getCurrentUser();
+//     if (
+//         title === "" ||
+//         date === "" ||
+//         time === ""
+//     ) {
 
-    if (currentUser == null) {
+//         alert("Please fill all meeting information.");
 
-        alert("Please login first.");
+//         return;
+//     }
 
-        return;
-    }
 
-    let title =
-        document.getElementById("meetingTitle").value;
+//     // Get selected users
 
-    let date =
-        document.getElementById("meetingDate").value;
+//     let checkboxes =
+//         document.querySelectorAll(".participant:checked");
 
-    let time =
-        document.getElementById("meetingTime").value;
 
-    let duration =
-        document.getElementById("meetingDuration").value;
+//     if (checkboxes.length === 0) {
 
+//         alert("Please select at least one participant.");
 
-    // Validation
+//         return;
+//     }
 
-    if (
-        title === "" ||
-        date === "" ||
-        time === ""
-    ) {
 
-        alert("Please fill all meeting information.");
+//     // Participants array
 
-        return;
-    }
+//     let participants = [];
 
+//     for (
+//         let i = 0;
+//         i < checkboxes.length;
+//         i++
+//     ) {
 
-    // Get selected users
+//         participants.push({
 
-    let checkboxes =
-        document.querySelectorAll(".participant:checked");
+//             userId: Number(
+//                 checkboxes[i].value
+//             ),
 
+//             name: checkboxes[i].dataset.name,
 
-    if (checkboxes.length === 0) {
+//             status: "pending"
 
-        alert("Please select at least one participant.");
+//         });
 
-        return;
-    }
+//     }
 
 
-    // Participants array
+//     // Unique meeting ID
 
-    let participants = [];
+//     let meetingId = Date.now();
 
-    for (
-        let i = 0;
-        i < checkboxes.length;
-        i++
-    ) {
 
-        participants.push({
+//     // Jitsi room
 
-            userId: Number(
-                checkboxes[i].value
-            ),
+//     let roomName =
+//         "CompanyMeeting_" + meetingId;
 
-            name: checkboxes[i].dataset.name,
 
-            status: "pending"
+//     // Meeting object
 
-        });
+//     let meeting = {
 
-    }
+//         id: meetingId,
 
+//         title: title,
 
-    // Unique meeting ID
+//         date: date,
 
-    let meetingId = Date.now();
+//         time: time,
 
+//         duration: duration,
 
-    // Jitsi room
+//         creatorId: currentUser.id,
 
-    let roomName =
-        "CompanyMeeting_" + meetingId;
+//         creatorName: currentUser.name,
 
+//         creatorRole: currentUser.role,
 
-    // Meeting object
+//         participants: participants,
 
-    let meeting = {
+//         roomName: roomName
 
-        id: meetingId,
+//     };
 
-        title: title,
 
-        date: date,
+//     // Get existing meetings
 
-        time: time,
+//     let meetings =
+//         JSON.parse(
+//             localStorage.getItem("meetings")
+//         ) || [];
 
-        duration: duration,
 
-        creatorId: currentUser.id,
+//     meetings.push(meeting);
 
-        creatorName: currentUser.name,
 
-        creatorRole: currentUser.role,
+//     // Save meetings
 
-        participants: participants,
+//     localStorage.setItem(
+//         "meetings",
+//         JSON.stringify(meetings)
+//     );
 
-        roomName: roomName
 
-    };
+//     alert("Meeting request sent successfully!");
 
 
-    // Get existing meetings
+//     // Clear form
 
-    let meetings =
-        JSON.parse(
-            localStorage.getItem("meetings")
-        ) || [];
+//     document.getElementById("meetingTitle").value = "";
 
+//     document.getElementById("meetingDate").value = "";
 
-    meetings.push(meeting);
+//     document.getElementById("meetingTime").value = "";
 
 
-    // Save meetings
+//     // Uncheck users
 
-    localStorage.setItem(
-        "meetings",
-        JSON.stringify(meetings)
-    );
+//     for (
+//         let i = 0;
+//         i < checkboxes.length;
+//         i++
+//     ) {
 
+//         checkboxes[i].checked = false;
 
-    alert("Meeting request sent successfully!");
+//     }
 
 
-    // Clear form
+//     // Close modal
 
-    document.getElementById("meetingTitle").value = "";
+//     closeNewMeeting();
 
-    document.getElementById("meetingDate").value = "";
 
-    document.getElementById("meetingTime").value = "";
+//     // Display meetings
 
+//     displayMeetings();
 
-    // Uncheck users
+// }
 
-    for (
-        let i = 0;
-        i < checkboxes.length;
-        i++
-    ) {
 
-        checkboxes[i].checked = false;
+// // ======================================
+// // Display Meetings
+// // ======================================
 
-    }
+// // ======================================
+// // Display Meetings
+// // ======================================
 
+// function displayMeetings() {
 
-    // Close modal
+//     let currentUser = getCurrentUser();
 
-    closeNewMeeting();
+//     if (currentUser == null) {
+//         return;
+//     }
 
+//     let meetings =
+//         JSON.parse(
+//             localStorage.getItem("meetings")
+//         ) || [];
 
-    // Display meetings
+//     let container =
+//         document.getElementById("meetingsContainer");
 
-    displayMeetings();
+//     let meetingCount =
+//         document.getElementById("meetingCount");
 
-}
+//     container.innerHTML = "";
 
+//     // ==================================
+//     // Get only user's meetings
+//     // ==================================
 
-// ======================================
-// Display Meetings
-// ======================================
+//     let myMeetings = [];
 
-// ======================================
-// Display Meetings
-// ======================================
+//     for (let i = 0; i < meetings.length; i++) {
 
-function displayMeetings() {
+//         let meeting = meetings[i];
 
-    let currentUser = getCurrentUser();
+//         let isCreator =
+//             meeting.creatorId === currentUser.id;
 
-    if (currentUser == null) {
-        return;
-    }
+//         let participant =
+//             meeting.participants.find(
+//                 p => p.userId === currentUser.id
+//             );
 
-    let meetings =
-        JSON.parse(
-            localStorage.getItem("meetings")
-        ) || [];
+//         if (isCreator || participant) {
+//             myMeetings.push(meeting);
+//         }
+//     }
 
-    let container =
-        document.getElementById("meetingsContainer");
 
-    let meetingCount =
-        document.getElementById("meetingCount");
+//     // ==================================
+//     // Update Meeting Count
+//     // ==================================
 
-    container.innerHTML = "";
+//     meetingCount.textContent =
+//         myMeetings.length + 
+//         (myMeetings.length === 1 ? " Meeting" : " Meetings");
 
-    // ==================================
-    // Get only user's meetings
-    // ==================================
 
-    let myMeetings = [];
+//     // ==================================
+//     // No Meetings
+//     // ==================================
 
-    for (let i = 0; i < meetings.length; i++) {
+//     if (myMeetings.length === 0) {
 
-        let meeting = meetings[i];
+//         container.innerHTML = `
+//             <p>No meetings found.</p>
+//         `;
 
-        let isCreator =
-            meeting.creatorId === currentUser.id;
+//         return;
+//     }
 
-        let participant =
-            meeting.participants.find(
-                p => p.userId === currentUser.id
-            );
 
-        if (isCreator || participant) {
-            myMeetings.push(meeting);
-        }
-    }
+//     // ==================================
+//     // Display Meetings
+//     // ==================================
 
+//     for (let i = 0; i < myMeetings.length; i++) {
 
-    // ==================================
-    // Update Meeting Count
-    // ==================================
+//         let meeting = myMeetings[i];
 
-    meetingCount.textContent =
-        myMeetings.length + 
-        (myMeetings.length === 1 ? " Meeting" : " Meetings");
 
+//         // Is current user the creator?
 
-    // ==================================
-    // No Meetings
-    // ==================================
+//         let isCreator =
+//             meeting.creatorId === currentUser.id;
 
-    if (myMeetings.length === 0) {
 
-        container.innerHTML = `
-            <p>No meetings found.</p>
-        `;
+//         // Is current user a participant?
 
-        return;
-    }
+//         let participant =
+//             meeting.participants.find(
+//                 p => p.userId === currentUser.id
+//             );
 
 
-    // ==================================
-    // Display Meetings
-    // ==================================
+//         let card =
+//             document.createElement("div");
 
-    for (let i = 0; i < myMeetings.length; i++) {
+//         card.className = "meeting-card";
 
-        let meeting = myMeetings[i];
 
+//         // ==================================
+//         // Basic Meeting Information
+//         // ==================================
 
-        // Is current user the creator?
+//         let html = `
 
-        let isCreator =
-            meeting.creatorId === currentUser.id;
+//             <h3>
+//                 ${meeting.title}
+//             </h3>
 
+//             <p>
+//                 <strong>Date:</strong>
+//                 ${meeting.date}
+//             </p>
 
-        // Is current user a participant?
+//             <p>
+//                 <strong>Time:</strong>
+//                 ${meeting.time}
+//             </p>
 
-        let participant =
-            meeting.participants.find(
-                p => p.userId === currentUser.id
-            );
+//             <p>
+//                 <strong>Duration:</strong>
+//                 ${meeting.duration} minutes
+//             </p>
 
+//             <p>
+//                 <strong>Created By:</strong>
+//                 ${meeting.creatorName}
+//             </p>
 
-        let card =
-            document.createElement("div");
+//         `;
 
-        card.className = "meeting-card";
 
+//         // ==================================
+//         // Creator
+//         // ==================================
 
-        // ==================================
-        // Basic Meeting Information
-        // ==================================
+//         if (isCreator) {
 
-        let html = `
+//             html += `
 
-            <h3>
-                ${meeting.title}
-            </h3>
+//                 <h4>
+//                     Participants
+//                 </h4>
 
-            <p>
-                <strong>Date:</strong>
-                ${meeting.date}
-            </p>
+//             `;
 
-            <p>
-                <strong>Time:</strong>
-                ${meeting.time}
-            </p>
 
-            <p>
-                <strong>Duration:</strong>
-                ${meeting.duration} minutes
-            </p>
+//             for (
+//                 let j = 0;
+//                 j < meeting.participants.length;
+//                 j++
+//             ) {
 
-            <p>
-                <strong>Created By:</strong>
-                ${meeting.creatorName}
-            </p>
+//                 let p =
+//                     meeting.participants[j];
 
-        `;
+//                 html += `
 
+//                     <div class="participant">
 
-        // ==================================
-        // Creator
-        // ==================================
+//                         <strong>
+//                             ${p.name}
+//                         </strong>
 
-        if (isCreator) {
+//                         -
 
-            html += `
+//                         <span class="${p.status}">
+//                             ${p.status}
+//                         </span>
 
-                <h4>
-                    Participants
-                </h4>
+//                     </div>
 
-            `;
+//                 `;
 
+//             }
 
-            for (
-                let j = 0;
-                j < meeting.participants.length;
-                j++
-            ) {
 
-                let p =
-                    meeting.participants[j];
+//             // Check if everyone accepted
 
-                html += `
+//             let allAccepted =
+//                 meeting.participants.every(
+//                     p =>
+//                         p.status === "accepted"
+//                 );
 
-                    <div class="participant">
 
-                        <strong>
-                            ${p.name}
-                        </strong>
+//             if (allAccepted) {
 
-                        -
+//                 html += `
 
-                        <span class="${p.status}">
-                            ${p.status}
-                        </span>
+//                     <p class="accepted">
+//                         All participants accepted.
+//                     </p>
 
-                    </div>
+//                     <button
+//                         class="join"
+//                         onclick="joinMeeting('${meeting.roomName}')">
 
-                `;
+//                         Join Meeting
 
-            }
+//                     </button>
 
+//                 `;
 
-            // Check if everyone accepted
+//             }
 
-            let allAccepted =
-                meeting.participants.every(
-                    p =>
-                        p.status === "accepted"
-                );
+//         }
 
 
-            if (allAccepted) {
+//         // ==================================
+//         // Participant
+//         // ==================================
 
-                html += `
+//         else {
 
-                    <p class="accepted">
-                        All participants accepted.
-                    </p>
+//             html += `
 
-                    <button
-                        class="join"
-                        onclick="joinMeeting('${meeting.roomName}')">
+//                 <p>
 
-                        Join Meeting
+//                     <strong>
+//                         Your Status:
+//                     </strong>
 
-                    </button>
+//                     <span class="${participant.status}">
+//                         ${participant.status}
+//                     </span>
 
-                `;
+//                 </p>
 
-            }
+//             `;
 
-        }
 
+//             // Pending
 
-        // ==================================
-        // Participant
-        // ==================================
+//             if (
+//                 participant.status === "pending"
+//             ) {
 
-        else {
+//                 html += `
 
-            html += `
+//                     <button
+//                         class="accept"
+//                         onclick="updateMeetingStatus(
+//                             ${meeting.id},
+//                             'accepted'
+//                         )">
 
-                <p>
+//                         Accept
 
-                    <strong>
-                        Your Status:
-                    </strong>
+//                     </button>
 
-                    <span class="${participant.status}">
-                        ${participant.status}
-                    </span>
 
-                </p>
+//                     <button
+//                         class="reject"
+//                         onclick="updateMeetingStatus(
+//                             ${meeting.id},
+//                             'rejected'
+//                         )">
 
-            `;
+//                         Reject
 
+//                     </button>
 
-            // Pending
+//                 `;
 
-            if (
-                participant.status === "pending"
-            ) {
+//             }
 
-                html += `
 
-                    <button
-                        class="accept"
-                        onclick="updateMeetingStatus(
-                            ${meeting.id},
-                            'accepted'
-                        )">
+//             // Accepted
 
-                        Accept
+//             else if (
+//                 participant.status === "accepted"
+//             ) {
 
-                    </button>
+//                 html += `
 
+//                     <p class="accepted">
+//                         You accepted this meeting.
+//                     </p>
 
-                    <button
-                        class="reject"
-                        onclick="updateMeetingStatus(
-                            ${meeting.id},
-                            'rejected'
-                        )">
+//                     <button
+//                         class="join"
+//                         onclick="joinMeeting('${meeting.roomName}')">
 
-                        Reject
+//                         Join Meeting
 
-                    </button>
+//                     </button>
 
-                `;
+//                 `;
 
-            }
+//             }
 
 
-            // Accepted
+//             // Rejected
 
-            else if (
-                participant.status === "accepted"
-            ) {
+//             else {
 
-                html += `
+//                 html += `
 
-                    <p class="accepted">
-                        You accepted this meeting.
-                    </p>
+//                     <p class="rejected">
+//                         You rejected this meeting.
+//                     </p>
 
-                    <button
-                        class="join"
-                        onclick="joinMeeting('${meeting.roomName}')">
+//                 `;
 
-                        Join Meeting
+//             }
 
-                    </button>
+//         }
 
-                `;
 
-            }
+//         card.innerHTML = html;
 
+//         container.appendChild(card);
 
-            // Rejected
+//     }
 
-            else {
+// }
 
-                html += `
 
-                    <p class="rejected">
-                        You rejected this meeting.
-                    </p>
+// // ======================================
+// // Accept / Reject
+// // ======================================
 
-                `;
+// function updateMeetingStatus(
+//     meetingId,
+//     status
+// ) {
 
-            }
+//     let currentUser =
+//         getCurrentUser();
 
-        }
 
+//     let meetings =
+//         JSON.parse(
+//             localStorage.getItem("meetings")
+//         ) || [];
 
-        card.innerHTML = html;
 
-        container.appendChild(card);
+//     for (
+//         let i = 0;
+//         i < meetings.length;
+//         i++
+//     ) {
 
-    }
+//         if (
+//             meetings[i].id === meetingId
+//         ) {
 
-}
+//             for (
+//                 let j = 0;
+//                 j < meetings[i].participants.length;
+//                 j++
+//             ) {
 
+//                 if (
+//                     meetings[i]
+//                         .participants[j]
+//                         .userId ===
+//                     currentUser.id
+//                 ) {
 
-// ======================================
-// Accept / Reject
-// ======================================
+//                     meetings[i]
+//                         .participants[j]
+//                         .status =
+//                         status;
 
-function updateMeetingStatus(
-    meetingId,
-    status
-) {
+//                 }
 
-    let currentUser =
-        getCurrentUser();
+//             }
 
+//         }
 
-    let meetings =
-        JSON.parse(
-            localStorage.getItem("meetings")
-        ) || [];
+//     }
 
 
-    for (
-        let i = 0;
-        i < meetings.length;
-        i++
-    ) {
+//     localStorage.setItem(
+//         "meetings",
+//         JSON.stringify(meetings)
+//     );
 
-        if (
-            meetings[i].id === meetingId
-        ) {
 
-            for (
-                let j = 0;
-                j < meetings[i].participants.length;
-                j++
-            ) {
+//     displayMeetings();
 
-                if (
-                    meetings[i]
-                        .participants[j]
-                        .userId ===
-                    currentUser.id
-                ) {
+// }
 
-                    meetings[i]
-                        .participants[j]
-                        .status =
-                        status;
 
-                }
+// // ======================================
+// // Join Meeting
+// // ======================================
 
-            }
+// function joinMeeting(roomName) {
 
-        }
+//     window.open(
+//         "meetingRoom.html?room=" +
+//         encodeURIComponent(roomName),
+//         "_blank"
+//     );
 
-    }
+// }
 
 
-    localStorage.setItem(
-        "meetings",
-        JSON.stringify(meetings)
-    );
+// // ======================================
+// // Page Load
+// // ======================================
 
+// window.onload = function () {
 
-    displayMeetings();
+//     loadUsers();
 
-}
+//     displayMeetings();
 
+// };
 
-// ======================================
-// Join Meeting
-// ======================================
 
-function joinMeeting(roomName) {
+// // ======================================
+// // Show New Meeting
+// // ======================================
 
-    window.open(
-        "meetingRoom.html?room=" +
-        encodeURIComponent(roomName),
-        "_blank"
-    );
+// function showNewMeeting() {
 
-}
+//     document.getElementById(
+//         "meetingModal"
+//     ).style.display = "flex";
 
+//     loadUsers();
 
-// ======================================
-// Page Load
-// ======================================
+// }
 
-window.onload = function () {
 
-    loadUsers();
+// // ======================================
+// // Close New Meeting
+// // ======================================
 
-    displayMeetings();
+// function closeNewMeeting() {
 
-};
+//     document.getElementById(
+//         "meetingModal"
+//     ).style.display = "none";
 
-
-// ======================================
-// Show New Meeting
-// ======================================
-
-function showNewMeeting() {
-
-    document.getElementById(
-        "meetingModal"
-    ).style.display = "flex";
-
-    loadUsers();
-
-}
-
-
-// ======================================
-// Close New Meeting
-// ======================================
-
-function closeNewMeeting() {
-
-    document.getElementById(
-        "meetingModal"
-    ).style.display = "none";
-
-}
+// }

@@ -143,7 +143,7 @@ function displayFeedbacks() {
             </button>
 
             <button onclick="deleteFeedback(${feedback.id})">
-                Delete
+                Block
             </button>
 
         `;
