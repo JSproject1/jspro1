@@ -666,6 +666,7 @@ body.light-on .pull-hint {
 }
 
 
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -673,7 +674,6 @@ body.light-on .pull-hint {
 @media (max-width: 800px) {
 
     .lamp-wrapper {
-
         left: 5%;
     }
 
@@ -682,33 +682,78 @@ body.light-on .pull-hint {
 
 @media (max-width: 600px) {
 
-    .lamp-wrapper {
+    body {
 
-        left: 50%;
+        display: flex;
 
-        top: 100px;
+        flex-direction: column;
 
-        transform:
-            translateX(-50%);
+        justify-content: flex-start;
 
-        transform-origin: top center;
+        align-items: center;
 
-        scale: 0.75;
+        padding: 30px 20px 40px;
+
     }
 
 
+    /* Lamp stays above the form */
+
+    .lamp-wrapper {
+
+        position: relative;
+
+        left: auto;
+
+        top: auto;
+
+        transform: scale(0.65);
+
+        transform-origin: top center;
+
+        width: 180px;
+
+        height: 195px;
+
+        flex-shrink: 0;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .lamp {
+
+        width: 180px;
+
+        height: 300px;
+
+    }
+
+
+    /* Login form */
+
     .login-container {
 
-        margin-top: 230px;
+        position: relative;
 
-        padding:
-            34px 24px;
+        width: 100%;
+
+        max-width: 420px;
+
+        margin: 0;
+
+        padding: 34px 24px;
+
+        flex-shrink: 0;
+
     }
 
 
     #loginTitle {
 
         font-size: 29px;
+
     }
 
 }
@@ -718,16 +763,27 @@ body.light-on .pull-hint {
 
     body {
 
-        padding: 20px;
+        padding: 20px 16px 30px;
+
+    }
+
+
+    .lamp-wrapper {
+
+        transform: scale(0.58);
+
+        height: 175px;
+
+        margin-bottom: 5px;
+
     }
 
 
     .login-container {
 
-        margin-top: 210px;
+        padding: 30px 22px;
 
-        padding:
-            30px 22px;
     }
 
 }
+

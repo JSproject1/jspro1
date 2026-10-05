@@ -134,6 +134,7 @@ loginForm.addEventListener("submit", function(event) {
 });
 
 
+
 // ======================================
 // LAMP PULL ANIMATION
 // ======================================
@@ -144,7 +145,39 @@ let isDragging = false;
 let startY = 0;
 
 
+// ======================================
+// MOBILE / TOUCH
+// ======================================
+
+// On mobile, simply click the button
+lampSwitch.addEventListener("click", function() {
+
+    // Check if device is touch/mobile
+    const isMobile =
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    if (isMobile) {
+
+        document.body.classList.add("light-on");
+
+    }
+
+});
+
+
+// ======================================
+// DESKTOP DRAG
+// ======================================
+
 lampSwitch.addEventListener("pointerdown", function(event) {
+
+    const isMobile =
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    // Don't start dragging on mobile
+    if (isMobile) {
+        return;
+    }
 
     isDragging = true;
 
